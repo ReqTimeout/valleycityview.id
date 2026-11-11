@@ -1,0 +1,10 @@
+# Config untuk Cloudflare Pages project `valleycity`.
+# Dipakai `wrangler pages deploy` supaya binding KV ikut ter-apply ke
+# production config — lewat API PATCH token lama menolak (8000006).
+name = "valleycity"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-11-11"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "cdec5c7d9ac44f4b86d1feb0cd9a79a7"

@@ -8,7 +8,7 @@ export const site = {
   name: 'Valley Cityview',
   legalName: 'Valley Cityview',
   tagline: 'Rumah yang menyatu dengan alam',
-  origin: 'https://valleycity.id',
+  origin: 'https://valleycityview.id',
   locale: 'id_ID',
   lang: 'id',
 

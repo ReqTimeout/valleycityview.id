@@ -8,18 +8,18 @@
 
 
 ## Money Pages (commercial — 6 high-intent URLs)
-- https://valleycity.id/simulasi-kpr/
-- https://valleycity.id/#unit
-- https://valleycity.id/#lokasi
-- https://valleycity.id/agent/
-- https://valleycity.id/nup/
-- https://valleycity.id/sale/
+- https://valleycityview.id/simulasi-kpr/
+- https://valleycityview.id/#unit
+- https://valleycityview.id/#lokasi
+- https://valleycityview.id/agent/
+- https://valleycityview.id/nup/
+- https://valleycityview.id/sale/
 
 
 ## Articles (54)
 
 ### Harga Rumah Podomoro Park Buah Batu dan Hunian di Padalarang
-URL: https://valleycity.id/blog/harga-rumah-podomoro-park-buah-batu
+URL: https://valleycityview.id/blog/harga-rumah-podomoro-park-buah-batu
 Category: panduan
 Published: 2025-08-07
 Description: Perbandingan harga rumah di Podomoro Park Buah Batu dengan Hunian di Padalarang, dari sisi harga, akses, dan luas lahan.
@@ -44,12 +44,12 @@ Rian akhirnya memutuskan untuk mengunjungi Valley Cityview. Ia terkejut. Lokasin
 
 Rian pun sadar bahwa ia buka
 
-[... truncated, full article at https://valleycity.id/blog/harga-rumah-podomoro-park-buah-batu]
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-podomoro-park-buah-batu]
 
 ---
 
 ### Cluster Emily Summarecon Bandung: Harga dan Alternatif di Padalarang
-URL: https://valleycity.id/blog/cluster-emily-summarecon-bandung
+URL: https://valleycityview.id/blog/cluster-emily-summarecon-bandung
 Category: panduan
 Published: 2025-07-05
 Description: Rincian harga rumah di Cluster Emily Summarecon Bandung, lalu perbandingan dengan Hunian view lembah di Padalarang.
@@ -209,7 +209,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Daftar Harga Rumah di Summarecon Bandung dan Bandingkan dengan Padalarang
-URL: https://valleycity.id/blog/daftar-harga-rumah-di-summarecon-bandung
+URL: https://valleycityview.id/blog/daftar-harga-rumah-di-summarecon-bandung
 Category: panduan
 Published: 2025-07-05
 Description: Kelas harga di Summarecon Bandung, lalu apa yang Anda dapat dengan budget yang sama di Cimahi Barat.
@@ -375,7 +375,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Denah Rumah Summarecon Bandung dan Denah Rumah Tipe 45/72
-URL: https://valleycity.id/blog/denah-rumah-summarecon-bandung
+URL: https://valleycityview.id/blog/denah-rumah-summarecon-bandung
 Category: panduan
 Published: 2025-07-05
 Description: Perbandingan denah: Layout rumah di Summarecon dengan denah tipe 45/72 yang memakai halaman depan dan belakang.
@@ -549,7 +549,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Cluster Amanda Summarecon Bandung: Harga dan Alternatif di Cimahi Barat
-URL: https://valleycity.id/blog/cluster-amanda-summarecon-bandung
+URL: https://valleycityview.id/blog/cluster-amanda-summarecon-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Rincian harga Cluster Amanda Summarecon Bandung dan pilihan di Padalarang dengan luas lahan dan harga yang lebih ringan.
@@ -713,7 +713,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Harga Perumahan Summarecon Bandung: Rincian dan Alternatif
-URL: https://valleycity.id/blog/harga-perumahan-summarecon-bandung
+URL: https://valleycityview.id/blog/harga-perumahan-summarecon-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Kelas harga clustered Summarecon Bandung dan apa yang bisa Anda dapat dengan budget yang sama di Laksanamekar, Padalarang.
@@ -883,12 +883,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee b
 
-[... truncated, full article at https://valleycity.id/blog/harga-perumahan-summarecon-bandung]
+[... truncated, full article at https://valleycityview.id/blog/harga-perumahan-summarecon-bandung]
 
 ---
 
 ### Harga Rumah Podomoro Park Bandung: Rincian Biaya
-URL: https://valleycity.id/blog/harga-rumah-podomoro-park-bandung
+URL: https://valleycityview.id/blog/harga-rumah-podomoro-park-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Rincian harga rumah di Podomoro Park Bandung beserta simulasi cicilannya, tanpa angka yang dilebih-lebihkan.
@@ -1058,12 +1058,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, 
 
-[... truncated, full article at https://valleycity.id/blog/harga-rumah-podomoro-park-bandung]
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-podomoro-park-bandung]
 
 ---
 
 ### Rumah Dijual di Bandung: Cara Membandingkan Opsi yang Layak
-URL: https://valleycity.id/blog/jual-perumahan-bandung
+URL: https://valleycityview.id/blog/jual-perumahan-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Metode membandingkan rumah yang dijual di Bandung: harga per meter, kondisi bangunan, dan biaya perbaikan yang akan muncul menyusul.
@@ -1250,12 +1250,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee bis
 
-[... truncated, full article at https://valleycity.id/blog/jual-perumahan-bandung]
+[... truncated, full article at https://valleycityview.id/blog/jual-perumahan-bandung]
 
 ---
 
 ### KPR Rumah di Bandung Kota: Syarat, Cicilan, dan Tips Memilih Bank
-URL: https://valleycity.id/blog/kpr-rumah-bandung-kota
+URL: https://valleycityview.id/blog/kpr-rumah-bandung-kota
 Category: panduan
 Published: 2025-07-03
 Description: Syarat pengajuan KPR, perbandingan simulate dari beberapa bank, dan tips memilih tenure yang aman untuk penghasilan Anda.
@@ -1435,12 +1435,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama 
 
-[... truncated, full article at https://valleycity.id/blog/kpr-rumah-bandung-kota]
+[... truncated, full article at https://valleycityview.id/blog/kpr-rumah-bandung-kota]
 
 ---
 
 ### Perumahan Podomoro Bandung: Mana yang Lebih Cocok untuk Anda?
-URL: https://valleycity.id/blog/perumahan-podomoro-bandung
+URL: https://valleycityview.id/blog/perumahan-podomoro-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Perbandingan antar klaster Podomoro di Bandung berdasarkan harga, akses, dan tipe unit.
@@ -1609,12 +1609,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
 Ruang Lebih
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-podomoro-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-podomoro-bandung]
 
 ---
 
 ### Perumahan Summarecon Bandung: Hunian Premium di Kota Mandiri
-URL: https://valleycity.id/blog/perumahan-summarecon-bandung
+URL: https://valleycityview.id/blog/perumahan-summarecon-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Apa yang dimaksud kawasan Summarecon Bandung, berapa harga hunian di sana, dan apa alternatifnya di Padalarang.
@@ -1797,12 +1797,12 @@ Fasilitas dan Lokasi
 
 Rumah yang menyatu dengan alam, menghadap ke
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-summarecon-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-summarecon-bandung]
 
 ---
 
 ### Rumah Dekat KCIC Bandung: Hunian untuk yang Bekerja di Sekitar Padalarang
-URL: https://valleycity.id/blog/rumah-dekat-kcic-bandung
+URL: https://valleycityview.id/blog/rumah-dekat-kcic-bandung
 Category: panduan
 Published: 2025-07-03
 Description: Hunian dekat kereta cepat Padalarang: jarak tempuh, harga, dan pilihan yang tersedia di Laksanamekar.
@@ -1974,12 +1974,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Bookin
 
-[... truncated, full article at https://valleycity.id/blog/rumah-dekat-kcic-bandung]
+[... truncated, full article at https://valleycityview.id/blog/rumah-dekat-kcic-bandung]
 
 ---
 
 ### Cicilan Rumah Tanpa DP di Bandung: Syarat dan Risikonya
-URL: https://valleycity.id/blog/cicilan-rumah-tanpa-dp-di-bandung
+URL: https://valleycityview.id/blog/cicilan-rumah-tanpa-dp-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Bagaimana skema tanpa uang muka bekerja, syarat pengajuannya, dan bagian yang biasanya tidak disebut di materi promosi.
@@ -2118,12 +2118,12 @@ Fasilitas dan Lokasi
 
  15 Menit ke Stasiun Kereta Cepat Padala
 
-[... truncated, full article at https://valleycity.id/blog/cicilan-rumah-tanpa-dp-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/cicilan-rumah-tanpa-dp-di-bandung]
 
 ---
 
 ### Daftar Perumahan di Kota Bandung: Lokasi, Harga, dan Aksesnya
-URL: https://valleycity.id/blog/daftar-perumahan-di-kota-bandung
+URL: https://valleycityview.id/blog/daftar-perumahan-di-kota-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Kawasan perumahan utama di Kota Bandung, dikelompokkan menurut akses ke kota dan harga jual rata-ratanya.
@@ -2280,12 +2280,12 @@ Fasilitas dan Lokasi
 
 Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Valley Cityview — karena rumah bukan hanya bangunan, tapi cara kit
 
-[... truncated, full article at https://valleycity.id/blog/daftar-perumahan-di-kota-bandung]
+[... truncated, full article at https://valleycityview.id/blog/daftar-perumahan-di-kota-bandung]
 
 ---
 
 ### Daftar Perumahan Elit di Bandung: Apa yang Membuatnya Mahal
-URL: https://valleycity.id/blog/daftar-perumahan-elit-di-bandung
+URL: https://valleycityview.id/blog/daftar-perumahan-elit-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Apa yang membuat satu kawasan lebih mahal dari kawasan lain: lokasi, fasilitas, atau nama pengembangnya.
@@ -2432,12 +2432,12 @@ Fasilitas dan Lokasi
 
 Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Valley Cityv
 
-[... truncated, full article at https://valleycity.id/blog/daftar-perumahan-elit-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/daftar-perumahan-elit-di-bandung]
 
 ---
 
 ### Harga Cicilan Rumah di Bandung: Angka yang Perlu Disiapkan
-URL: https://valleycity.id/blog/harga-cicilan-rumah-di-bandung
+URL: https://valleycityview.id/blog/harga-cicilan-rumah-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Berapa cicilan KPR di tiap kelas harga, dan berapa total yang harus dibayar sampai rumah selesai.
@@ -2578,12 +2578,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama lembah hijau yang menenangkan… dan untuk sesaat, semua rasa pena
 
-[... truncated, full article at https://valleycity.id/blog/harga-cicilan-rumah-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/harga-cicilan-rumah-di-bandung]
 
 ---
 
 ### Harga Rumah Minimalis di Bandung: Kelas Harga dan Contohnya
-URL: https://valleycity.id/blog/harga-rumah-minimalis-di-bandung
+URL: https://valleycityview.id/blog/harga-rumah-minimalis-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Berapa harga rumah minimalis di Bandung pada tiap kelas, dan apa yang membedakan rumah 45 m² dengan yang 72 m².
@@ -2744,12 +2744,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
 -Vall
 
-[... truncated, full article at https://valleycity.id/blog/harga-rumah-minimalis-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-minimalis-di-bandung]
 
 ---
 
 ### Harga Rumah Summarecon Gedebage Bandung: Rincian dan Bandingkan
-URL: https://valleycity.id/blog/harga-rumah-summarecon-gedebage-bandung
+URL: https://valleycityview.id/blog/harga-rumah-summarecon-gedebage-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Rincian harga rumah Summarecon Gedebage Bandung, lalu perbandingannya dengan Hunian di Padalarang untuk budget yang sama.
@@ -2940,12 +2940,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama lembah hijau yang menen
 
-[... truncated, full article at https://valleycity.id/blog/harga-rumah-summarecon-gedebage-bandung]
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-summarecon-gedebage-bandung]
 
 ---
 
 ### Info Perumahan di Bandung: Yang Perlu Dicek Sebelum Membeli
-URL: https://valleycity.id/blog/info-perumahan-di-bandung
+URL: https://valleycityview.id/blog/info-perumahan-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Daftar periksa sebelum membeli rumah di Bandung: status lahan, akses, legalitas, cicilan, dan biaya tersembunyi.
@@ -3137,12 +3137,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee bisa dicicil. Unit yang tersedia kami kabari setel
 
-[... truncated, full article at https://valleycity.id/blog/info-perumahan-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/info-perumahan-di-bandung]
 
 ---
 
 ### KPR di Bandung: Cara Menghitung Cicilan dan Memilih Tenor
-URL: https://valleycity.id/blog/kpr-di-bandung
+URL: https://valleycityview.id/blog/kpr-di-bandung
 Category: panduan
 Published: 2025-07-02
 Description: Langkah menghitung cicilan KPR sendiri, memilih tenor, dan menentukan uang muka yang tidak memberatkan bulanan Anda.
@@ -3320,7 +3320,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Cicilan Rumah Bandung: Berapa yang Realistis untuk Penghasilan Anda
-URL: https://valleycity.id/blog/cicilan-rumah-bandung
+URL: https://valleycityview.id/blog/cicilan-rumah-bandung
 Category: panduan
 Published: 2025-07-01
 Description: Cara menghitung cicilan KPR dari harga rumah, agar angka yang Anda periksa tidak hanya terasa menarik di brosur.
@@ -3495,12 +3495,12 @@ Ruang Lebih Tinggi, Hidup Lebih Lega
 
 Suasana terang hangat, dan menenang
 
-[... truncated, full article at https://valleycity.id/blog/cicilan-rumah-bandung]
+[... truncated, full article at https://valleycityview.id/blog/cicilan-rumah-bandung]
 
 ---
 
 ### KPR Rumah di Bandung: Langkah dari Simulasi sampai Ajukan
-URL: https://valleycity.id/blog/kpr-rumah-bandung
+URL: https://valleycityview.id/blog/kpr-rumah-bandung
 Category: panduan
 Published: 2025-07-01
 Description: Langkah praktis: dari simulasi angka, cek berkas, sampai pengajuan KPR Anda.
@@ -3675,12 +3675,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda 
 
-[... truncated, full article at https://valleycity.id/blog/kpr-rumah-bandung]
+[... truncated, full article at https://valleycityview.id/blog/kpr-rumah-bandung]
 
 ---
 
 ### Perumahan Baru di Bandung: Apa yang Perlu Diperhatikan
-URL: https://valleycity.id/blog/perumahan-baru-di-bandung
+URL: https://valleycityview.id/blog/perumahan-baru-di-bandung
 Category: panduan
 Published: 2025-07-01
 Description: Keunggulan dan risiko membeli unit baru di Bandung, dari status pembangunan sampai rencana akses jalan.
@@ -3841,12 +3841,12 @@ Fasilitas dan Lokasi
 
  15 
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-baru-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-baru-di-bandung]
 
 ---
 
 ### Perumahan di Bandung: Menilai Lokasi, Harga, dan Fasilitas
-URL: https://valleycity.id/blog/perumahan-bandung
+URL: https://valleycityview.id/blog/perumahan-bandung
 Category: panduan
 Published: 2025-06-20
 Description: Cara menilai satu kawasan perumahan di Bandung: jarak ke kerja, harga per meter, dan fasilitas yang benar-benar dipakai sehari-hari.
@@ -4031,12 +4031,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booki
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-bandung]
 
 ---
 
 ### Perumahan di Bandung dengan Cicilan 3 Juta: Apakah Realistis?
-URL: https://valleycity.id/blog/perumahan-di-bandung-cicilan-3-juta
+URL: https://valleycityview.id/blog/perumahan-di-bandung-cicilan-3-juta
 Category: panduan
 Published: 2025-06-20
 Description: Hitungan sederhana: berapa harga rumah yang bisa dibeli dengan cicilan Rp 3 juta per bulan, dan berapa harga yang benar-benar tersisa.
@@ -4201,12 +4201,12 @@ Fasilitas dan Lokasi
 
  10 Meni
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-di-bandung-cicilan-3-juta]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-di-bandung-cicilan-3-juta]
 
 ---
 
 ### Perumahan Murah di Bandung: Batas Harga yang Wajar di 2026
-URL: https://valleycity.id/blog/perumahan-murah-di-bandung
+URL: https://valleycityview.id/blog/perumahan-murah-di-bandung
 Category: panduan
 Published: 2025-06-20
 Description: Rentang harga rumah terjangkau di Bandung dan environs, serta apa yang membedakan unit yang layak dengan yang sekadar murah.
@@ -4376,12 +4376,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 
 &nbsp;
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-murah-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-murah-di-bandung]
 
 ---
 
 ### Rumah Cicilan Developer di Bandung: Cara Membaca Penawarannya
-URL: https://valleycity.id/blog/rumah-cicilan-developer-bandung
+URL: https://valleycityview.id/blog/rumah-cicilan-developer-bandung
 Category: panduan
 Published: 2025-06-20
 Description: Membaca offer developer yang memakai skema cicilan: cicilan, masa bunga, dan biaya yang belum termasuk di bulan pertama.
@@ -4544,12 +4544,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharia
 
-[... truncated, full article at https://valleycity.id/blog/rumah-cicilan-developer-bandung]
+[... truncated, full article at https://valleycityview.id/blog/rumah-cicilan-developer-bandung]
 
 ---
 
 ### Perumahan di Bandung: Rekomendasi Lokasi untuk Keluarga Baru
-URL: https://valleycity.id/blog/perumahan-di-bandung
+URL: https://valleycityview.id/blog/perumahan-di-bandung
 Category: panduan
 Published: 2025-06-19
 Description: Pemilihan kawasan untuk keluarga baru: terdekat ke kerja, paling murah, dan paling mudah dihuni.
@@ -4724,12 +4724,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
 Ruang Lebih Ting
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-di-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-di-bandung]
 
 ---
 
 ### Perumahan di Cimahi dan Bandung: Dua Pasar Hunian yang Berbeda
-URL: https://valleycity.id/blog/perumahan-cimahi-bandung
+URL: https://valleycityview.id/blog/perumahan-cimahi-bandung
 Category: panduan
 Published: 2025-06-18
 Description: Kunci perbedaan pasar hunian Cimahi dan Bandung: harga, luas lahan, dan fasilitas yang dijual.
@@ -4910,12 +4910,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama lembah hijau yang menenangkan… dan untuk
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-cimahi-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-cimahi-bandung]
 
 ---
 
 ### Perumahan di Cimahi: Kriteria Dasar sebelum Menentukan Lokasi
-URL: https://valleycity.id/blog/perumahan-cimahi
+URL: https://valleycityview.id/blog/perumahan-cimahi
 Category: panduan
 Published: 2025-06-18
 Description: Lima pertanyaan yang menentukan Anda mencari hunian di Cimahi atau Padalarang, sebelum melihat harga.
@@ -5104,7 +5104,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Perumahan Ciuyah Cimahi: Hunian di Area Ciuyah
-URL: https://valleycity.id/blog/perumahan-ciuyah-cimahi
+URL: https://valleycityview.id/blog/perumahan-ciuyah-cimahi
 Category: panduan
 Published: 2025-06-18
 Description: Kawasan Ciuyah sebagai area hunian di Cimahi: akses, harga, dan yang cocok untuk keluarga muda.
@@ -5281,12 +5281,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee bisa dicicil. Unit yang tersedia kami kab
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-ciuyah-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-ciuyah-cimahi]
 
 ---
 
 ### Perumahan di Cimahi dan Sekitar Bandung: Perbandingan Lokasi
-URL: https://valleycity.id/blog/perumahan-di-cimahi-bandung
+URL: https://valleycityview.id/blog/perumahan-di-cimahi-bandung
 Category: panduan
 Published: 2025-06-18
 Description: Perbandingan harga dan akses kawasan Cimahi, Padalarang, dan Bandung Barat untuk pembeli rumah pertama.
@@ -5469,12 +5469,12 @@ Ruang Lebih Tinggi, Hidup Lebih Lega
 
 Suasana terang hangat, dan menenangkan sejak langkah pertam
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-di-cimahi-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-di-cimahi-bandung]
 
 ---
 
 ### Perumahan di Kota Cimahi: Apa yang Bisa Anda Dapatkan di Sana
-URL: https://valleycity.id/blog/perumahan-di-kota-cimahi
+URL: https://valleycityview.id/blog/perumahan-di-kota-cimahi
 Category: panduan
 Published: 2025-06-18
 Description: Kawasan Cimahi Tengah, apartemen dan rumah, serta rentang harga yang bisa diharapkan di area kota.
@@ -5649,12 +5649,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama lembah hijau yang menenangkan… dan untuk sesaat, semua rasa penatmu hila
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-di-kota-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-di-kota-cimahi]
 
 ---
 
 ### Perumahan Permata Cimahi Bandung: Lokasi dan Huniannya
-URL: https://valleycity.id/blog/perumahan-permata-cimahi-bandung
+URL: https://valleycityview.id/blog/perumahan-permata-cimahi-bandung
 Category: panduan
 Published: 2025-06-18
 Description: Tinjauan Hunian di kawasan Permata Cimahi — lokasi, unit yang tersedia, dan harga di kelasnya.
@@ -5864,12 +5864,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 
 Bookin
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-permata-cimahi-bandung]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-permata-cimahi-bandung]
 
 ---
 
 ### Rumah di Cimahi: Kriteria Harga, Lokasi, dan Akses
-URL: https://valleycity.id/blog/rumah-cimahi
+URL: https://valleycityview.id/blog/rumah-cimahi
 Category: panduan
 Published: 2025-06-18
 Description: Cara menilai rumah di Cimahi dan Padalarang: harga per meter, jarak ke kerja, dan status lahan.
@@ -6054,12 +6054,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee
 
-[... truncated, full article at https://valleycity.id/blog/rumah-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/rumah-cimahi]
 
 ---
 
 ### Rumah Dijual di Baros Cimahi: Strategi Membeli di Area Padalarang
-URL: https://valleycity.id/blog/rumah-dijual-di-baros-cimahi
+URL: https://valleycityview.id/blog/rumah-dijual-di-baros-cimahi
 Category: panduan
 Published: 2025-06-18
 Description: Harga rumah di Baros Cimahi dan Padalarang, plus tips memeriksa kondisi bangunan dan status lahan sebelum membayar.
@@ -6242,7 +6242,7 @@ Booking fee bisa dicicil. Unit yang tersedia kami kabari setelah Anda menghubung
 ---
 
 ### Perumahan Permana Cimahi: Hunian di Cimahi Utara
-URL: https://valleycity.id/blog/perumahan-permana-cimahi
+URL: https://valleycityview.id/blog/perumahan-permana-cimahi
 Category: panduan
 Published: 2025-06-16
 Description: Lokasi, unit, dan harga Permana Cimahi di Cimahi Utara, serta jaraknya ke jalur tol dan pusat kota.
@@ -6407,12 +6407,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee bisa dicicil. Unit yang te
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-permana-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-permana-cimahi]
 
 ---
 
 ### Rumah di Cimahi: Menilai Kelayakan Harga dan Lokasinya
-URL: https://valleycity.id/blog/rumah-daerah-cimahi
+URL: https://valleycityview.id/blog/rumah-daerah-cimahi
 Category: panduan
 Published: 2025-06-16
 Description: Kapan harga rumah di Cimahi bisa disebut masuk akal, dan peta akses yang perlu dicek lebih dulu.
@@ -6587,12 +6587,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama
 
-[... truncated, full article at https://valleycity.id/blog/rumah-daerah-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/rumah-daerah-cimahi]
 
 ---
 
 ### Perum Nusa Hijau Cimahi: Lokasi, Unit, dan Harga
-URL: https://valleycity.id/blog/perum-nusa-hijau-cimahi
+URL: https://valleycityview.id/blog/perum-nusa-hijau-cimahi
 Category: panduan
 Published: 2025-06-15
 Description: Lokasi, tipe unit, dan harga Perum Nusa Hijau Cimahi, plus perbandingan dengan Hunian di Padalarang.
@@ -6768,12 +6768,12 @@ Ruang Lebih Tinggi, Hidup Lebih Lega
 
 Suasana terang hangat, 
 
-[... truncated, full article at https://valleycity.id/blog/perum-nusa-hijau-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perum-nusa-hijau-cimahi]
 
 ---
 
 ### Perumahan Dekat Unjani Cimahi: Opsi Hunian untuk Pegawai dan Mahasiswa
-URL: https://valleycity.id/blog/perumahan-dekat-unjani-cimahi
+URL: https://valleycityview.id/blog/perumahan-dekat-unjani-cimahi
 Category: panduan
 Published: 2025-06-13
 Description: Pilihan hunian di dekat Kampus Unjani Cimahi, termasuk Valley Cityview di Laksanamekar yang sekitar 10 menit ke kampus.
@@ -6954,12 +6954,12 @@ Fasilitas dan Lokasi
 
 Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Valley Cityview — karena rumah bukan hanya bangunan, tapi cara kita meman
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-dekat-unjani-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-dekat-unjani-cimahi]
 
 ---
 
 ### Bukit Indah Residence Cimahi: Lokasi, Harga, dan Kekurangannya
-URL: https://valleycity.id/blog/bukit-indah-residence-cimahi
+URL: https://valleycityview.id/blog/bukit-indah-residence-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Lokasi, unit yang tersedia, dan sisi yang jarang dibahas soal Bukit Indah Residence Cimahi, dibandingkan dengan kawasan Padalarang di Cimahi Barat.
@@ -7094,7 +7094,7 @@ Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 
 ---
 
 ### Harga Rumah di Cimahi: Rincian Harga dan Cicilannya
-URL: https://valleycity.id/blog/harga-rumah-cimahi
+URL: https://valleycityview.id/blog/harga-rumah-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Rincian harga rumah di Cimahi dan Padalarang beserta simulasi cicilan KPR untuk tiap kelas harga, supaya angkanya bisa Anda periksa sendiri.
@@ -7275,12 +7275,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panor
 
-[... truncated, full article at https://valleycity.id/blog/harga-rumah-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-cimahi]
 
 ---
 
 ### Perumahan Citra Pesona Cimahi: Lokasi, Harga, dan Akses
-URL: https://valleycity.id/blog/perumahan-citra-pesona-cimahi
+URL: https://valleycityview.id/blog/perumahan-citra-pesona-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Lokasi, unit, dan harga Citra Pesona Cimahi, beserta jarak ke KCIC, Unjani, dan Tol Baros.
@@ -7451,12 +7451,12 @@ Ruang Lebih Tinggi, Hidup Lebih Lega
 
 Suasana terang hangat, dan menenangk
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-citra-pesona-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-citra-pesona-cimahi]
 
 ---
 
 ### Perumahan di Cimahi: Rekomendasi Hunian untuk Keluarga Awal
-URL: https://valleycity.id/blog/perumahan-di-cimahi
+URL: https://valleycityview.id/blog/perumahan-di-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Pilihan hunian di Cimahi dan Padalarang untuk keluarga yang baru memulai, dari Rp 599 juta.
@@ -7601,7 +7601,7 @@ Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 
 ---
 
 ### Perumahan Elit di Cimahi: Klasifikasi Harga dan Fasilitas
-URL: https://valleycity.id/blog/perumahan-elit-di-cimahi
+URL: https://valleycityview.id/blog/perumahan-elit-di-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Kelas harga dan fasilitas di perumahan elit Cimahi, serta opsi yang memiliki view sama tetapi bisa diakses lebih murah.
@@ -7760,12 +7760,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayangkan… Anda baru pulang kerja, lelah seharian di jalan. Saat pintu rumah dibuka, udara sejuk langsung menyapa. Mata tertuju pada panorama lembah hij
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-elit-di-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-elit-di-cimahi]
 
 ---
 
 ### Perumahan Grand Cimahi City: Hunian di Cimahi dengan Konsep Terpadu
-URL: https://valleycity.id/blog/perumahan-grand-cimahi-city
+URL: https://valleycityview.id/blog/perumahan-grand-cimahi-city
 Category: panduan
 Published: 2025-05-25
 Description: Konsep kawasan terpadu Grand Cimahi City: klaster, fasilitas, dan harga unitnya.
@@ -7924,12 +7924,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee Rp 5 juta bi
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-grand-cimahi-city]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-grand-cimahi-city]
 
 ---
 
 ### Perumahan Murah di Cihanjuang Cimahi: Opsi dengan Akses ke Kota
-URL: https://valleycity.id/blog/perumahan-murah-di-cihanjuang-cimahi
+URL: https://valleycityview.id/blog/perumahan-murah-di-cihanjuang-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Opsi hunian terjangkau di Cihanjuang Cimahi dan sekitarannya, dibanding Ciawi dan Padalarang yang aksesnya lebih dekat ke kota.
@@ -8064,12 +8064,12 @@ Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan. Vall
 
  “Bayan
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-murah-di-cihanjuang-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-murah-di-cihanjuang-cimahi]
 
 ---
 
 ### Perumahan Pancanaka Royal Garden Cimahi: Unit dan Lokasi
-URL: https://valleycity.id/blog/perumahan-pancanaka-royal-garden-cimahi
+URL: https://valleycityview.id/blog/perumahan-pancanaka-royal-garden-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Unit, harga, dan akses Pancanaka Royal Garden Cimahi di Cibeureum.
@@ -8210,12 +8210,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-pancanaka-royal-garden-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-pancanaka-royal-garden-cimahi]
 
 ---
 
 ### Pesona Alam Residence Cimahi: Hunian Asri dengan Udara Segar
-URL: https://valleycity.id/blog/pesona-alam-residence-cimahi
+URL: https://valleycityview.id/blog/pesona-alam-residence-cimahi
 Category: panduan
 Published: 2025-05-25
 Description: Kawasan Hunian di kaki perbukitan Cimahi: udara, ketinggian lahan, dan harga unit di dalamnya.
@@ -8360,7 +8360,7 @@ Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 
 ---
 
 ### Rumah Dijual di Cimahi: Cara Menemukan Unit yang Sesuai
-URL: https://valleycity.id/blog/rumah-dijual-di-cimahi
+URL: https://valleycityview.id/blog/rumah-dijual-di-cimahi
 Category: panduan
 Published: 2025-05-23
 Description: Cara mencari rumah dijual di Cimahi dan Padalarang yang sesuai budget, termasuk hal-hal nonnegotiable yang perlu dicek.
@@ -8489,12 +8489,12 @@ Fasilitas dan Lokasi
 
 Rumah yang menyatu dengan al
 
-[... truncated, full article at https://valleycity.id/blog/rumah-dijual-di-cimahi]
+[... truncated, full article at https://valleycityview.id/blog/rumah-dijual-di-cimahi]
 
 ---
 
 ### Rumah Murah di Cimahi: Opsi di Bawah Rp 600 Juta
-URL: https://valleycity.id/blog/rumah-murah-di-cimahi
+URL: https://valleycityview.id/blog/rumah-murah-di-cimahi
 Category: panduan
 Published: 2025-05-23
 Description: Rumah di bawah Rp 600 juta di Cimahi dan Padalarang — apa yang Anda dapat dan apa yang perlu diterima.
@@ -8637,7 +8637,7 @@ Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 
 ---
 
 ### Perumahan Cimahi City View: Hunian di Cimahi Tengah
-URL: https://valleycity.id/blog/perumahan-cimahi-city-view
+URL: https://valleycityview.id/blog/perumahan-cimahi-city-view
 Category: panduan
 Published: 2025-05-19
 Description: Unit, harga, dan akses Clustering Cimahi City View di Cimahi Tengah, termasuk jarak ke pusat kota.
@@ -8786,12 +8786,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 — unit yang tersedia kami kabari s
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-cimahi-city-view]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-cimahi-city-view]
 
 ---
 
 ### Perumahan di Cimahi Tengah: Akses Transportasi dan Huniannya
-URL: https://valleycity.id/blog/perumahan-di-cimahi-tengah
+URL: https://valleycityview.id/blog/perumahan-di-cimahi-tengah
 Category: panduan
 Published: 2025-05-19
 Description: Akses transportasi dan karakter kawasan Cimahi Tengah, serta harga hunian di sana.
@@ -8940,12 +8940,12 @@ Suasana terang hangat, dan menenangkan sejak langkah pertama
 Booking hanya Rp 5 juta
 Booking fee Rp 5 juta bisa dicicil. Hubungi tim kami di WhatsApp 0811-8801-0326 — unit yang tersedia kami kabari s
 
-[... truncated, full article at https://valleycity.id/blog/perumahan-di-cimahi-tengah]
+[... truncated, full article at https://valleycityview.id/blog/perumahan-di-cimahi-tengah]
 
 ---
 
 ### Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan
-URL: https://valleycity.id/blog/perumahan-baru-di-cimahi
+URL: https://valleycityview.id/blog/perumahan-baru-di-cimahi
 Category: panduan
 Published: 2025-05-09
 Description: Perbedaan_unit yang sudah dihuni dengan unit yang masih dalam tahap finishing, dan apa akibatnya untuk waktu tunggu Anda.

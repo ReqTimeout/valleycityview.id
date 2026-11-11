@@ -5,7 +5,10 @@ import rehypeRaw from 'rehype-raw';
 import { rehypeResponsiveImages } from './plugins/rehype-responsive-images.mjs';
 
 export default defineConfig({
-  site: 'https://valleycity.id',
+  // Canonical origin = domain live saat ini (valleycityview.id, zone Cloudflare
+  // akun ini). valleycity.id masih situs lama sampai cutover; kalau nanti
+  // pindah, ubah satu baris ini + `origin` di src/data/site.ts lalu rebuild.
+  site: 'https://valleycityview.id',
   output: 'static',
   // The build uses `format: 'directory'` and every internal link ends with a
   // slash, so the canonical URL of a page is `/blog/<slug>/` — that keeps the

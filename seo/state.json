@@ -1,384 +1,384 @@
 {
   "_meta": {
-    "bootstrapped_at": "2026-11-11T05:29:58.421Z",
+    "bootstrapped_at": "2026-11-11T15:16:08.601Z",
     "source": "bootstrap-state.mjs (deterministic from queue published + Markdown on disk)",
     "count": 54
   },
   "published": [
     {
       "slug": "bukit-indah-residence-cimahi",
-      "url": "https://valleycity.id/blog/bukit-indah-residence-cimahi/",
+      "url": "https://valleycityview.id/blog/bukit-indah-residence-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "cicilan-rumah-bandung",
-      "url": "https://valleycity.id/blog/cicilan-rumah-bandung/",
+      "url": "https://valleycityview.id/blog/cicilan-rumah-bandung/",
       "firstSeen": "2025-07-01",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "cicilan-rumah-tanpa-dp-di-bandung",
-      "url": "https://valleycity.id/blog/cicilan-rumah-tanpa-dp-di-bandung/",
+      "url": "https://valleycityview.id/blog/cicilan-rumah-tanpa-dp-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "cluster-amanda-summarecon-bandung",
-      "url": "https://valleycity.id/blog/cluster-amanda-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/cluster-amanda-summarecon-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "cluster-emily-summarecon-bandung",
-      "url": "https://valleycity.id/blog/cluster-emily-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/cluster-emily-summarecon-bandung/",
       "firstSeen": "2025-07-05",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "daftar-harga-rumah-di-summarecon-bandung",
-      "url": "https://valleycity.id/blog/daftar-harga-rumah-di-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/daftar-harga-rumah-di-summarecon-bandung/",
       "firstSeen": "2025-07-05",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "daftar-perumahan-di-kota-bandung",
-      "url": "https://valleycity.id/blog/daftar-perumahan-di-kota-bandung/",
+      "url": "https://valleycityview.id/blog/daftar-perumahan-di-kota-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "daftar-perumahan-elit-di-bandung",
-      "url": "https://valleycity.id/blog/daftar-perumahan-elit-di-bandung/",
+      "url": "https://valleycityview.id/blog/daftar-perumahan-elit-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "denah-rumah-summarecon-bandung",
-      "url": "https://valleycity.id/blog/denah-rumah-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/denah-rumah-summarecon-bandung/",
       "firstSeen": "2025-07-05",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-cicilan-rumah-di-bandung",
-      "url": "https://valleycity.id/blog/harga-cicilan-rumah-di-bandung/",
+      "url": "https://valleycityview.id/blog/harga-cicilan-rumah-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-perumahan-summarecon-bandung",
-      "url": "https://valleycity.id/blog/harga-perumahan-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/harga-perumahan-summarecon-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-rumah-cimahi",
-      "url": "https://valleycity.id/blog/harga-rumah-cimahi/",
+      "url": "https://valleycityview.id/blog/harga-rumah-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-rumah-minimalis-di-bandung",
-      "url": "https://valleycity.id/blog/harga-rumah-minimalis-di-bandung/",
+      "url": "https://valleycityview.id/blog/harga-rumah-minimalis-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-rumah-podomoro-park-bandung",
-      "url": "https://valleycity.id/blog/harga-rumah-podomoro-park-bandung/",
+      "url": "https://valleycityview.id/blog/harga-rumah-podomoro-park-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-rumah-podomoro-park-buah-batu",
-      "url": "https://valleycity.id/blog/harga-rumah-podomoro-park-buah-batu/",
+      "url": "https://valleycityview.id/blog/harga-rumah-podomoro-park-buah-batu/",
       "firstSeen": "2025-08-07",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "harga-rumah-summarecon-gedebage-bandung",
-      "url": "https://valleycity.id/blog/harga-rumah-summarecon-gedebage-bandung/",
+      "url": "https://valleycityview.id/blog/harga-rumah-summarecon-gedebage-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "info-perumahan-di-bandung",
-      "url": "https://valleycity.id/blog/info-perumahan-di-bandung/",
+      "url": "https://valleycityview.id/blog/info-perumahan-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "jual-perumahan-bandung",
-      "url": "https://valleycity.id/blog/jual-perumahan-bandung/",
+      "url": "https://valleycityview.id/blog/jual-perumahan-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "kpr-di-bandung",
-      "url": "https://valleycity.id/blog/kpr-di-bandung/",
+      "url": "https://valleycityview.id/blog/kpr-di-bandung/",
       "firstSeen": "2025-07-02",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "kpr-rumah-bandung-kota",
-      "url": "https://valleycity.id/blog/kpr-rumah-bandung-kota/",
+      "url": "https://valleycityview.id/blog/kpr-rumah-bandung-kota/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "kpr-rumah-bandung",
-      "url": "https://valleycity.id/blog/kpr-rumah-bandung/",
+      "url": "https://valleycityview.id/blog/kpr-rumah-bandung/",
       "firstSeen": "2025-07-01",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perum-nusa-hijau-cimahi",
-      "url": "https://valleycity.id/blog/perum-nusa-hijau-cimahi/",
+      "url": "https://valleycityview.id/blog/perum-nusa-hijau-cimahi/",
       "firstSeen": "2025-06-15",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-bandung",
-      "url": "https://valleycity.id/blog/perumahan-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-bandung/",
       "firstSeen": "2025-06-20",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-baru-di-bandung",
-      "url": "https://valleycity.id/blog/perumahan-baru-di-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-baru-di-bandung/",
       "firstSeen": "2025-07-01",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-baru-di-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-baru-di-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-baru-di-cimahi/",
       "firstSeen": "2025-05-09",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-cimahi-bandung",
-      "url": "https://valleycity.id/blog/perumahan-cimahi-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-cimahi-bandung/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-cimahi-city-view",
-      "url": "https://valleycity.id/blog/perumahan-cimahi-city-view/",
+      "url": "https://valleycityview.id/blog/perumahan-cimahi-city-view/",
       "firstSeen": "2025-05-19",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-cimahi/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-citra-pesona-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-citra-pesona-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-citra-pesona-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-ciuyah-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-ciuyah-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-ciuyah-cimahi/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-dekat-unjani-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-dekat-unjani-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-dekat-unjani-cimahi/",
       "firstSeen": "2025-06-13",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-bandung-cicilan-3-juta",
-      "url": "https://valleycity.id/blog/perumahan-di-bandung-cicilan-3-juta/",
+      "url": "https://valleycityview.id/blog/perumahan-di-bandung-cicilan-3-juta/",
       "firstSeen": "2025-06-20",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-bandung",
-      "url": "https://valleycity.id/blog/perumahan-di-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-di-bandung/",
       "firstSeen": "2025-06-19",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-cimahi-bandung",
-      "url": "https://valleycity.id/blog/perumahan-di-cimahi-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-di-cimahi-bandung/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-cimahi-tengah",
-      "url": "https://valleycity.id/blog/perumahan-di-cimahi-tengah/",
+      "url": "https://valleycityview.id/blog/perumahan-di-cimahi-tengah/",
       "firstSeen": "2025-05-19",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-di-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-di-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-di-kota-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-di-kota-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-di-kota-cimahi/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-elit-di-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-elit-di-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-elit-di-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-grand-cimahi-city",
-      "url": "https://valleycity.id/blog/perumahan-grand-cimahi-city/",
+      "url": "https://valleycityview.id/blog/perumahan-grand-cimahi-city/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-murah-di-bandung",
-      "url": "https://valleycity.id/blog/perumahan-murah-di-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-murah-di-bandung/",
       "firstSeen": "2025-06-20",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-murah-di-cihanjuang-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-murah-di-cihanjuang-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-murah-di-cihanjuang-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-pancanaka-royal-garden-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-pancanaka-royal-garden-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-pancanaka-royal-garden-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-permana-cimahi",
-      "url": "https://valleycity.id/blog/perumahan-permana-cimahi/",
+      "url": "https://valleycityview.id/blog/perumahan-permana-cimahi/",
       "firstSeen": "2025-06-16",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-permata-cimahi-bandung",
-      "url": "https://valleycity.id/blog/perumahan-permata-cimahi-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-permata-cimahi-bandung/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-podomoro-bandung",
-      "url": "https://valleycity.id/blog/perumahan-podomoro-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-podomoro-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "perumahan-summarecon-bandung",
-      "url": "https://valleycity.id/blog/perumahan-summarecon-bandung/",
+      "url": "https://valleycityview.id/blog/perumahan-summarecon-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "pesona-alam-residence-cimahi",
-      "url": "https://valleycity.id/blog/pesona-alam-residence-cimahi/",
+      "url": "https://valleycityview.id/blog/pesona-alam-residence-cimahi/",
       "firstSeen": "2025-05-25",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-cicilan-developer-bandung",
-      "url": "https://valleycity.id/blog/rumah-cicilan-developer-bandung/",
+      "url": "https://valleycityview.id/blog/rumah-cicilan-developer-bandung/",
       "firstSeen": "2025-06-20",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-cimahi",
-      "url": "https://valleycity.id/blog/rumah-cimahi/",
+      "url": "https://valleycityview.id/blog/rumah-cimahi/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-daerah-cimahi",
-      "url": "https://valleycity.id/blog/rumah-daerah-cimahi/",
+      "url": "https://valleycityview.id/blog/rumah-daerah-cimahi/",
       "firstSeen": "2025-06-16",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-dekat-kcic-bandung",
-      "url": "https://valleycity.id/blog/rumah-dekat-kcic-bandung/",
+      "url": "https://valleycityview.id/blog/rumah-dekat-kcic-bandung/",
       "firstSeen": "2025-07-03",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-dijual-di-baros-cimahi",
-      "url": "https://valleycity.id/blog/rumah-dijual-di-baros-cimahi/",
+      "url": "https://valleycityview.id/blog/rumah-dijual-di-baros-cimahi/",
       "firstSeen": "2025-06-18",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-dijual-di-cimahi",
-      "url": "https://valleycity.id/blog/rumah-dijual-di-cimahi/",
+      "url": "https://valleycityview.id/blog/rumah-dijual-di-cimahi/",
       "firstSeen": "2025-05-23",
       "indexed": "unknown",
       "lastChecked": null
     },
     {
       "slug": "rumah-murah-di-cimahi",
-      "url": "https://valleycity.id/blog/rumah-murah-di-cimahi/",
+      "url": "https://valleycityview.id/blog/rumah-murah-di-cimahi/",
       "firstSeen": "2025-05-23",
       "indexed": "unknown",
       "lastChecked": null
@@ -386,60 +386,60 @@
   ],
   "indexnow": {
     "submitted": [
-      "https://valleycity.id/blog/bukit-indah-residence-cimahi/",
-      "https://valleycity.id/blog/cicilan-rumah-bandung/",
-      "https://valleycity.id/blog/cicilan-rumah-tanpa-dp-di-bandung/",
-      "https://valleycity.id/blog/cluster-amanda-summarecon-bandung/",
-      "https://valleycity.id/blog/cluster-emily-summarecon-bandung/",
-      "https://valleycity.id/blog/daftar-harga-rumah-di-summarecon-bandung/",
-      "https://valleycity.id/blog/daftar-perumahan-di-kota-bandung/",
-      "https://valleycity.id/blog/daftar-perumahan-elit-di-bandung/",
-      "https://valleycity.id/blog/denah-rumah-summarecon-bandung/",
-      "https://valleycity.id/blog/harga-cicilan-rumah-di-bandung/",
-      "https://valleycity.id/blog/harga-perumahan-summarecon-bandung/",
-      "https://valleycity.id/blog/harga-rumah-cimahi/",
-      "https://valleycity.id/blog/harga-rumah-minimalis-di-bandung/",
-      "https://valleycity.id/blog/harga-rumah-podomoro-park-bandung/",
-      "https://valleycity.id/blog/harga-rumah-podomoro-park-buah-batu/",
-      "https://valleycity.id/blog/harga-rumah-summarecon-gedebage-bandung/",
-      "https://valleycity.id/blog/info-perumahan-di-bandung/",
-      "https://valleycity.id/blog/jual-perumahan-bandung/",
-      "https://valleycity.id/blog/kpr-di-bandung/",
-      "https://valleycity.id/blog/kpr-rumah-bandung-kota/",
-      "https://valleycity.id/blog/kpr-rumah-bandung/",
-      "https://valleycity.id/blog/perum-nusa-hijau-cimahi/",
-      "https://valleycity.id/blog/perumahan-bandung/",
-      "https://valleycity.id/blog/perumahan-baru-di-bandung/",
-      "https://valleycity.id/blog/perumahan-baru-di-cimahi/",
-      "https://valleycity.id/blog/perumahan-cimahi-bandung/",
-      "https://valleycity.id/blog/perumahan-cimahi-city-view/",
-      "https://valleycity.id/blog/perumahan-cimahi/",
-      "https://valleycity.id/blog/perumahan-citra-pesona-cimahi/",
-      "https://valleycity.id/blog/perumahan-ciuyah-cimahi/",
-      "https://valleycity.id/blog/perumahan-dekat-unjani-cimahi/",
-      "https://valleycity.id/blog/perumahan-di-bandung-cicilan-3-juta/",
-      "https://valleycity.id/blog/perumahan-di-bandung/",
-      "https://valleycity.id/blog/perumahan-di-cimahi-bandung/",
-      "https://valleycity.id/blog/perumahan-di-cimahi-tengah/",
-      "https://valleycity.id/blog/perumahan-di-cimahi/",
-      "https://valleycity.id/blog/perumahan-di-kota-cimahi/",
-      "https://valleycity.id/blog/perumahan-elit-di-cimahi/",
-      "https://valleycity.id/blog/perumahan-grand-cimahi-city/",
-      "https://valleycity.id/blog/perumahan-murah-di-bandung/",
-      "https://valleycity.id/blog/perumahan-murah-di-cihanjuang-cimahi/",
-      "https://valleycity.id/blog/perumahan-pancanaka-royal-garden-cimahi/",
-      "https://valleycity.id/blog/perumahan-permana-cimahi/",
-      "https://valleycity.id/blog/perumahan-permata-cimahi-bandung/",
-      "https://valleycity.id/blog/perumahan-podomoro-bandung/",
-      "https://valleycity.id/blog/perumahan-summarecon-bandung/",
-      "https://valleycity.id/blog/pesona-alam-residence-cimahi/",
-      "https://valleycity.id/blog/rumah-cicilan-developer-bandung/",
-      "https://valleycity.id/blog/rumah-cimahi/",
-      "https://valleycity.id/blog/rumah-daerah-cimahi/",
-      "https://valleycity.id/blog/rumah-dekat-kcic-bandung/",
-      "https://valleycity.id/blog/rumah-dijual-di-baros-cimahi/",
-      "https://valleycity.id/blog/rumah-dijual-di-cimahi/",
-      "https://valleycity.id/blog/rumah-murah-di-cimahi/"
+      "https://valleycityview.id/blog/bukit-indah-residence-cimahi/",
+      "https://valleycityview.id/blog/cicilan-rumah-bandung/",
+      "https://valleycityview.id/blog/cicilan-rumah-tanpa-dp-di-bandung/",
+      "https://valleycityview.id/blog/cluster-amanda-summarecon-bandung/",
+      "https://valleycityview.id/blog/cluster-emily-summarecon-bandung/",
+      "https://valleycityview.id/blog/daftar-harga-rumah-di-summarecon-bandung/",
+      "https://valleycityview.id/blog/daftar-perumahan-di-kota-bandung/",
+      "https://valleycityview.id/blog/daftar-perumahan-elit-di-bandung/",
+      "https://valleycityview.id/blog/denah-rumah-summarecon-bandung/",
+      "https://valleycityview.id/blog/harga-cicilan-rumah-di-bandung/",
+      "https://valleycityview.id/blog/harga-perumahan-summarecon-bandung/",
+      "https://valleycityview.id/blog/harga-rumah-cimahi/",
+      "https://valleycityview.id/blog/harga-rumah-minimalis-di-bandung/",
+      "https://valleycityview.id/blog/harga-rumah-podomoro-park-bandung/",
+      "https://valleycityview.id/blog/harga-rumah-podomoro-park-buah-batu/",
+      "https://valleycityview.id/blog/harga-rumah-summarecon-gedebage-bandung/",
+      "https://valleycityview.id/blog/info-perumahan-di-bandung/",
+      "https://valleycityview.id/blog/jual-perumahan-bandung/",
+      "https://valleycityview.id/blog/kpr-di-bandung/",
+      "https://valleycityview.id/blog/kpr-rumah-bandung-kota/",
+      "https://valleycityview.id/blog/kpr-rumah-bandung/",
+      "https://valleycityview.id/blog/perum-nusa-hijau-cimahi/",
+      "https://valleycityview.id/blog/perumahan-bandung/",
+      "https://valleycityview.id/blog/perumahan-baru-di-bandung/",
+      "https://valleycityview.id/blog/perumahan-baru-di-cimahi/",
+      "https://valleycityview.id/blog/perumahan-cimahi-bandung/",
+      "https://valleycityview.id/blog/perumahan-cimahi-city-view/",
+      "https://valleycityview.id/blog/perumahan-cimahi/",
+      "https://valleycityview.id/blog/perumahan-citra-pesona-cimahi/",
+      "https://valleycityview.id/blog/perumahan-ciuyah-cimahi/",
+      "https://valleycityview.id/blog/perumahan-dekat-unjani-cimahi/",
+      "https://valleycityview.id/blog/perumahan-di-bandung-cicilan-3-juta/",
+      "https://valleycityview.id/blog/perumahan-di-bandung/",
+      "https://valleycityview.id/blog/perumahan-di-cimahi-bandung/",
+      "https://valleycityview.id/blog/perumahan-di-cimahi-tengah/",
+      "https://valleycityview.id/blog/perumahan-di-cimahi/",
+      "https://valleycityview.id/blog/perumahan-di-kota-cimahi/",
+      "https://valleycityview.id/blog/perumahan-elit-di-cimahi/",
+      "https://valleycityview.id/blog/perumahan-grand-cimahi-city/",
+      "https://valleycityview.id/blog/perumahan-murah-di-bandung/",
+      "https://valleycityview.id/blog/perumahan-murah-di-cihanjuang-cimahi/",
+      "https://valleycityview.id/blog/perumahan-pancanaka-royal-garden-cimahi/",
+      "https://valleycityview.id/blog/perumahan-permana-cimahi/",
+      "https://valleycityview.id/blog/perumahan-permata-cimahi-bandung/",
+      "https://valleycityview.id/blog/perumahan-podomoro-bandung/",
+      "https://valleycityview.id/blog/perumahan-summarecon-bandung/",
+      "https://valleycityview.id/blog/pesona-alam-residence-cimahi/",
+      "https://valleycityview.id/blog/rumah-cicilan-developer-bandung/",
+      "https://valleycityview.id/blog/rumah-cimahi/",
+      "https://valleycityview.id/blog/rumah-daerah-cimahi/",
+      "https://valleycityview.id/blog/rumah-dekat-kcic-bandung/",
+      "https://valleycityview.id/blog/rumah-dijual-di-baros-cimahi/",
+      "https://valleycityview.id/blog/rumah-dijual-di-cimahi/",
+      "https://valleycityview.id/blog/rumah-murah-di-cimahi/"
     ],
     "last": null
   }

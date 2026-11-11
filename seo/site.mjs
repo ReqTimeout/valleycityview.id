@@ -120,7 +120,8 @@ export const MONEY_PAGES = [
 ];
 
 // ---- deploy / indexing identifiers (env-overridable) --------------------
-export const CF_PROJECT = process.env.CF_PAGES_PROJECT || 'valleycity-id';
+// Proyek nyata yang dibuat Nov 2026: `valleycity` (bukan valleycity-id).
+export const CF_PROJECT = process.env.CF_PAGES_PROJECT || 'valleycity';
 export const GSC_SITE_URL = process.env.GSC_SITE_URL || `sc-domain:${SITE.replace(/^https?:\/\//, '')}`;
 export const SITEMAP_URL = `${SITE}/sitemap-index.xml`;
 export const INDEXNOW_KEY_FILE = 'indexnow.txt';
