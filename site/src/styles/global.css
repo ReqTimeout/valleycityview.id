@@ -183,7 +183,11 @@
      on a desktop hero the copy occupies the left 45% of a 1440px frame and
      the four landing photographs all have their brightest region — dusk sky,
      a white wall, a sunlit path — in exactly that band. At the previous
-     88/66/76 the landing leads measured 1.3–1.9:1.
+     88/66/76 the landing leads measured 1.3–1.9:1; at 92/78/62 the four
+     desktop landing heroes still measured 1.4–2.3:1 worst-5% because the
+     headline band (y 40–60%) sat exactly where both layers were weakest.
+     The mid stops are now lifted so the copy band composites ≥85% over
+     whatever the photograph does there.
 
      On a phone the landing heroes do not use this recipe at all: the
      photograph becomes a band above the copy instead of a background under
@@ -192,16 +196,16 @@
     linear-gradient(
       to top,
       color-mix(in srgb, var(--brand-900) 92%, transparent) 0%,
-      color-mix(in srgb, var(--brand-900) 78%, transparent) 26%,
-      color-mix(in srgb, var(--brand-900) 62%, transparent) 52%,
-      color-mix(in srgb, var(--brand-900) 24%, transparent) 84%,
+      color-mix(in srgb, var(--brand-900) 84%, transparent) 30%,
+      color-mix(in srgb, var(--brand-900) 70%, transparent) 56%,
+      color-mix(in srgb, var(--brand-900) 30%, transparent) 84%,
       transparent 100%),
     linear-gradient(
       to right,
       color-mix(in srgb, var(--brand-900) 94%, transparent) 0%,
-      color-mix(in srgb, var(--brand-900) 84%, transparent) 30%,
-      color-mix(in srgb, var(--brand-900) 52%, transparent) 54%,
-      transparent 78%);
+      color-mix(in srgb, var(--brand-900) 88%, transparent) 34%,
+      color-mix(in srgb, var(--brand-900) 66%, transparent) 58%,
+      transparent 82%);
 
   /* Shape */
   --r-sm: 8px;

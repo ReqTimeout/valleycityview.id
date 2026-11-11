@@ -144,7 +144,7 @@ const wa = waLink(waMessages.booking);
   .sale__scrim {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 1; /* di dalam stacking context __media: scrim HARUS di atas img; -1 dulu ter-render di belakang foto */
     /* One recipe for all five heroes — see --scrim-hero in global.css. */
     background: var(--scrim-hero);
   }
