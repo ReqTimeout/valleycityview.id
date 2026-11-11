@@ -91,3 +91,8 @@ Setelah deploy, di dashboard Cloudflare (tidak bisa di-otomasi dari sini):
 
 Sampai langkah 2 benar-benar dilakukan, status jujur dashboard ini adalah:
 **terbuka tapi tak terindeks**.
+
+**Keputusan (11 Nov 2026): deploy DITUNDA** oleh user sampai zona
+`beriklan.co.id` ada di akun CF ini dan plan mendukung Access. Tidak ada
+proyek Pages `valleyvity` yang dibuat. Perintah di atas siap dijalankan
+kalau keputusan berubah.
