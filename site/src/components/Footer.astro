@@ -1,0 +1,346 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { site, waLink, waMessages } from '../data/site';
+
+const year = new Date().getFullYear();
+
+const explore = [
+  { label: 'Tentang Valley Cityview', href: '/#tentang' },
+  { label: 'Tipe Unit & Denah', href: '/#unit' },
+  { label: 'Peta 360°', href: '/#panorama' },
+  { label: 'Lokasi & Akses', href: '/#lokasi' },
+  { label: 'Simulasi KPR', href: '/simulasi-kpr/' },
+  { label: 'Galeri Proyek', href: '/#galeri' },
+];
+
+const legal = [
+  { label: 'Kebijakan Privasi', href: '/privacy/' },
+  { label: 'Syarat & Ketentuan', href: '/agent/terms/' },
+  { label: 'Jadi Agen', href: '/agent/' },
+];
+
+const socials = [
+  { name: 'facebook' as const, href: site.social.facebook, label: 'Facebook' },
+  { name: 'instagram' as const, href: site.social.instagram, label: 'Instagram' },
+  { name: 'tiktok' as const, href: site.social.tiktok, label: 'TikTok' },
+];
+---
+
+<footer class="site-footer">
+  <div class="contour" aria-hidden="true"></div>
+
+  <div class="shell">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <Logo height={48} variant="light" />
+        <p class="site-footer__pitch">
+          Rumah yang menyatu dengan alam, menghadap ke lembah hijau yang menenangkan.
+          Valley Cityview — karena rumah bukan hanya bangunan, tapi cara kita
+          memandang hidup.
+        </p>
+        <ul class="site-footer__social">
+          {
+            socials.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-label={item.label}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name={item.name} size={18} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <nav class="site-footer__col" aria-labelledby="f-explore">
+        <p class="eyebrow" id="f-explore">Explore</p>
+        <ul>
+          {
+            explore.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <section class="site-footer__col" aria-labelledby="f-contact">
+        <p class="eyebrow" id="f-contact">Hubungi kami</p>
+        <ul class="site-footer__contact">
+          <li>
+            <a href={waLink(waMessages.booking)} data-wa="footer">
+              <Icon name="whatsapp" size={17} />
+              <span>{site.contact.whatsappDisplay}</span>
+            </a>
+          </li>
+          <li>
+            <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}>
+              <Icon name="phone" size={17} />
+              <span>{site.contact.phone}</span>
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${site.contact.email}`}>
+              <Icon name="mail" size={17} />
+              <span>{site.contact.email}</span>
+            </a>
+          </li>
+          <li>
+            <span class="site-footer__static">
+              <Icon name="mapPin" size={17} />
+              <span>
+                {site.address.street}, {site.address.city},
+                {site.address.region}
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="site-footer__static">
+              <Icon name="clock" size={17} />
+              <span>{site.contact.hours}</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="site-footer__col site-footer__col--cta" aria-labelledby="f-ask">
+        <p class="eyebrow" id="f-ask">Punya pertanyaan?</p>
+        <p>
+          Ceritakan kebutuhan Anda. Tim kami akan menyiapkan jadwal kunjungan
+          ke lokasi, menunjukkan unit yang tersedia, dan membantu menghitung
+          cicilannya.
+        </p>
+        <a
+          class="btn btn--accent btn--block"
+          href={waLink(waMessages.booking)}
+          data-wa="footer-cta"
+        >
+          <Icon name="whatsapp" size={18} />
+          Chat WhatsApp
+        </a>
+      </section>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>
+        © {year} {site.legalName}. Hunian tipe 45/72 m² di
+        {site.address.street}, {site.address.city}.
+      </p>
+      <ul>
+        {
+          legal.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+
+  /*
+    Density: on a 390px screen this footer was 1.208 CSS px — longer than
+    most of the articles it links to, and four blocks of identical spacing.
+    The content stays; the air between the blocks comes down.
+  */
+  .site-footer {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-900);
+    color: var(--brand-100);
+    padding-block: var(--s-6) var(--s-5);
+    margin-top: auto;
+  }
+
+
+  .site-footer .contour {
+    opacity: 0.35;
+  }
+
+
+  .site-footer__top {
+    position: relative;
+    display: grid;
+    gap: var(--s-5);
+  }
+
+
+  .site-footer__pitch {
+    font-size: var(--t-sm);
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--brand-100) 82%, transparent);
+    max-width: 34ch;
+    margin: 0;
+  }
+
+
+  .site-footer__social {
+    display: flex;
+    gap: var(--s-2);
+    list-style: none;
+    margin: var(--s-4) 0 0;
+    padding: 0;
+  }
+
+
+  .site-footer__social a {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--r-full);
+    background: color-mix(in srgb, var(--white) 10%, transparent);
+    color: var(--white);
+    transition:
+      background-color var(--d-fast) linear,
+      transform var(--d-fast) var(--ease-spring);
+  }
+
+
+  .site-footer__social a:hover {
+    background: var(--brand-700);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+
+
+  /* F5: yellow means booking and nothing else. Three column labels were
+     shouting in accent yellow next to the yellow WhatsApp button, so the
+     labels go pale teal and the button keeps the colour to itself.
+
+     They are no longer <h2>. A footer link-group label is a label, not a
+     section of the document, and sizing it like an h2 was never possible — so
+     the old markup had an h2 rendering at 12px in three places on every page,
+     which is exactly the "size decided by the section" the heading rule
+     forbids. The visible text still names its region, through
+     aria-labelledby, so nothing is lost to a screen reader. */
+  .site-footer__col .eyebrow {
+    color: var(--brand-100);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .site-footer__col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+  }
+
+
+  /*
+    Scoped to the list links on purpose: an unscoped `.site-footer__col a`
+    also matched the yellow WhatsApp button and painted its label in pale
+    teal — a 1.05:1 contrast ratio on the primary call to action.
+  */
+  .site-footer__col ul a,
+  .site-footer__static {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--brand-100) 82%, transparent);
+    text-decoration: none;
+    transition: color var(--d-fast) linear;
+  }
+
+
+  .site-footer__col ul a:hover {
+    color: var(--white);
+  }
+
+
+  .site-footer__col ul a :global(svg) {
+    flex: none;
+    margin-top: 3px;
+    opacity: 0.8;
+  }
+
+
+  /* `:not(.eyebrow)` for the same reason `.section-head > p:not(.eyebrow)`
+     exists in global.css: a paragraph rule otherwise reaches the label and
+     the eyebrow silently renders at 14px instead of its own 12px — which is
+     what `scripts/audit-headings.mjs` caught. */
+  .site-footer__col--cta p:not(.eyebrow) {
+    font-size: var(--t-sm);
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--brand-100) 82%, transparent);
+    margin: 0 0 var(--s-4);
+  }
+
+
+  .site-footer__bottom {
+    position: relative;
+    margin-top: var(--s-5);
+    padding-top: var(--s-4);
+    border-top: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-4);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .site-footer__bottom p {
+    margin: 0;
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--brand-100) 62%, transparent);
+  }
+
+
+  .site-footer__bottom ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .site-footer__bottom a {
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--brand-100) 70%, transparent);
+    text-decoration: none;
+  }
+
+
+  .site-footer__bottom a:hover {
+    color: var(--white);
+  }
+@media (min-width: 720px) {
+
+    .site-footer__top {
+      grid-template-columns: 1.4fr 1fr 1.2fr;
+      gap: var(--s-6);
+    }
+
+
+    .site-footer__col--cta {
+      grid-column: 1 / -1;
+      max-width: 30rem;
+    }
+}
+@media (min-width: 1000px) {
+
+    .site-footer__top {
+      grid-template-columns: 1.6fr 1fr 1.3fr 1.1fr;
+    }
+
+
+    .site-footer__col--cta {
+      grid-column: auto;
+    }
+}
+</style>

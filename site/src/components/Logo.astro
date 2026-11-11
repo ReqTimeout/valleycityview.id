@@ -1,0 +1,79 @@
+---
+/**
+ * The Valley Cityview logo — the brand's own artwork.
+ *
+ * These are the original files from the WordPress media library, unchanged:
+ *   · /brand/logo-dark.png   Untitled-design-16.png  (black wordmark, 384×189)
+ *   · /brand/logo-light.png  Untitled-design-26.png  (white wordmark, 325×159)
+ *   · /brand/icon.png        cropped-Untitled-design-27.png (teal tile, 468×468)
+ *
+ * The wordmark is a two-line lockup, so it only stays legible from about
+ * 44px of height — that is why the header is sized around it. Nothing here
+ * redraws or restyles the artwork; only the file, the size and the variant
+ * change from place to place.
+ */
+interface Props {
+  /** Rendered height in px. The width follows the artwork's own ratio. */
+  height?: number;
+  /** dark = for light backgrounds, light = for dark backgrounds. */
+  variant?: 'dark' | 'light';
+  /**
+   * Render both files so a CSS state can swap them. Used in the header, which
+   * flips between the light and dark wordmark over the hero photo.
+   */
+  swap?: boolean;
+  class?: string;
+}
+
+const {
+  height = 48,
+  variant = 'dark',
+  swap = false,
+  class: className = '',
+} = Astro.props;
+
+const dark = { src: '/brand/logo-dark.png', ratio: 384 / 189 };
+const light = { src: '/brand/logo-light.png', ratio: 325 / 159 };
+
+const size = (art: { src: string; ratio: number }) => ({
+  src: art.src,
+  width: Math.round(height * art.ratio),
+  height,
+});
+---
+
+{
+  swap ? (
+    <>
+      <img
+        class:list={['brand-logo', 'brand-logo--dark', className]}
+        src={dark.src}
+        alt=""
+        width={size(dark).width}
+        height={height}
+        decoding="async"
+      />
+      <img
+        class:list={['brand-logo', 'brand-logo--light', className]}
+        src={light.src}
+        alt=""
+        width={size(light).width}
+        height={height}
+        decoding="async"
+      />
+    </>
+  ) : (
+    <img
+      class:list={[
+        'brand-logo',
+        `brand-logo--${variant}`,
+        className,
+      ]}
+      src={(variant === 'light' ? light : dark).src}
+      alt=""
+      width={size(variant === 'light' ? light : dark).width}
+      height={height}
+      decoding="async"
+    />
+  )
+}

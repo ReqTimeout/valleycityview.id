@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Image treatments — global on purpose.
+
+   Astro scopes a component's <style> with a `data-astro-cid-*` attribute on
+   the elements that component renders. A child component's root element does
+   NOT inherit the parent's scope, so a rule like `.brand__logo { height: 34px }`
+   written inside Header.astro never matches the <img> that Picture.astro
+   renders — the logo fell back to its intrinsic 425x213 px and blew up the
+   header.
+
+   These rules therefore live in a plain (unscoped) stylesheet. The class names
+   are unique, so there is no risk of them leaking into unrelated markup.
+   ========================================================================== */
+
+/* --- Brand logo -----------------------------------------------------------
+
+   The logo is the brand's own artwork (components/Logo.astro): a two-line
+   wordmark in black or white, plus a teal tile used as the favicon. Because
+   the lockup is two lines tall it needs roughly 48px of height to stay
+   legible, so the header is sized around it.
+
+   These rules live in a plain stylesheet on purpose — a child component's
+   root element does not inherit the parent's Astro scope, so a scoped rule
+   would never match the <img> that Logo.astro renders.
+   ------------------------------------------------------------------------ */
+
+.brand-logo {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  /* The global placeholder colour for images would paint a light box behind
+     the white wordmark and hide it. */
+  background: transparent;
+}
+
+/* The header renders both files and swaps between them with CSS. */
+.site-header .brand-logo--light {
+  display: none;
+}
+
+.site-header--overlay:not(.is-scrolled) .brand-logo--dark {
+  display: none;
+}
+
+.site-header--overlay:not(.is-scrolled) .brand-logo--light {
+  display: block;
+}
+
+.site-footer .brand-logo {
+  margin-bottom: var(--s-4);
+}
+
+/*
+  The header floats over the hero photo on the homepage, so the logo flips to
+  white until the visitor scrolls. (The rule that gives the overlay header
+  its dark backdrop lives in Header.astro, where the header's own scoped
+  styles can win.)
+*/
+
+/* --- Full-bleed heroes --------------------------------------------------- */
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Weighted low on purpose. At `center 35%` the frame is mostly dusk sky
+     and the house is pushed under the price panel, so the first screen
+     shows an empty gradient instead of the product. */
+  object-position: center 78%;
+  animation: heroZoom 14s var(--ease-out) forwards;
+}
+
+/* The <picture> that swaps the phone crop for the square original. A picture
+   is an inline box, so without an explicit size its height collapses and the
+   `height: 100%` above resolves against nothing. */
+.hero__picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.agent-hero__img,
+.alt-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nup__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.sale__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* --- Ilustrasi label (PLAN.md F6) --------------------------------------
+
+   Rendered by components/MediaLabel.astro, which stays silent for a real
+   photograph. The chip is deliberately small and lives in one corner: the
+   point is honesty at a glance, not decorating the picture.
+
+   These rules are global because the chip is placed next to a <Picture>
+   whose element it cannot style, and because the same chip has to look
+   identical on eight different pages.
+   ------------------------------------------------------------------------ */
+
+.media-chip {
+  position: absolute;
+  z-index: 2;
+  bottom: 0.6rem;
+  left: 0.6rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand-900) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+  color: var(--white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Full-bleed heroes fill their lower half with headline and CTA, so the chip
+   goes under the header instead — the same spot the homepage uses. */
+.media-chip--bleed {
+  top: calc(var(--header-h) + 0.85rem);
+  right: var(--gutter);
+  bottom: auto;
+  left: auto;
+}
+
+/* Inside an article the label is added by the rehype plugin, after the <img>,
+   where it sits in the text column instead of floating over the picture. */
+.media-chip--inline {
+  position: static;
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+
+/* The boxes that hold a chip need a positioning context. They are listed here
+   rather than in each page's scoped styles so the chip behaves the same
+   wherever it is placed. */
+.about__frame,
+.featured__media,
+.kpr-hero__media,
+.article__cover {
+  position: relative;
+}
+
+/* --- Content images ------------------------------------------------------ */
+
+.about__img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.kpr-hero__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.location-photo__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+}
+
+.unit__plan-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  background: var(--white);
+  padding: var(--s-3);
+}
+
+.article__cover-img {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+}
+
+/* --- Blog cards ---------------------------------------------------------- */
+
+.featured__img,
+.post-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform var(--d-slow) var(--ease-out);
+}
+
+.featured:hover .featured__img {
+  transform: scale(1.03);
+}
+
+.post-card__link:hover .post-card__img {
+  transform: scale(1.04);
+}

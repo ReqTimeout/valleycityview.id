@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+import Seo from '../components/Seo.astro';
+import Icon from '../components/Icon.astro';
+import { site, waLink, waMessages } from '../data/site';
+---
+
+<Base
+  title="Kebijakan Privasi"
+  description="Kebijakan privasi Valley Cityview — data apa yang kami collects, bagaimana kami memakainya, dan bagaimana Anda meminta penghapusannya."
+  path="/privacy/"
+>
+  <Seo
+    slot="head"
+    title="Kebijakan Privasi"
+    description="Kebijakan privasi Valley Cityview — data apa yang kami kumpulkan, bagaimana kami memakainya, dan bagaimana Anda meminta penghapusannya."
+    path="/privacy/"
+  />
+
+  <section class="section legal">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell legal__inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Kebijakan Privasi</h1>
+      <p class="legal__updated">Terakhir diperbarui: 10 November 2026</p>
+
+      <div class="prose">
+        <p>
+          Valley Cityview (“kami”) adalah developer perumahan yang terletak di
+          Desa Laksanamekar, Padalarang, Cimahi. Situs ini dibuat untuk
+          mencari calon pembeli unit. Kebijakan ini menjelaskan data apa
+          saja yang kami terima, untuk apa, dan hak Anda atas data tersebut.
+        </p>
+
+        <h2>Data yang kami kumpulkan</h2>
+        <ul>
+          <li>
+            <strong>Data yang Anda isi sendiri</strong> — nama, nomor WhatsApp,
+            email, dan catatan yang Anda tulis pada formulir booking.
+          </li>
+          <li>
+            <strong>Data teknis</strong> — alamat IP, jenis perangkat, dan
+            browser yang Anda gunakan. Ini dicatat secara otomatis untuk
+            menjaga situs tetap berjalan.
+          </li>
+          <li>
+            <strong>Data interaksi</strong> — halaman yang Anda buka, dan
+            tindakan seperti klik WhatsApp atau menyimpan simulasi KPR.
+          </li>
+        </ul>
+
+        <h2>Untuk apa data itu dipakai</h2>
+        <ul>
+          <li>Menghubungi Anda kembali terkait unit, jadwal kunjungan, dan
+            informasi KPR.</li>
+          <li>Mengirimkan daftar harga dan material promosi bila Anda
+            menyetujuinya.</li>
+          <li>Memperbaiki isi situs dan mengukur efektivitas iklan kami.</li>
+        </ul>
+
+        <h2>Berapa lama kami menyimpannya</h2>
+        <p>
+          Data calon pembeli disimpan maksimal 90 hari, kecuali Anda menjadi calon
+          pembeli aktif — dalam hal ini data disimpan selama proses transaksi
+          berlangsung beserta kewajiban administrasi yang menyertainya.
+        </p>
+
+        <h2>Avec siapa kami membagikannya</h2>
+        <p>
+          Kami tidak menjual data Anda. Data hanya dibagikan kepada pihak
+          yang memang perlu agar permintaan Anda dapat diproses — misalnya
+          bank yang menghitung cicilan KPR, dan penyedia hosting yang menyimpan
+          data di server. Beberapa alat analitik (Google Analytics, Meta Pixel,
+          Stape) menerima data bersifat anonim untuk keperluan pengukuran.
+        </p>
+
+        <h2>Cookie</h2>
+        <p>
+          Situs ini menggunakan cookie untuk mengukur trafik dan memahami
+          halaman mana yang berguna. Anda dapat menonaktifkan cookie melalui
+          pengaturan browser Anda; sebagian fitur mungkin tidak berfungsi
+          sempurna setelahnya.
+        </p>
+
+        <h2>Hak Anda</h2>
+        <p>
+          Anda berhak meminta melihat, memperbaiki, atau menghapus data yang
+          kami simpan tentang Anda. Hubungi kami lewat email atau WhatsApp di
+          bawah, dan kami akan menindaklanjuti dalam tujuh hari kerja.
+        </p>
+
+        <h2>Kontak</h2>
+        <ul>
+          <li>
+            <strong>Email</strong> — <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+          </li>
+          <li>
+            <strong>WhatsApp</strong> — <a href={waLink(waMessages.general)} data-wa="privacy">{site.contact.whatsappDisplay}</a>
+          </li>
+          <li>
+            <strong>Alamat</strong> — {site.address.street}, {site.address.city},
+            {site.address.region} {site.address.postalCode}
+          </li>
+        </ul>
+      </div>
+
+      <div class="legal__help">
+        <Icon name="shield" size={22} />
+        <p>
+          Masih ada yang mengganjal? Ceritakan — kami jawab apa adanya.
+        </p>
+        <a class="btn btn--accent" href={waLink(waMessages.general)} data-wa="privacy-cta">
+          <Icon name="whatsapp" size={18} />
+          Tanya tim kami
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal {
+    position: relative;
+  }
+
+  .legal__inner {
+    max-width: 46rem;
+  }
+
+  .legal h1 {
+    font-size: var(--fs-h1);
+    margin-block: var(--s-3) var(--s-2);
+  }
+
+  .legal__updated {
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+    margin-bottom: var(--s-6);
+  }
+
+  .legal__help {
+    margin-top: var(--s-7);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--brand-050);
+    border: 1px solid var(--border);
+  }
+
+  .legal__help :global(svg) {
+    color: var(--brand-700);
+    flex: none;
+  }
+
+  .legal__help p {
+    margin: 0;
+    flex: 1 1 12rem;
+    font-size: var(--t-sm);
+    color: var(--ink-700);
+  }
+</style>

@@ -1,0 +1,63 @@
+# ===========================================================================
+# valleycityview.id — apa yang TIDAK boleh masuk git
+#
+# Aturan di repo ini sederhana tapi keras: apa pun yang (a) bisa dibangun
+# ulang, (b) berisi kredensial, atau (c) berisi data member/visitor dari
+# server lama, tidak pernah di-commit. Sekali masuk history dan ter-push,
+# menghapusnya berarti force-rewrite history + rotasi kredensial — jadi
+# penjagaannya ditaruh di sini, bukan di kepercayaan.
+# ===========================================================================
+
+# ---- Dependensi & artefak build (selalu bisa dibangun ulang) --------------
+node_modules/
+dist/
+.astro/
+.wrangler/
+*.log
+npm-debug.log*
+
+# ---- Backup Hostinger: JANGAN PERNAH MASUK GIT ----------------------------
+# .sql.gz adalah dump database penuh: berisi wp_users (hash password + email
+# member) dan wp_options (key integrasi). .tar.gz adalah salinan web root
+# lengkap termasuk .private/. Keduanya cuma boleh ada di disk lokal / panel
+# hosting, tidak di remote mana pun.
+*.sql
+*.sql.gz
+*.tar.gz
+*.gz
+
+# ---- Kredensial & catatan akun --------------------------------------------
+# accountscf.md berisi token Cloudflare dalam teks polos (saya scan: 4 string
+# berbentuk token 32-hex berlabel "API Token"/"Secret'). Dia di-ignore bukan
+# sebagai formalitas — token memang tidak pernah layak jadi bahan version
+# control. Yang perlu dilakukan tetap rotasi, karena berkasnya sudah lama
+# ada di disk dan mungkin sudah tersalin ke tempat lain.
+accountscf.md
+.private/
+*.pem
+*.key
+.id_rsa
+.env
+.env.*
+!**/.env.example
+
+# ---- Tree WordPress lama ---------------------------------------------------
+# source of truth yang sekarang adalah site/ (Astro). Tree legacy tetap
+# tersedia di branch orphan `archive/wp-legacy` dan tidak pernah masuk
+# branch utama — supaya diff, blame, dan Lighthouse-ci tidak pernah ikut
+# membawa 770 MB plugin orang lain.
+domains/
+
+# ---- Hasil verifikasi visual ----------------------------------------------
+# capture.mjs / shot.mjs menulis screenshot ke .review/. Itu artefak per-run,
+# bukan konten; 80 MB per sesi audit dan isinya berubah tiap jalankan ulang.
+.review/
+
+# ---- OS / editor -----------------------------------------------------------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+.idea/
+.vscode/

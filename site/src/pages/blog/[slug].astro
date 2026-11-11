@@ -1,0 +1,534 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Seo from '../../components/Seo.astro';
+import Icon from '../../components/Icon.astro';
+import Picture from '../../components/Picture.astro';
+import MediaLabel from '../../components/MediaLabel.astro';
+import { mediaCaption } from '../../data/media';
+import { site, waLink, waMessages } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.status === 'publish' && !data.redirectTo);
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const all = (await getCollection('blog', ({ data }) => data.status === 'publish' && !data.redirectTo))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const related = all
+  .filter((item) => item.data.slug !== post.data.slug)
+  .slice(0, 3);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+
+const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+const readMinutes = Math.max(3, Math.round(words / 200));
+
+const path = `/blog/${post.data.slug}/`;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.date.toISOString(),
+    dateModified: (post.data.updated ?? post.data.date).toISOString(),
+    author: { '@type': 'Organization', name: post.data.author },
+    publisher: { '@type': 'Organization', name: site.name },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${site.origin}${path}` },
+    image: `${site.origin}${
+      post.data.cover ?? '/media/curated/design-45.webp'
+    }`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Beranda', item: site.origin },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.origin}/blog/` },
+      { '@type': 'ListItem', position: 3, name: post.data.title, item: `${site.origin}${path}` },
+    ],
+  },
+];
+---
+
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  path={path}
+  type="article"
+  publishedTime={post.data.date.toISOString()}
+  modifiedTime={(post.data.updated ?? post.data.date).toISOString()}
+  schemas={schemas}
+>
+  <Seo
+    slot="head"
+    title={post.data.title}
+    description={post.data.description}
+    path={path}
+    type="article"
+    publishedTime={post.data.date.toISOString()}
+    modifiedTime={(post.data.updated ?? post.data.date).toISOString()}
+    schemas={schemas}
+  />
+
+  <article class="article">
+    <header class="article__head">
+      <div class="shell article__head-inner">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Beranda</a>
+          <span aria-hidden="true">/</span>
+          <a href="/blog/">Blog</a>
+        </nav>
+
+        <h1>{post.data.title}</h1>
+        <p class="article__lead">{post.data.description}</p>
+
+        <div class="article__meta">
+          <span class="article__author">
+            <span class="article__avatar" aria-hidden="true">VC</span>
+            <span>
+              <strong>{post.data.author}</strong>
+              <time datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date)}
+              </time>
+            </span>
+          </span>
+          <span class="article__read">{readMinutes} menit baca</span>
+        </div>
+      </div>
+    </header>
+
+    {
+      post.data.cover && (
+        <div class="shell article__cover">
+          <Picture
+            name={post.data.cover}
+            alt={mediaCaption(post.data.cover) ?? post.data.title}
+            class="article__cover-img"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            loading="eager"
+          />
+          <MediaLabel name={post.data.cover} />
+        </div>
+      )
+    }
+
+    <div class="shell article__body">
+      <div class="article__main">
+        <div class="prose">
+          <Content />
+        </div>
+
+        <div class="article__cta" data-reveal>
+          <h2>Punya pertanyaan soal unitnya?</h2>
+          <p>
+            Ceritakan kebutuhan Anda — tim kami bantu pilihkan unit yang
+            tersedia dan hitung cicilannya.
+          </p>
+          <a class="btn btn--accent" href={waLink(waMessages.general)} data-wa="article-cta">
+            <Icon name="whatsapp" size={18} />
+            Chat {site.contact.whatsappDisplay}
+          </a>
+        </div>
+
+        <div class="article__share">
+          <span>Bagikan artikel ini</span>
+          <div class="article__share-links">
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent(`${post.data.title} — ${site.origin}${path}`)}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Bagikan ke WhatsApp"
+            >
+              <Icon name="whatsapp" size={17} />
+            </a>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${site.origin}${path}`)}`}
+              target="_blank"
+              rel="noopener"
+              aria-label="Bagikan ke Facebook"
+            >
+              <Icon name="facebook" size={17} />
+            </a>
+            <a href={site.origin + path} data-copy aria-label="Salin tautan">
+              <Icon name="arrowRight" size={17} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="article__aside">
+        <div class="aside-card">
+          <h3>Valley Cityview</h3>
+          <p>
+            Hunian tipe 45/72 m² di Laksanamekar, Padalarang — 15 menit ke KCIC,
+            panorama lembah hijau, KPR Rp 599 juta.
+          </p>
+          <dl>
+            <div>
+              <dt>KPR</dt>
+              <dd>Rp 599.000.000</dd>
+            </div>
+            <div>
+              <dt>Cicilan</dt>
+              <dd>Rp 3.871.000/bln</dd>
+            </div>
+            <div>
+              <dt>Booking</dt>
+              <dd>Rp 5.000.000</dd>
+            </div>
+          </dl>
+          <a class="btn btn--accent btn--block btn--sm" href={waLink(waMessages.booking)} data-wa="article-aside">
+            Tanya unit
+          </a>
+        </div>
+      </aside>
+    </div>
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="section section--alt">
+        <div class="shell">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Baca juga</p>
+            <h2>Artikel lainnya</h2>
+          </div>
+          <div class="related">
+            {related.map((item, i) => (
+              <a
+                class="related__item"
+                href={`/blog/${item.data.slug}/`}
+                data-reveal
+                style={`--reveal-delay:${i * 70}ms`}
+              >
+                <p class="related__meta">
+                  <time datetime={item.data.date.toISOString()}>
+                    {formatDate(item.data.date)}
+                  </time>
+                </p>
+                <h3>{item.data.title}</h3>
+                <span class="related__cta">
+                  Baca <Icon name="arrowRight" size={15} />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+
+  .article__head {
+    background: var(--surface-alt);
+    padding-block: var(--s-7) var(--s-6);
+  }
+
+
+  .article__head-inner {
+    max-width: 52rem;
+  }
+
+
+  .crumbs {
+    display: flex;
+    gap: 0.5rem;
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .crumbs a {
+    color: var(--ink-500);
+    text-decoration: none;
+  }
+
+
+  .crumbs a:hover {
+    color: var(--brand-700);
+  }
+
+
+  .article__head h1 {
+    font-size: var(--fs-h1);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .article__lead {
+    font-size: var(--t-lg);
+    color: var(--ink-600);
+    margin-bottom: var(--s-5);
+    max-width: 52ch;
+  }
+
+
+  .article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+  }
+
+
+  .article__author {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+
+  .article__avatar {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--brand-700);
+    color: var(--white);
+    font-weight: 800;
+    font-size: var(--t-xs);
+    letter-spacing: 0.04em;
+  }
+
+
+  .article__author span span {
+    display: grid;
+  }
+
+
+  .article__author strong {
+    color: var(--ink-800);
+    font-size: var(--t-sm);
+  }
+
+
+  .article__cover {
+    margin-top: calc(var(--s-6) * -1);
+  }
+
+
+  .article__body {
+    display: grid;
+    gap: var(--s-7);
+    padding-block: var(--s-7);
+  }
+
+
+  .article__cta {
+    margin-top: var(--s-7);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    color: var(--sand-100);
+  }
+
+
+  .article__cta h2 {
+    color: var(--white);
+    font-size: var(--fs-h2);
+    margin-bottom: 0.4rem;
+  }
+
+
+  .article__cta p {
+    color: var(--brand-100);
+    font-size: var(--t-sm);
+    margin: 0 0 var(--s-4);
+    max-width: 44ch;
+  }
+
+
+  .article__share {
+    margin-top: var(--s-6);
+    padding-top: var(--s-4);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .article__share-links {
+    display: flex;
+    gap: var(--s-2);
+  }
+
+
+  .article__share-links a {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    color: var(--brand-700);
+    transition:
+      background-color var(--d-fast) linear,
+      color var(--d-fast) linear;
+  }
+
+
+  .article__share-links a:hover {
+    background: var(--brand-700);
+    color: var(--white);
+  }
+
+
+  .aside-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+    box-shadow: var(--shadow-sm);
+  }
+
+
+  /* A brand card in a sidebar is not a section of the article, so it is not
+     an h2 any more — it is an h3, and it takes the h3 size like every other
+     h3 on the site. The level was wrong before; shrinking the font to hide
+     that was worse. */
+  .aside-card h3 {
+    margin-bottom: 0.4rem;
+  }
+
+
+  .aside-card p {
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    margin: 0 0 var(--s-4);
+  }
+
+
+  .aside-card dl {
+    margin: 0 0 var(--s-4);
+    display: grid;
+    gap: 0.5rem;
+  }
+
+
+  .aside-card dl > div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-3);
+    font-size: var(--t-xs);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+
+  .aside-card dt {
+    color: var(--ink-500);
+  }
+
+
+  .aside-card dd {
+    margin: 0;
+    font-weight: 700;
+    color: var(--ink-900);
+  }
+
+
+  .related {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .related__item {
+    display: block;
+    padding: var(--s-4);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    text-decoration: none;
+    transition:
+      transform var(--d-base) var(--ease-out),
+      box-shadow var(--d-base) var(--ease-out);
+  }
+
+
+  .related__item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+
+  .related__meta {
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+    margin: 0 0 0.35rem;
+  }
+
+
+  .related__item h3 {
+    font-size: var(--fs-h3);
+    line-height: 1.25;
+    margin-bottom: var(--s-3);
+    color: var(--ink-900);
+  }
+
+
+  .related__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--t-xs);
+    font-weight: 700;
+    color: var(--brand-700);
+  }
+@media (min-width: 700px) {
+
+    .related {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1000px) {
+
+    .article__body {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      align-items: start;
+    }
+
+
+    .article__aside {
+      position: sticky;
+      top: calc(var(--header-h) + 1rem);
+    }
+}
+</style>
+
+<script>
+  document.querySelector('[data-copy]')?.addEventListener('click', async (event) => {
+    event.preventDefault();
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      const w = window as unknown as { vcv?: { track: Function } };
+      w.vcv?.track('copy_link', { event_category: 'engagement' });
+    } catch {
+      /* clipboard unavailable — ignore */
+    }
+  });
+</script>

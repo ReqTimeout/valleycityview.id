@@ -1,0 +1,363 @@
+---
+import Landing from '../layouts/Landing.astro';
+import Icon from '../components/Icon.astro';
+import Picture from '../components/Picture.astro';
+import MediaLabel from '../components/MediaLabel.astro';
+import { site, waLink, waMessages } from '../data/site';
+
+const wa = waLink(waMessages.booking);
+---
+
+<Landing
+  title="Booking Valley Cityview dengan Rp 5 Juta"
+  description="Ambil unit Valley Cityview tipe 45/72 m² hanya dengan booking fee Rp 5 juta — bisa dicicil. Unit langsung dikunci. Lokasi Padalarang, Cimahi, 15 menit ke KCIC."
+  path="/nup/"
+  waMessage={waMessages.booking}
+>
+  <section class="nup">
+    <div class="nup__media">
+      <Picture
+        name="/media/curated/render-2.webp"
+        alt="Visualisasi unit Valley Cityview tipe 45/72 saat senja — dua penghuni berdiri di depan pintu, lampu interior menyala, mobil terparkir di carport"
+        class="nup__img"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="nup__scrim" aria-hidden="true"></div>
+    </div>
+    <MediaLabel name="/media/curated/render-2.webp" bleed />
+
+    <div class="shell nup__inner">
+      <span class="nup__badge">Promo terbatas</span>
+
+      <h1 class="nup__title">
+        Selangkah lagi menuju <em>rumah pertama</em> Anda
+      </h1>
+
+      <p class="nup__lead">
+        Di Valley Cityview, Anda tidak perlu Rp 599 juta untuk mulai. Booking
+        fee <strong>Rp 5 juta</strong> — dan bisa dicicil. Unit langsung
+        dikunci, siap Anda tinggali.
+      </p>
+
+      <ul class="nup__points">
+        <li><Icon name="check" size={16} /> Unit langsung dikunci setelah booking fee dibayar</li>
+        <li><Icon name="check" size={16} /> Booking fee Rp 5 juta bisa dicicil</li>
+        <li><Icon name="check" size={16} /> Lihat unitnya langsung ke lokasi sebelum memutuskan</li>
+      </ul>
+
+      <div class="nup__actions">
+        <a class="btn btn--accent btn--lg" href={wa} data-wa="nup-hero">
+          <Icon name="whatsapp" size={19} />
+          Booking Sekarang
+        </a>
+        <a class="btn btn--light btn--lg" href="#detail" data-wa="nup-detail">
+          Lihat detail unit
+        </a>
+      </div>
+
+      <p class="nup__reassure">
+        Unit terbatas. Tim kami membalas WhatsApp di hari yang sama.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="detail">
+    <div class="shell">
+      <div class="nup__grid">
+        <div>
+          <p class="eyebrow">Detail unit</p>
+          <h2>Tipe 45/72 m², satu tipe yang matang</h2>
+          <ul class="nup__specs">
+            <li><span>Luas bangunan</span><strong>45 m²</strong></li>
+            <li><span>Luas lahan</span><strong>72 m²</strong></li>
+            <li><span>Kamar tidur</span><strong>2 kamar</strong></li>
+            <li><span>Kamar mandi</span><strong>1 kamar</strong></li>
+            <li><span>Tambahan</span><strong>Carport, halaman depan &amp; belakang</strong></li>
+            <li><span>KPR</span><strong>Rp 599.000.000</strong></li>
+            <li><span>Cicilan</span><strong>Rp 3.871.000 / bulan</strong></li>
+          </ul>
+        </div>
+
+        <div class="nup__panel">
+          <h3>Booking fee</h3>
+          <p class="nup__price">Rp 5.000.000</p>
+          <p class="nup__price-note">Bisa dicicil. Langsung mengunci unit Anda.</p>
+          <a class="btn btn--wa btn--block btn--lg" href={wa} data-wa="nup-panel">
+            <Icon name="whatsapp" size={19} />
+            Chat {site.contact.whatsappDisplay}
+          </a>
+          <p class="nup__panel-note">
+            {site.contact.hours}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Landing>
+
+<style>
+
+  .nup {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block: calc(var(--header-h) + 4rem) var(--s-8);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+
+  .nup__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+
+  .nup__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* Was a three-stop wash of its own (94/62/30) that darkened the whole
+       frame; the shared recipe keeps the picture and clears 3:1 for the copy. */
+    background: var(--scrim-hero);
+  }
+
+
+  .nup__inner {
+    width: 100%;
+  }
+
+
+  .nup__badge {
+    display: inline-block;
+    /* F5 — one yellow per viewport, and that yellow belongs to "Booking
+       Sekarang". A yellow badge, a yellow italic, a yellow <strong> and a
+       column of yellow ticks used to compete with the button underneath.
+       The fill is a lift of white rather than a solid colour because on a
+       phone this badge sits on the brand-900 copy block, where a brand-900
+       pill would simply be invisible. */
+    background: color-mix(in srgb, var(--white) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 26%, transparent);
+    color: var(--white);
+    font-size: var(--t-xs);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--r-full);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .nup__title {
+    font-size: var(--fs-h1);
+    color: var(--white);
+    max-width: 16ch;
+    margin-bottom: var(--s-4);
+  }
+
+
+  .nup__title em {
+    font-style: italic;
+    color: var(--white);
+  }
+
+
+  .nup__lead {
+    font-size: var(--t-lg);
+    color: color-mix(in srgb, var(--white) 88%, transparent);
+    max-width: 48ch;
+    margin-bottom: var(--s-5);
+  }
+
+
+  .nup__lead strong {
+    color: var(--white);
+  }
+
+
+  .nup__points {
+    list-style: none;
+    margin: 0 0 var(--s-6);
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+
+  .nup__points li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--white) 85%, transparent);
+  }
+
+
+  .nup__points :global(svg) {
+    color: var(--brand-100);
+    flex: none;
+  }
+
+
+  .nup__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+
+  .nup__reassure {
+    margin: var(--s-5) 0 0;
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--white) 62%, transparent);
+  }
+
+
+  .nup__grid {
+    display: grid;
+    gap: var(--s-6);
+    align-items: start;
+  }
+
+
+  .nup__grid h2 {
+    /* Level, not section: the size comes from --fs-h2 like every other h2 in
+       the build. It used to be --t-3xl written out here, which is the same
+       value today and a divergence the next time the token moves. */
+    font-size: var(--fs-h2);
+    margin-block: var(--s-3) var(--s-5);
+  }
+
+
+  .nup__specs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+
+
+  .nup__specs li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: 0.85rem var(--s-4);
+    font-size: var(--t-sm);
+    border-bottom: 1px solid var(--border);
+  }
+
+
+  .nup__specs li:last-child {
+    border-bottom: none;
+  }
+
+
+  .nup__specs span {
+    color: var(--ink-600);
+  }
+
+
+  .nup__specs strong {
+    color: var(--ink-900);
+    text-align: right;
+  }
+
+
+  .nup__panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--s-5);
+    /* No shadow — a card is a hairline box in this design, not a lifted one. */
+    position: sticky;
+    top: calc(var(--header-h) + 1rem);
+  }
+
+
+  .nup__panel h3 {
+    font-size: var(--fs-h3);
+    color: var(--ink-600);
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+
+
+  .nup__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    color: var(--brand-800);
+    margin: 0.2rem 0 0.3rem;
+  }
+
+
+  .nup__price-note {
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    margin: 0 0 var(--s-4);
+  }
+
+
+  .nup__panel-note {
+    margin: var(--s-3) 0 0;
+    text-align: center;
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+  }
+@media (min-width: 900px) {
+
+    .nup__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+}
+
+
+  @media (max-width: 899px) {
+
+    /* A phone hero is taller than it is wide, so `cover` on an exterior
+       render keeps the full height and slices away everything except the
+       middle — and the middle of these renders is sky. White copy over that
+       sky measured 1.36:1 (scripts/audit-contrast.mjs), and no scrim stop
+       fixes it without burying the photograph, which is the defect PLAN.md
+       D1 was about. So on a phone the picture stops being a background: it
+       becomes the top band and the copy sits on solid brand-900 under it.
+       Same image, same order, and the headline is at 15:1. */
+    .nup {
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 0;
+      padding-block: 0;
+      background: var(--brand-900);
+    }
+
+
+    .nup__media {
+      position: relative;
+      inset: auto;
+      height: 44svh;
+    }
+
+
+    .nup__scrim {
+      background: linear-gradient(to top,
+        var(--brand-900) 2%,
+        color-mix(in srgb, var(--brand-900) 58%, transparent) 36%,
+        transparent 80%);
+    }
+
+
+    .nup__inner {
+      padding-block: var(--s-5) var(--s-7);
+    }
+}
+</style>

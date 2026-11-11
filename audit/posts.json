@@ -1,0 +1,306 @@
+{
+  "_note": "DRAF audit Fase 10 langkah 0 — review tiap keep sebelum gate dibuka.",
+  "decisions": {
+    "bukit-indah-residence-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "cicilan-rumah-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "cicilan-rumah-bandung-miliki-hunian-impian-dengan-skema-ringan": {
+      "action": "redirect",
+      "to": "/blog/cicilan-rumah-bandung/",
+      "reason": "judul spam-varian dari cicilan-rumah-bandung, 50% boiler"
+    },
+    "cicilan-rumah-tanpa-dp-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "cimahi-perumahan": {
+      "action": "redirect",
+      "to": "/blog/perumahan-cimahi/",
+      "reason": "71% duplikat; kanonik bentuk slug normal"
+    },
+    "cluster-amanda-summarecon-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: cluster-emily-summarecon-bandung, harga-cluster-amanda-summarecon-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "cluster-emily-summarecon-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: cluster-amanda-summarecon-bandung, harga-rumah-cluster-emily-summarecon-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "daftar-harga-rumah-di-summarecon-bandung": {
+      "action": "keep",
+      "reason": "review: sisa kerangka: 50% badan = kalimat post lain; duplikat topik dengan: harga-rumah-cluster-emily-summarecon-bandung, harga-rumah-summarecon-gedebage-bandung, rumah-di-summarecon-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "daftar-perumahan-di-kota-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "daftar-perumahan-elit-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "daftar-perumahan-murah-di-bandung": {
+      "action": "redirect",
+      "to": "/blog/perumahan-murah-di-bandung/",
+      "reason": "75% duplikat; judul \"daftar\" tidak menambah nilai"
+    },
+    "denah-rumah-summarecon-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "harga-cicilan-rumah-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "harga-cluster-amanda-summarecon-bandung": {
+      "action": "redirect",
+      "to": "/blog/cluster-amanda-summarecon-bandung/",
+      "reason": "79% duplikat halaman cluster Amanda"
+    },
+    "harga-cluster-cynthia-summarecon-bandung": {
+      "action": "redirect",
+      "to": "/blog/cluster-amanda-summarecon-bandung/",
+      "reason": "cuma ada halaman Amanda/Emily; Cynthia tanpa halaman sendiri, lempar ke pembanding terdekat"
+    },
+    "harga-perumahan-podomoro-park-bandung": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-bandung/",
+      "reason": "duplikat 68% dari kanonik harga Podomoro Park"
+    },
+    "harga-perumahan-summarecon-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: harga-perumahan-podomoro-park-bandung, harga-rumah-summarecon-bandung-2025 — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "harga-rumah-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "harga-rumah-cluster-emily-summarecon-bandung": {
+      "action": "redirect",
+      "to": "/blog/cluster-emily-summarecon-bandung/",
+      "reason": "77% duplikat halaman cluster Emily"
+    },
+    "harga-rumah-di-podomoro-park-bandung": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-bandung/",
+      "reason": "duplikat 69-71% dari kanonik harga Podomoro Park"
+    },
+    "harga-rumah-di-podomoro-park-bandung-2": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-bandung/",
+      "reason": "duplikat 71% dari kanonik harga Podomoro Park"
+    },
+    "harga-rumah-minimalis-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "harga-rumah-podomoro-bandung": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-bandung/",
+      "reason": "944w tapi 7x overlap; tetap satu query \"harga podomoro bandung\""
+    },
+    "harga-rumah-podomoro-park-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: harga-perumahan-podomoro-park-bandung, harga-rumah-di-podomoro-park-bandung, harga-rumah-di-podomoro-park-bandung-2, harga-rumah-podomoro-bandung, rumah-podomoro-park-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "harga-rumah-podomoro-park-buah-batu": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: podomoro-park-buah-batu — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "harga-rumah-summarecon-bandung-2025": {
+      "action": "redirect",
+      "to": "/blog/harga-perumahan-summarecon-bandung/",
+      "reason": "78% duplikat harga Summarecon"
+    },
+    "harga-rumah-summarecon-gedebage-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: daftar-harga-rumah-di-summarecon-bandung, harga-cluster-amanda-summarecon-bandung, harga-cluster-cynthia-summarecon-bandung, harga-rumah-cluster-emily-summarecon-bandung, harga-rumah-di-podomoro-park-bandung, harga-rumah-podomoro-bandung, harga-rumah-summarecon-bandung-2025, rumah-di-summarecon-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "info-perumahan-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "jual-perumahan-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "kpr-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "kpr-rumah-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "kpr-rumah-bandung-kota": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perum-nusa-hijau-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-baru-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-baru-di-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-baru-di-cimahi-solusi-hunian-nyaman-dekat-kota": {
+      "action": "redirect",
+      "to": "/blog/perumahan-baru-di-cimahi/",
+      "reason": "judul panjang = varian halaman yang sama"
+    },
+    "perumahan-bukit-permata-cimahi": {
+      "action": "redirect",
+      "to": "/blog/perumahan-permata-cimahi-bandung/",
+      "reason": "66% duplikat Permata Cimahi (kata \"bukit\" hanya varian)"
+    },
+    "perumahan-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-cimahi-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-cimahi-city-view": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-citra-pesona-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-ciuyah-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-dekat-unjani-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-di-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-di-bandung-cicilan-3-juta": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-di-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-di-cimahi-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: perumahan-permata-cimahi-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "perumahan-di-cimahi-tengah": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-di-kota-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-elit-cimahi-hunian-mewah-dengan-view-alam": {
+      "action": "redirect",
+      "to": "/blog/perumahan-elit-di-cimahi/",
+      "reason": "judul panjang = varian halaman yang sama"
+    },
+    "perumahan-elit-di-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-grand-cimahi-city": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-murah-di-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: daftar-perumahan-murah-di-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "perumahan-murah-di-cihanjuang-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-pancanaka-royal-garden-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-permana-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-permata-cimahi-bandung": {
+      "action": "keep",
+      "reason": "review: duplikat topik dengan: perumahan-bukit-permata-cimahi, perumahan-di-cimahi-bandung — dipertahankan: beda intent/area, konten unik >50%"
+    },
+    "perumahan-podomoro-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "perumahan-summarecon-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "pesona-alam-residence-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "podomoro-park-buah-batu": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-buah-batu/",
+      "reason": "54% overlap; versi 4737 char lebih lengkap jadi kanonik"
+    },
+    "rumah-cicilan-developer-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-daerah-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-dekat-kcic-bandung": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-di-summarecon-bandung": {
+      "action": "redirect",
+      "to": "/blog/perumahan-summarecon-bandung/",
+      "reason": "70% duplikat overview Summarecon"
+    },
+    "rumah-dijual-di-baros-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-dijual-di-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-murah-di-cimahi": {
+      "action": "keep",
+      "reason": "konten unik, tidak ada duplikat/boilerplate signifikan"
+    },
+    "rumah-podomoro-park-bandung": {
+      "action": "redirect",
+      "to": "/blog/harga-rumah-podomoro-park-bandung/",
+      "reason": "varian judul sama, isi tumpang tindih"
+    }
+  }
+}

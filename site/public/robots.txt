@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Campaign landing pages are for paid traffic only.
+Disallow: /nup/
+Disallow: /sale/
+Disallow: /agent/
+Disallow: /agent/terms/
+Disallow: /agent/alt/
+Disallow: /thank-you/
+
+Sitemap: https://valleycity.id/sitemap-index.xml

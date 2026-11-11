@@ -1,0 +1,442 @@
+---
+import Landing from '../../layouts/Landing.astro';
+import Icon from '../../components/Icon.astro';
+import Picture from '../../components/Picture.astro';
+import MediaLabel from '../../components/MediaLabel.astro';
+import { site, waLink, waMessages } from '../../data/site';
+
+const wa = waLink(waMessages.agent);
+---
+
+<Landing
+  title="Jadi Agen Properti Valley Cityview — Gratis, Tanpa Modal"
+  description="Bergabung jadi agen properti Valley Cityview di Padalarang, Cimahi. Gratis pendaftaran, tanpa modal, komisi menarik, dan unit yang mudah dijelaskan."
+  path="/agent/"
+  waMessage={waMessages.agent}
+>
+  <section class="agent-hero">
+    <div class="agent-hero__media">
+      <Picture
+        name="/media/curated/knowledge-2.webp"
+        alt="Visualisasi gerbang masuk Valley Cityview saat matahari terbenam, lampu gerbang menyala dan aspal basah di latar depan"
+        class="agent-hero__img"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="agent-hero__scrim" aria-hidden="true"></div>
+    </div>
+    <MediaLabel name="/media/curated/knowledge-2.webp" bleed />
+
+    <div class="shell agent-hero__inner">
+      <span class="agent-hero__badge">Program kemitraan</span>
+      <h1 class="agent-hero__title">
+        Jual rumah di lembah,<br />
+        <em>dengan komisi yang masuk akal.</em>
+      </h1>
+      <p class="agent-hero__lead">
+        Daftarkan diri jadi agen Valley Cityview. Gratis, tanpa modal, tanpa
+        minimum target. Anda cukup mendampingi kami saat ada calon pembeli yang mau
+        datang ke lokasi.
+      </p>
+      <div class="agent-hero__actions">
+        <a class="btn btn--accent btn--lg" href={wa} data-wa="agent-hero">
+          <Icon name="whatsapp" size={19} />
+          Gabung Sekarang
+        </a>
+        <a class="btn btn--light btn--lg" href="#syarat" data-wa="agent-terms">
+          Lihat syaratnya
+        </a>
+      </div>
+      <p class="agent-hero__note">Pendaftaran 100 % gratis, tanpa syarat, tanpa modal.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Keuntungan</p>
+        <h2>Kenapa jadi agen di sini</h2>
+      </div>
+
+      <div class="agent__benefits">
+        <article class="agent__benefit">
+          <span class="agent__benefit-icon"><Icon name="banknote" size={22} /></span>
+          <h3>Komisi menarik</h3>
+          <p>
+            Setiap unit yang laku berarti komisi untuk Anda. Besarnya
+            ditentukan sesuai tipe unit dan skema yang disepakati.
+          </p>
+        </article>
+        <article class="agent__benefit">
+          <span class="agent__benefit-icon"><Icon name="users" size={22} /></span>
+          <h3>Tanpa modal</h3>
+          <p>
+            Tidak ada biaya pendaftaran, tidak ada skema, tidak ada target
+            minimal yang harus dipenuhi.
+          </p>
+        </article>
+        <article class="agent__benefit">
+          <span class="agent__benefit-icon"><Icon name="spark" size={22} /></span>
+          <h3>Material siap pakai</h3>
+          <p>
+            Kami sediakan denah, foto unit, price list, dan bahan promosi —
+            tinggal kirim ke calon pembeli.
+          </p>
+        </article>
+        <article class="agent__benefit">
+          <span class="agent__benefit-icon"><Icon name="compass" size={22} /></span>
+          <h3>Unit mudah dijelaskan</h3>
+          <p>
+            Satu tipe, satu harga, satu lokasi yang punya cerita jelas:
+            panorama lembah dan akses KCIC.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="syarat">
+    <div class="shell agent__steps">
+      <div>
+        <p class="eyebrow">Cara bergabung</p>
+        <h2>Tiga langkah, selesai</h2>
+        <ol class="agent__steps-list">
+          <li>
+            <span class="agent__step-num">1</span>
+            <div>
+              <h3>Chat WhatsApp</h3>
+              <p>Kirim nama dan kota tempat Anda tinggal.</p>
+            </div>
+          </li>
+          <li>
+            <span class="agent__step-num">2</span>
+            <div>
+              <h3>Briefing singkat</h3>
+              <p>
+                Kami jelaskan tipe unit, harga, skema komisi, dan cara
+               cara menjangkau calon pembeli.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="agent__step-num">3</span>
+            <div>
+              <h3>Siap closing</h3>
+              <p>
+                Unit Anda tunjukkan saat calon pembeli datang. Closing dan
+                komisi ditangani tim kami.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <p class="agent__terms-link">
+          Sudah membaca? <a href="/agent/terms/">Syarat &amp; ketentuan lengkap</a>
+        </p>
+      </div>
+
+      <aside class="agent__panel">
+        <h3>Daftar jadi agen</h3>
+        <ul class="agent__panel-list">
+          <li><Icon name="check" size={15} /> Gratis, tanpa biaya tersembunyi</li>
+          <li><Icon name="check" size={15} /> Material promosi lengkap</li>
+          <li><Icon name="check" size={15} /> Booking unit ditangani tim kami</li>
+          <li><Icon name="check" size={15} /> Pembayaran komisi transparan</li>
+        </ul>
+        <a class="btn btn--wa btn--block btn--lg" href={wa} data-wa="agent-panel">
+          <Icon name="whatsapp" size={19} />
+          Daftar Gratis
+        </a>
+        <p class="agent__panel-note">{site.contact.hours}</p>
+      </aside>
+    </div>
+  </section>
+</Landing>
+
+<style>
+
+  .agent-hero {
+    position: relative;
+    min-height: 86svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block: calc(var(--header-h) + 4rem) var(--s-8);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+
+  .agent-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+
+  .agent-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* One recipe for all five heroes — see --scrim-hero in global.css. */
+    background: var(--scrim-hero);
+  }
+
+
+  .agent-hero__inner {
+    width: 100%;
+  }
+
+
+  .agent-hero__badge {
+    display: inline-block;
+    /* F5: the only yellow in this viewport is "Gabung Sekarang". Translucent
+       white fill, not brand-900 — see the note on .nup__badge. */
+    background: color-mix(in srgb, var(--white) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 26%, transparent);
+    color: var(--white);
+    font-size: var(--t-xs);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border-radius: var(--r-full);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .agent-hero__title {
+    font-size: var(--fs-h1);
+    color: var(--white);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .agent-hero__title em {
+    font-style: italic;
+    color: var(--white);
+  }
+
+
+  .agent-hero__lead {
+    font-size: var(--t-lg);
+    color: color-mix(in srgb, var(--white) 86%, transparent);
+    max-width: 50ch;
+    margin-bottom: var(--s-6);
+  }
+
+
+  .agent-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+
+  .agent-hero__note {
+    margin: var(--s-5) 0 0;
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--white) 64%, transparent);
+  }
+
+
+  .agent__benefits {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .agent__benefit {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+  }
+
+
+  .agent__benefit-icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--r-md);
+    background: var(--brand-050);
+    color: var(--brand-700);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .agent__benefit h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.4rem;
+  }
+
+
+  .agent__benefit p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .agent__steps {
+    display: grid;
+    gap: var(--s-6);
+    align-items: start;
+  }
+
+
+  .agent__steps h2 {
+    font-size: var(--fs-h2);
+    margin-block: var(--s-3) var(--s-5);
+  }
+
+
+  .agent__steps-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .agent__steps-list li {
+    display: flex;
+    gap: var(--s-3);
+    align-items: flex-start;
+  }
+
+
+  .agent__step-num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-700);
+    color: var(--white);
+    font-size: var(--t-sm);
+    font-weight: 800;
+  }
+
+
+  .agent__steps-list h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.15rem;
+  }
+
+
+  .agent__steps-list p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .agent__terms-link {
+    margin-top: var(--s-5);
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .agent__panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--s-5);
+    /* No shadow — a card is a hairline box in this design, not a lifted one. */
+  }
+
+
+  .agent__panel h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .agent__panel-list {
+    list-style: none;
+    margin: 0 0 var(--s-4);
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+
+  .agent__panel-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: var(--t-sm);
+    color: var(--ink-700);
+  }
+
+
+  .agent__panel-list :global(svg) {
+    color: var(--ok-600);
+    flex: none;
+    margin-top: 3px;
+  }
+
+
+  .agent__panel-note {
+    margin: var(--s-3) 0 0;
+    text-align: center;
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+  }
+@media (min-width: 800px) {
+
+    .agent__benefits {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 950px) {
+
+    .agent__benefits {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .agent__steps {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+}
+
+
+  @media (max-width: 899px) {
+
+    /* Phone hero: photograph on top, copy on solid brand-900 below — the
+       reasoning is written out once in nup.astro. This one measured 1.26:1
+       with the gate render behind the text. */
+    .agent-hero {
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 0;
+      padding-block: 0;
+      background: var(--brand-900);
+    }
+
+
+    .agent-hero__media {
+      position: relative;
+      inset: auto;
+      height: 40svh;
+    }
+
+
+    .agent-hero__scrim {
+      background: linear-gradient(to top,
+        var(--brand-900) 2%,
+        color-mix(in srgb, var(--brand-900) 58%, transparent) 36%,
+        transparent 80%);
+    }
+
+
+    .agent-hero__inner {
+      padding-block: var(--s-5) var(--s-7);
+    }
+}
+</style>

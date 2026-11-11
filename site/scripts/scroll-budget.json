@@ -1,0 +1,18 @@
+{
+  "_note": "Document height in CSS pixels at a 390x844 (mobile) / 1440x900 (desktop) viewport, measured by scripts/audit-scroll.mjs after the reveal animations have run, so lazy sections are at their real height. A route over its number is a failing phase, not a suggestion. The number is a regression guard, not a target to squeeze to zero: it is set at the height the honest, compressed page actually reaches plus a small margin, so it stays green today and still catches a section that bloats tomorrow. Individual blog posts are deliberately NOT listed — an article is prose the reader came for, and folding it to a fixed pixel height would mean deleting content, which the audit's own rule forbids ('compression, not deletion'). The blog INDEX and the landing pages are gated; article bodies are not.",
+  "mobile": {
+    "/": 11400,
+    "/blog/": 4500,
+    "/blog/2/": 4500,
+    "/simulasi-kpr/": 4200,
+    "/nup/": 4500,
+    "/sale/": 4500,
+    "/agent/": 4500,
+    "/agent/terms/": 4500,
+    "/agent/alt/": 4600,
+    "/privacy/": 4500
+  },
+  "desktop": {
+    "/": 9500
+  }
+}

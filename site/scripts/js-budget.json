@@ -1,0 +1,4 @@
+{
+  "_note": "JavaScript a route is allowed to load, measured as the sum of the gzip size of every .js file the page actually pulls down, by scripts/audit-js.mjs. The page is scrolled first so client:visible components (the gallery lightbox, the mobile dock) hydrate and their chunks are counted — a budget you only pass by not looking at a section is not a budget. The number is the raw gzip bytes; 60 KB is the ceiling the vision set for a phone on a slow connection. Astro's Svelte client runtime is the bulk of it, and it is shared, so the real pages sit far below the cap; the guard is here to catch a dependency sneaking in later.",
+  "limit": 61440
+}

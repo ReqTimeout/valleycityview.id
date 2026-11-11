@@ -1,0 +1,29 @@
+{
+  "name": "valleycityview",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run redirects && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "media": "node scripts/optimize-media.mjs",
+    "clean:content": "rm -f node_modules/.astro/data-store.json",
+    "redirects": "node scripts/generate-redirects.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.6",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/svelte": "^9.1.2",
+    "astro": "^7.4.8",
+    "rehype-raw": "^7.0.0",
+    "sharp": "^0.35.5",
+    "svelte": "^5.57.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.3"
+  }
+}

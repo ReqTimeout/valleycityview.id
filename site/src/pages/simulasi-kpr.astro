@@ -1,0 +1,273 @@
+---
+import Base from '../layouts/Base.astro';
+import Seo from '../components/Seo.astro';
+import Icon from '../components/Icon.astro';
+import Picture from '../components/Picture.astro';
+import MediaLabel from '../components/MediaLabel.astro';
+import KprSimulator from '../components/KprSimulator.svelte';
+import { site, waLink, waMessages } from '../data/site';
+
+const p = site.pricing;
+---
+
+<Base
+  title="Simulasi KPR Valley Cityview — Hitung Cicilannya Sendiri"
+  description="Hitung cicilan KPR rumah Valley Cityview tipe 45/72 m² di Padalarang, Cimahi. Harga Rp 599 juta, cicilan sekitar Rp 3.871.000 per bulan. Geser sendiri angkanya."
+  path="/simulasi-kpr/"
+>
+  <Seo
+    slot="head"
+    title="Simulasi KPR Valley Cityview — Hitung Cicilannya Sendiri"
+    description="Hitung cicilan KPR rumah Valley Cityview tipe 45/72 m² di Padalarang, Cimahi. Harga Rp 599 juta, cicilan sekitar Rp 3.871.000 per bulan. Geser sendiri angkanya."
+    path="/simulasi-kpr/"
+  />
+
+  <section class="section kpr-hero">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell kpr-hero__inner">
+      <div class="kpr-hero__text" data-reveal>
+        <p class="eyebrow">Simulasi KPR</p>
+        <h1>Berapa cicilan rumah di <em>Valley Cityview?</em></h1>
+        <p class="kpr-hero__lead">
+          Geser uang muka, tenor, dan suku bunganya. Angka di bawah memakai
+          perhitungan yang sama seperti yang kami tawarkan — jadi tidak ada
+          kejutan di hari akhir.
+        </p>
+        <div class="kpr-hero__note">
+          <Icon name="check" size={16} />
+          <span>
+            Harga acuan <strong>Rp 599 juta</strong> · tenor
+            <strong>20 tahun</strong> · bunga <strong>4,75 %</strong>
+          </span>
+        </div>
+      </div>
+
+      <div class="kpr-hero__media" data-reveal>
+        <Picture
+          name="/media/curated/knowledge-2.webp"
+          alt="Visualisasi gerbang masuk kawasan Valley Cityview saat matahari terbenam, satu mobil sedang lewat"
+          class="kpr-hero__img"
+          sizes="(max-width: 900px) 100vw, 45vw"
+        />
+        <MediaLabel name="/media/curated/knowledge-2.webp" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="kpr-sim" data-reveal>
+        <KprSimulator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Ringkasan</p>
+        <h2>Angka yang kami tawarkan</h2>
+      </div>
+
+      <div class="summary" data-reveal>
+        <div class="summary__card">
+          <span class="summary__label">Harga KPR</span>
+          <strong class="summary__value">Rp 599.000.000</strong>
+        </div>
+        <div class="summary__card summary__card--accent">
+          <span class="summary__label">Cicilan per bulan</span>
+          <strong class="summary__value">Rp 3.871.000</strong>
+        </div>
+        <div class="summary__card">
+          <span class="summary__label">Tenor</span>
+          <strong class="summary__value">20 tahun</strong>
+        </div>
+        <div class="summary__card">
+          <span class="summary__label">Booking fee</span>
+          <strong class="summary__value">Rp 5.000.000</strong>
+        </div>
+      </div>
+
+      <div class="kpr-cta" data-reveal>
+        <div>
+          <h3>Mau tahu angkanya untuk profil bank Anda?</h3>
+          <p>
+            Bank berbeda punya syarat berbeda. Ceritakan penghasilan dan
+            cicilan berjalan Anda, kami hitungkan simulasi yang lebih realistis.
+          </p>
+        </div>
+        <a class="btn btn--wa btn--lg" href={waLink(waMessages.kpr)} data-wa="kpr-page">
+          <Icon name="whatsapp" size={19} />
+          Tanya hitungannya
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+
+  .kpr-hero {
+    position: relative;
+    background: var(--surface-alt);
+  }
+
+
+  .kpr-hero__inner {
+    display: grid;
+    gap: var(--s-6);
+    position: relative;
+    align-items: center;
+  }
+
+
+  .kpr-hero h1 {
+    font-size: var(--fs-h1);
+    margin-block: var(--s-3) var(--s-4);
+  }
+
+
+  .kpr-hero h1 em {
+    font-style: italic;
+    color: var(--brand-600);
+  }
+
+
+  .kpr-hero__lead {
+    font-size: var(--t-lg);
+    color: var(--ink-600);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+
+  .kpr-hero__note {
+    margin-top: var(--s-5);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    box-shadow: var(--shadow-sm);
+  }
+
+
+  .kpr-hero__note :global(svg) {
+    color: var(--ok-600);
+    flex: none;
+  }
+
+
+  .kpr-hero__note strong {
+    color: var(--ink-900);
+  }
+
+
+  .kpr-hero__media {
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+
+  .kpr-sim {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--s-5);
+    box-shadow: var(--shadow-md);
+  }
+
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-3);
+  }
+
+
+  .summary__card {
+    display: grid;
+    gap: 0.3rem;
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    background: var(--white);
+    border: 1px solid var(--border);
+  }
+
+
+  .summary__card--accent {
+    background: var(--brand-900);
+    border-color: transparent;
+  }
+
+
+  .summary__label {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+  }
+
+
+  .summary__card--accent .summary__label {
+    color: var(--brand-300);
+  }
+
+
+  .summary__value {
+    font-family: var(--font-display);
+    font-size: var(--t-xl);
+    color: var(--ink-900);
+  }
+
+
+  .summary__card--accent .summary__value {
+    color: var(--accent-500);
+  }
+
+
+  .kpr-cta {
+    margin-top: var(--s-6);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--white);
+    border: 1px solid var(--border);
+  }
+
+
+  .kpr-cta h3 {
+    font-size: var(--t-xl);
+    margin-bottom: 0.2rem;
+  }
+
+
+  .kpr-cta p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    max-width: 48ch;
+  }
+@media (min-width: 700px) {
+
+    .summary {
+      grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (min-width: 900px) {
+
+    .kpr-hero__inner {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+}
+</style>

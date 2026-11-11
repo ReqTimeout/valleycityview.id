@@ -1,0 +1,329 @@
+---
+import Icon from './Icon.astro';
+import { site, waLink, waMessages } from '../data/site';
+---
+
+<form class="booking" id="booking-form" method="post" action="/api/booking" novalidate>
+  <div class="booking__grid">
+    <div class="field">
+      <label class="field__label" for="bf-name">Nama lengkap</label>
+      <input
+        class="field__input"
+        id="bf-name"
+        name="name"
+        type="text"
+        autocomplete="name"
+        placeholder="Contoh: Dinda Pratiwi"
+        required
+      />
+      <span class="field__error" data-error-for="bf-name" hidden></span>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="bf-phone">Nomor WhatsApp</label>
+      <input
+        class="field__input"
+        id="bf-phone"
+        name="phone"
+        type="tel"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="08xx-xxxx-xxxx"
+        required
+      />
+      <span class="field__error" data-error-for="bf-phone" hidden></span>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="bf-email">Email <span class="booking__optional">opsional</span></label>
+      <input
+        class="field__input"
+        id="bf-email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="nama@email.com"
+      />
+      <span class="field__error" data-error-for="bf-email" hidden></span>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="bf-interest">Yang ingin Anda tanyakan?</label>
+      <select class="field__input" id="bf-interest" name="interest">
+        <option value="booking">Booking unit (Rp 5 juta)</option>
+        <option value="kpr">Simulasi &amp; cicilan KPR</option>
+        <option value="visit">Jadwal kunjungan ke lokasi</option>
+        <option value="unit">Ketersediaan unit &amp; denah</option>
+        <option value="agent">Jadi agen properti</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="field__label" for="bf-message">
+      Catatan <span class="booking__optional">opsional</span>
+    </label>
+    <textarea
+      class="field__input"
+      id="bf-message"
+      name="message"
+      rows="3"
+      placeholder="Misalnya: unit yang menghadap panorama masih tersedia?"></textarea>
+  </div>
+
+  <!-- Honeypot: real people never fill this in. -->
+  <div class="booking__trap" aria-hidden="true">
+    <label for="bf-company">Company</label>
+    <input id="bf-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <label class="booking__consent">
+    <input type="checkbox" id="bf-consent" name="consent" required />
+    <span>
+      Saya setuju dihubungi oleh tim Valley Cityview via WhatsApp atau telepon
+      terkait informasi unit ini.
+    </span>
+  </label>
+  <span class="field__error" data-error-for="bf-consent" hidden></span>
+
+  <div class="booking__actions">
+    <button class="btn btn--accent btn--lg" type="submit" id="booking-submit">
+      <span class="booking__submit-label">Kirim &amp; jadwalkan kunjungan</span>
+      <span class="booking__spinner" aria-hidden="true"></span>
+    </button>
+    <a
+      class="booking__alt"
+      href={waLink(waMessages.booking)}
+      target="_blank"
+      rel="noopener"
+      data-wa="booking-form-alt"
+    >
+      <Icon name="whatsapp" size={17} />
+      Lebih cepat? Chat WhatsApp langsung
+    </a>
+  </div>
+
+  <p class="form-note">
+    Data Anda hanya dipakai untuk menghubungi Anda kembali soal unit Valley
+    Cityview, dan tidak dibagikan ke pihak ketiga.
+    {site.contact.hours}.
+  </p>
+
+  <output class="booking__status" id="booking-status" role="status" aria-live="polite"></output>
+</form>
+
+<style>
+  .booking {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+  .booking__grid {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+  .booking__optional {
+    font-weight: 400;
+    color: var(--ink-500);
+    font-size: var(--t-xs);
+  }
+
+  .booking__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .booking__consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: var(--t-xs);
+    line-height: 1.5;
+    color: var(--ink-600);
+    cursor: pointer;
+  }
+
+  .booking__consent input {
+    margin-top: 2px;
+    width: 17px;
+    height: 17px;
+    accent-color: var(--brand-700);
+    flex: none;
+  }
+
+  .booking__actions {
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+  }
+
+  .booking__spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid color-mix(in srgb, var(--ink-900) 25%, transparent);
+    border-top-color: var(--ink-900);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .booking__submit-label {
+    display: inline-block;
+  }
+
+  .booking.is-loading .booking__submit-label {
+    display: none;
+  }
+
+  .booking.is-loading .booking__spinner {
+    display: block;
+  }
+
+  .booking.is-loading #booking-submit {
+    pointer-events: none;
+    opacity: 0.75;
+  }
+
+  .booking__alt {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: var(--t-sm);
+    font-weight: 600;
+    color: var(--brand-700);
+    text-decoration: none;
+  }
+
+  .booking__alt:hover {
+    color: var(--brand-600);
+    text-decoration: underline;
+  }
+
+  .booking__status {
+    display: none;
+    padding: 0.8rem 1rem;
+    border-radius: var(--r-md);
+    font-size: var(--t-sm);
+    font-weight: 600;
+  }
+
+  .booking__status.is-visible {
+    display: block;
+  }
+
+  .booking__status.is-ok {
+    background: var(--ok-100);
+    color: var(--ok-600);
+  }
+
+  .booking__status.is-error {
+    background: var(--err-100);
+    color: var(--err-600);
+  }
+
+  @media (min-width: 640px) {
+    .booking__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const status = document.getElementById('booking-status');
+
+  const setError = (id: string, message: string) => {
+    const input = document.getElementById(id);
+    const slot = document.querySelector<HTMLElement>(`[data-error-for="${id}"]`);
+    if (input) input.setAttribute('aria-invalid', 'true');
+    if (slot) {
+      slot.textContent = message;
+      slot.hidden = false;
+    }
+  };
+
+  const clearErrors = () => {
+    form?.querySelectorAll('[aria-invalid="true"]').forEach((el) => {
+      el.removeAttribute('aria-invalid');
+    });
+    form?.querySelectorAll<HTMLElement>('[data-error-for]').forEach((el) => {
+      el.hidden = true;
+    });
+  };
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearErrors();
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const name = String(data.name ?? '').trim();
+    const phone = String(data.phone ?? '').trim();
+    const email = String(data.email ?? '').trim();
+    const consent = data.consent === 'on';
+
+    let valid = true;
+    if (name.length < 2) {
+      setError('bf-name', 'Tulis nama Anda, minimal 2 huruf.');
+      valid = false;
+    }
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length < 9) {
+      setError('bf-phone', 'Nomor WhatsApp belum lengkap.');
+      valid = false;
+    }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError('bf-email', 'Format email belum benar.');
+      valid = false;
+    }
+    if (!consent) {
+      setError('bf-consent', 'Mohon centang persetujuan terlebih dahulu.');
+      valid = false;
+    }
+    if (!valid) return;
+
+    form.classList.add('is-loading');
+    if (status) {
+      status.className = 'booking__status';
+      status.textContent = '';
+    }
+
+    try {
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error('bad status');
+
+      form.reset();
+      if (status) {
+        status.className = 'booking__status is-visible is-ok';
+        status.textContent =
+          'Terima kasih! Data Anda sudah kami terima. Tim kami akan menghubungi Anda dalam 1x24 jam.';
+      }
+      (window as unknown as { vcv?: { track: Function } }).vcv?.track(
+        'generate_lead',
+        { event_category: 'conversion', value: 5_000_000, currency: 'IDR' },
+      );
+    } catch {
+      if (status) {
+        status.className = 'booking__status is-visible is-error';
+        status.textContent =
+          'Maaf, pengiriman tertunda. Silakan chat WhatsApp kami — balas dalam hitungan menit.';
+      }
+    } finally {
+      form.classList.remove('is-loading');
+    }
+  });
+</script>

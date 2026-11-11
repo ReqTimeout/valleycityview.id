@@ -1,0 +1,73 @@
+---
+import { mediaAttrs } from '../lib/media';
+
+interface Props {
+  /** Key into the media manifest, e.g. "/media/curated/hero.webp". */
+  name: string;
+  /**
+   * A second, differently *cropped* asset for narrow screens. `srcset` can
+   * only offer widths of one picture, so a full-bleed hero that has to be
+   * portrait on a phone and landscape on a laptop needs a real <source>.
+   * Without one, `object-fit: cover` crops a square render down to a 45 %
+   * slice and blows it up 2.2× — the washed-out hero of PLAN.md D1.
+   */
+  mobileName?: string;
+  /** Media query the mobile asset is served under. */
+  mobileMax?: string;
+  alt: string;
+  class?: string;
+  /** Class for the wrapping <picture>, which only appears with mobileName. */
+  pictureClass?: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  decoding?: 'async' | 'sync' | 'auto';
+}
+
+const {
+  name,
+  mobileName,
+  mobileMax = '899px',
+  alt,
+  class: className = '',
+  pictureClass = '',
+  sizes = '100vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  decoding = 'async',
+} = Astro.props;
+
+const entry = mediaAttrs(name);
+const mobile = mobileName ? mediaAttrs(mobileName) : null;
+const aspect = entry.width && entry.height ? entry.height / entry.width : undefined;
+
+/* Attributes are built as a plain object because an .astro frontmatter is
+   TypeScript, not JSX — the <img> can only be written once, in the template. */
+const imgAttrs = {
+  src: entry.src,
+  srcset: entry.srcset || undefined,
+  sizes: entry.srcset ? sizes : undefined,
+  alt,
+  class: className || undefined,
+  width: entry.width ?? undefined,
+  height: entry.height ?? undefined,
+  loading,
+  fetchpriority,
+  decoding,
+  style: aspect ? `aspect-ratio:${entry.width}/${entry.height}` : undefined,
+};
+---
+
+{mobile && mobile.src ? (
+  <picture class={pictureClass || undefined}>
+    <source
+      media={`(max-width: ${mobileMax})`}
+      srcset={mobile.srcset || mobile.src}
+      sizes={mobile.srcset ? sizes : undefined}
+    />
+    <img {...imgAttrs} />
+  </picture>
+) : (
+  <img {...imgAttrs} />
+)}

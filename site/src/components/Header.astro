@@ -1,0 +1,643 @@
+---
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+import { nav, site, waLink, waMessages } from '../data/site';
+
+interface Props {
+  /** Transparent over the hero on the homepage. */
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
+const path = Astro.url.pathname;
+
+/*
+  Only a link to another *page* can be "active". An in-page anchor
+  (`/#tentang`) resolves to the current path, so the old test marked every
+  anchor on the homepage as active at once.
+*/
+const isActive = (href: string) => {
+  if (href === '/' || href.includes('#')) return false;
+  const target = href.split('#')[0];
+  return target !== '/' && path.startsWith(target);
+};
+---
+
+<div class="announce" id="announce">
+  <div class="shell announce__inner">
+    <p class="announce__msg">
+      <span class="announce__tag">Promo</span>
+      <span class="announce__full">
+        Booking fee <strong>Rp 5 juta</strong> — bisa dicicil. Cicilan KPR mulai
+        <strong>Rp 3.871.000</strong>/bulan.
+      </span>
+      <span class="announce__short">
+        Cicilan <strong>Rp 3.871.000</strong>/bulan
+      </span>
+    </p>
+    <a href={waLink(waMessages.booking)} data-wa="header-announce">
+      Tanya unit <Icon name="arrowRight" size={15} />
+    </a>
+  </div>
+</div>
+
+<header
+  class:list={['site-header', { 'site-header--overlay': overlay }]}
+  id="site-header"
+  data-overlay={overlay ? 'true' : 'false'}
+>
+  <div class="shell site-header__inner">
+    <a class="brand" href="/" aria-label="Valley Cityview — beranda">
+      <Logo height={48} swap />
+    </a>
+
+    <nav class="site-nav" aria-label="Navigasi utama">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={{ 'is-active': isActive(item.href) }}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a
+        class="btn btn--accent btn--sm site-header__cta"
+        href={waLink(waMessages.booking)}
+        data-wa="header"
+      >
+        <Icon name="whatsapp" size={16} />
+        <span class="site-header__cta-long">Booking Unit</span>
+        <span class="site-header__cta-short">Booking</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Buka menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <div class="mobile-menu__panel">
+    <nav aria-label="Navigasi seluler">
+      <ul>
+        {
+          nav.map((item, i) => (
+            <li style={`--i:${i}`}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="mobile-menu__foot">
+      <a
+        class="btn btn--wa btn--block"
+        href={waLink(waMessages.booking)}
+        data-wa="mobile-menu"
+      >
+        <Icon name="whatsapp" size={18} />
+        Chat WhatsApp
+      </a>
+      <a class="btn btn--ghost btn--block" href="/simulasi-kpr/">
+        <Icon name="banknote" size={18} />
+        Hitung cicilan KPR
+      </a>
+      <p class="mobile-menu__contact">
+        <Icon name="phone" size={14} />
+        {site.contact.whatsappDisplay}
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .announce {
+    background: var(--brand-900);
+    color: var(--sand-100);
+    font-size: var(--t-xs);
+    position: relative;
+    z-index: 60;
+  }
+
+
+  .announce__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-4);
+    min-height: 38px;
+    padding-block: 0.4rem;
+  }
+
+
+  /* The promo line is the whole point of the strip, so it stays visible on a
+     phone — shortened, not hidden. */
+  .announce__msg {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: var(--t-xs);
+  }
+
+
+  .announce__short {
+    display: inline;
+  }
+
+
+  .announce__full {
+    display: none;
+  }
+
+
+  /* F5 — the promo strip used to carry four yellow elements at once (the
+     tag, two figures, the link). The one yellow highlight on the first
+     screen belongs to the hero's booking button, so the strip is rendered
+     in white and pale teal instead. */
+  .announce strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+
+  .announce__tag {
+    background: var(--brand-100);
+    color: var(--brand-900);
+    padding: 0.1rem 0.45rem;
+    border-radius: var(--r-full);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: var(--t-xs);
+  }
+
+
+  .announce a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--white);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid color-mix(in srgb, var(--white) 40%, transparent);
+  }
+
+
+  .announce a:hover {
+    color: var(--brand-100);
+    border-bottom-color: var(--brand-100);
+  }
+
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--white) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition:
+      background-color var(--d-base) var(--ease-out),
+      border-color var(--d-base) var(--ease-out),
+      box-shadow var(--d-base) var(--ease-out);
+  }
+
+
+  /* Once the bar is doing its job — sitting on top of moving content — it has
+     to be opaque. At 88% white the headline of the section underneath showed
+     through the gap between the logo and the Booking button. */
+  .site-header.is-scrolled {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+  }
+
+
+  /*
+    The header floats over the hero photo on the homepage. A fully
+    transparent bar left the nav links sitting on bare sand — unreadable.
+    A dark wash keeps the immersion and makes the white nav legible.
+
+    Measured, not guessed: at 34% flat the white links sat at 1.9:1 on the
+    dusk sky (scripts/audit-contrast.mjs over .review/cap/home/desktop/000-y0.png)
+    because the wash was blending with the pale sky, not with a dark picture.
+    A top-heavy gradient fixes it where the letters actually are — around
+    80% brand-900 across the line of the nav — and lets the image back in at
+    the bottom edge so the bar does not read as a second dark panel.
+  */
+  .site-header--overlay:not(.is-scrolled) {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--brand-900) 92%, transparent) 0%,
+      color-mix(in srgb, var(--brand-900) 80%, transparent) 58%,
+      color-mix(in srgb, var(--brand-900) 34%, transparent) 100%);
+    border-bottom-color: transparent;
+  }
+
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    min-height: var(--header-h);
+  }
+
+
+  .brand {
+    display: block;
+    flex: none;
+    line-height: 0;
+  }
+
+
+  .site-nav {
+    display: none;
+  }
+
+
+  .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--s-5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .site-nav a {
+    position: relative;
+    font-size: var(--t-sm);
+    font-weight: 600;
+    color: var(--ink-700);
+    text-decoration: none;
+    padding-block: 0.35rem;
+  }
+
+
+  .site-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    /* F5: the active-link underline is a state, not a booking action, so it
+       is teal. Yellow stays reserved for "Booking". */
+    background: var(--brand-600);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--d-base) var(--ease-out);
+  }
+
+
+  .site-nav a:hover::after,
+  .site-nav a.is-active::after {
+    transform: scaleX(1);
+  }
+
+
+  .site-nav a:hover {
+    color: var(--ink-900);
+  }
+
+
+  /* Over a photo the nav has to read as white. */
+  .site-header--overlay:not(.is-scrolled) .site-nav a {
+    color: var(--white);
+  }
+
+
+  .site-header--overlay:not(.is-scrolled) .site-nav a:hover {
+    color: var(--accent-500);
+  }
+
+
+  /* Over a photo the underline has to be visible against white text; on the
+     solid bar it is teal, because yellow belongs to the booking button. */
+  .site-header--overlay:not(.is-scrolled) .site-nav a::after {
+    background: var(--white);
+  }
+
+
+  .site-header--overlay:not(.is-scrolled) .announce {
+    color: var(--white);
+  }
+
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+
+
+  .site-header__cta {
+    display: inline-flex;
+    padding: 0.55rem 0.85rem;
+  }
+
+
+  /* The hero already offers the booking action in its own yellow button.
+     A second yellow one in the header put two competing calls to action in
+     the same screen; the header's version appears once the visitor scrolls
+     past the hero and the overlay is gone. */
+  .site-header--overlay:not(.is-scrolled) .site-header__cta {
+    display: none;
+  }
+
+
+  .site-header__cta-short {
+    display: inline;
+  }
+
+
+  .site-header__cta-long {
+    display: none;
+  }
+
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--r-full);
+    border: 1px solid var(--border-strong);
+    background: var(--white);
+    transition:
+      background-color var(--d-fast) linear,
+      transform var(--d-fast) var(--ease-spring);
+  }
+
+
+  .menu-toggle:hover {
+    transform: scale(1.06);
+  }
+
+
+  .menu-toggle__bars,
+  .menu-toggle__bars::before,
+  .menu-toggle__bars::after {
+    display: block;
+    width: 19px;
+    height: 2px;
+    background: var(--ink-900);
+    border-radius: 2px;
+    transition: transform var(--d-base) var(--ease-out),
+      opacity var(--d-fast) linear;
+  }
+
+
+  .menu-toggle__bars {
+    position: relative;
+  }
+
+
+  .menu-toggle__bars::before,
+  .menu-toggle__bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+
+  .menu-toggle__bars::before {
+    transform: translateY(-6px);
+  }
+
+
+  .menu-toggle__bars::after {
+    transform: translateY(6px);
+  }
+
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle__bars {
+    background: transparent;
+  }
+
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle__bars::before {
+    transform: rotate(45deg);
+  }
+
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle__bars::after {
+    transform: rotate(-45deg);
+  }
+
+
+  /* --- Mobile menu ------------------------------------------------------ */
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: color-mix(in srgb, var(--brand-900) 96%, transparent);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity var(--d-base) var(--ease-out);
+  }
+
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+
+  .mobile-menu.is-open {
+    opacity: 1;
+  }
+
+
+  .mobile-menu__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: calc(var(--header-h) + var(--s-6)) var(--gutter) var(--s-6);
+    color: var(--sand-100);
+    overflow-y: auto;
+  }
+
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-2);
+  }
+
+
+  .mobile-menu nav a {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--t-3xl);
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    padding-block: 0.4rem;
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity var(--d-slow) var(--ease-out),
+      transform var(--d-slow) var(--ease-out);
+    transition-delay: calc(var(--i) * 55ms);
+  }
+
+
+  .mobile-menu.is-open nav a {
+    opacity: 1;
+    transform: none;
+  }
+
+
+  .mobile-menu__foot {
+    display: grid;
+    gap: var(--s-3);
+    padding-top: var(--s-6);
+  }
+
+
+  .mobile-menu__foot .btn--ghost {
+    --btn-fg: var(--white);
+    border-color: color-mix(in srgb, var(--white) 35%, transparent);
+  }
+
+
+  .mobile-menu__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+    font-size: var(--t-sm);
+    color: var(--brand-300);
+    margin: 0;
+  }
+@media (min-width: 640px) {
+
+    .announce__short {
+      display: none;
+    }
+
+
+    .announce__full {
+      display: inline;
+    }
+}
+@media (min-width: 900px) {
+
+    .site-nav {
+      display: block;
+    }
+
+
+    .site-header__cta-short {
+      display: none;
+    }
+
+
+    .site-header__cta-long {
+      display: inline;
+    }
+
+
+    .menu-toggle {
+      display: none;
+    }
+}
+@media (max-width: 899px) {
+
+
+    .site-header--overlay:not(.is-scrolled) .menu-toggle {
+      background: color-mix(in srgb, var(--white) 18%, transparent);
+      border-color: color-mix(in srgb, var(--white) 40%, transparent);
+    }
+
+
+    .site-header--overlay:not(.is-scrolled) .menu-toggle__bars,
+    .site-header--overlay:not(.is-scrolled) .menu-toggle__bars::before,
+    .site-header--overlay:not(.is-scrolled) .menu-toggle__bars::after {
+      background: var(--white);
+    }
+}
+</style>
+
+<script>
+  // Header scroll state + mobile menu. Kept inline and dependency-free so it
+  // ships with the page and works before any island hydrates.
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const announce = document.getElementById('announce');
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    header?.classList.toggle('is-scrolled', y > 12);
+    // Hide the promo strip once the user is into the page.
+    if (announce) {
+      announce.style.height = y > 120 ? '0px' : '';
+      announce.style.overflow = 'hidden';
+      announce.style.transition = 'height 280ms cubic-bezier(.22,1,.36,1)';
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const closeMenu = () => {
+    menu?.classList.remove('is-open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    window.setTimeout(() => {
+      if (menu && !menu.classList.contains('is-open')) menu.hidden = true;
+    }, 280);
+  };
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMenu();
+      return;
+    }
+    if (menu) menu.hidden = false;
+    requestAnimationFrame(() => menu?.classList.add('is-open'));
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+</script>

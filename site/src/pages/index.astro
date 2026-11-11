@@ -1,0 +1,1699 @@
+---
+import Base from '../layouts/Base.astro';
+import Seo from '../components/Seo.astro';
+import Icon from '../components/Icon.astro';
+import Picture from '../components/Picture.astro';
+import MediaLabel from '../components/MediaLabel.astro';
+import BookingForm from '../components/BookingForm.astro';
+import KprSimulator from '../components/KprSimulator.svelte';
+import Gallery from '../components/Gallery.svelte';
+import { site, waLink, waMessages } from '../data/site';
+import { mediaAttrs } from '../lib/media';
+import { isIllustration, ILLUSTRATION_LABEL } from '../data/media';
+
+const p = site.pricing;
+
+const rupiah = new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR',
+  maximumFractionDigits: 0,
+});
+
+/*
+  The gallery carries what the media library actually holds. Reading the
+  files (see src/data/media.ts) showed that only two of them are photographs
+  of this project — the access road and the aerial of the land — and the
+  rest are architectural visualisations. F6 allows that, but every render is
+  labelled "Ilustrasi" so nobody reads a picture of a promise as a picture
+  of a finished house.
+*/
+const galleryShots = [
+  {
+    key: '/media/curated/design-45.webp',
+    alt: 'Tampak depan unit Valley Cityview tipe 45/72 di sore hari, dengan lembah di belakang',
+    caption: 'Tampak depan unit tipe 45/72, sore hari',
+    span: 'wide' as const,
+  },
+  {
+    key: '/media/curated/hero.webp',
+    alt: 'Ruang keluarga unit Valley Cityview dengan jendela lebar menghadap lembah',
+    caption: 'Ruang keluarga, menghadap lembah',
+  },
+  {
+    key: '/media/curated/design-24.webp',
+    alt: 'Halaman depan unit Valley Cityview tipe 45/72',
+    caption: 'Halaman depan dan carport',
+  },
+  {
+    key: '/media/curated/unit-3.webp',
+    alt: 'Dapur unit Valley Cityview yang terbuka ke taman belakang',
+    caption: 'Dapur terbuka ke taman',
+  },
+  {
+    key: '/media/curated/knowledge-1.webp',
+    alt: 'Jalan utama di dalam kawasan Valley Cityview',
+    caption: 'Jalan utama di dalam kawasan',
+    span: 'wide' as const,
+  },
+  {
+    key: '/media/curated/hero-2.webp',
+    alt: 'Kamar tidur unit Valley Cityview dengan jendela ke taman',
+    caption: 'Kamar tidur, menghadap taman',
+  },
+  {
+    key: '/media/curated/design-25.webp',
+    alt: 'Belakang unit Valley Cityview dengan carport dan kanopi',
+    caption: 'Belakang unit dan carport',
+  },
+  {
+    key: '/media/curated/hero-3.webp',
+    alt: 'Ruang kerja di dalam unit Valley Cityview',
+    caption: 'Ruang kerja di dalam unit',
+  },
+  {
+    key: '/media/curated/detail-5.webp',
+    alt: 'Lahan Valley Cityview di Laksanamekar dilihat dari udara, bersebelahan dengan jalan tol',
+    caption: 'Lahan proyek, dilihat dari udara',
+    span: 'wide' as const,
+  },
+].map((shot) => ({
+  ...shot,
+  ...mediaAttrs(shot.key),
+  label: isIllustration(shot.key) ? ILLUSTRATION_LABEL : undefined,
+}));
+
+const faqs = [
+  {
+    q: 'Bisa dicicil? Berapa lama tenor KPR-nya?',
+    a: 'Bisa. Dengan tenor 20 tahun dan suku bunga sekitar 4,75 %, cicilannya sekitar Rp 3.871.000 per bulan untuk harga Rp 599 juta. Tenor bisa disesuaikan dengan profil bank Anda.',
+  },
+  {
+    q: 'Berapa luas tanah dan bangunan unitnya?',
+    a: 'Tipe 45/72: 45 m² luas bangunan di atas 72 m² lahan, 2 kamar tidur, 1 kamar mandi, carport, dapur terbuka, dan jendela lebar menghadap panorama.',
+  },
+  {
+    q: 'Berapa booking fee-nya?',
+    a: 'Rp 5 juta, dan bisa dicicil. Uang ini yang menahan unit untuk Anda sementara proses KPR berjalan — bukan biaya tambahan di luar harga rumah.',
+  },
+  {
+    q: 'Seberapa jauh ke stasiun KCIC dan kampus Unjani?',
+    a: 'Sekitar 15 menit ke Stasiun Kereta Cepat Padalarang, sekitar 10 menit ke Kampus Unjani Cimahi, dan sekitar 15 menit ke Tol Baros serta RS Dustira.',
+  },
+  {
+    q: 'Apakah lahannya aman dari genangan air?',
+    a: 'Lahan berada di ketinggian di kaki perbukitan — area yang tidak pernah tergenang air. Itulah yang membuat harga tanah di sini relatif stabil.',
+  },
+  {
+    q: 'Kapan unitnya siap dihuni?',
+    a: 'Sebagian unit sudah siap huni, sebagian lagi masih dalam tahap finishing. Saat Anda menghubungi kami, kami akan informasikan unit mana yang tersedia dan bisa Anda lihat langsung.',
+  },
+];
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Residence',
+    name: 'Valley Cityview',
+    description: site.description,
+    url: site.origin,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.street,
+      addressLocality: site.address.city,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.country,
+    },
+    numberOfAccommodationUnits: 1,
+    petsAllowed: false,
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Panorama lembah hijau', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Carport', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Halaman depan dan belakang', value: true },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Unit Rumah Valley Cityview Tipe 45/72',
+    description:
+      'Rumah tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. 2 kamar tidur, 1 kamar mandi, carport, halaman depan dan belakang.',
+    brand: { '@type': 'Brand', name: 'Valley Cityview' },
+    offers: {
+      '@type': 'Offer',
+      price: p.kprPrice,
+      priceCurrency: 'IDR',
+      availability: 'https://schema.org/LimitedAvailability',
+      priceValidUntil: '2027-12-31',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Valley Cityview',
+    url: site.origin,
+    telephone: site.contact.phone,
+    email: site.contact.email,
+    priceRange: 'Rp 599.000.000',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.street,
+      addressLocality: site.address.city,
+      addressRegion: site.address.region,
+      addressCountry: site.address.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -6.821,
+      longitude: 107.546,
+    },
+    openingHours: 'Mo-Sa 09:00-18:00',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+];
+---
+
+<Base
+  title="Perumahan Valley Cityview di Cimahi — Rumah 45/72 dari Rp 599 Juta"
+  description="Valley Cityview, perumahan tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. 15 menit ke KCIC, panorama lembah hijau, KPR Rp 599 juta, cicilan Rp 3.871.000 per bulan."
+  path="/"
+  image="/media/curated/design-45.webp"
+  schemas={schemas}
+  overlay
+>
+  <Seo
+    slot="head"
+    title="Perumahan Valley Cityview di Cimahi — Rumah 45/72 dari Rp 599 Juta"
+    description="Valley Cityview, perumahan tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. 15 menit ke KCIC, panorama lembah hijau, KPR Rp 599 juta, cicilan Rp 3.871.000 per bulan."
+    path="/"
+    image="/media/curated/design-45.webp"
+    schemas={schemas}
+  />
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__media">
+      <Picture
+        name="/media/curated/design-45.webp"
+        mobileName="/media/curated/design-45-portrait.webp"
+        pictureClass="hero__picture"
+        alt="Visualisasi arsitektur unit Valley Cityview tipe 45/72 pada sore hari, berdiri di tepi lembah hijau"
+        class="hero__img"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    {isIllustration('/media/curated/design-45.webp') && (
+      <span class="hero__note">{ILLUSTRATION_LABEL} arsitektur — bukan foto proyek</span>
+    )}
+
+    <div class="shell hero__inner">
+      <p class="hero__eyebrow">
+        <span class="hero__dot"></span>
+        Padalarang · Cimahi · Bandung Barat
+      </p>
+
+      <h1 class="hero__title">
+        Dari ketinggian,<br />
+        segalanya <em>terlihat lebih jelas.</em>
+      </h1>
+
+      <p class="hero__lead">
+        Rumah 45/72 m² di Laksanamekar, Padalarang — menghadap lembah hijau,
+        15 menit ke Stasiun KCIC, dan 10 menit ke kampus Unjani Cimahi.
+      </p>
+
+      <div class="hero__price">
+        <div class="hero__price-item hero__price-item--lead">
+          <span class="hero__price-label">Harga KPR</span>
+          <span class="hero__price-value">{rupiah.format(p.kprPrice)}</span>
+        </div>
+        <div class="hero__price-item">
+          <span class="hero__price-label">Cicilan</span>
+          <span class="hero__price-value">
+            {rupiah.format(p.monthly)}<small>/bulan</small>
+          </span>
+        </div>
+        <div class="hero__price-item">
+          <span class="hero__price-label">Booking</span>
+          <span class="hero__price-value">Rp 5 juta<small>bisa dicicil</small></span>
+        </div>
+      </div>
+
+      <div class="hero__actions">
+        <a
+          class="btn btn--accent btn--lg"
+          href={waLink(waMessages.booking)}
+          data-wa="hero"
+        >
+          <Icon name="whatsapp" size={19} />
+          Amankan unit Anda
+        </a>
+        <a class="btn btn--light btn--lg" href="#unit">
+          Lihat denah &amp; spesifikasi
+          <Icon name="arrowRight" size={18} />
+        </a>
+      </div>
+
+      <ul class="hero__trust">
+        <li><Icon name="check" size={15} /> 2 kamar tidur + 1 kamar mandi</li>
+        <li><Icon name="check" size={15} /> Carport & halaman depan/belakang</li>
+        <li><Icon name="check" size={15} /> Bebas banjir</li>
+      </ul>
+    </div>
+
+    <a class="hero__scroll" href="#tentang" aria-label="Gulir ke bawah">
+      <span class="hero__scroll-line" aria-hidden="true"></span>
+      <span class="hero__scroll-text">Gulir</span>
+    </a>
+  </section>
+
+  <!-- ================= PROOF BAR ================= -->
+  <section class="proof" aria-label="Fakta singkat">
+    <div class="shell proof__inner">
+      {
+        site.facts.map((fact, i) => (
+          <div class="proof__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+            <span class="proof__value">{fact.value}</span>
+            <span class="proof__label">{fact.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ================= TENTANG ================= -->
+  <section class="section" id="tentang">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell about">
+      <div class="about__text" data-reveal>
+        <p class="eyebrow">Tentang Valley Cityview</p>
+        <h2>
+          Rumah bukan hanya bangunan,<br />
+          tapi cara kita <em>memandang hidup.</em>
+        </h2>
+        <p class="about__lead">
+          Bayangkan Anda bangun pagi: udara pegunungan masuk lewat jendela besar,
+          dan yang pertama terlihat adalah lembah hijau, bukan tembok tetangga.
+        </p>
+        <p>
+          Valley Cityview berdiri di Desa Laksanamekar, Padalarang — sekitar 15
+          menit ke Stasiun Kereta Cepat Padalarang dan 10 menit ke kampus Unjani
+          Cimahi. Yang kami tawarkan sengaja sederhana: satu tipe yang matang,
+          satu harga yang masuk akal, dan satu unit yang bisa Anda lihat
+          langsung sebelum memutuskan.
+        </p>
+
+        <div class="about__points">
+          <div class="about__point">
+            <span class="about__point-icon"><Icon name="leaf" size={20} /></span>
+            <div>
+              <h3>Dingin dan sejuk secara alami</h3>
+              <p>
+                Jendela besar dan aliran udara terbuka membuat rumah terasa adem
+                tanpa harus bergantung penuh pada AC.
+              </p>
+            </div>
+          </div>
+          <div class="about__point">
+            <span class="about__point-icon"><Icon name="mapPin" size={20} /></span>
+            <div>
+              <h3>Tidak ada hari yang terasa terputus</h3>
+              <p>
+                Dekat KCIC, Tol Baros, dan RS Dustira — cukup dekat untuk
+                komuter, cukup jauh untuk tinggal yang tenang
+              </p>
+            </div>
+          </div>
+          <div class="about__point">
+            <span class="about__point-icon"><Icon name="banknote" size={20} /></span>
+            <div>
+              <h3>Harga yang masuk akal</h3>
+              <p>
+                Rp 599 juta dengan cicilan sekitar Rp 3,8 juta per bulan —
+                dihitung dengan perhitungan yang benar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__media" data-reveal>
+        <div class="about__frame">
+          <Picture
+            name="/media/curated/hero.webp"
+            alt="Visualisasi ruang keluarga unit Valley Cityview: jendela lebar menghadap lembah, cahaya sore masuk dari sisi kanan"
+            class="about__img"
+            sizes="(max-width: 900px) 100vw, 45vw"
+          />
+          <MediaLabel name="/media/curated/hero.webp" />
+        </div>
+        <div class="about__badge">
+          <span class="about__badge-value">15</span>
+          <span class="about__badge-label">menit ke<br />Stasiun KCIC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= UNIT & DENAH ================= -->
+  <section class="section section--alt" id="unit">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Tipe Unit</p>
+        <h2>Satu tipe, dirancang untuk keluarga yang baru memulai</h2>
+        <p>
+          Tidak banyak pilihan, tapi semuanya dipilih dengan pertimbangan yang matang.
+          Denahnya ada di sini — mari kita periksa bersama.
+        </p>
+      </div>
+
+      <div class="unit">
+        <div class="unit__plans" data-reveal>
+          {
+            [
+              {
+                key: '/media/curated/denah-45-72.webp',
+                label: 'Denah Tipe 45 / 72',
+                alt: 'Denah rumah tipe 45/72 Valley Cityview: dua kamar tidur, satu kamar mandi, dapur terbuka, ruang makan, carport, halaman depan dan halaman belakang',
+              },
+            ].map((plan) => {
+              const entry = mediaAttrs(plan.key);
+              return (
+                <a
+                  class="unit__plan"
+                  href={entry.src}
+                  target="_blank"
+                  rel="noopener"
+                  title="Buka denah ukuran penuh"
+                >
+                  <Picture
+                    name={plan.key}
+                    alt={plan.alt}
+                    class="unit__plan-img"
+                    sizes="(max-width: 900px) 100vw, 40vw"
+                  />
+                  <span class="unit__plan-caption">
+                    {plan.label}
+                    <Icon name="download" size={15} />
+                  </span>
+                </a>
+              );
+            })
+          }
+        </div>
+
+        <div class="unit__specs" data-reveal>
+          <h3 class="unit__specs-title">Spesifikasi unit</h3>
+          <ul class="spec-list">
+            <li>
+              <Icon name="ruler" size={18} />
+              <span><strong>Luas bangunan 45 m²</strong> · luas lahan 72 m²</span>
+            </li>
+            <li>
+              <Icon name="bed" size={18} />
+              <span><strong>2 kamar tidur</strong> + 1 kamar mandi</span>
+            </li>
+            <li>
+              <Icon name="home" size={18} />
+              <span><strong>Carport</strong> dengan halaman depan dan belakang</span>
+            </li>
+            <li>
+              <Icon name="spark" size={18} />
+              <span><strong>Jendela besar</strong> dan pencahayaan alami</span>
+            </li>
+            <li>
+              <Icon name="layers" size={18} />
+              <span><strong>Dapur terbuka</strong> ke taman belakang</span>
+            </li>
+            <li>
+              <Icon name="shield" size={18} />
+              <span><strong>Bebas banjir</strong> — area di ketinggian</span>
+            </li>
+          </ul>
+
+          <div class="price-card">
+            <div class="price-card__row">
+              <span>Harga KPR</span>
+              <strong>{rupiah.format(p.kprPrice)}</strong>
+            </div>
+            <div class="price-card__row">
+              <span>Cicilan</span>
+              <strong>
+                {rupiah.format(p.monthly)}<small>/bulan</small>
+              </strong>
+            </div>
+            <div class="price-card__row">
+              <span>Tenor</span>
+              <strong>{p.tenureYears} tahun</strong>
+            </div>
+            <div class="price-card__row">
+              <span>Booking fee</span>
+              <strong>Rp 5.000.000</strong>
+            </div>
+            <a
+              class="btn btn--accent btn--block"
+              href={waLink(waMessages.booking)}
+              data-wa="price-card"
+            >
+              <Icon name="whatsapp" size={18} />
+              Booking unit Rp 5 juta
+            </a>
+            <p class="price-card__note">
+              Angka cicilan memakai perhitungan bunga tetap 4,75 %/tahun.
+              <a href="/simulasi-kpr/">Hitung sendiri →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PANORAMA ================= -->
+  <section class="section section--dark" id="panorama">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Peta 360°</p>
+        <h2>Di mana rumah bertemu panorama</h2>
+        <p>
+          Berjalan virtual di area Valley Cityview. Lihat sendiri posisi unit,
+          arah mata angin, dan seberapa jauh Panorama membentang.
+        </p>
+      </div>
+
+      <div class="panorama" data-reveal>
+        <iframe
+          height="550"
+          width="100%"
+          allowfullscreen="true"
+          src="https://momento360.com/e/u/336ef22f2f3c4439aa123deaa6d706de?utm_campaign=embed&utm_source=other&heading=-0.2&pitch=-11.7&field-of-view=75&size=medium&autoplay-annotations=true&display-plan=true"
+          title="Panorama 360 derajat Valley Cityview"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALERI ================= -->
+  <section class="section" id="galeri">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Galeri Proyek</p>
+        <!--
+          F6: the heading used to promise "kondisi unit" — the actual
+          condition of a built house — over a wall of visualisations. The
+          labels on the tiles would have contradicted the sentence above
+          them, so the sentence changed instead of the labels.
+        -->
+        <h2>Denah saja tidak cukup — lihat gambaran ruangannya</h2>
+        <p>
+          Setiap visualisasi arsitektur diberi label "Ilustrasi"; yang tidak
+          berlabel adalah foto lokasi. Ketuk gambar untuk memperbesar.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <Gallery client:visible shots={galleryShots} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOKASI ================= -->
+  <section class="section section--alt" id="lokasi">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Lokasi &amp; Akses</p>
+        <h2>Cukup dekat untuk bekerja, cukup jauh untuk tenang</h2>
+        <p>
+          Desa Laksanamekar, Padalarang, Cimahi — di kaki perbukitan, menghadap
+          lembah.
+        </p>
+      </div>
+
+      <figure class="location-photo" data-reveal>
+        <Picture
+          name="/media/curated/detail-5.webp"
+          alt="Lahan Valley Cityview di Laksanamekar, Padalarang, dilihat dari udara, bersebelahan dengan Jalan Tol Padalarang"
+          class="location-photo__img"
+          sizes="(max-width: 900px) 100vw, 1100px"
+        />
+        <figcaption>
+          Lahan Valley Cityview di Laksanamekar — menghadap lembah, dengan
+          jalan tol Padalarang di sisi timur.
+        </figcaption>
+      </figure>
+
+      <div class="access">
+        {
+          [
+            {
+              icon: 'train' as const,
+              place: 'Stasiun KCIC Padalarang',
+              time: '± 15 menit',
+              note: 'Kereta cepat menuju Bandung dan sekitarnya',
+            },
+            {
+              icon: 'mapPin' as const,
+              place: 'Kampus Unjani Cimahi',
+              time: '± 10 menit',
+              note: 'Untuk yang bekerja atau kuliah di Cimahi',
+            },
+            {
+              icon: 'phone' as const,
+              place: 'Tol Baros & RS Dustira',
+              time: '± 15 menit',
+              note: 'Akses keluar-masuk kota tetap lancar',
+            },
+            {
+              icon: 'leaf' as const,
+              place: 'Lahan di ketinggian',
+              time: 'Di kawasan sini',
+              note: 'Lahan di ketinggian, aman dari genangan air',
+            },
+          ].map((item, i) => (
+            <div class="access__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
+              <span class="access__icon">
+                <Icon name={item.icon} size={20} />
+              </span>
+              <div>
+                <h3>{item.place}</h3>
+                <p class="access__time">{item.time}</p>
+                <p class="access__note">{item.note}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="location-cta" data-reveal>
+        <div>
+          <h3>Ingin melihat sendiri?</h3>
+          <p>
+            Kunjungi lokasi, lihat unit yang tersedia, dan rasakan sendiri
+            udaranya. Kami siapkan jadwalnya.
+          </p>
+        </div>
+        <a
+          class="btn btn--accent"
+          href={waLink(waMessages.booking)}
+          data-wa="location"
+        >
+          <Icon name="calendar" size={18} />
+          Jadwalkan kunjungan
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SIMULASI KPR ================= -->
+  <section class="section" id="kpr">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Simulasi KPR</p>
+        <h2>Coba geser sendiri angkanya</h2>
+        <p>
+          Ubah uang muka, tenor, dan suku bunga. Angka di sini memakai
+          perhitungan yang sama seperti yang kami tawarkan.
+        </p>
+      </div>
+
+      <div data-reveal>
+        <KprSimulator client:visible />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section--alt" id="faq">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Pertanyaan Umum</p>
+        <h2>Yang biasanya ditanyakan calon pembeli</h2>
+      </div>
+
+      <div class="faq" data-reveal>
+        {
+          faqs.map((item) => (
+            <details class="faq__item">
+              <summary>
+                <span>{item.q}</span>
+                <span class="faq__plus" aria-hidden="true" />
+              </summary>
+              <div class="faq__answer">
+                <p>{item.a}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING ================= -->
+  <section class="section" id="booking">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell booking-wrap">
+      <div class="booking-wrap__text" data-reveal>
+        <p class="eyebrow">Booking Sekarang</p>
+        <h2>Ambil satu langkah kecil hari ini</h2>
+        <p>
+          Hunian tipe 45/72 di Laksanamekar, Padalarang — 15 menit ke KCIC,
+          menghadap lembah hijau. Unitnya terbatas, dan booking fee-nya hanya
+          Rp 5 juta.
+        </p>
+
+        <ul class="booking-wrap__points">
+          <li>
+            <span class="booking-wrap__check"><Icon name="check" size={15} /></span>
+            Unit langsung dikunci saat booking fee dibayar
+          </li>
+          <li>
+            <span class="booking-wrap__check"><Icon name="check" size={15} /></span>
+            Booking fee bisa dicicil
+          </li>
+          <li>
+            <span class="booking-wrap__check"><Icon name="check" size={15} /></span>
+            Kami siapkan jadwal kunjungan ke lokasi
+          </li>
+          <li>
+            <span class="booking-wrap__check"><Icon name="check" size={15} /></span>
+            Tersedia simulasi KPR dengan dukungan bank rekanan
+          </li>
+        </ul>
+
+        <div class="booking-wrap__contact">
+          <a
+            class="btn btn--wa"
+            href={waLink(waMessages.booking)}
+            data-wa="booking-section"
+          >
+            <Icon name="whatsapp" size={18} />
+            {site.contact.whatsappDisplay}
+          </a>
+          <span class="booking-wrap__hours">
+            <Icon name="clock" size={15} />
+            {site.contact.hours}
+          </span>
+        </div>
+      </div>
+
+      <div class="booking-wrap__form" data-reveal>
+        <BookingForm />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+
+  /* ---------------- Hero ---------------- */
+  .hero {
+    position: relative;
+    min-height: 92svh;
+    display: flex;
+    align-items: flex-end;
+    /* The header is sticky, so it occupies the flow and the picture started
+       below it — the "overlay" bar was then washing the pale page background
+       instead of the photo, and the white nav sat at 1.9:1. Pulling the hero
+       up under the bar is what makes the overlay an overlay; the padding
+       below keeps the copy clear of it. */
+    margin-top: calc(-1 * var(--header-h));
+    padding-top: calc(var(--header-h) + 1.5rem);
+    padding-bottom: var(--s-7);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+
+  /* On a phone the illustration note and the location badge cannot share the
+     row above the headline — the badge already runs nearly edge to edge. The
+     note gets its own line, so the hero needs the room for it. Without this
+     the two overlapped in .review/cap/home/mobile/000-y0.png. */
+  @media (max-width: 899px) {
+    .hero {
+      padding-top: calc(var(--header-h) + 3.6rem);
+    }
+  }
+
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  /* F6: the hero picture is a visualisation, and the page says so on the
+     picture itself — not in a caption three screens down. The homepage spells
+     the sentence out ("Ilustrasi arsitektur — bukan foto proyek") because the
+     hero is the one image a visitor is most likely to read as finished work;
+     everywhere else the short MediaLabel chip is enough. */
+  .hero__note {
+    position: absolute;
+    /* Sits under the sticky bar now that the hero runs up behind it. It used
+       to be 0.75rem because the hero started *below* the header; with the
+       overlay working, that placed it behind the nav. */
+    top: calc(var(--header-h) + 0.75rem);
+    right: var(--gutter);
+    z-index: 2;
+    padding: 0.28rem 0.6rem;
+    border-radius: var(--r-full);
+    background: color-mix(in srgb, var(--brand-900) 72%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+    color: var(--white);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  /* The crop itself lives in styles/media.css — a scoped rule here would
+     never match the <img> that Picture.astro renders. */
+@keyframes heroZoom {
+
+    from {
+      transform: scale(1.08);
+    }
+
+    to {
+      transform: scale(1);
+    }
+}
+
+
+  /*
+    Two layers, heavy at the bottom-left where the words live, and clear over
+    the house itself — the recipe is --scrim-hero in global.css because the
+    four landing heroes need to stop each inventing their own. See the note
+    there for how the numbers were arrived at.
+  */
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--scrim-hero);
+  }
+
+
+  .hero__inner {
+    position: relative;
+    width: 100%;
+  }
+
+
+  /* F5: one yellow per viewport, reserved for the booking action. The
+     eyebrow, the dot and the italic headline all used to be accent yellow,
+     which made the first screen shout four competing highlights.
+
+     It also used to be pale brand-100 lettering floating straight onto the
+     dusk sky — 1.7:1 in .review/cap/home/mobile/000-y0.png, unreadable. The
+     location is a fact worth a badge, so it sits on solid brand-900 instead
+     of on nothing. */
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.7rem 0.3rem 0.55rem;
+    border-radius: var(--r-full);
+    background: var(--brand-900);
+    font-size: var(--t-xs);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .hero__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--brand-100);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-100) 18%, transparent);
+  }
+
+
+  .hero__title {
+    /* --fs-h1, not --t-5xl and not a private clamp. The headline is an h1,
+       so it is the size of every other h1 on the site — which is also what
+       keeps it to three lines instead of four on a 390px screen. */
+    font-size: var(--fs-h1);
+    line-height: 1.06;
+    color: var(--white);
+    max-width: 15ch;
+    margin-bottom: var(--s-4);
+  }
+
+
+  .hero__title em {
+    font-style: italic;
+    color: var(--white);
+    font-variation-settings: 'SOFT' 40, 'WONK' 1;
+  }
+
+
+  .hero__lead {
+    font-size: var(--t-base);
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--white) 88%, transparent);
+    max-width: 34ch;
+    margin-bottom: var(--s-5);
+  }
+
+
+  /*
+    The three numbers are the reason most people keep scrolling, so on a
+    phone the price takes the full width and the other two sit under it —
+    instead of three items wrapping into a ragged 1 + 2 row.
+
+    Solid panel, not glass: the translucent version put grey labels on an
+    unpredictable photo background and the most important figures on the
+    site were the hardest to read.
+  */
+  .hero__price {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-4) var(--s-3);
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    border: 1px solid var(--brand-700);
+    margin-bottom: var(--s-5);
+    max-width: 32rem;
+  }
+
+
+  .hero__price-item {
+    display: grid;
+    gap: 0.1rem;
+    align-content: start;
+  }
+
+
+  .hero__price-item--lead {
+    grid-column: 1 / -1;
+    padding-bottom: var(--s-3);
+    border-bottom: 1px solid color-mix(in srgb, var(--brand-100) 22%, transparent);
+  }
+
+
+  .hero__price-label {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-100);
+  }
+
+
+  .hero__price-value {
+    font-family: var(--font-display);
+    font-size: var(--t-2xl);
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+
+  .hero__price-value small {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 500;
+    color: var(--brand-100);
+    letter-spacing: 0.02em;
+  }
+
+
+  /* Full-width buttons on a phone: two labels of different lengths used to
+     leave a ragged right edge with one button overhanging the other. */
+  .hero__actions {
+    display: grid;
+    gap: var(--s-3);
+    margin-bottom: var(--s-5);
+  }
+
+
+  .hero__trust {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-2) var(--s-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--white) 78%, transparent);
+  }
+
+
+  .hero__trust li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+
+  .hero__trust :global(svg) {
+    color: var(--brand-100);
+    flex: none;
+  }
+
+
+  .hero__scroll {
+    position: absolute;
+    bottom: var(--s-5);
+    right: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+    color: color-mix(in srgb, var(--white) 70%, transparent);
+    font-size: var(--t-xs);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+
+  .hero__scroll-line {
+    display: block;
+    width: 1px;
+    height: 46px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in srgb, var(--white) 70%, transparent)
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .hero__scroll-line::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    height: 40%;
+    /* Pale teal, not the accent: F5 keeps the only yellow on this screen for
+       the booking button. */
+    background: var(--brand-100);
+    animation: scrollHint 2.1s var(--ease-in-out) infinite;
+  }
+@keyframes scrollHint {
+
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(250%);
+    }
+}
+
+
+  /* ---------------- Proof bar ---------------- */
+  .proof {
+    background: var(--brand-900);
+    color: var(--white);
+    padding-block: var(--s-6);
+    border-top: 1px solid color-mix(in srgb, var(--white) 10%, transparent);
+  }
+
+
+  .proof__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-5);
+  }
+
+
+  .proof__item {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+
+  .proof__value {
+    font-family: var(--font-display);
+    font-size: var(--t-2xl);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+  }
+
+
+  .proof__label {
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--white) 62%, transparent);
+    line-height: 1.45;
+  }
+
+
+  /* ---------------- About ---------------- */
+  .about {
+    display: grid;
+    gap: var(--s-7);
+    position: relative;
+  }
+
+
+  .about h2 em {
+    font-style: italic;
+    color: var(--brand-600);
+  }
+
+
+  .about__lead {
+    font-size: var(--t-lg);
+    color: var(--ink-800) !important;
+  }
+
+
+  .about__text > p {
+    color: var(--ink-600);
+    max-width: 56ch;
+  }
+
+
+  /* Three loose stacked features used to run past a full screen on a phone.
+     Hairline rows keep the same order and fit it. */
+  .about__points {
+    display: grid;
+    gap: 0;
+    margin-top: var(--s-5);
+    border-top: 1px solid var(--border);
+  }
+
+
+  .about__point {
+    display: flex;
+    gap: var(--s-3);
+    align-items: flex-start;
+    padding-block: var(--s-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+
+  .about__point-icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--r-md);
+    background: var(--brand-050);
+    color: var(--brand-700);
+  }
+
+
+  .about__point h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.15rem;
+  }
+
+
+  .about__point p {
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    margin: 0;
+  }
+
+
+  .about__media {
+    position: relative;
+  }
+
+
+  /* Hairline, not a drop shadow — the vision keeps cards flat. */
+  .about__frame {
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--brand-900);
+  }
+
+
+  .about__badge {
+    position: absolute;
+    left: -0.75rem;
+    bottom: -0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.1rem;
+    /* Flat chip, hairline, no shadow, no second accent (C6 + F5). */
+    background: var(--brand-900);
+    color: var(--white);
+    border: 1px solid var(--brand-700);
+    border-radius: var(--r-lg);
+  }
+
+
+  .about__badge-value {
+    font-family: var(--font-display);
+    font-size: var(--t-3xl);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+
+  .about__badge-label {
+    font-size: var(--t-xs);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+
+  /* ---------------- Unit ---------------- */
+  .unit {
+    display: grid;
+    gap: var(--s-6);
+  }
+
+
+  .unit__plans {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .unit__plan {
+    display: block;
+    position: relative;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    transition:
+      transform var(--d-base) var(--ease-out),
+      box-shadow var(--d-base) var(--ease-out);
+  }
+
+
+  .unit__plan:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+
+
+  .unit__plan-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    background: color-mix(in srgb, var(--white) 92%, transparent);
+    backdrop-filter: blur(6px);
+    font-size: var(--t-xs);
+    font-weight: 700;
+    color: var(--brand-800);
+  }
+
+
+  .unit__specs-title {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .spec-list {
+    list-style: none;
+    margin: 0 0 var(--s-5);
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+
+  .spec-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .spec-list :global(svg) {
+    flex: none;
+    margin-top: 2px;
+    color: var(--brand-600);
+  }
+
+
+  .spec-list strong {
+    color: var(--ink-900);
+  }
+
+
+  .price-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+    box-shadow: var(--shadow-sm);
+  }
+
+
+  .price-card__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-3);
+    padding-block: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .price-card__row strong {
+    font-family: var(--font-display);
+    font-size: var(--t-lg);
+    color: var(--ink-900);
+  }
+
+
+  .price-card__row small {
+    font-family: var(--font-sans);
+    font-size: var(--t-xs);
+    font-weight: 500;
+    color: var(--ink-500);
+  }
+
+
+  .price-card .btn {
+    margin-top: var(--s-4);
+  }
+
+
+  .price-card__note {
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+    margin: var(--s-3) 0 0;
+    text-align: center;
+  }
+
+
+  .price-card__note a {
+    color: var(--brand-700);
+    font-weight: 600;
+  }
+
+
+  /* ---------------- Panorama ---------------- */
+  .panorama {
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--brand-800);
+    line-height: 0;
+  }
+
+
+  .panorama iframe {
+    width: 100%;
+    height: clamp(340px, 52vw, 560px);
+    border: 0;
+  }
+
+
+  /* ---------------- Access ---------------- */
+  .location-photo {
+    margin: 0 0 var(--s-6);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .location-photo figcaption {
+    padding: var(--s-4) var(--s-5);
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+  .access {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .access__item {
+    display: flex;
+    gap: var(--s-4);
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-4);
+  }
+
+
+  .access__icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r-md);
+    background: var(--brand-050);
+    color: var(--brand-700);
+  }
+
+
+  .access__item h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.15rem;
+  }
+
+
+  .access__time {
+    font-family: var(--font-display);
+    font-size: var(--t-lg);
+    font-weight: 700;
+    color: var(--brand-700);
+    margin: 0 0 0.2rem;
+  }
+
+
+  .access__note {
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    margin: 0;
+  }
+
+
+  .location-cta {
+    margin-top: var(--s-6);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    color: var(--sand-100);
+  }
+
+
+  .location-cta h3 {
+    color: var(--white);
+    font-size: var(--fs-h3);
+    margin-bottom: 0.25rem;
+  }
+
+
+  .location-cta p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--brand-100) 78%, transparent);
+    max-width: 44ch;
+  }
+
+
+  /* ---------------- FAQ ---------------- */
+  .faq {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 46rem;
+  }
+
+
+  .faq__item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+  }
+
+
+  .faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-4);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--t-base);
+    color: var(--ink-900);
+    list-style: none;
+    transition: background-color var(--d-fast) linear;
+  }
+
+
+  .faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+
+  .faq__item summary:hover {
+    background: var(--sand-50);
+  }
+
+
+  .faq__plus {
+    position: relative;
+    flex: none;
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .faq__plus::before,
+  .faq__plus::after {
+    content: '';
+    position: absolute;
+    inset: 50% 0 auto 0;
+    height: 2px;
+    background: var(--brand-700);
+    border-radius: 2px;
+    transition: transform var(--d-base) var(--ease-out);
+  }
+
+
+  .faq__plus::after {
+    transform: rotate(90deg);
+  }
+
+
+  .faq__item[open] .faq__plus::after {
+    transform: rotate(0deg);
+  }
+
+
+  .faq__answer {
+    padding: 0 var(--s-4) var(--s-4);
+  }
+
+
+  .faq__answer p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+    line-height: 1.7;
+  }
+
+
+  /* ---------------- Booking ---------------- */
+  .booking-wrap {
+    display: grid;
+    gap: var(--s-7);
+    position: relative;
+  }
+
+
+  .booking-wrap h2 {
+    font-size: var(--fs-h2);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .booking-wrap__text > p {
+    color: var(--ink-600);
+    max-width: 46ch;
+  }
+
+
+  .booking-wrap__points {
+    list-style: none;
+    margin: var(--s-5) 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+
+  .booking-wrap__points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: var(--t-sm);
+    color: var(--ink-700);
+  }
+
+
+  .booking-wrap__check {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ok-100);
+    color: var(--ok-600);
+    margin-top: 1px;
+  }
+
+
+  .booking-wrap__contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+  }
+
+
+  .booking-wrap__hours {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+  }
+
+
+  .booking-wrap__form {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--s-5);
+    box-shadow: var(--shadow-md);
+  }
+@media (min-width: 560px) {
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+    }
+}
+@media (min-width: 700px) {
+
+    .proof__inner {
+      grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (min-width: 900px) {
+
+    .hero__scroll {
+      display: flex;
+    }
+
+
+    .hero__price {
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: var(--s-5);
+      align-items: center;
+      max-width: 36rem;
+    }
+
+
+    .hero__price-item--lead {
+      grid-column: auto;
+    }
+
+
+    .hero__price-item + .hero__price-item {
+      border-left: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+      padding-left: var(--s-5);
+    }
+
+
+    .hero {
+      align-items: center;
+      min-height: 88svh;
+    }
+
+
+    .about {
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+    }
+
+
+    .unit {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+
+    .unit__plans {
+      grid-template-columns: 1fr 1fr;
+    }
+
+
+    .access {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .booking-wrap {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+}
+
+
+  /* F8 — scroll budget. These rules live in this page's scoped <style> and sit
+     at the very end, so they win the cascade over the base sections above and
+     touch only the homepage — never the blog or the landings. Compression,
+     not deletion: all ten sections keep every word, but a phone no longer
+     pays for a desktop's vertical rhythm. --section-y already floors at 48px
+     on mobile, so the band padding has to drop *below* it to buy back height.
+     Measured against scripts/scroll-budget.json. */
+  @media (max-width: 899px) {
+
+    .hero {
+      padding-bottom: var(--s-6);
+      min-height: 80svh;
+    }
+
+
+    .section {
+      padding-block: var(--s-6);
+    }
+
+
+    .panorama iframe {
+      height: 300px;
+    }
+  }
+
+
+  @media (max-width: 640px) {
+
+    /* The stacked two-column blocks only ever sit one-on-top-of-the-other on
+       a phone, so the desktop gutter between them is dead vertical space. */
+    .about,
+    .unit,
+    .booking-wrap {
+      gap: var(--s-6);
+    }
+  }
+</style>

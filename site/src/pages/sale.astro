@@ -1,0 +1,355 @@
+---
+import Landing from '../layouts/Landing.astro';
+import Icon from '../components/Icon.astro';
+import Picture from '../components/Picture.astro';
+import MediaLabel from '../components/MediaLabel.astro';
+import { site, waLink, waMessages } from '../data/site';
+
+const wa = waLink(waMessages.booking);
+---
+
+<Landing
+  title="Valley Cityview — Rumah 45/72 m² dari Rp 599 Juta"
+  description="Rumah Valley Cityview tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. KPR Rp 599 juta, cicilan Rp 3.871.000 per bulan, booking fee Rp 5 juta. 15 menit ke KCIC."
+  path="/sale/"
+  waMessage={waMessages.general}
+>
+  <section class="sale">
+    <div class="sale__media">
+      <Picture
+        name="/media/curated/design-24.webp"
+        alt="Visualisasi tampak depan unit tipe 45/72 dengan carport dan taman kecil, dinding gelap di sisi kiri"
+        class="sale__img"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="sale__scrim" aria-hidden="true"></div>
+    </div>
+    <MediaLabel name="/media/curated/design-24.webp" bleed />
+
+    <div class="shell sale__inner">
+      <p class="eyebrow">Valley Cityview · Padalarang, Cimahi</p>
+
+      <h1 class="sale__title">
+        Rumah di lembah,<br />
+        <em>harga di bawah.</em>
+      </h1>
+
+      <p class="sale__lead">
+        Tipe 45/72 m², KPR Rp 599 juta, cicilan sekitar Rp 3.871.000 per bulan.
+        15 menit ke Stasiun KCIC Padalarang, 10 menit ke Unjani Cimahi — dan
+        menghadap panorama lembah yang menghijau setiap pagi.
+      </p>
+
+      <div class="sale__cards">
+        <div class="sale__card sale__card--lead">
+          <span>Harga KPR</span>
+          <strong>Rp 599 juta</strong>
+        </div>
+        <div class="sale__card">
+          <span>Cicilan</span>
+          <strong>Rp 3.871.000/bln</strong>
+        </div>
+        <div class="sale__card">
+          <span>Booking</span>
+          <strong>Rp 5 juta</strong>
+        </div>
+      </div>
+
+      <div class="sale__actions">
+        <a class="btn btn--accent btn--lg" href={wa} data-wa="sale-hero">
+          <Icon name="whatsapp" size={19} />
+          Tanya unit yang tersedia
+        </a>
+        <a class="btn btn--light btn--lg" href="/simulasi-kpr/" data-wa="sale-kpr">
+          Hitung cicilanku
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Kenapa Valley Cityview</p>
+        <h2>Tiga alasan yang paling sering disebut calon pembeli</h2>
+      </div>
+
+      <div class="sale__reasons">
+        <article class="sale__reason">
+          <span class="sale__reason-icon"><Icon name="leaf" size={22} /></span>
+          <h3>Udara dan pandangannya</h3>
+          <p>
+            Lahan di ketinggian dengan panoramic view lembah hijau. Rumah terasa
+            adem, dan cahaya pagi masuk sendiri lewat jendela besar.
+          </p>
+        </article>
+        <article class="sale__reason">
+          <span class="sale__reason-icon"><Icon name="train" size={22} /></span>
+          <h3>Aksesnya tidak jauh</h3>
+          <p>
+            15 menit ke KCIC Padalarang, 10 menit ke Unjani Cimahi, dekat Tol
+            Baros dan RS Dustira. Cocok untuk yang bekerja di Cimahi atau
+            Bandung.
+          </p>
+        </article>
+        <article class="sale__reason">
+          <span class="sale__reason-icon"><Icon name="banknote" size={22} /></span>
+          <h3>Cicilannya masuk akal</h3>
+          <p>
+            Rp 599 juta dengan tenor 20 tahun.tanpa DP pun bisa — angkanya
+            kami hitung dengan bunga tetap 4,75 %.
+          </p>
+        </article>
+      </div>
+
+      <div class="sale__final">
+        <div>
+          <h3>Unitnya terbatas</h3>
+          <p>
+            Kalau Anda serius, kirim nama dan nomor WhatsApp. Kami kabari unit
+            yang masih kosong, lalu atur jadwal kunjungan ke lokasi.
+          </p>
+        </div>
+        <a class="btn btn--wa btn--lg" href={wa} data-wa="sale-final">
+          <Icon name="whatsapp" size={19} />
+          {site.contact.whatsappDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+</Landing>
+
+<style>
+
+  .sale {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block: calc(var(--header-h) + 4rem) var(--s-8);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+
+  .sale__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+
+  .sale__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* One recipe for all five heroes — see --scrim-hero in global.css. */
+    background: var(--scrim-hero);
+  }
+
+
+  .sale__inner {
+    width: 100%;
+  }
+
+
+  .sale__inner .eyebrow {
+    /* F5: the yellow in this viewport is the booking button, nothing else. */
+    color: var(--brand-100);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .sale__title {
+    font-size: var(--fs-h1);
+    color: var(--white);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .sale__title em {
+    font-style: italic;
+    color: var(--white);
+  }
+
+
+  .sale__lead {
+    font-size: var(--t-lg);
+    color: color-mix(in srgb, var(--white) 86%, transparent);
+    max-width: 52ch;
+    margin-bottom: var(--s-6);
+  }
+
+
+  /* One panel, three figures — the same recipe as the homepage hero price
+     block (Fase 2): solid brand-900, a brand-700 hairline, no glass, no
+     shadow. Three separate cards cannot work here anyway: on a phone the copy
+     now sits on brand-900, so a brand-900 card would disappear into the page
+     and a lighter one would compete with the photograph above it. */
+  .sale__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--s-4) var(--s-3);
+    padding: var(--s-4);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    border: 1px solid var(--brand-700);
+    max-width: 32rem;
+    margin-bottom: var(--s-6);
+  }
+
+
+  .sale__card {
+    display: grid;
+    gap: 0.15rem;
+    align-content: start;
+  }
+
+
+  .sale__card span {
+    font-size: var(--t-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brand-100);
+  }
+
+
+  .sale__card strong {
+    font-family: var(--font-display);
+    font-size: var(--t-xl);
+    color: var(--white);
+  }
+
+
+  /* The emphasis goes on the price, not on a second yellow block: size and a
+     full-width hairline row, exactly as the homepage lead figure does. */
+  .sale__card--lead {
+    grid-column: 1 / -1;
+    padding-bottom: var(--s-3);
+    border-bottom: 1px solid color-mix(in srgb, var(--brand-100) 22%, transparent);
+  }
+
+
+  .sale__card--lead strong {
+    font-size: var(--t-2xl);
+  }
+
+
+  .sale__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+
+  .sale__reasons {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .sale__reason {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+  }
+
+
+  .sale__reason-icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--r-md);
+    background: var(--brand-050);
+    color: var(--brand-700);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .sale__reason h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.4rem;
+  }
+
+
+  .sale__reason p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .sale__final {
+    margin-top: var(--s-6);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    color: var(--sand-100);
+  }
+
+
+  .sale__final h3 {
+    color: var(--white);
+    font-size: var(--fs-h3);
+    margin-bottom: 0.25rem;
+  }
+
+
+  .sale__final p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--brand-100) 78%, transparent);
+    max-width: 46ch;
+  }
+@media (min-width: 800px) {
+
+    .sale__reasons {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+  @media (max-width: 899px) {
+
+    /* Phone hero: photograph on top, copy on solid brand-900 below. The
+       reasoning and the measured failure (1.62:1 over the study's bright
+       window wall) are written out once, in nup.astro. */
+    .sale {
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 0;
+      padding-block: 0;
+      background: var(--brand-900);
+    }
+
+
+    .sale__media {
+      position: relative;
+      inset: auto;
+      height: 40svh;
+    }
+
+
+    .sale__scrim {
+      background: linear-gradient(to top,
+        var(--brand-900) 2%,
+        color-mix(in srgb, var(--brand-900) 58%, transparent) 36%,
+        transparent 80%);
+    }
+
+
+    .sale__inner {
+      padding-block: var(--s-5) var(--s-7);
+    }
+}
+</style>

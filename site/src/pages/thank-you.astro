@@ -1,0 +1,218 @@
+---
+import Base from '../layouts/Base.astro';
+import Seo from '../components/Seo.astro';
+import Icon from '../components/Icon.astro';
+import { site, waLink, waMessages } from '../data/site';
+
+const conversion = site.tracking.leadConversion;
+---
+
+<Base
+  title="Terima Kasih — Booking Anda sudah kami terima"
+  description="Data booking Anda sudah kami terima. Tim Valley Cityview akan menghubungi Anda dalam 1x24 jam."
+  path="/thank-you/"
+>
+  <Seo
+    slot="head"
+    title="Terima Kasih — Booking Anda sudah kami terima"
+    description="Data booking Anda sudah kami terima. Tim Valley Cityview akan menghubungi Anda dalam 1x24 jam."
+    path="/thank-you/"
+    noindex
+  />
+
+  <section class="section thanks">
+    <div class="contour" aria-hidden="true"></div>
+    <div class="shell thanks__inner">
+      <span class="thanks__mark" aria-hidden="true">
+        <Icon name="check" size={34} strokeWidth={2.4} />
+      </span>
+
+      <p class="eyebrow">Berhasil</p>
+      <h1>Terima kasih, datanya sudah kami terima.</h1>
+      <p class="thanks__lead">
+        Tim Valley Cityview akan menghubungi Anda dalam 1x24 jam untuk
+        memastikan tipe unit yang tersedia dan menjadwalkan kunjungan ke lokasi.
+        Kalau ingin lebih cepat, langsung chat WhatsApp kami — balas di hari
+        yang sama.
+      </p>
+
+      <div class="thanks__next">
+        <h2>Langkah yang terjadi selanjutnya</h2>
+        <ol>
+          <li>
+            <span class="thanks__num">1</span>
+            <div>
+              <h3>Kami menghubungi Anda</h3>
+              <p>Untuk memastikan unit yang Anda minat masih tersedia.</p>
+            </div>
+          </li>
+          <li>
+            <span class="thanks__num">2</span>
+            <div>
+              <h3>Kunjungan ke lokasi</h3>
+              <p>
+                Datang ke Laksanamekar, Padalarang. Lihat unitnya langsung dan
+                rasakan udaranya.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="thanks__num">3</span>
+            <div>
+              <h3>Simulasi KPR &amp; booking fee</h3>
+              <p>
+                Kami hitung cicilannya sesuai profil bank Anda, lalu Anda
+                booking dengan Rp 5 juta — bisa dicicil.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="thanks__actions">
+        <a class="btn btn--wa btn--lg" href={waLink(waMessages.booking)} data-wa="thank-you">
+          <Icon name="whatsapp" size={19} />
+          Chat {site.contact.whatsappDisplay}
+        </a>
+        <a class="btn btn--ghost btn--lg" href="/">
+          Kembali ke beranda
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<!--
+  Lead conversion. The old WordPress site fired this on the thank-you page
+  with the Google Ads label AW-17449982747 — the same label is used here so
+  the historical conversion data stays comparable.
+-->
+<script is:inline define:vars={{ conversion }}>
+  (function () {
+    var payload = {
+      event_category: 'conversion',
+      value: conversion.value,
+      currency: conversion.currency,
+    };
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: 'generate_lead' }, payload));
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: conversion.id + '/' + conversion.label,
+        value: conversion.value,
+        currency: conversion.currency,
+      });
+    }
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', payload);
+    }
+  })();
+</script>
+
+<style>
+  .thanks {
+    position: relative;
+    min-height: 70svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .thanks__inner {
+    max-width: 44rem;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+  }
+
+  .thanks__mark {
+    display: grid;
+    place-items: center;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: var(--ok-100);
+    color: var(--ok-600);
+    margin-bottom: var(--s-5);
+    animation: pop 600ms var(--ease-spring);
+  }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  .thanks h1 {
+    font-size: var(--fs-h1);
+    margin-block: var(--s-3) var(--s-4);
+  }
+
+  .thanks__lead {
+    font-size: var(--t-lg);
+    color: var(--ink-600);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .thanks__next {
+    margin-top: var(--s-7);
+    width: 100%;
+    text-align: left;
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+  }
+
+  .thanks__next h2 {
+    font-size: var(--fs-h2);
+    margin-bottom: var(--s-4);
+  }
+
+  .thanks__next ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-4);
+  }
+
+  .thanks__next li {
+    display: flex;
+    gap: var(--s-3);
+    align-items: flex-start;
+  }
+
+  .thanks__num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--brand-700);
+    color: var(--white);
+    font-size: var(--t-xs);
+    font-weight: 800;
+  }
+
+  .thanks__next h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.15rem;
+  }
+
+  .thanks__next p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+  .thanks__actions {
+    margin-top: var(--s-6);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+    justify-content: center;
+  }
+</style>

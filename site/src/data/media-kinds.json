@@ -1,0 +1,52 @@
+{
+  "_note": [
+    "What every curated asset actually is — the machine-readable record behind",
+    "PLAN.md F6. Two readers: src/data/media.ts (pages deciding whether to show",
+    "the \"Ilustrasi\" chip) and plugins/rehype-responsive-images.mjs (images",
+    "inside blog article bodies, which no page can reach). The verdicts came",
+    "from looking at the files; scripts/optimize-media.mjs carries the",
+    "human-readable explanation of each one."
+  ],
+  "foto": {
+    "knowledge-1": "Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang",
+    "detail-5": "Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
+  },
+  "render": {
+    "design-45": "Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah",
+    "design-45-portrait": "Visualisasi tampak depan unit tipe 45/72 saat sore hari — potongan tegak untuk layar ponsel",
+    "design-24": "Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari",
+    "design-25": "Visualisasi sisi belakang unit dengan carport dan kanopi",
+    "hero": "Visualisasi ruang keluarga dengan jendela lebar menghadap lembah",
+    "hero-2": "Visualisasi kamar tidur dengan pintu kaca menghadap taman",
+    "hero-3": "Visualisasi ruang kerja dan sudut baca dengan jendela tinggi",
+    "unit-3": "Visualisasi dapur yang terbuka ke taman belakang",
+    "unit-4": "Visualisasi carport beratap kisi dilihat dari dalam rumah",
+    "unit-5": "Visualisasi interior unit Valley Cityview",
+    "unit-6": "Visualisasi interior unit Valley Cityview",
+    "unit-7": "Visualisasi interior unit Valley Cityview",
+    "detail-1": "Visualisasi detail interior unit Valley Cityview",
+    "detail-2": "Visualisasi detail interior unit Valley Cityview",
+    "detail-3": "Visualisasi detail interior unit Valley Cityview",
+    "detail-4": "Visualisasi detail interior unit Valley Cityview",
+    "detail-6": "Visualisasi detail interior unit Valley Cityview",
+    "detail-7": "Visualisasi ruang terang dengan jendela tinggi",
+    "knowledge-2": "Visualisasi gerbang masuk kawasan Valley Cityview saat matahari terbenam",
+    "knowledge-3": "Visualisasi kawasan Valley Cityview dilihat dari udara",
+    "knowledge-4": "Visualisasi taman dan lintasan lari di kawasan Valley Cityview",
+    "render": "Visualisasi balkon unit Valley Cityview",
+    "render-2": "Visualisasi unit Valley Cityview dengan mobil dan penghuni",
+    "whisk-1": "Visualisasi kawasan Valley Cityview",
+    "whisk-2": "Visualisasi kawasan Valley Cityview",
+    "inspection": "Ilustrasi 3D, bukan gambar objek nyata"
+  },
+  "poster": {
+    "unit-1": "Poster pemasaran lama dengan foto stok keluarga",
+    "unit-2": "Poster pemasaran lama, logo di atas foto udara",
+    "home-green": "Pondok Norwegia — bukan proyek ini",
+    "pricelist": "Lembar daftar harga, dokumen bukan gambar proyek",
+    "hero-alt": "Tekstur dekoratif"
+  },
+  "denah": {
+    "denah-45-72": "Denah tipe 45/72: dua kamar tidur, satu kamar mandi, dapur terbuka, carport"
+  }
+}

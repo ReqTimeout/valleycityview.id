@@ -1,0 +1,89 @@
+---
+import { site } from '../data/site';
+
+const { gtm, stape } = site.tracking;
+---
+
+<!--
+  Tracking.
+
+  The Google Tag Manager container is the single source of truth for GA4, the
+  Meta Pixel and the Google Ads tags — the container already has them, and
+  loading a second copy here double-counted every page view (and made the Meta
+  Pixel complain about "multiple pixels with conflicting versions").
+
+  Stape is a separate first-party server-side endpoint, so it stays inline.
+-->
+
+<!-- Google Tag Manager -->
+<script is:inline define:vars={{ gtm }}>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l !== 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', gtm);
+</script>
+
+<!-- Stape Signals Gateway (server-side pixel, first-party) -->
+<script is:inline define:vars={{ stape }}>
+  !function (a, h, e, v, n, t, s) {
+    if (a.cbq) return;
+    n = a.cbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (typeof a.cbq === 'undefined') a.cbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = h.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = h.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  }(window, document, 'script', 'https://sgw.stape.au/sdk/' + stape + '/events.js');
+  cbq('setHost', 'https://sgw.stape.au/');
+  cbq('init', stape);
+  cbq('track', 'PageView');
+</script>
+
+<!--
+  Event helpers. Exposed globally so the booking form, the KPR simulator and
+  the WhatsApp links can report conversions without a framework.
+-->
+<script is:inline>
+  window.vcv = window.vcv || {};
+
+  window.vcv.track = function (name, params) {
+    var payload = params || {};
+    window.dataLayer = window.dataLayer || [];
+    // Push first so GTM can react to the event even when it has no tag for it.
+    window.dataLayer.push(Object.assign({ event: name }, payload));
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, payload);
+    }
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', name, payload);
+    }
+    if (typeof window.cbq === 'function') {
+      window.cbq('track', name, payload);
+    }
+  };
+
+  // WhatsApp clicks — the primary conversion on this site.
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('[data-wa]');
+    if (!link) return;
+    window.vcv.track('whatsapp_click', {
+      event_category: 'engagement',
+      event_label: link.getAttribute('data-wa'),
+      value: 1,
+      currency: 'IDR',
+    });
+  });
+</script>

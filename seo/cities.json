@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "version": "0.1.0",
+    "created": "2026-11-11",
+    "note": "Anchor area untuk Valley Cityview. socio.id punya 72 kota x layanan; site ini punya SATU alamat (Laksanamekar, Padalarang) dan pasar yang bisa dijangkau darinya. Jadi daftar ini bukan daftar kota tempat kami beroperasi, melainkan daftar area tempat pembaca mencari rumah — dan setiap baris wajib menyebut karakter hariannya. `local_anchor` disuntik DETERMINISTIK oleh seo/lib/geo-anchor.mjs, tidak diserahkan ke kepatuhan model; tanpa anchor, halaman 'rumah di X' hanya brosur yang ganti judul.",
+    "verification": "Angka jarak/waktu di bawah adalah fakta yang ada di halaman site (/index.astro, /#lokasi) atau jarak tempuh jalan raya yang bisa dicek sendiri di peta. Tidak ada angka statistik yang dikarang. Kalau perlu angka resmi (jumlah penduduk, luas wilayah), ambil dari bps.go.id dan sebutkan tahunnya di artikel — bukan di berkas ini.",
+    "schema": {
+      "city": "nama area seperti dicari orang",
+      "slug": "bentuk kebab-case — dipakai qc-uniqueness untuk mencocokkan akhiran slug artikel",
+      "provinsi": "DKI Jakarta | Jawa Barat",
+      "tier": "1 = tujuan utama pencari unit hari ini · 2 = pasar sekunder · 3 = hanya untuk konteks perjalanan",
+      "anchor": "fakta harian area (komuter, tol, kampus, pasar kerja) — min. 20 karakter",
+      "buyer": "profil pembeli yang paling mungkin di area ini"
+    }
+  },
+  "cities": [
+    {
+      "city": "Padalarang",
+      "slug": "padalarang",
+      "provinsi": "Jawa Barat",
+      "tier": 1,
+      "anchor": "Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.",
+      "buyer": "pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama"
+    },
+    {
+      "city": "Cimahi",
+      "slug": "cimahi",
+      "provinsi": "Jawa Barat",
+      "tier": 1,
+      "anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
+      "buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya"
+    },
+    {
+      "city": "Bandung Barat",
+      "slug": "bandung-barat",
+      "provinsi": "Jawa Barat",
+      "tier": 2,
+      "anchor": "Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.",
+      "buyer": "pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang"
+    },
+    {
+      "city": "Laksanamekar",
+      "slug": "laksanamekar",
+      "provinsi": "Jawa Barat",
+      "tier": 2,
+      "anchor": "Desa tempat alamat proyek berada, di jalur Padalarang yang menghubungkan stasiun KCIC dengan kawasan industri. Karakter hariannya: angkutan pekerja pada shift pagi, warung dan layanan harian yang ramai jam 05.00-08.00, serta tanah yang sebagian masih kebun warga — campuran yang menentukan apakah sebuah alamat nyaman ditinggali atau hanya murah di brosur.",
+      "buyer": "pembeli yang mencari alamat spesifik dekat jalan raya Padalarang dan mau berjalan atau menyetir pendek ke stasiun, bukan yang mengejar cluster bertema"
+    },
+    {
+      "city": "Baros",
+      "slug": "baros",
+      "provinsi": "Jawa Barat",
+      "tier": 3,
+      "anchor": "Nama gerbang tol di Cimahi yang menjadi jalur utama kendaraan dari Padalarang menuju tol Padalarang-Cileunyi dan Jakarta. Untuk pembeli, angka yang penting bukan 'dekat tol' melainkan berapa menit dari pintu gerbang ke pintu rumah pada jam berangkat kerja — selisihnya bisa dua kali lipat antara pukul 07.00 dan pukul 10.00.",
+      "buyer": "komuter yang mengemudi ke Bandung atau Jakarta dan menjadikan akses gerbang tol sebagai syarat pertama"
+    }
+  ]
+}

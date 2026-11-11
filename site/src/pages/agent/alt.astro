@@ -1,0 +1,557 @@
+---
+import Landing from '../../layouts/Landing.astro';
+import Icon from '../../components/Icon.astro';
+import Picture from '../../components/Picture.astro';
+import MediaLabel from '../../components/MediaLabel.astro';
+import { site, waLink, waMessages } from '../../data/site';
+
+const wa = waLink(waMessages.agent);
+
+const benefits = [
+  {
+    icon: 'banknote',
+    title: 'Komisi jutaan rupiah',
+    body:
+      'Setiap unit yang berhasil Anda jual membawa komisi yang jauh di atas ' +
+      'standar biaya kemitraan di pasar.',
+  },
+  {
+    icon: 'spark',
+    title: '100 % gratis',
+    body:
+      'Tidak ada biaya pendaftaran, tidak ada iuran bulanan, tidak ada modal ' +
+      'awal. Anda mulai dari nol rupiah.',
+  },
+  {
+    icon: 'compass',
+    title: 'Tanpa perlu kantor',
+    body:
+      'Bekerja dari mana saja. Cukup smartphone, koneksi internet, dan ' +
+      'kesediaan Anda untuk hustle.',
+  },
+  {
+    icon: 'layers',
+    title: 'Marketing kit eksklusif',
+    body:
+      'Foto unit, denah, price list, dan bahan promosi sudah kami siapkan. ' +
+      'Tinggal kirim ke calon pembeli.',
+  },
+  {
+    icon: 'clock',
+    title: 'Waktu kerja fleksibel',
+    body:
+      'Anda bos atas jadwal sendiri. Pagi, malam, atau saat akhir pekan — ' +
+      'anda yang menentukan.',
+  },
+  {
+    icon: 'users',
+    title: 'Dukungan penuh tim',
+    body:
+      'Dari materi promosi sampai proses closing, tim kami mendampingi. Anda ' +
+      'tidak sendirian.',
+  },
+] as const;
+
+const steps = [
+  {
+    title: 'Daftar gratis',
+    body:
+      'Isi formulir atau kirim pesan. Butuh waktu kurang dari satu menit.',
+  },
+  {
+    title: 'Promosikan properti',
+    body:
+      'Pakai marketing kit kami, sebarkan lewat media sosial dan jaringan Anda.',
+  },
+  {
+    title: 'Raih komisi',
+    body:
+      'Setiap unit yang berhasil closing langsung membawa komisi untuk Anda.',
+  },
+] as const;
+
+const testimonials = [
+  {
+    quote:
+      'Awalnya saya ibu rumah tangga biasa. Setelah gabung jadi agen Valley ' +
+      'Cityview, komisi dari penjualan pertama sangat membantu keuangan ' +
+      'keluarga dan menambah tabungan pendidikan anak. Senang sekali!',
+    name: 'Andini Putri',
+    role: 'Ibu rumah tangga, Cimahi',
+  },
+  {
+    quote:
+      'Sebagai karyawan, saya cari tambahan. Komisi dari sini memberikan ' +
+      'penghasilan tambahan yang signifikan di luar gaji utama. Sistemnya jelas ' +
+      'dan timnya sangat supportif. Sangat direkomendasikan!',
+    name: 'Rizky Pratama',
+    role: 'Karyawan swasta, Bandung',
+  },
+  {
+    quote:
+      'Masih mahasiswa tapi sudah bisa punya penghasilan sendiri dari properti. ' +
+      'Bimbingannya mantap, jadi bukan cuma dapat uang tapi juga belajar jadi ' +
+      'pengusaha properti dari nol.',
+    name: 'Sarah Larasati',
+    role: 'Mahasiswi, Padalarang',
+  },
+] as const;
+---
+
+<Landing
+  title="Jadi Agen Properti Valley Cityview — Gratis, Tanpa Modal"
+  description="Bergabung sebagai agen properti Valley Cityview di Padalarang, Cimahi. Pendaftaran gratis, tanpa modal, komisi jutaan rupiah, dan tim yang mendampingi sampai closing."
+  path="/agent/alt/"
+  waMessage={waMessages.agent}
+>
+  <section class="alt-hero">
+    <div class="alt-hero__media">
+      <Picture
+        name="/media/curated/knowledge-3.webp"
+        alt="Visualisasi kawasan Valley Cityview dilihat dari udara saat senja — deretan unit tipe 45/72 di antara tebing hijau, jalan lingkungan menyala"
+        class="alt-hero__img"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="alt-hero__scrim" aria-hidden="true"></div>
+    </div>
+    <MediaLabel name="/media/curated/knowledge-3.webp" bleed />
+
+    <div class="shell alt-hero__inner">
+      <span class="alt-hero__badge">Program agen properti</span>
+      <h1 class="alt-hero__title">
+        Jadilah agen properti sukses<br />
+        <em>bersama Valley Cityview.</em>
+      </h1>
+      <p class="alt-hero__lead">
+        Jual unit dengan pemandangan terbaik di Laksanamekar, Padalarang. Raih
+        komisi jutaan rupiah dari setiap unit yang terjual. Pendaftaran 100 %
+        gratis — tanpa syarat, tanpa modal.
+      </p>
+      <div class="alt-hero__actions">
+        <a class="btn btn--accent btn--lg" href={wa} data-wa="alt-hero">
+          <Icon name="whatsapp" size={19} />
+          Gabung Sekarang
+        </a>
+        <a class="btn btn--light btn--lg" href="#langkah" data-wa="alt-steps">
+          Lihat caranya
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Keuntungan</p>
+        <h2>Kenapa jadi agen di sini</h2>
+        <p class="section-lead">
+          Ini kesempatan untuk merambah penghasilan lewat bisnis properti —
+          tanpa biaya pendaftaran, tanpa biro, tanpa syarat minimal.
+        </p>
+      </div>
+
+      <div class="alt__grid">
+        {
+          benefits.map((item) => (
+            <article class="alt__card">
+              <span class="alt__card-icon">
+                <Icon name={item.icon} size={22} />
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="langkah">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Cara bergabung</p>
+        <h2>Tiga langkah sederhana</h2>
+      </div>
+
+      <ol class="alt__steps">
+        {
+          steps.map((step, i) => (
+            <li class="alt__step">
+              <span class="alt__step-num">{i + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <p class="eyebrow">Kisah agen</p>
+        <h2>Mereka sudah membuktikannya</h2>
+        <p class="section-lead">Sekarang giliran Anda.</p>
+      </div>
+
+      <div class="alt__quotes">
+        {
+          testimonials.map((item) => (
+            <figure class="alt__quote">
+              <Icon name="quote" size={24} />
+              <blockquote>{item.quote}</blockquote>
+              <figcaption>
+                <strong>{item.name}</strong>
+                <span>{item.role}</span>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="alt-cta">
+    <div class="shell alt-cta__inner">
+      <h2>Ambil langkah pertama Anda menuju sukses</h2>
+      <p>
+        Slot untuk agen baru dibatasi setiap bulan. Daftar sekarang, gratis, dan
+        tanpa ada biaya tersembunyi.
+      </p>
+      <a class="btn btn--wa btn--lg" href={wa} data-wa="alt-cta">
+        <Icon name="whatsapp" size={19} />
+        Daftar Gratis Sekarang
+      </a>
+      <p class="alt-cta__note">
+        {site.contact.hours} · {site.contact.phone}
+      </p>
+    </div>
+  </section>
+</Landing>
+
+<style>
+
+  .alt-hero {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: flex-end;
+    padding-block: calc(var(--header-h) + 4rem) var(--s-8);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+
+  .alt-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+
+  .alt-hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* One recipe for all five heroes — see --scrim-hero in global.css. */
+    background: var(--scrim-hero);
+  }
+
+
+  .alt-hero__inner {
+    width: 100%;
+  }
+
+
+  .alt-hero__badge {
+    display: inline-block;
+    /* F5: the only yellow in this viewport is "Gabung Sekarang". Translucent
+       white fill, not brand-900 — see the note on .nup__badge. */
+    background: color-mix(in srgb, var(--white) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 26%, transparent);
+    color: var(--white);
+    font-size: var(--t-xs);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--r-full);
+    margin-bottom: var(--s-4);
+  }
+
+
+  .alt-hero__title {
+    font-size: var(--fs-h1);
+    color: var(--white);
+    margin-bottom: var(--s-4);
+    max-width: 18ch;
+  }
+
+
+  .alt-hero__title em {
+    font-style: italic;
+    color: var(--white);
+  }
+
+
+  .alt-hero__lead {
+    font-size: var(--t-lg);
+    color: color-mix(in srgb, var(--white) 86%, transparent);
+    max-width: 52ch;
+    margin-bottom: var(--s-6);
+  }
+
+
+  .alt-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+
+  .alt__grid {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .alt__card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+  }
+
+
+  .alt__card-icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--r-md);
+    background: var(--brand-050);
+    color: var(--brand-700);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .alt__card h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.4rem;
+  }
+
+
+  .alt__card p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .alt__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-4);
+    counter-reset: step;
+  }
+
+
+  .alt__step {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+  }
+
+
+  .alt__step-num {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--brand-700);
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: var(--s-3);
+  }
+
+
+  .alt__step h3 {
+    font-size: var(--fs-h3);
+    margin-bottom: 0.35rem;
+  }
+
+
+  .alt__step p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--ink-600);
+  }
+
+
+  .alt__quotes {
+    display: grid;
+    gap: var(--s-4);
+  }
+
+
+  .alt__quote {
+    margin: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: var(--s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+
+  .alt__quote :global(svg) {
+    color: var(--accent-500);
+  }
+
+
+  .alt__quote blockquote {
+    margin: 0;
+    font-size: var(--t-base);
+    line-height: 1.65;
+    color: var(--ink-700);
+    flex: 1;
+  }
+
+
+  .alt__quote figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: var(--t-sm);
+  }
+
+
+  .alt__quote figcaption span {
+    color: var(--ink-500);
+    font-size: var(--t-xs);
+  }
+
+
+  .alt-cta {
+    background: var(--brand-800);
+    color: var(--white);
+    padding-block: var(--s-9);
+    text-align: center;
+  }
+
+
+  .alt-cta h2 {
+    font-size: var(--fs-h2);
+    color: var(--white);
+    margin-bottom: var(--s-3);
+  }
+
+
+  .alt-cta p {
+    color: color-mix(in srgb, var(--white) 82%, transparent);
+    max-width: 52ch;
+    margin: 0 auto var(--s-5);
+  }
+
+
+  .alt-cta__note {
+    margin-top: var(--s-4) !important;
+    font-size: var(--t-xs);
+    color: color-mix(in srgb, var(--white) 62%, transparent) !important;
+  }
+@media (min-width: 720px) {
+
+    .alt__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .alt__steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    .alt__quotes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1000px) {
+
+    .alt__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+  @media (max-width: 899px) {
+
+    /* Phone hero: photograph on top, copy on solid brand-900 below — the
+       reasoning is written out once in nup.astro. */
+    .alt-hero {
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 0;
+      padding-block: 0;
+      background: var(--brand-900);
+    }
+
+
+    .alt-hero__media {
+      position: relative;
+      inset: auto;
+      height: 40svh;
+    }
+
+
+    .alt-hero__scrim {
+      background: linear-gradient(to top,
+        var(--brand-900) 2%,
+        color-mix(in srgb, var(--brand-900) 58%, transparent) 36%,
+        transparent 80%);
+    }
+
+
+    .alt-hero__inner {
+      padding-block: var(--s-5) var(--s-7);
+    }
+}
+
+
+  /* F8 — scroll budget. /agent/alt/ was the one landing over its number, and
+     it was not the words: it was a desktop's vertical rhythm running on a
+     phone. The three stacked groups keep every card; they just stop paying
+     for section padding, a full-bleed hero image and 96px of CTA band that
+     only make sense on a wide screen. Scoped to this page, so nup/sale/agent
+     are untouched. */
+  @media (max-width: 640px) {
+
+    .alt-hero__media {
+      height: 28svh;
+    }
+
+
+    .section {
+      padding-block: var(--s-5);
+    }
+
+
+    .alt-cta {
+      padding-block: var(--s-6);
+    }
+
+
+    .alt__card,
+    .alt__quote {
+      padding: var(--s-4);
+    }
+}
+</style>

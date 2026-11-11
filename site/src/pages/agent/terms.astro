@@ -1,0 +1,151 @@
+---
+import Landing from '../../layouts/Landing.astro';
+import Icon from '../../components/Icon.astro';
+import { site, waLink, waMessages } from '../../data/site';
+
+const wa = waLink(waMessages.agent);
+---
+
+<Landing
+  title="Syarat & Ketentuan Agen Valley Cityview"
+  description="Syarat, ketentuan, dan alur kerja sama kemitraan agen properti Valley Cityview di Padalarang, Cimahi."
+  path="/agent/terms/"
+  waMessage={waMessages.agent}
+>
+  <section class="section terms">
+    <div class="shell terms__inner">
+      <p class="eyebrow">Dokumen</p>
+      <h1>Syarat &amp; Ketentuan Agen Valley Cityview</h1>
+      <p class="terms__updated">Berlaku sejak 10 November 2026</p>
+
+      <div class="prose">
+        <p>
+          Dokumen ini menjelaskan bentuk kemitraan antara Valley Cityview
+          (“kami”) dengan pihak yang mendaftar menjadi agen (“agen”). Dengan
+          mendaftar, agen menyatakan memahami dan menyetujui seluruh ketentuan
+          di bawah ini.
+        </p>
+
+        <h2>1. Pendaftaran</h2>
+        <p>
+          Pendaftaran gratis dan dapat dilakukan kapan saja melalui WhatsApp.
+          Kami melakukan verifikasi singkat, lalu mengirim bahan promosi dan
+          skema komisi yang berlaku saat itu.
+        </p>
+
+        <h2>2. Kewajiban agen</h2>
+        <ul>
+          <li>Menyampaikan informasi unit secara akurat sesuai bahan yang diberikan.</li>
+          <li>Tidak menjanjikan harga, skema cicilan, atau bonus di luar ketentuan tertulis.</li>
+          <li>Tidak menggunakan foto, denah, atau logo Valley Cityview di luar kerja sama ini.</li>
+          <li>Menyampaikan identitas calon pembeli kepada kami sebelum kunjungan lokasi.</li>
+        </ul>
+
+        <h2>3. Materi promosi</h2>
+        <p>
+          Foto unit, denah, price list, dan materi promosi lain yang kami
+          berikan hanya boleh dipakai untuk mencari calon pembeli unit
+          Valley Cityview.
+        </p>
+
+        <h2>4. Kunjungan dan closing</h2>
+        <p>
+          Kunjungan ke lokasi selalu dikoordinasikan dengan tim kami. Closing
+          dilakukan oleh tim Valley Cityview, dan nomor unit yang sedang
+          kami amankan akan dipegang oleh kami.
+        </p>
+
+        <h2>5. Skema komisi</h2>
+        <p>
+          Besaran komisi mengikuti skema yang berlaku pada saat unit terjual,
+          dan disampaikan secara tertulis kepada agen. Perubahan skema
+          diumumkan paling lambat 14 hari sebelum berlaku.
+        </p>
+
+        <h2>6. Pembayaran komisi</h2>
+        <p>
+          Komisi dibayarkan setelah proses pen tanda tangan unit selesai dan
+          seluruh administrasi beres. Pembayaran dilakukan melalui transfer
+          bank dengan konfirmasi tertulis.
+        </p>
+
+        <h2>7. Penegakan</h2>
+        <p>
+          Pelanggaran terhadap ketentuan ini dapat berakibat penghentian
+          akses materi promosi dan penangguhan pembayaran komisi yang sedang
+          berjalan.
+        </p>
+
+        <h2>8. Perubahan ketentuan</h2>
+        <p>
+          Kami dapat memperbarui dokumen ini. Perubahan besar disampaikan
+          melalui WhatsApp minimal 7 hari sebelum berlaku.
+        </p>
+      </div>
+
+      <div class="terms__cta">
+        <Icon name="users" size={22} />
+        <div>
+          <h2>Masih ada pertanyaan?</h2>
+          <p>Chat tim kami — jawabannya singkat dan jelas.</p>
+        </div>
+        <a class="btn btn--wa" href={wa} data-wa="agent-terms-cta">
+          <Icon name="whatsapp" size={18} />
+          {site.contact.whatsappDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+</Landing>
+
+<style>
+  .terms__inner {
+    max-width: 46rem;
+  }
+
+  .terms h1 {
+    font-size: var(--fs-h1);
+    margin-block: var(--s-3) var(--s-2);
+  }
+
+  .terms__updated {
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+    margin-bottom: var(--s-6);
+  }
+
+  .terms__cta {
+    margin-top: var(--s-7);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-4);
+    padding: var(--s-5);
+    border-radius: var(--r-lg);
+    background: var(--brand-900);
+    color: var(--sand-100);
+  }
+
+  .terms__cta > :global(svg) {
+    color: var(--accent-500);
+    flex: none;
+  }
+
+  .terms__cta > div {
+    flex: 1 1 12rem;
+  }
+
+  .terms__cta h2 {
+    color: var(--white);
+    /* Was --t-xl: an h2 wearing an h3's size. The level decides, not the
+       section it happens to sit in. */
+    font-size: var(--fs-h2);
+    margin-bottom: 0.15rem;
+  }
+
+  .terms__cta p {
+    margin: 0;
+    font-size: var(--t-sm);
+    color: var(--brand-100);
+  }
+</style>

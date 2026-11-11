@@ -1,0 +1,166 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Icon from '../components/Icon.astro';
+import Logo from '../components/Logo.astro';
+import Tracking from '../components/Tracking.astro';
+import { site, waLink, waMessages } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  /** Conversion message used by the WhatsApp buttons on this page. */
+  waMessage?: string;
+}
+
+const { title, description, path, waMessage = waMessages.booking } = Astro.props;
+const wa = waLink(waMessage);
+---
+
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#01505d" />
+    <Seo title={title} description={description} path={path} noindex />
+    <Tracking />
+  </head>
+
+  <body class="landing">
+    <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+    <header class="landing__bar">
+      <div class="landing__bar-inner">
+        <a class="landing__logo" href="/" aria-label="Valley Cityview">
+          <Logo height={44} />
+        </a>
+        <a class="btn btn--wa btn--sm" href={wa} data-wa="landing-bar">
+          <Icon name="whatsapp" size={16} />
+          <span class="landing__cta-text">Chat {site.contact.whatsappDisplay}</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="landing__foot">
+      <p>
+        © {new Date().getFullYear()} {site.legalName} · {site.address.street},
+        {site.address.city} · {site.contact.phone}
+      </p>
+      <p class="landing__foot-links">
+        <a href="/">Beranda</a>
+        <a href="/privacy/">Kebijakan Privasi</a>
+        <a href="/blog/">Blog</a>
+      </p>
+    </footer>
+
+    <a class="landing__float" href={wa} target="_blank" rel="noopener" data-wa="landing-float" aria-label="Chat WhatsApp">
+      <Icon name="whatsapp" size={26} />
+    </a>
+  </body>
+</html>
+
+<style>
+
+  .landing {
+    background: var(--surface-alt);
+  }
+
+
+  .landing__bar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--white) 90%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+
+  .landing__bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    /* Equal to --header-h, which is what the landing heroes reserve space
+       with. At 62px every hero on these five pages sat 10px too low. */
+    min-height: 72px;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+
+  .landing__cta-text {
+    display: none;
+  }
+
+
+  .landing__foot {
+    padding: var(--s-6) var(--gutter);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+
+
+  .landing__foot p {
+    margin: 0;
+    font-size: var(--t-xs);
+    color: var(--ink-500);
+  }
+
+
+  .landing__foot-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--s-4);
+    margin-top: var(--s-2) !important;
+  }
+
+
+  .landing__foot-links a {
+    color: var(--ink-600);
+    text-decoration: none;
+  }
+
+
+  .landing__foot-links a:hover {
+    color: var(--brand-700);
+  }
+
+
+  .landing__float {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 45;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #25d366, #128c7e);
+    color: #fff;
+    box-shadow: 0 10px 26px rgb(37 211 102 / 0.42);
+    transition: transform var(--d-fast) var(--ease-spring);
+  }
+
+
+  .landing__float:hover {
+    transform: scale(1.08);
+    color: #fff;
+  }
+@media (min-width: 560px) {
+
+    .landing__cta-text {
+      display: inline;
+    }
+}
+</style>
