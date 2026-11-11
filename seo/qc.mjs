@@ -12,6 +12,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { BLOG_DIR, QUEUE_PATH } from './paths.mjs';
+import { liveSlugs } from './lib/live-posts.mjs';
 
 const NL = String.fromCharCode(10);
 const DRAFT_FLAG = NL + 'status: draft';
@@ -97,7 +98,9 @@ for (const it of QUEUE.items) {
   kwBySlug[slug] = it.keyword;
 }
 const allMdx = readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''));
-const publishedSlugs = allMdx.filter((s) => !readFileSync(join(BLOG_DIR, `${s}.md`), 'utf8').includes(DRAFT_FLAG));
+// liveSlugs() = predikat route Astro (publish + bukan redirect). Draft dan stub
+// redirect keluar dari daftar, supaya target link yang diperiksa QC benar-benar 200.
+const publishedSlugs = liveSlugs();
 
 const argSlugs = process.argv.slice(2);
 const targets = argSlugs.length

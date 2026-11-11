@@ -33,7 +33,7 @@
  *   SEO_CONTENT_DIR (opsional — default <repo>/site/src/collections/blog)
  *   GITHUB_TOKEN (wajib untuk push — tidak pernah di-print)
  *   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID (wajib untuk poll deploy)
- *   SOCIO_INDEXNOW_KEY (untuk IndexNow)
+ *   INDEXNOW_KEY (untuk IndexNow)
  */
 
 import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
@@ -339,11 +339,11 @@ async function main() {
     await verifyUrls(publishedUrls);
 
     // 9) Validasi JSON-LD dari HTML live (warn-only — sudah tayang, tidak bisa di-block).
-    console.log('\n=== jsonld-live ===');
+    console.log('\n=== jsonld-validate --strict (dist lokal) ===');
     try {
-      runNode('jsonld-live.mjs', publishedUrls);
+      runNode('jsonld-validate.mjs', ['--strict']);
     } catch (e) {
-      console.log('  ⚠ jsonld-live memberi peringatan (lihat di atas) — lanjut, sudah tayang.');
+      console.log('  ⚠ jsonld-validate memberi peringatan (lihat di atas) — lanjut, sudah tayang; perbaiki di commit berikutnya.');
     }
 
     // 10) IndexNow + state.

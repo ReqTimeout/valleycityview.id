@@ -225,8 +225,8 @@ async function main() {
   run('node seo/mesh-build.mjs --write');
 
   // Build
-  console.log('\n=== build landing ===');
-  run('pnpm --filter landing build');
+  console.log('\n=== build site (Astro) ===');
+  run('npm --prefix site run build');
 
   // Validasi schema JSON-LD (plan v2 §5.3 "wire post-build"). Fail-CLOSED:
   // schema rusak = halaman tidak bisa dapat rich result, jadi lebih baik

@@ -80,7 +80,7 @@ TULIS SEKARANG. Mulai dari paragraf definisi (maks 40 kata, memuat keyword), lal
 /**
  * Mode --split: satu bagian per panggilan.
  *
- * Dipecah karena model gratis tidak sanggup satu tugas 900 kata: di socio.id
+ * Dipecah karena model gratis tidak sanggup satu tugas 900 kata: di proyek sebelumnya
  * empat artikel paralel menghasilkan ~400 kata dan 0/4 lolos gate. Untuk
  * Valley Cityview target body lebih pendek (700-1000 kata), tapi pola
  * kegagalannya sama, jadi pertahankan tiga panggilan: intro+H2 1-2,
@@ -444,7 +444,7 @@ function slugify(s: string): string {
 
 /** Taksonomi longgar: label bebas dipetakan ke beberapa tag tetap. */
 function mapTags(category: any): string[] {
-  const c = String(category || 'umkm').toLowerCase();
+  const c = String(category || 'panduan').toLowerCase();
   if (/kpr|cicil|bunga|dp|angsuran/.test(c)) return ['kpr'];
   if (/harga|pricelist|biaya/.test(c)) return ['harga'];
   if (/lokasi|cimahi|padalarang|bandung|daerah/.test(c)) return ['lokasi'];

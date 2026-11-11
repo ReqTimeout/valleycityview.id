@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
 import { media } from '../lib/media';
+import { webPageSchema } from '../lib/jsonld';
 
 interface Props {
   title: string;
@@ -37,6 +38,16 @@ const ogWidth = imageEntry?.width ?? 1200;
 const ogHeight = imageEntry?.height ?? 630;
 const fullTitle =
   title.includes(site.name) ? title : `${title} | ${site.name}`;
+
+/**
+ * Skema dasar untuk setiap halaman yang boleh di-index. Halaman noindex tidak
+ * dikirimi WebPage/BreadcrumbList: kami minta Google mengabaikannya, jadi
+ * mengirim struktur untuk halaman itu hanya menambah markup kosong.
+ *
+ * Di sini, bukan di tiap halaman, karena halaman yang lupa merangkai skema
+ * sendiri tidak akan pernah terlihat salah — ia hanya sunyi.
+ */
+const baseline = noindex ? [] : [webPageSchema({ title: fullTitle, description, path })];
 ---
 
 <title>{fullTitle}</title>
@@ -81,7 +92,7 @@ const fullTitle =
 <meta name="theme-color" content="#01505d" />
 
 {
-  schemas.map((schema) => (
+  [...baseline, ...schemas].map((schema) => (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   ))
 }

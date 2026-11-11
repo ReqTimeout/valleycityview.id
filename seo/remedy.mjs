@@ -34,7 +34,7 @@
  *   node seo/remedy.mjs --max-pings 10 # cap ping Bing per siklus (default 10)
  *   node seo/remedy.mjs --json         # ringkasan JSON
  *
- * Env: SOCIO_INDEXNOW_KEY (atau site/public/indexnow.txt) · BING_API_KEY ·
+ * Env: INDEXNOW_KEY (atau site/public/indexnow.txt) · BING_API_KEY ·
  *      GSC_SERVICE_ACCOUNT_JSON_B64 | GSC_SA_FILE (untuk submit sitemap)
  * Exit: 0 = siklus selesai (needsHuman bukan error — itu situasi yang perlu
  *       escalate ke manusia, bukan crash), 1 = gagal total.

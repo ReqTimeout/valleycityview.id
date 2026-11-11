@@ -28,7 +28,7 @@
  *   node seo/indexer.mjs --json          # ringkasan JSON (untuk notify/email)
  *   node seo/indexer.mjs --no-preflight  # skip cek kredensial sebelum pipeline
  *
- * Env: GSC_SERVICE_ACCOUNT_JSON_B64 | GSC_SA_FILE · BING_API_KEY · SOCIO_INDEXNOW_KEY
+ * Env: GSC_SERVICE_ACCOUNT_JSON_B64 | GSC_SA_FILE · BING_API_KEY · INDEXNOW_KEY
  * Exit: 0 = semua tahap wajib sukses (tahap opsional gagal tetap 0, tapi dicetak WARN),
  *       1 = ada tahap wajib gagal (auth/key hilang, API down) → runner tidak lanjut publish.
  */
@@ -163,7 +163,7 @@ async function main() {
   if (!args.ramp && !isMonday) plan = plan.filter((s) => s.name !== 'ramp');
 
   console.log(`indexer — ${args.dryRun ? 'DRY-RUN' : 'LIVE'} · window ${args.days} hari · ${new Date().toISOString()}`);
-  console.log(`  env      : GSC=${hasEnv('GSC_SERVICE_ACCOUNT_JSON_B64') || hasEnv('GSC_SA_FILE') ? 'ada' : 'KOSONG'} · BING=${hasEnv('BING_API_KEY') ? 'ada' : 'KOSONG'} · INDEXNOW=${hasEnv('SOCIO_INDEXNOW_KEY') || existsSync(join(HERE, '../site/public/indexnow.txt')) ? 'ada' : 'KOSONG'}`);
+  console.log(`  env      : GSC=${hasEnv('GSC_SERVICE_ACCOUNT_JSON_B64') || hasEnv('GSC_SA_FILE') ? 'ada' : 'KOSONG'} · BING=${hasEnv('BING_API_KEY') ? 'ada' : 'KOSONG'} · INDEXNOW=${hasEnv('INDEXNOW_KEY') || existsSync(join(HERE, '../site/public/indexnow.txt')) ? 'ada' : 'KOSONG'}`);
   console.log(`  ping URLs: ${ctx.urls.length}${args.ramp ? '' : isMonday ? ' · ramp: Senin (otomatis)' : ` · ramp: dilewati (bukan Senin, pakai --ramp untuk paksa)`}`);
   console.log(`  tahap    : ${plan.map((s) => s.name).join(' → ') || '(tidak ada)'}\n`);
 
@@ -176,7 +176,7 @@ async function main() {
     if (pre.code !== 0) {
       console.log(`   → FAIL (exit ${pre.code})\n`);
       console.log('⛔ preflight gagal — tahap tidak dijalankan sama sekali.');
-      console.log('   GSC: cek GSC_SITE_URL (harus sc-domain:valleycity.id) + SA Owner → docs/GOOGLE_CLOUD_SETUP.md §13.1');
+      console.log('   GSC: cek GSC_SITE_URL (harus sc-domain:valleycity.id) + SA Owner → seo/README.md §13.1');
       process.exitCode = 1;
       return 1;
     }
@@ -231,7 +231,7 @@ async function main() {
     console.log(`ringkasan: ok=${ran.join(',') || '-'} · warn=${warned.map((w) => w.name).join(',') || '-'} · fail=${criticalFailed.map((f) => f.name).join(',') || '-'}`);
     if (criticalFailed.length) {
       console.log('\n⛔ tahap wajib gagal → JANGAN lanjut publish hari ini. Cek: node seo/scripts/gsc-doctor.mjs');
-      console.log('   docs/GOOGLE_CLOUD_SETUP.md §13 (403 = property/scope, quota = §13.5, Bing = §13.6)');
+      console.log('   seo/README.md §13 (403 = property/scope, quota = §13.5, Bing = §13.6)');
     } else if (warned.length) {
       console.log('\n⚠ tahap opsional gagal (tidak halt):');
       for (const w of warned) console.log(`   · ${w.name} — retry di run berikutnya, kuota belum tentu habis`);

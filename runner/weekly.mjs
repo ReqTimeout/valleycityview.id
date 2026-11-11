@@ -16,6 +16,7 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { NOTIFY_PREFIX } from '../seo/site.mjs';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport } from './lib/notify.mjs';
 import { searchAnalytics } from '../seo/lib/gsc.mjs';
@@ -111,8 +112,8 @@ async function main() {
     const impressions = mined.reduce((a, q) => a + q.impressions, 0);
 
     await sendReport({
-      subject: `[socio-seo] mingguan — ${clicks} klik / ${impressions} imp (28 hari)${minedError ? ' (mining gagal)' : ''}`,
-      heading: 'SEO engine socio.id — laporan mingguan',
+      subject: `[${NOTIFY_PREFIX}] mingguan — ${clicks} klik / ${impressions} imp (28 hari)${minedError ? ' (mining gagal)' : ''}`,
+      heading: 'SEO engine valleycity.id — laporan mingguan',
       lines: [
         `Total klik 28 hari: ${clicks} · impressions: ${impressions}`,
         `URL published: ${(state.published || []).length}`,

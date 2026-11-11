@@ -108,7 +108,12 @@ function computeMetrics(state, windowDays) {
   // Ini penyebut index_rate. Exclude not_discovered + unknown.
   const discovered = buckets.indexed + buckets.not_indexed + buckets.blocked;
   const indexRate = discovered > 0 ? buckets.indexed / discovered : null;
-  const discoveryGapRatio = total > 0 ? (buckets.not_discovered + buckets.unknown) / total : null;
+  // `unknown` = KAMI yang belum mengukur (tidak ada hasil inspeksi untuk URL ini),
+  // bukan Google yang gagal menemukan. Memasukkannya ke gap membuat checkout baru
+  // selalu berbunyi "Google belum menemukan 0/54 URL" dan menutup cabang `sample
+  // tipis` yang justru benar. Gap hanya dihitung atas URL yang punya pengukuran.
+  const measured = total - buckets.unknown;
+  const discoveryGapRatio = measured > 0 ? buckets.not_discovered / measured : null;
 
   return { total, discovered, indexRate, discoveryGapRatio, buckets, inWindow };
 }
@@ -139,6 +144,17 @@ function decide(metrics, config, mode) {
   }
 
   const { total, discovered, indexRate, discoveryGapRatio, buckets } = metrics;
+
+  // Kekurangan pengukuran itu sendiri harus terlihat, sebagai fakta — bukan
+  // sebagai diagnosis. Naikkan volume tanpa data tetap tidak boleh, jadi cabang
+  // `sample tipis` di bawah yang menahan ramp.
+  if (total > 0 && buckets.unknown > 0) {
+    alerts.push({
+      level: 'info',
+      code: 'no_measurement',
+      msg: `${buckets.unknown}/${total} URL belum punya hasil inspeksi GSC — jalankan \`node seo/gsc-inspect.mjs\`. Ini pengukuran yang belum ada, bukan bukti Google gagal menemukan.`,
+    });
+  }
 
   if (total === 0) {
     out.reason = 'hold — belum ada URL ter-inspect di window ini';

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * seo/generate.mjs — generator artikel SMM via opencode CLI (spec §3).
+ * seo/generate.mjs — generator artikel properti via opencode/Groq (plan Fase 10).
  *
  * Pipeline:
  *   queue.json → sort priority → pull top pending
@@ -19,7 +19,7 @@
  *
  * Usage:
  *   node seo/generate.mjs --count=2
- *   node seo/generate.mjs --count=1 --keyword="beli followers instagram aman"
+ *   node seo/generate.mjs --count=1 --keyword="rasio cicilan terhadap gaji"
  *   node seo/generate.mjs --count=2 --dry
  */
 
@@ -29,9 +29,19 @@ import { spawn } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { ROOT, BLOG_DIR, QUEUE_PATH, PROMPTS_PATH, KEYWORDS_PATH } from './paths.mjs';
-import { PRICES } from './site.mjs';
+import { PRICES, MONEY_PAGES } from './site.mjs';
 import { injectGeoAnchor } from './lib/geo-anchor.mjs';
+import { liveSlugs } from './lib/live-posts.mjs';
 import { lintArticle } from './lib/article-lint.mjs';
+
+// Antrean boleh belum ada di checkout pertama — tapi generator harus menjawab
+// dengan pesan, bukan stack traceENOENT. seed-queue.mjs yang menulisnya.
+if (!existsSync(QUEUE_PATH)) {
+  console.error(`FATAL: ${QUEUE_PATH} belum ada.`);
+  console.error('  Buat dulu (inventaris post impor, antrean masih kosong): node seo/seed-queue.mjs --inventory-only');
+  console.error('  Setelah seo/keywords.json disetujui:            node seo/seed-queue.mjs');
+  process.exit(1);
+}
 const QUEUE = JSON.parse(readFileSync(QUEUE_PATH, 'utf8'));
 
 // ===== prompts.ts dimuat sebagai modul =====
@@ -155,15 +165,11 @@ function slugify(s) {
 
 // ===== Sprint 1 guards (A4/A5b/A6) — helper murni, tidak lewat eval =====
 
-// publishedSlugs: hanya artikel yang ada di disk + sudah publish yang boleh jadi tautan
-// internal "Baca juga". Draft (status: draft) belum tampil di situs = 404 kalau di-link.
+// publishedSlugs: artikel yang benar-benar tayang — liveSlugs() memakai predikat
+// yang sama dengan route Astro. Draft belum tampil = 404 kalau di-link, dan stub
+// redirect hasil audit Fase 10 tampil sebagai 301: dua-duanya bukan target link.
 function publishedSlugs() {
-  if (!existsSync(BLOG_DIR)) return [];
-  return readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith('.md'))
-    .map((f) => ({ slug: f.replace(/\.md$/, ''), path: join(BLOG_DIR, f) }))
-    .filter((r) => !readFileSync(r.path, 'utf8').includes('\nstatus: draft'))
-    .map((r) => r.slug);
+  return liveSlugs();
 }
 
 // A4: related diambil dari slug terpublish saja; judul dibaca dari frontmatter file.
@@ -217,18 +223,10 @@ function paddedFaqInfo(body) {
 
 /**
  * Halaman uang site ini cuma beberapa: simulasi KPR, bagian unit/booking di
- * homepage, halaman agen, NUP, sale. Pemetaan keyword -> target deterministik;
- * LLM tidak memilih sendiri (link karangan = 404 dan itu yang diaudit di
- * validateMdx).
+ * homepage, halaman agen, NUP, sale. Registry-nya hidup di site.mjs supaya
+ * llms.mjs tidak punya salinan kedua. Pemetaan keyword -> target deterministik;
+ * LLM tidak memilih sendiri (link karangan = 404).
  */
-const MONEY_PAGES = [
-  { url: '/simulasi-kpr/', anchor: 'simulator cicilan KPR', match: ['kpr', 'cicil', 'angsur', 'bunga', 'dp', 'tenor', 'credit', 'financ'] },
-  { url: '/#unit', anchor: 'denah dan tipe unit 45/72', match: ['denah', 'tipe', 'lu', 'kamar', 'desain', 'spesifikasi', 'unit'] },
-  { url: '/#lokasi', anchor: 'peta lokasi Padalarang', match: ['lokasi', 'akses', 'jarak', 'tol', 'kcic', 'padalarang', 'cimahi', 'bandung'] },
-  { url: '/agent/', anchor: 'program agen properti', match: ['agen', 'makelar', 'komisi', 'mitra'] },
-  { url: '/nup/', anchor: 'nomor urut pemesanan', match: ['nup', 'pemesanan', 'booking', 'pesan'] },
-  { url: '/sale/', anchor: 'penawaran unit yang ada', match: ['promo', 'diskon', 'potongan', 'cashback', 'sale'] },
-];
 
 function pickMoneyLink(keyword) {
   const k = String(keyword || '').toLowerCase();
@@ -243,7 +241,7 @@ function pickMoneyLink(keyword) {
   return best ?? { url: '/simulasi-kpr/', anchor: 'simulasi cicilan KPR' };
 }
 
-/* Satu produk, jadi tidak ada "pool harga" seperti katalog SMM: yang dikirim
+/* Satu produk, jadi tidak ada "pool harga" seperti katalog layanan: yang dikirim
    ke prompt adalah angka rekaman, selalu utuh. */
 function pickPrices() {
   return PRICES.top;
@@ -308,7 +306,7 @@ function blogLinkBrokenInfo(mdx, validSlugs) {
  * kini satu berkas yang dirawat tangan: seo/keywords.json.
  *
  * geo-expand tidak di-port: site ini punya satu lokasi, jadi "matriks kota x
- * layanan" (980 KB di socio.id) tidak ada padanannya. Variasi geografis yang
+ * layanan" (980 KB di proyek sebelumnya) tidak ada padanannya. Variasi geografis yang
  * masuk akal = Padalarang / Cimahi / Bandung Barat, dan itu dituliskan langsung
  * di keywords.json bersama local_anchor-nya.
  *
@@ -385,7 +383,7 @@ async function main() {
       console.warn('PERINGATAN KERAS: --ignore-gate dipakai. Gate Fase F dilanggar: ' + gateReason);
     } else {
       console.error('GATE FASE F TERTUTUP: ' + gateReason);
-      console.error('Lewati dengan benar: isi seo/keywords.json (approved:true + _meta.approved_at) lalu sync ke queue (approved:true + _meta.approved_at) -> node seo/geo-expand.mjs --promote');
+      console.error('Lewati dengan benar: set seo/keywords.json _meta.approved_at + _meta.approved_by, lalu `node seo/seed-queue.mjs` untuk memindahkan keyword approved ke antrean.');
       process.exit(1);
     }
   }

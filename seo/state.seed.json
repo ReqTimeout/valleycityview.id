@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "seededAt": "2026-11-11T00:00:00.000Z",
+    "note": "Seed kosong untuk runner container. Di-override oleh volume /app/data/state.json saat container start (SEO_STATE_PATH). Jangan pakai berkas ini sebagai dasar pengukuran: state yang sahih dibangun dari disk oleh `node seo/bootstrap-state.mjs`, yang membaca queue status published + memverifikasi Markdown-nya benar-benar ada dan bukan draft.",
+    "kenapa_kosong": "Domain valleycity.id baru dipindah dari WordPress ke Astro dan belum pernah di-inspeksi GSC pada struktur URL baru. Mengisi seed ini dengan asumsi 'sudah ter-index' akan membuat indexer melewatkan 54 halaman yang justru paling perlu dicek setelah 17 redirect 301 kemarin, dan ramp-gate akan menghitung index_rate dari angka yang kami karang sendiri."
+  },
+  "published": [],
+  "indexnow": {
+    "submitted": [],
+    "last": null
+  },
+  "gsc": {
+    "inspections": {},
+    "sitemap_last_submitted": null
+  }
+}

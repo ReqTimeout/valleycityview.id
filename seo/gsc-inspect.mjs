@@ -170,7 +170,7 @@ async function main() {
   console.log(`\nindex_rate: ${indexed}/${targets.length} = ${(rate * 100).toFixed(1)}%  → state.json (gsc.lastRun)`);
   if (failures.length) {
     console.log(`gagal: ${failures.length} URL (lihat pesan di atas)`);
-    console.log(' Troubleshoot: docs/GOOGLE_CLOUD_SETUP.md §13');
+    console.log(' Troubleshoot: seo/README.md §13');
     return 1;
   }
   if (rate < 0.7 && targets.length >= 3) {

@@ -36,6 +36,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { BLOG_DIR, ROOT } from './paths.mjs';
+import { isLive } from './lib/live-posts.mjs';
 
 const NL = String.fromCharCode(10);
 // clusters.json ada di seo/ (bukan di samping BLOG_DIR) — pakai ROOT supaya
@@ -66,7 +67,7 @@ if (ARGS.help) {
   console.log('Usage: node seo/mesh-build.mjs [--write] [--slug S] [--all] [--json] [--no-reciprocal]');
   console.log('  (default) hanya laporan — tidak menulis file');
   console.log('  --write     tulis related[] ke frontmatter artikel');
-  console.log('  --all       ikut memproses draft (default: published saja)');
+  console.log('  --all       ikut memproses draft (stub redirect tidak pernah, karena isinya tidak tayang)');
   console.log('  --slug S    hanya satu slug');
 }
 
@@ -83,8 +84,10 @@ function readArticles() {
       slug,
       file: join(BLOG_DIR, f),
       draft: /^status:[ \t]*draft/m.test(fm),
+      live: isLive(fm),
+      redirect: /^redirectTo:/m.test(fm),
       title: (fm.match(/^title:[ \t]*"?([^"\n]*)"?/m) || [])[1]?.trim() || slug,
-      category: (fm.match(/^category:[ \t]*"?([^"\n]*)"?/m) || [])[1]?.trim() || '',
+      category: fmTags(fm),
       related: parseRelated(fm),
     });
   }
@@ -96,6 +99,22 @@ function readArticles() {
 // sebagai list item ("-" + "--") dan HILANG saat ditulis — sempat merusak 5 file
 // Markdown sebelum guard di bawah dibuat.
 const RELATED_RE = /^related:[ \t]*(\[[^\]]*\]|(?:\n[ \t]+-[ \t]+[^\n]*)*)/m;
+
+/**
+ * Kategori untuk skoring sibling. Collection ini tidak punya field
+ * `category:` — yang ada `tags: ["kpr"]` — dan tag pertama adalah topik
+ * utama yang ditulis generator (deriveMeta -> mapTags), jadi itu yang
+ * dipakai sebagai kelompok. Tidak ada tag = '' (tidak pernah menang bonus).
+ */
+function fmTags(fm) {
+  const m = fm.match(/^tags:[ \t]*\[([^\]]*)\]/m);
+  if (!m) return '';
+  return m[1]
+    .split(',')
+    .map((s) => s.trim().replace(/^["']|["']$/g, ''))
+    .filter(Boolean)
+    .join(' ');
+}
 
 /** related lama dari frontmatter (YAML list). */
 function parseRelated(fm) {
@@ -172,7 +191,9 @@ function detectCity(slug, citiesBySlug) {
 function main() {
   const articles = readArticles();
   const bySlug = new Map(articles.map((a) => [a.slug, a]));
-  const published = new Set(articles.filter((a) => !a.draft).map((a) => a.slug));
+  // Target link harus tayang, bukan sekadar bukan draft: stub redirect lolos uji
+  // !draft tapi URL-nya menjawab 301.
+  const published = new Set(articles.filter((a) => a.live).map((a) => a.slug));
   const manifest = loadManifest();
   const citiesBySlug = loadCities();
   const cityOf = (slug) => detectCity(slug, citiesBySlug);
@@ -180,11 +201,11 @@ function main() {
   const pillarOf = (slug) => (manifest ? manifest.slugToPillar.get(slug) || null : null);
   const metaOf = (slug) => (manifest ? manifest.metaBySlug.get(slug) || null : null);
 
-  const inScopeIds = new Set(articles.filter((a) => (ARGS.slug ? a.slug === ARGS.slug : ARGS.all || !a.draft)).map((a) => a.slug));
+  const inScopeIds = new Set(articles.filter((a) => (ARGS.slug ? a.slug === ARGS.slug : (ARGS.all ? !a.redirect : a.live))).map((a) => a.slug));
   const inScopePublished = (slug) => inScopeIds.has(slug) && published.has(slug);
   const targets = articles.filter((a) => {
     if (ARGS.slug) return a.slug === ARGS.slug;
-    return ARGS.all || !a.draft;
+    return ARGS.all ? !a.redirect : a.live;
   });
 
   const results = [];
@@ -272,6 +293,7 @@ function main() {
       slug: art.slug,
       file: art.file,
       draft: art.draft,
+      live: art.live,
       pillar: pillarId,
       geo: cityOf(art.slug)?.city || null,
       provinsi: cityOf(art.slug)?.provinsi || null,
@@ -366,7 +388,7 @@ function main() {
   }
 
   // Statistik & masalah
-  const publishedResults = results.filter((r) => !r.draft);
+  const publishedResults = results.filter((r) => r.live);
   const orphanMesh = publishedResults.filter((r) => r.related.length === 0);
   const noPillar = publishedResults.filter((r) => !r.pillar);
 

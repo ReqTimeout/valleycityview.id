@@ -2,7 +2,7 @@
 /**
  * seo/indexnow.mjs — ping URL baru ke IndexNow (Bing/Yandex/Naver, spec §5).
  *
- * Key: public/indexnow.txt (auto-discover). Env SOCIO_INDEXNOW_KEY override.
+ * Key: public/indexnow.txt (auto-discover). Env INDEXNOW_KEY override.
  * Batch ≤10 URL/call, endpoint bing + yandex, retry 1x endpoint kedua.
  *
  * Usage:
@@ -11,16 +11,18 @@
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { ROOT, STATE_PATH } from './paths.mjs';
-// Key: env dulu, lalu file key di repo landing (monorepo), lalu file opsional yang
-// bisa diset ke lokasi lain (image runner tidak punya landing/).
+import { SITE, INDEXNOW_KEY_FILE } from './site.mjs';
+// Key: env dulu, lalu public/indexnow.txt yang dikirim ke dist (mekanisme
+// auto-discover resmi), lalu file opsional lewat env untuk container yang
+// menyimpan datanya di volume (SEO_DATA_DIR), bukan di worktree.
+const KEY_PATH = process.env.INDEXNOW_KEY_FILE
+  ? process.env.INDEXNOW_KEY_FILE
+  : join(ROOT, 'site', 'public', INDEXNOW_KEY_FILE);
 const KEY =
-  process.env.SOCIO_INDEXNOW_KEY ||
-  (existsSync(`${ROOT}/site/public/indexnow.txt`)
-    ? readFileSync(`${ROOT}/site/public/indexnow.txt`, 'utf8').trim()
-    : process.env.INDEXNOW_KEY_FILE && existsSync(process.env.INDEXNOW_KEY_FILE)
-      ? readFileSync(process.env.INDEXNOW_KEY_FILE, 'utf8').trim()
-      : '');
+  process.env.INDEXNOW_KEY ||
+  (existsSync(KEY_PATH) ? readFileSync(KEY_PATH, 'utf8').trim() : '');
 
 const ENDPOINTS = [
   'https://api.indexnow.org/indexnow', // redistributes ke Bing+Yandex+Seznam
@@ -44,7 +46,7 @@ async function ping(urls) {
   const body = JSON.stringify({
     host: 'valleycity.id',
     key: KEY,
-    keyLocation: 'https://valleycity.id/indexnow.txt',
+    keyLocation: `${SITE}/indexnow.txt`,
     urlList: urls.slice(0, 10),
   });
 
@@ -78,8 +80,8 @@ async function main() {
   }
 
   if (!KEY) {
-    console.error('FATAL: IndexNow key tidak ditemukan. Set SOCIO_INDEXNOW_KEY atau INDEXNOW_KEY_FILE.');
-    console.error('  Lihat docs/GOOGLE_CLOUD_SETUP.md §3 (key juga ada di https://valleycity.id/indexnow.txt)');
+    console.error('FATAL: IndexNow key tidak ditemukan. Set INDEXNOW_KEY atau INDEXNOW_KEY_FILE.');
+    console.error(`  Lihat seo/README.md §3 (key publik: ${SITE}/indexnow.txt)`);
     process.exit(1);
   }
 

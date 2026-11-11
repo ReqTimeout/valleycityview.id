@@ -37,7 +37,7 @@ export async function sendReport(msg) {
 ${alerts ? `<h3 style="margin:12px 0 4px;font-size:13px">Alert</h3><ul style="margin:0;padding-left:18px">${alerts}</ul>` : ''}
 ${msg.text ? `<pre style="white-space:pre-wrap;background:#f6f6f6;padding:10px;border-radius:6px;font-size:12px">${escapeHtml(msg.text)}</pre>` : ''}
 <hr style="border:0;border-top:1px solid #eee;margin:16px 0 6px">
-<p style="color:#999;font-size:11px">socio-seo-runner · ${new Date().toISOString()}</p>
+<p style="color:#999;font-size:11px">valleycity-seo-runner · ${new Date().toISOString()}</p>
 </body></html>`;
 
   if (process.env.SEO_NOTIFY_DRYRUN === '1') {

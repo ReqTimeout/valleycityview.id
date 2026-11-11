@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * gsc-doctor — health check kredensial + API untuk SEO runner valleycity.id.
- * Runbook: docs/GOOGLE_CLOUD_SETUP.md §10
+ * Runbook: seo/README.md §10
  *
  * ZERO DEPENDENCY (node:crypto + global fetch, butuh Node >= 20)
  * Supaya tidak perlu `googleapis` di image runner.
@@ -202,7 +202,7 @@ function report() {
     console.log(`[${tag}] ${r.name}${r.detail ? ` — ${r.detail}` : ''}`);
   }
   const failed = results.filter((r) => r.pass === false);
-  console.log(`\n${failed.length ? `✗ ${failed.length} check gagal — lihat docs/GOOGLE_CLOUD_SETUP.md §13` : '✓ semua check wajib lolos'}\n`);
+  console.log(`\n${failed.length ? `✗ ${failed.length} check gagal — lihat seo/README.md §13` : '✓ semua check wajib lolos'}\n`);
   process.exitCode = failed.length ? 1 : 0;
 }
 

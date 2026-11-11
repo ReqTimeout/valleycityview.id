@@ -39,6 +39,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { BLOG_DIR, QUEUE_PATH, CITIES_PATH } from './paths.mjs';
 import { hasGeoAnchor, anchorProbe } from './lib/geo-anchor.mjs';
+import { isLive } from './lib/live-posts.mjs';
 
 const NL = String.fromCharCode(10);
 
@@ -102,6 +103,17 @@ function fs_usage() {
   ].join(NL);
 }
 
+/** tags: ["kpr", "lokasi"] -> 'kpr lokasi' (kelompok untuk skoring). */
+function fmTags(fm) {
+  const m = fm.match(/^tags:[ \t]*\[([^\]]*)\]/m);
+  if (!m) return '';
+  return m[1]
+    .split(',')
+    .map((s) => s.trim().replace(/^["']|["']$/g, ''))
+    .filter(Boolean)
+    .join(' ');
+}
+
 /** Ambil field frontmatter sederhana (title/draft/cluster/category). */
 function frontmatter(src) {
   const m = src.match(/^---[\s\S]*?\r?\n---/);
@@ -112,7 +124,7 @@ function frontmatter(src) {
   };
   return {
     title: get('title'),
-    category: get('category'),
+    category: fmTags(fm),
     draft: /^status:[ \t]*draft/m.test(fm),
     body: m ? src.slice(m[0].length) : src,
   };
@@ -221,7 +233,12 @@ function detectCity(slug, cityMap) {
 function loadCorpus() {
   if (!existsSync(BLOG_DIR)) return { items: [], clusterOf: new Map() };
   const cityMap = loadCityMap();
-  const files = readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md'));
+  // Corpus = konten yang tayang. Draft dan stub redirect dihapus sebelum masuk:
+  // stub menyimpan body lengkap, jadi kalau ikut dinilai dia menciptakan
+  // kemiripan tinggi terhadap artikel yang isinya justru tidak disajikan.
+  const files = readdirSync(BLOG_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .filter((f) => isLive(readFileSync(join(BLOG_DIR, f), 'utf8')));
   const items = files.map((f) => {
     const slug = f.replace(/\.md$/, '');
     const src = readFileSync(join(BLOG_DIR, f), 'utf8');

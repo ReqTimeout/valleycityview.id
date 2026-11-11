@@ -1,0 +1,17 @@
+{
+  "_comment": "Ramp gate + batas publish harian. daily_count = berapa artikel yang boleh flip draft→published per hari. Ditulis seo/ramp-gate.mjs tiap Senin dari index_rate 14 hari GSC. JANGAN edit daily_count manual kecuali lewat `node seo/ramp-gate.mjs --set=N`. Nilai awal lebih rendah dari socio.id (1 bukan 3): satu produk, satu alamat, 68 halaman — dua artikel kembar di sini jauh lebih merusak daripada dua belas artikel kembar di katalog 8.000 layanan.",
+  "daily_count": 1,
+  "daily_count_min": 1,
+  "daily_count_max": 5,
+  "halt": false,
+  "halt_reason": "",
+  "index_window_days": 14,
+  "min_sample": 5,
+  "threshold_up": 0.85,
+  "threshold_down": 0.7,
+  "discovery_gap_alert": 0.5,
+  "updated_at": "2026-11-11T00:00:00.000Z",
+  "updated_by": "seed manual (Fase 10b port)",
+  "reason": "seed — belum ada pengukuran GSC untuk domain ini",
+  "history": []
+}

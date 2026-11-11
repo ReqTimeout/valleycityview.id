@@ -18,6 +18,10 @@ const blog = defineCollection({
     redirectTo: z.string().optional(),
     cover: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    // Ditulis oleh seo/mesh-build.mjs (internal-link mesh, resiprokal). Schema
+    // harus menyebutkannya: key yang tidak ada di zod di-strip diam-diam, jadi
+    // mesh hasil generate tidak akan pernah sampai ke halaman tanpa baris ini.
+    related: z.array(z.string()).max(3).default([]),
   }),
 });
 

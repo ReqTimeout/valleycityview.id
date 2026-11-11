@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * runner/daily.mjs — pipeline harian SEO engine socio.id (06:00 WIB).
+ * runner/daily.mjs — pipeline harian SEO engine valleycity.id (06:00 WIB).
  *
  * Tahap:
  *   0. lock anti double-run (runner/lib/lock.mjs)
@@ -34,6 +34,9 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport } from './lib/notify.mjs';
+// Prefix subject datang dari seo/site.mjs: kalau defaultnya berubah di satu
+// tempat, kita tidak ingin email masih memakai nama proyek lama.
+import { NOTIFY_PREFIX } from '../seo/site.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -208,8 +211,8 @@ async function main() {
     ];
 
     await sendReport({
-      subject: `[socio-seo] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateText}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
-      heading: 'SEO engine socio.id — laporan harian',
+      subject: `[${NOTIFY_PREFIX}] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateText}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
+      heading: 'SEO engine valleycity.id — laporan harian',
       lines,
       alerts: s.alerts,
     });

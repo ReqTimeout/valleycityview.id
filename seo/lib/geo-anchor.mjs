@@ -56,15 +56,9 @@ function insertAfterFirstH2(body, content) {
     'm',
   );
   const m = body.match(re);
-  if (!m) return `${body}
-
-${content}`;
+  if (!m) return `${body}\n\n${content}`;
   const at = m.index + m[0].length;
-  return `${body.slice(0, at)}
-
-${content}
-
-${body.slice(at)}`;
+  return `${body.slice(0, at)}\n\n${content}\n\n${body.slice(at)}`;
 }
 
 /**

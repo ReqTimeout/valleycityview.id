@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * seo/llms.mjs — generate public/llms.txt + public/llms-full.txt untuk AI consumption.
- * Spec LANDING_SEO_SYSTEM.md §5: "llms.txt + llms-full.txt — generate di build (50 artikel + FAQ) untuk AI crawler".
+ * Dihasilkan saat build (lihat `seo/README.md`): llms.txt = peta ringkas,
+ * llms-full.txt = isi per artikel untuk AI ingest.
  *
  * Format spec: https://llmstxt.org
  *  - llms.txt: ringkas + link ke llms-full.txt
@@ -15,8 +16,33 @@ import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from '
 import { join } from 'node:path';
 
 import { ROOT, BLOG_DIR, PUBLIC_DIR, SITEMAP_PATH } from './paths.mjs';
-import yaml from 'js-yaml';
-const SITE = 'https://valleycity.id';
+import { isLive } from './lib/live-posts.mjs';
+import { createRequire } from 'node:module';
+
+// Dual resolver seperti lib/article-lint: `js-yaml` kalau ada, kalau tidak
+// `yaml` milik Astro. Import langsung 'js-yaml' akan membuat script ini
+// crash sebelum sempat memutuskan apa pun.
+const requireSite = createRequire(join(ROOT, 'site', 'noop.js'));
+let yaml = null;
+try {
+  yaml = requireSite('js-yaml');
+} catch {
+  try {
+    const y = requireSite('yaml');
+    yaml = { load: (s) => y.parse(s) };
+  } catch {
+    yaml = null;
+  }
+}
+import {
+  SITE,
+  BRAND,
+  DESCRIPTION,
+  ADDRESS,
+  EMAIL,
+  WHATSAPP_DISPLAY,
+  MONEY_PAGES,
+} from './site.mjs';
 
 // ===== Helpers =====
 function readFrontmatter(content) {
@@ -27,7 +53,8 @@ function readFrontmatter(content) {
   const body = match[2];
   let fm = {};
   try {
-    fm = yaml.load(fmText) || {};
+    fm = yaml ? yaml.load(fmText) || {} : null;
+    if (!fm) return null; // tidak ada parser YAML -> skip, jangan karang
   } catch {
     return null; // frontmatter YAML rusak -> skip file (llms tidak crash)
   }
@@ -38,7 +65,34 @@ function readFrontmatter(content) {
     .replace(/[*_`~]+/g, '') // strip formatting chars
     .replace(/^#+\s*/gm, '') // strip heading prefix
     .trim();
-  return { fm, body: strippedBody };
+  return { fm, body: strippedBody, bodyRaw: body };
+}
+
+/**
+ * FAQ dibaca dari body, bukan frontmatter — collection ini tidak punya field
+ * `faq:`, dan generator menulis section-nya lewat renderFaq() di prompts.ts:
+ *
+ *   ## FAQ
+ *   **Pertanyaan?**
+ *   <paragraf jawaban>
+ *
+ * 54 post impor belum punya section FAQ -> hasilnya [] dan itu benar:
+ * mengarang FAQ di sini berarti mengirim jawaban yang tidak pernah ditulis
+ * manusia ke AI crawler.
+ */
+function faqFromBody(body) {
+  const NL = String.fromCharCode(10);
+  const m = body.match(/^##\s*(?:FAQ|Pertanyaan[^\n]*)\s*\n([\s\S]*?)(?=\n## |\s*$)/im);
+  if (!m) return [];
+  const items = [];
+  const re = /\*\*([^*]+\?)[*]+\s*\n+([\s\S]*?)(?=\n\s*\*\*[^*]+\?|\s*$)/g;
+  let x;
+  while ((x = re.exec(m[1])) !== null) {
+    const q = x[1].trim();
+    const a = x[2].trim().split(NL + NL)[0].trim();
+    if (q && a) items.push({ q, a });
+  }
+  return items.slice(0, 5);
 }
 
 function escapeMd(s) {
@@ -48,6 +102,8 @@ function escapeMd(s) {
 
 function readSitemapUrls() {
   const sitemap = SITEMAP_PATH;
+  // Best-effort: pada checkout bersih belum ada dist/. Bagian llms.txt yang
+  // memakai daftar URL tetap benar karena money page datang dari registry.
   if (!existsSync(sitemap)) return [];
   const xml = readFileSync(sitemap, 'utf8');
   const urls = [];
@@ -63,14 +119,17 @@ if (existsSync(BLOG_DIR)) {
   for (const f of files) {
     const raw = readFileSync(join(BLOG_DIR, f), 'utf8');
     const parsed = readFrontmatter(raw);
-    if (!parsed || parsed.fm.draft) continue; // skip draft
+    // Predikat tayang satu sumber dengan route Astro + mesh-build (lihat lib/live).
+    if (!parsed || !isLive(parsed.fm)) continue;
     articles.push({
       slug: f.replace(/\.md$/, ''),
       title: parsed.fm.title || f,
       description: parsed.fm.description || '',
-      category: parsed.fm.category || 'Lainnya',
+      category: (parsed.fm.tags || []).join(', ') || 'panduan',
       date: parsed.fm.date,
-      faq: Array.isArray(parsed.fm.faq) ? parsed.fm.faq : [],
+      // FAQ di collection ini ada di BODY (## FAQ + pasangan **tanya**/jawab),
+      // bukan di frontmatter. Mengambil dari fm.faq = selalu kosong.
+      faq: faqFromBody(parsed.bodyRaw),
       body: parsed.body,
     });
   }
@@ -79,28 +138,31 @@ if (existsSync(BLOG_DIR)) {
 articles.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 const sitemapUrls = readSitemapUrls();
 
+// Registry money page datang dari site.mjs — tidak ada daftar kedua di sini.
+// Entri ber-`#` adalah section homepage, jadi wajar kalau tidak muncul di
+// sitemap: yang kami tampilkan ke crawler memang URL kanonik section-nya.
+const moneyPages = MONEY_PAGES.map((p) => ({ ...p, url: `${SITE}${p.url}` }));
+
 console.log(`articles: ${articles.length} published`);
 console.log(`sitemap URLs: ${sitemapUrls.length}`);
 
 // ===== Generate llms.txt (ringkas) =====
-const llmsTxt = `# Valley Cityview
+const llmsTxt = `# ${BRAND}
 
-> Panel SMM reseller termurah dan tercepat di Indonesia. 8.270 layanan Instagram, TikTok, YouTube, Telegram, Spotify & SEO. Daftar reseller Rp50.000 include saldo Rp20.000 + harga reseller lebih murah di semua layanan.
+> ${DESCRIPTION}
 
-## Money pages (${sitemapUrls.filter((u) => u.match(/\/(beli|smm-panel)-/)).length} — commercial intent)
-${sitemapUrls
-  .filter((u) => u.match(/\/(beli|smm-panel)-/) || u.match(/\/(layanan|reseller)/))
-  .map((u) => `- [${u.replace(SITE, '')}](${u})`)
-  .join('\n')}
+## Halaman komersial (${moneyPages.length} — intent beli)
+${moneyPages.map((p) => `- [${p.anchor}](${p.url})`).join('\n')}
 
-## Blog (${articles.length} articles — informational)
+## Blog (${articles.length} artikel — informatif)
 ${articles
   .map((a) => `- [${a.title}](${SITE}/blog/${a.slug}): ${a.description}`)
   .join('\n')}
 
-## Optional
-- [Sitemap](${SITE}/sitemap-index.xml)
-- [Daftar reseller →](https://app.valleycity.id/daftar?mode=reseller)
+## Kontak
+- WhatsApp: ${WHATSAPP_DISPLAY}
+- Email: ${EMAIL}
+- Lokasi: ${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.region} ${ADDRESS.postalCode}, ${ADDRESS.countryName}
 
 Full content (titles + FAQ + body) → [llms-full.txt](${SITE}/llms-full.txt)
 `;
@@ -121,7 +183,7 @@ sections.push(`# Valley Cityview — Full Content for LLM ingestion
 `);
 
 // Money pages (ringkas — bukan full body)
-const moneyUrls = sitemapUrls.filter((u) => u.match(/\/(beli|smm-panel)-/));
+const moneyUrls = moneyPages.map((p) => p.url);
 sections.push(`## Money Pages (commercial — ${moneyUrls.length} high-intent URLs)
 ${moneyUrls.map((u) => `- ${u}`).join('\n')}
 

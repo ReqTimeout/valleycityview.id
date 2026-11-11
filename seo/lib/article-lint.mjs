@@ -25,16 +25,20 @@ import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// js-yaml hanya terpasang di workspace `landing`, jadi resolve dari sana.
+// Paket YAML yang ada di repo ini `yaml` (ikutan Astro), bukan `js-yaml`.
 // Dipakai karena parsing manual pakai regex BUTA: frontmatter `a: "…\"…` tanpa
 // penutup quote lolos regex, padahal YAML-nya rusak. Draft tidak pernah dirender
 // Astro, jadi build TIDAK bisa menangkap ini — hanya parser YAML yang bisa.
-const requireLanding = createRequire(
-  join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'landing', 'noop.js'),
+const requireSite = createRequire(
+  // Resolve dari site/: di container runner yang tidak punya node_modules,
+  // yamlTersedia() balas false dan pemanggil yang memutuskan fatal atau tidak.
+  join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'site', 'noop.js'),
 );
 let YAML = null;
 try {
-  YAML = requireLanding('js-yaml');
+  // Dua kandidat, satu baris: js-yaml kalau ada, kalau tidak `yaml` milik Astro.
+  // Kalau dua-duanya gagal, outer catch yang menelan - perilaku lama tidak berubah.
+  try { YAML = requireSite('js-yaml'); } catch { const y = requireSite('yaml'); YAML = { load: (s) => y.parse(s) }; }
 } catch {
   // caller boleh lanjut; pemanggil yang memutuskan apakah ini fatal
 }
@@ -55,7 +59,10 @@ const KATA_CAMPUR_LEGIT = new Set(['date']);
 const ASING = /[\u0100-\u017f\u0370-\u03ff\u0400-\u04ff\u0530-\u058f\u0900-\u0dff\u0e00-\u0fff\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]|[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/u;
 
 const BOLEH = new Set([
-  'instagram', 'tiktok', 'telegram', 'youtube', 'twitter', 'facebook', 'spotify', 'smm', 'faq',
+  'padalarang', 'cimahi', 'laksanamekar', 'podomoro', 'summarecon', 'soreang',
+  'bandungraya', 'kcic', 'unjani', 'dustira', 'baros', 'cililin', 'batuasok',
+  'bphtb', 'shm', 'shgb', 'hgb', 'ppjb', 'pbg', 'imb', 'slbi', 'ipl', 'nup',
+  'kpr', 'faq', 'simulasi', 'whatsapp', 'instagram', 'tiktok', 'youtube',
 ]);
 
 /**

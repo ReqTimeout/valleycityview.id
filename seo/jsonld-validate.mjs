@@ -43,6 +43,10 @@ const KNOWN_TYPES = new Set([
   'Offer', 'AggregateOffer', 'AggregateRating', 'Review', 'SoftwareApplication', 'HowTo', 'Blog',
   'LocalBusiness', 'AreaServed', 'SiteNavigationElement', 'CollectionPage', 'ProfilePage', 'ImageObject', 'ContactPoint',
   'PostalAddress', 'SearchAction', 'ListItem', 'Brand', 'Question', 'Answer', 'HowToStep',
+  // nyata dipakai homepage kita dan memang tipe schema.org — tanpa ini validator
+  // melaporkan unknown_type palsu untuk markup yang benar
+  'Residence', 'GeoCoordinates', 'LocationFeatureSpecification', 'Place', 'RealEstateAgent',
+  'PropertyValue', 'OfferCatalog', 'OpeningHoursSpecification',
 ]);
 
 /** Field wajib minimal per tipe (google rich result + kegunaan nyata). */
@@ -89,22 +93,38 @@ if (ARGS.help) {
   console.log('Usage: node seo/jsonld-validate.mjs [--dir site/dist] [--page /blog/x] [--json] [--strict]');
 }
 
-/** Target coverage per pola halaman (plan v2 §5.1). */
+/**
+ * Target coverage per pola halaman.
+ *
+ * Entri boleh berisi 'A|B' = salah satu tipe cukup. Dipakai untuk BlogPosting|Article:
+ * BlogPosting adalah subtype Article dan bentuk yang benar untuk postingan blog,
+ * jadi menuntut string "Article" secara literal hanya membuat gate merah tanpa
+ * membuat markup lebih baik.
+ *
+ * Halaman yang sengaja tidak punya markup (return []) harus bisa dijelaskan di
+ * komentar — daftar kosong karena "biar gate hijau" bukan alasan. Lihat catatan
+ * di bawah untuk 6 halaman landing yang memang belum punya JSON-LD.
+ */
 function expectedTypes(route) {
-  if (route === '/' || route === '/index.html') return ['WebSite', 'Organization', 'WebPage'];
-  // Artikel: Person & SpeakableSpecification boleh nested di dalam Article
-  // (author/publisher/speakable) — itu bentuk yang direkomendasikan Google.
-  if (/^\/blog\/[^/]+\/?$/.test(route)) return ['Article', 'FAQPage', 'BreadcrumbList', 'Person', 'SpeakableSpecification', 'Organization'];
-  if (/^\/blog\/?$/.test(route)) return ['Blog', 'ItemList', 'BreadcrumbList'];
-  if (/^(\/beli-|\/smm-panel-|\/harga-)/.test(route)) return ['Product', 'FAQPage', 'BreadcrumbList', 'Service'];
-  // /layanan = katalog indeks (bukan halaman penawaran satu produk) → targetnya
-  // ItemList, bukan Product/Offer. Menempelkan Product di halaman indeks akan
-  // misrepresentasi isi halaman.
-  if (/^\/layanan\/?$/.test(route)) return ['ItemList', 'BreadcrumbList'];
-  if (/^\/privacy\/?$/.test(route)) return ['WebPage'];
-  if (/^\/reseller\/?$/.test(route)) return ['SoftwareApplication', 'Organization'];
+  if (route === '/' || route === '/index.html') {
+    // Homepage = satu produk di satu lokasi: bisnis lokalnya, unit + harganya,
+    // dan FAQ yang sudah ditulis manusia di body.
+    return ['LocalBusiness', 'Product', 'Offer', 'FAQPage'];
+  }
+  if (/^\/blog\/page\/\d+\/?$/.test(route)) return ['Blog'];
+  if (/^\/blog\/\d+\/?$/.test(route)) return ['Blog'];
+  if (/^\/blog\/?$/.test(route)) return ['Blog'];
+  if (/^\/blog\/[^/]+\/?$/.test(route)) return ['BlogPosting|Article'];
   return [];
 }
+
+/**
+ * Baseline yang dijanjikan site ke crawler, untuk SEMUA halaman indexable:
+ * src/components/Seo.astro mengirim WebPage (+ BreadcrumbList nested) lewat
+ * lib/jsonld.ts. Ditagih di sini supaya "halaman baru lupa markup" gagal di
+ * build, bukan diam-diam sampai traffic berikutnya tidak pernah datang.
+ */
+const BASELINE_TYPES = ['WebPage', 'BreadcrumbList'];
 
 function walkHtml(dir, out = []) {
   for (const e of readdirSync(dir)) {
@@ -192,10 +212,17 @@ function validatePage(file, distDir) {
   const types = [];
 
   const canonical = (html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) || [])[1] || '';
+  // noindex = kami yang minta Google mengabaikan halaman ini. Menuntut markup
+  // untuk halaman yang sengaja dikeluarkan dari indeks hanya menambah
+  // peringatan yang tidak bisa dan tidak perlu diperbaiki.
+  const robots = (html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']+)["']/i) || [])[1] || '';
+  const noindexed = /noindex/i.test(robots);
   const blocks = extractJsonLd(html);
   if (!blocks.length) {
-    warnings.push({ code: 'no_jsonld', msg: `halaman tanpa JSON-LD sama sekali: ${route}` });
-    return { route, file, types, errors, warnings, blocks: 0, canonical };
+    if (!noindexed) {
+      warnings.push({ code: 'no_jsonld', msg: `halaman indexable tanpa JSON-LD sama sekali: ${route}` });
+    }
+    return { route, file, types, errors, warnings, blocks: 0, canonical, noindexed };
   }
 
   for (const b of blocks) {
@@ -266,13 +293,14 @@ function validatePage(file, distDir) {
     }
   }
 
-  // coverage vs plan §5.1
-  const expected = expectedTypes(route);
+  // coverage vs target site
+  const expected = noindexed ? [] : [...BASELINE_TYPES, ...expectedTypes(route)];
   const uniq = new Set(types);
   for (const e of expected) {
-    if (!uniq.has(e)) {
-      // Person/SpeakableSpecification hanya relevan kalau artikel punya penulis
-      warnings.push({ code: 'missing_expected_type', msg: `${route}: target plan §5.1 belum ada @type ${e}` });
+    const alts = e.split('|');
+    // 'A|B' lolos kalau salah satunya ada (BlogPosting memenuhi Article).
+    if (!alts.some((t) => uniq.has(t))) {
+      warnings.push({ code: 'missing_expected_type', msg: `${route}: target belum ada @type ${e}` });
     }
   }
 
@@ -282,7 +310,7 @@ function validatePage(file, distDir) {
 function main() {
   const dist = ARGS.dir ? (ARGS.dir.startsWith('/') ? ARGS.dir : join(ROOT, ARGS.dir)) : join(ROOT, 'site/dist');
   if (!existsSync(dist)) {
-    console.error(`jsonld-validate: direktori tidak ada: ${dist}${NL}  → build dulu: pnpm --filter landing build`);
+    console.error(`jsonld-validate: direktori tidak ada: ${dist}${NL}  → build dulu: npm --prefix site run build`);
     process.exitCode = 2;
     return;
   }

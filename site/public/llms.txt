@@ -1,0 +1,74 @@
+# Valley Cityview
+
+> Valley Cityview — perumahan tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. Harga KPR Rp 599 juta, cicilan Rp 3.871.000 per bulan, booking fee Rp 5 juta.
+
+## Halaman komersial (6 — intent beli)
+- [simulator cicilan KPR](https://valleycity.id/simulasi-kpr/)
+- [denah dan tipe unit 45/72](https://valleycity.id/#unit)
+- [peta lokasi Padalarang](https://valleycity.id/#lokasi)
+- [program agen properti](https://valleycity.id/agent/)
+- [nomor urut pemesanan](https://valleycity.id/nup/)
+- [penawaran unit yang ada](https://valleycity.id/sale/)
+
+## Blog (54 artikel — informatif)
+- [Harga Rumah Podomoro Park Buah Batu dan Hunian di Padalarang](https://valleycity.id/blog/harga-rumah-podomoro-park-buah-batu): Perbandingan harga rumah di Podomoro Park Buah Batu dengan Hunian di Padalarang, dari sisi harga, akses, dan luas lahan.
+- [Cluster Emily Summarecon Bandung: Harga dan Alternatif di Padalarang](https://valleycity.id/blog/cluster-emily-summarecon-bandung): Rincian harga rumah di Cluster Emily Summarecon Bandung, lalu perbandingan dengan Hunian view lembah di Padalarang.
+- [Daftar Harga Rumah di Summarecon Bandung dan Bandingkan dengan Padalarang](https://valleycity.id/blog/daftar-harga-rumah-di-summarecon-bandung): Kelas harga di Summarecon Bandung, lalu apa yang Anda dapat dengan budget yang sama di Cimahi Barat.
+- [Denah Rumah Summarecon Bandung dan Denah Rumah Tipe 45/72](https://valleycity.id/blog/denah-rumah-summarecon-bandung): Perbandingan denah: Layout rumah di Summarecon dengan denah tipe 45/72 yang memakai halaman depan dan belakang.
+- [Cluster Amanda Summarecon Bandung: Harga dan Alternatif di Cimahi Barat](https://valleycity.id/blog/cluster-amanda-summarecon-bandung): Rincian harga Cluster Amanda Summarecon Bandung dan pilihan di Padalarang dengan luas lahan dan harga yang lebih ringan.
+- [Harga Perumahan Summarecon Bandung: Rincian dan Alternatif](https://valleycity.id/blog/harga-perumahan-summarecon-bandung): Kelas harga clustered Summarecon Bandung dan apa yang bisa Anda dapat dengan budget yang sama di Laksanamekar, Padalarang.
+- [Harga Rumah Podomoro Park Bandung: Rincian Biaya](https://valleycity.id/blog/harga-rumah-podomoro-park-bandung): Rincian harga rumah di Podomoro Park Bandung beserta simulasi cicilannya, tanpa angka yang dilebih-lebihkan.
+- [Rumah Dijual di Bandung: Cara Membandingkan Opsi yang Layak](https://valleycity.id/blog/jual-perumahan-bandung): Metode membandingkan rumah yang dijual di Bandung: harga per meter, kondisi bangunan, dan biaya perbaikan yang akan muncul menyusul.
+- [KPR Rumah di Bandung Kota: Syarat, Cicilan, dan Tips Memilih Bank](https://valleycity.id/blog/kpr-rumah-bandung-kota): Syarat pengajuan KPR, perbandingan simulate dari beberapa bank, dan tips memilih tenure yang aman untuk penghasilan Anda.
+- [Perumahan Podomoro Bandung: Mana yang Lebih Cocok untuk Anda?](https://valleycity.id/blog/perumahan-podomoro-bandung): Perbandingan antar klaster Podomoro di Bandung berdasarkan harga, akses, dan tipe unit.
+- [Perumahan Summarecon Bandung: Hunian Premium di Kota Mandiri](https://valleycity.id/blog/perumahan-summarecon-bandung): Apa yang dimaksud kawasan Summarecon Bandung, berapa harga hunian di sana, dan apa alternatifnya di Padalarang.
+- [Rumah Dekat KCIC Bandung: Hunian untuk yang Bekerja di Sekitar Padalarang](https://valleycity.id/blog/rumah-dekat-kcic-bandung): Hunian dekat kereta cepat Padalarang: jarak tempuh, harga, dan pilihan yang tersedia di Laksanamekar.
+- [Cicilan Rumah Tanpa DP di Bandung: Syarat dan Risikonya](https://valleycity.id/blog/cicilan-rumah-tanpa-dp-di-bandung): Bagaimana skema tanpa uang muka bekerja, syarat pengajuannya, dan bagian yang biasanya tidak disebut di materi promosi.
+- [Daftar Perumahan di Kota Bandung: Lokasi, Harga, dan Aksesnya](https://valleycity.id/blog/daftar-perumahan-di-kota-bandung): Kawasan perumahan utama di Kota Bandung, dikelompokkan menurut akses ke kota dan harga jual rata-ratanya.
+- [Daftar Perumahan Elit di Bandung: Apa yang Membuatnya Mahal](https://valleycity.id/blog/daftar-perumahan-elit-di-bandung): Apa yang membuat satu kawasan lebih mahal dari kawasan lain: lokasi, fasilitas, atau nama pengembangnya.
+- [Harga Cicilan Rumah di Bandung: Angka yang Perlu Disiapkan](https://valleycity.id/blog/harga-cicilan-rumah-di-bandung): Berapa cicilan KPR di tiap kelas harga, dan berapa total yang harus dibayar sampai rumah selesai.
+- [Harga Rumah Minimalis di Bandung: Kelas Harga dan Contohnya](https://valleycity.id/blog/harga-rumah-minimalis-di-bandung): Berapa harga rumah minimalis di Bandung pada tiap kelas, dan apa yang membedakan rumah 45 m² dengan yang 72 m².
+- [Harga Rumah Summarecon Gedebage Bandung: Rincian dan Bandingkan](https://valleycity.id/blog/harga-rumah-summarecon-gedebage-bandung): Rincian harga rumah Summarecon Gedebage Bandung, lalu perbandingannya dengan Hunian di Padalarang untuk budget yang sama.
+- [Info Perumahan di Bandung: Yang Perlu Dicek Sebelum Membeli](https://valleycity.id/blog/info-perumahan-di-bandung): Daftar periksa sebelum membeli rumah di Bandung: status lahan, akses, legalitas, cicilan, dan biaya tersembunyi.
+- [KPR di Bandung: Cara Menghitung Cicilan dan Memilih Tenor](https://valleycity.id/blog/kpr-di-bandung): Langkah menghitung cicilan KPR sendiri, memilih tenor, dan menentukan uang muka yang tidak memberatkan bulanan Anda.
+- [Cicilan Rumah Bandung: Berapa yang Realistis untuk Penghasilan Anda](https://valleycity.id/blog/cicilan-rumah-bandung): Cara menghitung cicilan KPR dari harga rumah, agar angka yang Anda periksa tidak hanya terasa menarik di brosur.
+- [KPR Rumah di Bandung: Langkah dari Simulasi sampai Ajukan](https://valleycity.id/blog/kpr-rumah-bandung): Langkah praktis: dari simulasi angka, cek berkas, sampai pengajuan KPR Anda.
+- [Perumahan Baru di Bandung: Apa yang Perlu Diperhatikan](https://valleycity.id/blog/perumahan-baru-di-bandung): Keunggulan dan risiko membeli unit baru di Bandung, dari status pembangunan sampai rencana akses jalan.
+- [Perumahan di Bandung: Menilai Lokasi, Harga, dan Fasilitas](https://valleycity.id/blog/perumahan-bandung): Cara menilai satu kawasan perumahan di Bandung: jarak ke kerja, harga per meter, dan fasilitas yang benar-benar dipakai sehari-hari.
+- [Perumahan di Bandung dengan Cicilan 3 Juta: Apakah Realistis?](https://valleycity.id/blog/perumahan-di-bandung-cicilan-3-juta): Hitungan sederhana: berapa harga rumah yang bisa dibeli dengan cicilan Rp 3 juta per bulan, dan berapa harga yang benar-benar tersisa.
+- [Perumahan Murah di Bandung: Batas Harga yang Wajar di 2026](https://valleycity.id/blog/perumahan-murah-di-bandung): Rentang harga rumah terjangkau di Bandung dan environs, serta apa yang membedakan unit yang layak dengan yang sekadar murah.
+- [Rumah Cicilan Developer di Bandung: Cara Membaca Penawarannya](https://valleycity.id/blog/rumah-cicilan-developer-bandung): Membaca offer developer yang memakai skema cicilan: cicilan, masa bunga, dan biaya yang belum termasuk di bulan pertama.
+- [Perumahan di Bandung: Rekomendasi Lokasi untuk Keluarga Baru](https://valleycity.id/blog/perumahan-di-bandung): Pemilihan kawasan untuk keluarga baru: terdekat ke kerja, paling murah, dan paling mudah dihuni.
+- [Perumahan di Cimahi dan Bandung: Dua Pasar Hunian yang Berbeda](https://valleycity.id/blog/perumahan-cimahi-bandung): Kunci perbedaan pasar hunian Cimahi dan Bandung: harga, luas lahan, dan fasilitas yang dijual.
+- [Perumahan di Cimahi: Kriteria Dasar sebelum Menentukan Lokasi](https://valleycity.id/blog/perumahan-cimahi): Lima pertanyaan yang menentukan Anda mencari hunian di Cimahi atau Padalarang, sebelum melihat harga.
+- [Perumahan Ciuyah Cimahi: Hunian di Area Ciuyah](https://valleycity.id/blog/perumahan-ciuyah-cimahi): Kawasan Ciuyah sebagai area hunian di Cimahi: akses, harga, dan yang cocok untuk keluarga muda.
+- [Perumahan di Cimahi dan Sekitar Bandung: Perbandingan Lokasi](https://valleycity.id/blog/perumahan-di-cimahi-bandung): Perbandingan harga dan akses kawasan Cimahi, Padalarang, dan Bandung Barat untuk pembeli rumah pertama.
+- [Perumahan di Kota Cimahi: Apa yang Bisa Anda Dapatkan di Sana](https://valleycity.id/blog/perumahan-di-kota-cimahi): Kawasan Cimahi Tengah, apartemen dan rumah, serta rentang harga yang bisa diharapkan di area kota.
+- [Perumahan Permata Cimahi Bandung: Lokasi dan Huniannya](https://valleycity.id/blog/perumahan-permata-cimahi-bandung): Tinjauan Hunian di kawasan Permata Cimahi — lokasi, unit yang tersedia, dan harga di kelasnya.
+- [Rumah di Cimahi: Kriteria Harga, Lokasi, dan Akses](https://valleycity.id/blog/rumah-cimahi): Cara menilai rumah di Cimahi dan Padalarang: harga per meter, jarak ke kerja, dan status lahan.
+- [Rumah Dijual di Baros Cimahi: Strategi Membeli di Area Padalarang](https://valleycity.id/blog/rumah-dijual-di-baros-cimahi): Harga rumah di Baros Cimahi dan Padalarang, plus tips memeriksa kondisi bangunan dan status lahan sebelum membayar.
+- [Perumahan Permana Cimahi: Hunian di Cimahi Utara](https://valleycity.id/blog/perumahan-permana-cimahi): Lokasi, unit, dan harga Permana Cimahi di Cimahi Utara, serta jaraknya ke jalur tol dan pusat kota.
+- [Rumah di Cimahi: Menilai Kelayakan Harga dan Lokasinya](https://valleycity.id/blog/rumah-daerah-cimahi): Kapan harga rumah di Cimahi bisa disebut masuk akal, dan peta akses yang perlu dicek lebih dulu.
+- [Perum Nusa Hijau Cimahi: Lokasi, Unit, dan Harga](https://valleycity.id/blog/perum-nusa-hijau-cimahi): Lokasi, tipe unit, dan harga Perum Nusa Hijau Cimahi, plus perbandingan dengan Hunian di Padalarang.
+- [Perumahan Dekat Unjani Cimahi: Opsi Hunian untuk Pegawai dan Mahasiswa](https://valleycity.id/blog/perumahan-dekat-unjani-cimahi): Pilihan hunian di dekat Kampus Unjani Cimahi, termasuk Valley Cityview di Laksanamekar yang sekitar 10 menit ke kampus.
+- [Bukit Indah Residence Cimahi: Lokasi, Harga, dan Kekurangannya](https://valleycity.id/blog/bukit-indah-residence-cimahi): Lokasi, unit yang tersedia, dan sisi yang jarang dibahas soal Bukit Indah Residence Cimahi, dibandingkan dengan kawasan Padalarang di Cimahi Barat.
+- [Harga Rumah di Cimahi: Rincian Harga dan Cicilannya](https://valleycity.id/blog/harga-rumah-cimahi): Rincian harga rumah di Cimahi dan Padalarang beserta simulasi cicilan KPR untuk tiap kelas harga, supaya angkanya bisa Anda periksa sendiri.
+- [Perumahan Citra Pesona Cimahi: Lokasi, Harga, dan Akses](https://valleycity.id/blog/perumahan-citra-pesona-cimahi): Lokasi, unit, dan harga Citra Pesona Cimahi, beserta jarak ke KCIC, Unjani, dan Tol Baros.
+- [Perumahan di Cimahi: Rekomendasi Hunian untuk Keluarga Awal](https://valleycity.id/blog/perumahan-di-cimahi): Pilihan hunian di Cimahi dan Padalarang untuk keluarga yang baru memulai, dari Rp 599 juta.
+- [Perumahan Elit di Cimahi: Klasifikasi Harga dan Fasilitas](https://valleycity.id/blog/perumahan-elit-di-cimahi): Kelas harga dan fasilitas di perumahan elit Cimahi, serta opsi yang memiliki view sama tetapi bisa diakses lebih murah.
+- [Perumahan Grand Cimahi City: Hunian di Cimahi dengan Konsep Terpadu](https://valleycity.id/blog/perumahan-grand-cimahi-city): Konsep kawasan terpadu Grand Cimahi City: klaster, fasilitas, dan harga unitnya.
+- [Perumahan Murah di Cihanjuang Cimahi: Opsi dengan Akses ke Kota](https://valleycity.id/blog/perumahan-murah-di-cihanjuang-cimahi): Opsi hunian terjangkau di Cihanjuang Cimahi dan sekitarannya, dibanding Ciawi dan Padalarang yang aksesnya lebih dekat ke kota.
+- [Perumahan Pancanaka Royal Garden Cimahi: Unit dan Lokasi](https://valleycity.id/blog/perumahan-pancanaka-royal-garden-cimahi): Unit, harga, dan akses Pancanaka Royal Garden Cimahi di Cibeureum.
+- [Pesona Alam Residence Cimahi: Hunian Asri dengan Udara Segar](https://valleycity.id/blog/pesona-alam-residence-cimahi): Kawasan Hunian di kaki perbukitan Cimahi: udara, ketinggian lahan, dan harga unit di dalamnya.
+- [Rumah Dijual di Cimahi: Cara Menemukan Unit yang Sesuai](https://valleycity.id/blog/rumah-dijual-di-cimahi): Cara mencari rumah dijual di Cimahi dan Padalarang yang sesuai budget, termasuk hal-hal nonnegotiable yang perlu dicek.
+- [Rumah Murah di Cimahi: Opsi di Bawah Rp 600 Juta](https://valleycity.id/blog/rumah-murah-di-cimahi): Rumah di bawah Rp 600 juta di Cimahi dan Padalarang — apa yang Anda dapat dan apa yang perlu diterima.
+- [Perumahan Cimahi City View: Hunian di Cimahi Tengah](https://valleycity.id/blog/perumahan-cimahi-city-view): Unit, harga, dan akses Clustering Cimahi City View di Cimahi Tengah, termasuk jarak ke pusat kota.
+- [Perumahan di Cimahi Tengah: Akses Transportasi dan Huniannya](https://valleycity.id/blog/perumahan-di-cimahi-tengah): Akses transportasi dan karakter kawasan Cimahi Tengah, serta harga hunian di sana.
+- [Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan](https://valleycity.id/blog/perumahan-baru-di-cimahi): Perbedaan_unit yang sudah dihuni dengan unit yang masih dalam tahap finishing, dan apa akibatnya untuk waktu tunggu Anda.
+
+## Kontak
+- WhatsApp: 0811-8801-0326
+- Email: halo@valleycity.id
+- Lokasi: Desa Laksanamekar, Padalarang, Cimahi, Bandung Barat 40553, Indonesia
+
+Full content (titles + FAQ + body) → [llms-full.txt](https://valleycity.id/llms-full.txt)

@@ -5,7 +5,7 @@
  * `node:22-slim` tidak perlu `googleapis`, jadi `pnpm install` tidak pernah
  * gagal karena lockfile.
  *
- * Runbook + status terverifikasi: docs/GOOGLE_CLOUD_SETUP.md
+ * Runbook + status terverifikasi: seo/README.md
  * Pemakaian: seo/gsc-inspect.mjs, seo/ramp-gate.mjs, seo/distribute/*.mjs
  *
  * WAJIB: GSC_SITE_URL = `sc-domain:valleycity.id` (domain property). URL prefix
@@ -58,7 +58,7 @@ export function loadCreds() {
     return JSON.parse(process.env.GSC_SERVICE_ACCOUNT_JSON.replace(/\\n/g, '\n'));
   }
   throw new Error(
-    'GSC credentials not found. Set GSC_SERVICE_ACCOUNT_JSON_B64 (prod) atau GSC_SA_FILE (dev). Lihat docs/GOOGLE_CLOUD_SETUP.md §3'
+    'GSC credentials not found. Set GSC_SERVICE_ACCOUNT_JSON_B64 (prod) atau GSC_SA_FILE (dev). Lihat seo/README.md §3'
   );
 }
 

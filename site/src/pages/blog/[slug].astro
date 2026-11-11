@@ -22,9 +22,19 @@ const { Content } = await render(post);
 const all = (await getCollection('blog', ({ data }) => data.status === 'publish' && !data.redirectTo))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
-const related = all
-  .filter((item) => item.data.slug !== post.data.slug)
-  .slice(0, 3);
+// Relasi datang dari dua sumber, berurutan menurut kepastian:
+// 1. `related:` di frontmatter — ditulis seo/mesh-build.mjs dari kemiripan
+//    topik, jadi rekomendasinya relevan. Slug yang redirect/tidak ter-render
+//    dibuang lewat peta `all`.
+// 2. Kalau belum ada (post lama, atau mesh belum jalan): tiga terbaru.
+//    Recency bukan relevansi, jadi ini fallback, bukan strategi.
+const bySlug = new Map(all.map((item) => [item.data.slug, item]));
+const meshed = (post.data.related ?? [])
+  .map((slug) => bySlug.get(slug))
+  .filter((item): item is (typeof all)[number] => Boolean(item));
+const related = meshed.length
+  ? meshed.slice(0, 3)
+  : all.filter((item) => item.data.slug !== post.data.slug).slice(0, 3);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('id-ID', {

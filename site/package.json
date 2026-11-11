@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run redirects && astro build",
+    "build": "npm run redirects && node ../seo/llms.mjs && astro build && node ../seo/fix-sitemap.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "media": "node scripts/optimize-media.mjs",

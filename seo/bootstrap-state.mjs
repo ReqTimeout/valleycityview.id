@@ -21,7 +21,7 @@ import { join } from 'node:path';
 
 import { BLOG_DIR, QUEUE_PATH, STATE_PATH } from './paths.mjs';
 
-const SITE = 'https://valleycity.id';
+import { SITE } from './site.mjs';
 const opts = { dry: process.argv.includes('--dry'), force: process.argv.includes('--force') };
 
 if (existsSync(STATE_PATH) && !opts.force) {

@@ -69,7 +69,7 @@ function saveState(state) {
 
 function apiKey() {
   const k = process.env.BING_API_KEY;
-  if (!k) throw new Error('BING_API_KEY belum di-set (lihat docs/GOOGLE_CLOUD_SETUP.md §5)');
+  if (!k) throw new Error('BING_API_KEY belum di-set (lihat seo/README.md §5)');
   return k;
 }
 
@@ -222,7 +222,7 @@ async function main() {
   console.log(`\nsubmitted ${submitted.length} URL · kuota ${quotaBefore.daily} → ${quotaAfter.daily} · state.bing terisi`);
   if (failures.length) {
     console.log(`gagal ${failures.length}: ${JSON.stringify(failures.slice(0, 3))}`);
-    console.log(' Troubleshoot: docs/GOOGLE_CLOUD_SETUP.md §13.6');
+    console.log(' Troubleshoot: seo/README.md §13.6');
     return 1;
   }
   return 0;

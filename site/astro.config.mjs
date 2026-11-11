@@ -30,7 +30,15 @@ export default defineConfig({
   integrations: [
     svelte(),
     sitemap({
-      filter: (page) => !page.includes('/agent/alt'),
+      /*
+        Halaman yang mengirim noindex tidak boleh ikut di sitemap. Sitemap
+        mengundang Google merayap, meta robots menyuruhnya pergi: dua dokumen
+        yang saling menyangkal, dan hasilnya tumpuk URL "submitted and crawled,
+        currently not indexed" yang mengaburkan index_rate halaman sungguhan di
+        GSC. /thank-you/ adalah halaman konfirmasi setelah booking (noindex di
+        halamannya sendiri); /agent/alt/ varian agen yang sengaja tidak di-index.
+      */
+      filter: (page) => !['/agent/alt/', '/thank-you/'].some((hidden) => page.endsWith(hidden)),
       changefreq: 'weekly',
       priority: 0.7,
     }),

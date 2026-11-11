@@ -12,9 +12,16 @@ interface Props {
   path: string;
   /** Conversion message used by the WhatsApp buttons on this page. */
   waMessage?: string;
+  /**
+   * Dulu layout ini menulis `noindex` tanpa bisa diubah, dan halaman yang
+   * memakai layout (/nup/, /sale/, /agent/) tetap masuk sitemap: sitemap
+   * mengundang Google, halaman menyuruhnya pergi. Sekarang defaultnya boleh
+   * di-index dan halaman yang memang mau disembunyikan opt-in sendiri.
+   */
+  noindex?: boolean;
 }
 
-const { title, description, path, waMessage = waMessages.booking } = Astro.props;
+const { title, description, path, waMessage = waMessages.booking, noindex = false } = Astro.props;
 const wa = waLink(waMessage);
 ---
 
@@ -24,7 +31,7 @@ const wa = waLink(waMessage);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#01505d" />
-    <Seo title={title} description={description} path={path} noindex />
+    <Seo title={title} description={description} path={path} noindex={noindex} />
     <Tracking />
   </head>
 
