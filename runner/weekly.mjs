@@ -19,7 +19,9 @@ import { dirname, join } from 'node:path';
 import { NOTIFY_PREFIX } from '../seo/site.mjs';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport } from './lib/notify.mjs';
+import { openRun } from './lib/runlog.mjs';
 import { searchAnalytics } from '../seo/lib/gsc.mjs';
+import { buildSummary, rateText as fmtRate } from '../seo/lib/summary.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -75,17 +77,25 @@ function saveMined(queries, days) {
 
 async function main() {
   log(`start ${new Date().toISOString()}`);
+  const rl = openRun('weekly');
   const lock = await acquireLock('weekly');
   if (!lock.acquired) {
-    log(`SKIP — masih ada run lain (pid ${lock.holder?.pid}, mulai ${lock.holder?.at})`);
+    const why = `pid ${lock.holder?.pid}, mulai ${lock.holder?.at}`;
+    log(`SKIP — masih ada run lain (${why})`);
+    rl.setLock('held-by-other', why);
+    rl.finish(0);
     return 0;
   }
   log('lock diambil');
+  let code = 1; // tetap 1 kalau proses mati sebelum sempat selesai
 
   try {
     if (process.env.SEO_SKIP_INDEXER !== '1') {
       log('jalan: seo/indexer.mjs (ramp-gate jalan otomatis karena hari Senin)');
-      await run('seo/indexer.mjs', []);
+      const r = await run('seo/indexer.mjs', []);
+      rl.step('indexer', r.code === 0 ? 'ok' : 'fail', `exit ${r.code}`);
+    } else {
+      rl.step('indexer', 'skip', 'SEO_SKIP_INDEXER=1');
     }
 
     let mined = [];
@@ -94,19 +104,18 @@ async function main() {
       mined = await mineQueries(28);
       saveMined(mined, 28);
       log(`mining: ${mined.length} query disimpan ke ${MINED}`);
+      rl.step('mining', mined.length ? 'ok' : 'warn', `${mined.length} query → keywords.mined.json`);
     } catch (e) {
       minedError = e.message;
       log(`mining GAGAL: ${e.message}`);
+      rl.step('mining', 'fail', e.message);
     }
 
     log('freshness + mesh rebuild: belum aktif (butuh repo konten) — no-op eksplisit');
+    rl.step('freshness+mesh', 'skip', 'belum aktif — no-op eksplisit, bukan lupa');
 
     const state = readState();
-    const labels = (state.published || []).reduce((a, p) => {
-      const l = p.indexed || 'unknown';
-      a[l] = (a[l] || 0) + 1;
-      return a;
-    }, {});
+    const s = buildSummary(state);
     const top = mined.slice(0, 10).map((q) => `${q.query} (${q.clicks}c/${q.impressions}i, pos ${q.position})`);
     const clicks = mined.reduce((a, q) => a + q.clicks, 0);
     const impressions = mined.reduce((a, q) => a + q.impressions, 0);
@@ -116,19 +125,33 @@ async function main() {
       heading: 'SEO engine valleycity.id — laporan mingguan',
       lines: [
         `Total klik 28 hari: ${clicks} · impressions: ${impressions}`,
-        `URL published: ${(state.published || []).length}`,
-        `label: ${Object.entries(labels).map(([k, v]) => `${k}=${v}`).join(' · ') || 'n/a'}`,
+        `URL published: ${s.total}`,
+        `index_rate: ${fmtRate(s.indexRate)} (terukur ${s.measured}/${s.total})`,
+        `label: ${Object.entries(s.labels).map(([k, v]) => `${k}=${v}`).join(' · ') || 'n/a'}`,
         'Top query:',
         ...(top.length ? top : ['(belum ada data query)']),
         `mining disimpan: ${MINED}`,
       ],
-      alerts: [state.rampGate?.alert, state.remedyAlert].filter(Boolean),
+      alerts: s.alerts,
+    });
+    rl.step('report', 'ok', `${NOTIFY_PREFIX} mingguan`);
+
+    rl.summarize({
+      published: s.total,
+      measured: s.measured,
+      indexRate: s.indexRate,
+      clicks28d: clicks,
+      impressions28d: impressions,
+      minedQueries: mined.length,
+      miningError: minedError,
     });
 
-    return minedError ? 1 : 0;
+    code = minedError ? 1 : 0;
+    return code;
   } finally {
     lock.release();
     log('lock dilepas');
+    rl.finish(code);
   }
 }
 

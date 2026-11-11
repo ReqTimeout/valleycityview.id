@@ -72,3 +72,30 @@ export function draftSlugs() {
   }
   return out;
 }
+
+/**
+ * Metadata ringan tiap berkas collection. Dibaca dari frontmatter mentah —
+ * sama seperti liveSlugs(), supaya dashboard dan mesin tidak butuh parser YAML
+ * dan tidak pernah berbeda pendapat dengan zod soal field mana yang ada.
+ * Hanya field yang benar-benar dipakai pemanggil yang ikut dikembalikan.
+ */
+export function posts() {
+  const out = [];
+  for (const f of allFiles()) {
+    const src = readFileSync(join(BLOG_DIR, f), 'utf8');
+    const end = src.indexOf(NL + '---', 3);
+    const fm = end > 0 ? src.slice(0, end) : '';
+    const grab = (k) => (fm.match(new RegExp(`^${k}:\\s*"?([^"\\n]*)"?\\s*$`, 'm')) || [])[1]?.trim() || null;
+    out.push({
+      file: f,
+      slug: slugOf(f),
+      title: grab('title'),
+      date: grab('date'),
+      updated: grab('updated'),
+      status: grab('status'),
+      redirectTo: grab('redirectTo'),
+      live: isLive(fm),
+    });
+  }
+  return out;
+}

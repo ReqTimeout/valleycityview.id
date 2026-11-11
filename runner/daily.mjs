@@ -10,17 +10,17 @@
  *                          (jumlah = config.daily_count, ditulis ramp-gate dari index_rate GSC)
  *   4. ringkasan + email (runner/lib/notify.mjs)
  *
- * PERBAIKAN 4 Okt 2026 — publish sebelumnya no-op. Penyebabnya BUKAN lupa: image
- * runner hanya berisi `seo/` + `runner/`, jadi tidak punya source `landing/` dan
- * tidak bisa build Astro sama sekali. Dockerfile sekarang menyalin `landing/` +
- * `packages/ui` dan memasang pnpm, jadi tahap 2–3 bisa jalan.
+ * Setiap tahap dicatat ke seo/runs.json (runner/lib/runlog.mjs) termasuk yang
+ * DILEWATI, dengan alasannya. Dashboard halaman "Runs" membaca berkas itu; tanpa
+ * catatan skip, "tidak ada apa pun hari ini" dan "pipeline tidak pernah jalan"
+ * tampak identik.
  *
  * Fail-closed: kalau tahap 1 (indexer) gagal, tahap 2-3 TIDAK dijalankan. Alasan -
  * indexer yang gagal berarti GSC tidak bisa mengukur, jadi mempublish artikel baru
  * hanya menghasilkan halaman yang tidak terukur. Itu memperbesar discovery_gap.
  *
  * Env:
- *   SEO_STATE_PATH · SEO_CONFIG_PATH · GSC_* · BING_API_KEY · GROQ_API_KEY
+ *   SEO_STATE_PATH · SEO_CONFIG_PATH · SEO_RUNS_PATH · GSC_* · BING_API_KEY · GROQ_API_KEY
  *   CLOUDFLARE_API_TOKEN · CLOUDFLARE_ACCOUNT_ID
  *   RESEND_API_KEY · NOTIFY_EMAIL_TO · NOTIFY_EMAIL_FROM
  *   SEO_SKIP_INDEXER=1   · SEO_SKIP_GENERATE=1 · SEO_SKIP_PUBLISH=1
@@ -34,9 +34,12 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport } from './lib/notify.mjs';
+import { openRun } from './lib/runlog.mjs';
 // Prefix subject datang dari seo/site.mjs: kalau defaultnya berubah di satu
 // tempat, kita tidak ingin email masih memakai nama proyek lama.
 import { NOTIFY_PREFIX } from '../seo/site.mjs';
+// Rumus angka laporan hidup di satu tempat (email, mingguan, dashboard).
+import { buildSummary, rateText as fmtRate } from '../seo/lib/summary.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -63,30 +66,9 @@ function run(script, args) {
   });
 }
 
-/** Ringkasan angka untuk email + keputusan ramp. */
-function buildSummary(state) {
-  const published = state.published || [];
-  const insp = state.gsc?.inspections || {};
-  const last = state.gsc?.lastRun || {};
-  const labels = published.reduce((acc, p) => {
-    const l = p.indexed || 'unknown';
-    acc[l] = (acc[l] || 0) + 1;
-    return acc;
-  }, {});
-  const discovered = (labels.indexed || 0) + (labels.not_indexed || 0) + (labels.blocked || 0);
-  const rate = discovered ? (labels.indexed || 0) / discovered : null;
-  return {
-    total: published.length,
-    labels,
-    indexRate: rate,
-    discoveryGap: (labels.not_discovered || 0) + (labels.unknown || 0),
-    lastInspect: last.at || null,
-    bing: state.bing?.lastRun || null,
-    alerts: [state.rampGate?.alert, state.remedyAlert].filter(Boolean),
-    indexer: state.indexer?.lastRun || null,
-    dailyCount: null,
-  };
-}
+// buildSummary() dulu hidup di sini. Sekarang di seo/lib/summary.mjs supaya
+// email harian, laporan mingguan, dan dashboard valleyvity membaca rumus yang
+// sama — angka yang sama tidak boleh dihitung dua cara.
 
 /** Baca seo/config.json (daily_count dll). Default konservatif kalau hilang. */
 function readConfig() {
@@ -122,14 +104,20 @@ function countQueue() {
 
 async function main() {
   log(`start ${new Date().toISOString()}`);
+  const rl = openRun('daily');
   if (!existsSync(STATE)) {
     console.error(`FATAL: state.json tidak ada di ${STATE}`);
+    rl.step('bootstrap', 'fail', `state.json tidak ada di ${STATE}`);
+    rl.finish(1);
     return 1;
   }
 
   const lock = await acquireLock('daily');
   if (!lock.acquired) {
-    log(`SKIP — masih ada run lain (pid ${lock.holder?.pid} di ${lock.holder?.host}, mulai ${lock.holder?.at})`);
+    const why = `pid ${lock.holder?.pid} di ${lock.holder?.host}, mulai ${lock.holder?.at}`;
+    log(`SKIP — masih ada run lain (${why})`);
+    rl.setLock('held-by-other', why);
+    rl.finish(0);
     return 0;
   }
   log(`lock diambil (pid ${process.pid})`);
@@ -144,11 +132,13 @@ async function main() {
   try {
     if (process.env.SEO_SKIP_INDEXER === '1') {
       log('SEO_SKIP_INDEXER=1 — tahap indexer dilewati (untuk uji notify/lock saja)');
+      rl.step('indexer', 'skip', 'SEO_SKIP_INDEXER=1');
     } else {
       log('jalan: seo/indexer.mjs');
       const r = await run('seo/indexer.mjs', []);
       indexerCode = r.code;
       log(`indexer selesai exit=${r.code}`);
+      rl.step('indexer', indexerCode === 0 ? 'ok' : 'fail', `exit ${indexerCode}`);
     }
 
     const cfg = readConfig();
@@ -160,34 +150,47 @@ async function main() {
     // generate 0, mengering pada hari ke-2. Default 2× daily_count.
     if (indexerCode !== 0) {
       log('indexer gagal → generate TIDAK dijalankan (fail-closed)');
+      rl.step('generate', 'blocked', 'fail-closed: indexer gagal');
     } else if (process.env.SEO_SKIP_GENERATE === '1') {
       log('SEO_SKIP_GENERATE=1 — tahap generate dilewati');
+      rl.step('generate', 'skip', 'SEO_SKIP_GENERATE=1');
     } else if (!process.env.GROQ_API_KEY) {
       log('GROQ_API_KEY tidak ada → tahap generate dilewati (tidak ada LLM)');
+      rl.step('generate', 'skip', 'GROQ_API_KEY belum di-set');
     } else {
       const n = Number(process.env.SEO_GENERATE_COUNT ?? Math.max(1, dailyCount * 2));
       log(`jalan: seo/generate.mjs --count=${n}`);
       const r = await run('seo/generate.mjs', [`--count=${n}`]);
       generateCode = r.code;
       log(`generate selesai exit=${r.code}`);
+      // exit != 0 di tahap ini hampir selalu berarti gerbang tertutup (keyword
+      // belum di-approve, audit belum selesai) — bukan crash, dan bedanya harus
+      // terbaca di Runs.
+      rl.step('generate', generateCode === 0 ? 'ok' : 'blocked', `--count=${n}, exit ${generateCode}`);
     }
 
     // ── tahap 3: publish draft sesuai kuota GSC ────────────────────────────
     if (indexerCode !== 0) {
       log('indexer gagal → publish TIDAK dijalankan (fail-closed)');
+      rl.step('publish', 'blocked', 'fail-closed: indexer gagal');
     } else if (cfg.halt === true) {
       log('config.halt=true → publish TIDAK dijalankan (butuh reset manual)');
+      rl.step('publish', 'blocked', `halt=true: ${cfg.halt_reason || 'tanpa alasan'}`);
     } else if (process.env.SEO_SKIP_PUBLISH === '1') {
       log('SEO_SKIP_PUBLISH=1 — tahap publish dilewati');
+      rl.step('publish', 'skip', 'SEO_SKIP_PUBLISH=1');
     } else if (!(process.env.CLOUDFLARE_API_TOKEN && process.env.CLOUDFLARE_ACCOUNT_ID)) {
-      log('CLOUDFLARE_API_TOKEN / ACCOUNT_ID belum di-set → publish dilewati (lihat accountcf.md)');
+      log('CLOUDFLARE_API_TOKEN / ACCOUNT_ID belum di-set → publish dilewati (lihat accountscf.md)');
+      rl.step('publish', 'skip', 'CLOUDFLARE_API_TOKEN / ACCOUNT_ID belum di-set');
     } else if (dailyCount <= 0) {
       log('daily_count=0 → tidak ada yang dipublish hari ini');
+      rl.step('publish', 'skip', 'daily_count=0');
     } else {
       log(`jalan: seo/publish.mjs --count=${dailyCount}`);
       const r = await run('seo/publish.mjs', [`--count=${dailyCount}`]);
       publishCode = r.code;
       log(`publish selesai exit=${r.code}`);
+      rl.step('publish', publishCode === 0 ? 'ok' : 'fail', `--count=${dailyCount}, exit ${publishCode}`);
     }
 
     const state = readState();
@@ -198,12 +201,12 @@ async function main() {
     generated = q.draft;
     pending = q.pending;
 
-    const rateText = s.indexRate === null ? 'n/a' : `${(s.indexRate * 100).toFixed(1)}%`;
+    const rateStr = fmtRate(s.indexRate);
     const lines = [
       `antrean: ${q.pending} pending · ${q.draft} draft siap · ${q.published} published`,
       `URL published: ${s.total}`,
       `label: indexed ${s.labels.indexed || 0} · not_indexed ${s.labels.not_indexed || 0} · not_discovered ${s.labels.not_discovered || 0} · blocked ${s.labels.blocked || 0} · unknown ${s.labels.unknown || 0}`,
-      `index_rate (indexed/discovered): ${rateText}`,
+      `index_rate (indexed/discovered): ${rateStr}`,
       `kuota publish hari ini: ${dailyCount} (generate exit=${generateCode ?? 'skip'}, publish exit=${publishCode ?? 'skip'})`,
       `Bing: ${s.bing ? `submit ${s.bing.submitted} URL, kuota ${s.bing.quotaAfter}/${s.bing.quotaBefore}` : 'belum ada run'}`,
       `inspeksi GSC terakhir: ${s.lastInspect || 'belum'}`,
@@ -211,16 +214,32 @@ async function main() {
     ];
 
     await sendReport({
-      subject: `[${NOTIFY_PREFIX}] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateText}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
+      subject: `[${NOTIFY_PREFIX}] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateStr}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
       heading: 'SEO engine valleycity.id — laporan harian',
       lines,
       alerts: s.alerts,
+    });
+    rl.step('report', 'ok', `${NOTIFY_PREFIX} harian`);
+
+    rl.summarize({
+      published: s.total,
+      measured: s.measured,
+      indexRate: s.indexRate,
+      dailyCount,
+      draft: generated,
+      pending,
+      indexerExit: indexerCode,
+      generateExit: generateCode,
+      publishExit: publishCode,
     });
 
     return indexerCode;
   } finally {
     lock.release();
     log('lock dilepas');
+    // Kalau proses mati di tengah jalan, entry ini tetap tinggal dengan exit
+    // kosong — dashboard menampilkan itu sebagai "tidak selesai", bukan sukses.
+    rl.finish(indexerCode);
   }
 }
 

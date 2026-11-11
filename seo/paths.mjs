@@ -35,6 +35,12 @@ export const CONFIG_PATH = process.env.SEO_CONFIG_PATH
   ? resolve(process.env.SEO_CONFIG_PATH)
   : join(ROOT, 'seo/config.json');
 
+// Jejak eksekusi runner (Fase 11). Ikut ke volume yang sama dengan state.json:
+// di dalam container, apa pun yang ditulis ke worktree hilang saat image diganti.
+export const RUNS_PATH = process.env.SEO_RUNS_PATH
+  ? resolve(process.env.SEO_RUNS_PATH)
+  : join(ROOT, 'seo/runs.json');
+
 // The numbers the articles must never contradict (price of record etc).
 export const SITE_DATA_PATH = join(SITE_DIR, 'src/data/site.ts');
 
@@ -59,3 +65,10 @@ export const PUBLIC_DIR = join(SITE_DIR, 'public');
 // it reports unclosed.
 export const AUDIT_GATE_PATH = join(ROOT, 'site/scripts/audit-posts.mjs');
 export const AUDIT_DECISIONS_PATH = join(ROOT, 'audit/posts.json');
+
+// ---- dashboard/ (Fase 11) -------------------------------------------------
+// Proyek Cloudflare Pages TERPISAH. Dashboard tidak pernah jadi bagian build
+// site/ — satu route saja yang bocor ke `site/src/pages/` sudah cukup untuk
+// membuat halaman internal ikut ter-deploy ke domain publik.
+export const DASHBOARD_DIR = join(ROOT, 'dashboard');
+export const DASHBOARD_DIST = join(DASHBOARD_DIR, 'dist');

@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "written_by": "runner/lib/runlog.mjs",
+    "keep": 200,
+    "updatedAt": "2026-11-11T06:05:25.319Z"
+  },
+  "runs": [
+    {
+      "at": "2026-11-11T06:05:25.301Z",
+      "kind": "daily",
+      "pid": 23322,
+      "host": "Mac-mini.local",
+      "lock": "acquired",
+      "steps": [
+        {
+          "name": "indexer",
+          "status": "skip",
+          "note": "SEO_SKIP_INDEXER=1"
+        },
+        {
+          "name": "generate",
+          "status": "skip",
+          "note": "SEO_SKIP_GENERATE=1"
+        },
+        {
+          "name": "publish",
+          "status": "skip",
+          "note": "SEO_SKIP_PUBLISH=1"
+        },
+        {
+          "name": "report",
+          "status": "ok",
+          "note": "valleycity-seo harian"
+        }
+      ],
+      "summary": {
+        "published": 54,
+        "measured": 0,
+        "indexRate": null,
+        "dailyCount": 1,
+        "draft": 0,
+        "pending": 0,
+        "indexerExit": 0,
+        "generateExit": null,
+        "publishExit": null
+      },
+      "exit": 0,
+      "finishedAt": "2026-11-11T06:05:25.319Z"
+    }
+  ]
+}
