@@ -1371,6 +1371,20 @@
   "height": 2000,
   "type": "image/webp"
  },
+ "/media/curated/foto-1.webp": {
+  "src": "/media/curated/foto-1.webp",
+  "srcset": "/media/curated/foto-1-400.webp 400w, /media/curated/foto-1-800.webp 800w, /media/curated/foto-1.webp 903w",
+  "width": 903,
+  "height": 1600,
+  "type": "image/webp"
+ },
+ "/media/curated/foto-2.webp": {
+  "src": "/media/curated/foto-2.webp",
+  "srcset": "/media/curated/foto-2-400.webp 400w, /media/curated/foto-2-800.webp 800w, /media/curated/foto-2-1200.webp 1200w, /media/curated/foto-2.webp 1207w",
+  "width": 1207,
+  "height": 1600,
+  "type": "image/webp"
+ },
  "/media/curated/denah-45-72.webp": {
   "src": "/media/curated/denah-45-72.webp",
   "srcset": "",

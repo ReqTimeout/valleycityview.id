@@ -16,12 +16,17 @@
    "bare"), so provenance comes from the original WordPress filename kept in
    src/data/curated-media.json, and the verdict comes from the eyes.
 
-   REAL PHOTOGRAPHS of this project — two, and only two:
+   REAL PHOTOGRAPHS of this project:
      knowledge-1   access road inside the kawasan, project banners visible
      detail-5      aerial of the land at Laksanamekar, next to the toll road
+     foto-1..3     owner-supplied photos of a BUILT unit (Nov 2026, from
+                   image/WhatsApp …; clean photographs, no marketing text).
+                   These are the first real exteriors the hero is allowed
+                   to run — design-45 (a render) was the homepage hero and
+                   the about slot only while no photo existed.
 
    RENDERS / VISUALISATIONS — may be shown, must carry the "Ilustrasi" chip:
-     design-45     dusk exterior (current homepage hero — a render, not a photo)
+     design-45     dusk exterior (former homepage hero — a render, not a photo)
      design-24     daytime exterior, front yard and carport
      design-25     rear exterior with carport and canopy
      hero          living room interior
@@ -46,9 +51,11 @@
    whether to render the chip. This comment is the human-readable copy; if the
    two disagree, media.ts wins and this comment is stale.
 
-   Consequence for the owner, stated once here so it is not forgotten: the
-   library holds no photograph of a finished house. Until site photos exist,
-   every exterior on this site is labelled as a visualisation.
+   Consequence for the owner, stated once here so it is not forgotten: as
+   of Nov 2026 the library holds three photographs of a finished unit
+   (foto-1..3) plus the road and the aerial. Renders still wear the
+   "Ilustrasi" chip everywhere they appear; the homepage hero and the
+   about picture are real photographs and carry no chip.
 
    Denah (D5): denah-45-72.webp was re-opened after the crop below — every
    dimension label including the right-hand "500" survives at width 850, and
@@ -77,6 +84,20 @@ const INLINE_LIMIT = 3 * 1024;
 const needed = JSON.parse(
   await readFile(path.join(dataDir, 'media-needed.json'), 'utf-8'));
 
+/*
+  Manifest dari run sebelumnya. Sumber WordPress lama tidak selalu ada di
+  disk (folder uploads/2025/04..09 pernah dibersihkan dari ekspor hosting);
+  tanpa ini, `npm run media` menghapus turunan yang masih dipakai halaman
+  hanya karena aslinya tidak ketemu — kejadian nyata 12 Nov 2026, 544 file
+  curated ikut ter-prune. Turunan yang sumbernya hilang kini dipertahankan
+  apa adanya (di-commit; regenerasi terjadi lagi begitu sumber kembali).
+*/
+let previous = {};
+try {
+  previous = JSON.parse(
+    await readFile(path.join(dataDir, 'media-manifest.json'), 'utf-8'));
+} catch { /* run pertama — tidak ada yang dipertahankan */ }
+
 const manifest = {};
 /** Destination path -> optimised entry + the old WordPress path it came from. */
 const sourceMap = {};
@@ -85,12 +106,24 @@ const written = new Set();
 let srcBytes = 0;
 let outBytes = 0;
 let done = 0;
+let keptFromPrevious = 0;
 const skipped = [];
 
 for (const item of needed) {
   const srcPath = path.join(workspace, item.src);
   if (!existsSync(srcPath)) {
     skipped.push(item.src);
+    const prev = previous[item.dest];
+    if (prev) {
+      // Pertahankan entri + semua varian lebar lama dari daftar tulis.
+      manifest[item.dest] = prev;
+      sourceMap[item.dest] = { oldPath: '(sumber tidak ada di disk, dipertahankan dari run sebelumnya)', ...prev };
+      written.add(path.join(publicDir, item.dest.replace(/^\//, '')));
+      for (const part of (prev.srcset || '').split(', ').filter(Boolean)) {
+        written.add(path.join(publicDir, part.split(' ')[0].replace(/^\//, '')));
+      }
+      keptFromPrevious++;
+    }
     continue;
   }
 
@@ -303,6 +336,7 @@ const pruned = await prune(mediaDir);
 
 const mb = (n) => (n / 1048576).toFixed(1);
 console.log(`\nimages processed : ${done}/${needed.length}`);
+console.log(`kept from previous run (source missing): ${keptFromPrevious}`);
 console.log(`skipped (missing): ${skipped.length}`);
 console.log(`stale files removed: ${pruned}`);
 console.log(`source size      : ${mb(srcBytes)} MB`);

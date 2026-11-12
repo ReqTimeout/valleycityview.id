@@ -8,11 +8,12 @@
  * which no page can reach). scripts/optimize-media.mjs explains how each
  * verdict was reached and why the library is so thin.
  *
- * The uncomfortable summary, because it changes what the site is allowed to
- * show: the curated set holds **two** real photographs of this project — the
- * access road and the aerial of the land. Everything else that looks like a
- * building is a visualisation. The owner has to supply site photos; until
- * then every exterior on the site carries the "Ilustrasi" label.
+ * The summary that changes what the site is allowed to show: the curated
+ * set holds **five** real photographs — the access road, the aerial of the
+ * land, and since Nov 2026 three owner-supplied photos of a finished unit
+ * (foto-1..3). Everything else that looks like a building is a
+ * visualisation and carries the "Ilustrasi" label; the hero and the about
+ * picture may now run on real photographs instead.
  */
 
 import record from '../data/media-kinds.json';

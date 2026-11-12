@@ -63,11 +63,40 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Weighted low on purpose. At `center 35%` the frame is mostly dusk sky
-     and the house is pushed under the price panel, so the first screen
-     shows an empty gradient instead of the product. */
-  object-position: center 78%;
-  animation: heroZoom 14s var(--ease-out) forwards;
+  /* Foto asli portrait 3:4 di box hero landscape: `cover` memotong atas
+     (langit) dan bawah (paving). center 42% menjaga badan rumah + kanopi
+     tetap di frame — ditune dari screenshot 1440 dan 390 yang benar-benar
+     dilihat, bukan dihitung buta. */
+  object-position: center 42%;
+}
+
+/* Slider hero: slide ditumpuk, rotasi crossfade + Ken Burns per slide.
+   Durasi penuh 16s / 2 slide; --i memberi offset 8s per slide sehingga
+   slide 2 baru muncul setelah slide 1 selesai masanya. */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__slide .hero__img {
+  animation:
+    heroSlide 16s linear infinite both,
+    heroKenburns 16s var(--ease-out) infinite both;
+  animation-delay: calc(var(--i) * 8s);
+}
+
+@keyframes heroSlide {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  47% { opacity: 1; }
+  52% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Ken Burns pelan — inilah "efek mewah" yang diminta, bukan overlay gelap. */
+@keyframes heroKenburns {
+  from { transform: scale(1.02) translateY(0); }
+  to { transform: scale(1.1) translate3d(0, -1.5%, 0); }
 }
 
 /* The <picture> that swaps the phone crop for the square original. A picture
