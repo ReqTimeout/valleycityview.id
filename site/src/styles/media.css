@@ -63,11 +63,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Foto asli portrait 3:4 di box hero landscape: `cover` memotong atas
-     (langit) dan bawah (paving). center 42% menjaga badan rumah + kanopi
-     tetap di frame — ditune dari screenshot 1440 dan 390 yang benar-benar
-     dilihat, bukan dihitung buta. */
-  object-position: center 42%;
+  /* Sumber hero kini crop pita-rumah (desktop) / portrait penuh (phone):
+     rumahnya sudah di tengah frame, jadi center 50% menjaga fasad + kanopi
+     tetap terbaca di box landscape maupun portrait — ditune dari screenshot
+     1440 dan 390 yang benar-benar dilihat, bukan dihitung buta. */
+  object-position: center 50%;
 }
 
 /* Slider hero: slide ditumpuk, rotasi crossfade + Ken Burns per slide.
@@ -93,10 +93,12 @@
   100% { opacity: 0; }
 }
 
-/* Ken Burns pelan — inilah "efek mewah" yang diminta, bukan overlay gelap. */
+/* Ken Burns pelan — inilah "efek mewah" yang diminta, bukan overlay gelap.
+   Scale dibatasi 1.05 (dari 1.1): sumber foto owner hanya 903/1207 px, tiap
+   persen zoom tambahan adalah upscale yang memperblur foto di desktop. */
 @keyframes heroKenburns {
-  from { transform: scale(1.02) translateY(0); }
-  to { transform: scale(1.1) translate3d(0, -1.5%, 0); }
+  from { transform: scale(1.01) translateY(0); }
+  to { transform: scale(1.05) translate3d(0, -1%, 0); }
 }
 
 /* BUG "hero kosong" (12 Nov 2026): global.css memaksa animation-duration

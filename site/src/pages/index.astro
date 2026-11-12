@@ -193,7 +193,7 @@ const schemas = [
     title="Perumahan Valley Cityview di Cimahi — Rumah 45/72 dari Rp 599 Juta"
     description="Valley Cityview, perumahan tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. 15 menit ke KCIC, panorama lembah hijau, KPR Rp 599 juta, cicilan Rp 3.871.000 per bulan."
     path="/"
-    image="/media/curated/foto-1.webp"
+    image="/media/curated/hero-unit-depan.webp"
     schemas={schemas}
   />
 
@@ -208,16 +208,21 @@ const schemas = [
       media-kinds.json: promo-ready).
 
       Zero-JS: rotasi murni CSS (@keyframes heroSlide, indeks via
-      --i di style attribute). Tanpa <picture>/mobileName — sumbernya sudah
-      portrait, crop `cover` di box desktop maupun phone sama-sama
-      menjaga rumahnya; object-position ditune per viewport di bawah.
+      --i di style attribute). Sumber portrait asli hanya 903/1207 px
+      lebar: di box desktop ia ter-upscale jadi blur dan frame habis di
+      langit. Maka desktop memakai crop pita-rumah (hero-unit-*.webp,
+      rasio ~1.74:1 sesuai box) dan phone memakai portrait penuh yang
+      di-re-encode tajam (hero-unit-*-mobile.webp) lewat <source>.
+      Slide 0 = tampak depan (foto-2, paling tajam & rumahnya dominan);
+      ia juga slide yang tampil di perangkat Reduce Motion.
     -->
     <div class="hero__media">
       <div class="hero__slide" style="--i:0">
         <Picture
-          name="/media/curated/foto-1.webp"
+          name="/media/curated/hero-unit-depan.webp"
+          mobileName="/media/curated/hero-unit-depan-mobile.webp"
           pictureClass="hero__picture"
-          alt="Foto unit Valley Cityview yang sudah berdiri: kanopi carport baja, jendela lebar menyala sore, deretan pinus muda di halaman"
+          alt="Foto tampak depan unit Valley Cityview yang sudah berdiri: mobil di carport baja, taman kecil dan jendela ruang keluarga menyala sore"
           class="hero__img"
           sizes="100vw"
           loading="eager"
@@ -226,7 +231,8 @@ const schemas = [
       </div>
       <div class="hero__slide" style="--i:1" aria-hidden="true">
         <Picture
-          name="/media/curated/foto-2.webp"
+          name="/media/curated/hero-unit-carport.webp"
+          mobileName="/media/curated/hero-unit-carport-mobile.webp"
           pictureClass="hero__picture"
           alt=""
           class="hero__img"
@@ -839,6 +845,15 @@ const schemas = [
       linear-gradient(to bottom,
         color-mix(in srgb, var(--brand-900) 46%, transparent) 0%,
         transparent 26%),
+      /* pita kata mobile: headline + lead jatuh selebar penuh di atas
+         atap yang terang (foto baru), jadi kolom kiri saja tidak cukup.
+         Pita ini menggelarkan zona kata (24-52%) lalu pudar sebelum fasad /
+         mobil / taman (>=66%) supaya rumah tetap bersih terbaca. */
+      linear-gradient(to bottom,
+        transparent 24%,
+        color-mix(in srgb, var(--brand-900) 54%, transparent) 34%,
+        color-mix(in srgb, var(--brand-900) 50%, transparent) 52%,
+        transparent 66%),
       /* bawah tipis — trust list + progress, rumah tetap terbaca */
       linear-gradient(to top,
         color-mix(in srgb, var(--brand-900) 52%, transparent) 0%,

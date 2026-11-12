@@ -12,7 +12,11 @@
   "knowledge-1": "Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang",
   "detail-5": "Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang",
   "foto-1": "Foto unit Valley Cityview yang sudah berdiri: kanopi carport baja, jendela lebar menyala sore, deretan pinus muda di halaman paving",
-  "foto-2": "Foto tampak depan unit Valley Cityview: mobil terparkir di carport, taman kecil dan jendela ruang keluarga menyala menjelang malam"
+  "foto-2": "Foto tampak depan unit Valley Cityview: mobil terparkir di carport, taman kecil dan jendela ruang keluarga menyala menjelang malam",
+ "hero-unit-depan": "Crop pita-rumah foto-2 (tampak depan) untuk hero desktop: rumah mengisi frame, langit/paving dipotong",
+ "hero-unit-depan-mobile": "Foto-2 portrait penuh di-re-encode tajam untuk hero mobile (DPR 2-3)",
+ "hero-unit-carport": "Crop pita-rumah foto-1 (kanopi carport + pinus) untuk hero desktop",
+ "hero-unit-carport-mobile": "Foto-1 portrait penuh di-re-encode tajam untuk hero mobile (DPR 2-3)"
  },
  "render": {
   "design-45": "Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah",

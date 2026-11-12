@@ -262,6 +262,41 @@ const DERIVATIVES = [
     crop: { left: 40, top: 460, width: 700, height: 1540 },
     quality: 82,
   },
+  /* Hero "blur + rumah tak terlihat" (12 Nov 2026): foto asli owner hanya
+     903/1207 px lebar dan portrait; di box hero landscape 1440x828 ia di-
+     upscale 1.6x dan `object-position` lama membuang frame ke langit kosong.
+     Crop pita-rumah di bawah memotong langit/paving sehingga rumah mengisi
+     frame pada rasio box desktop (~1.74:1), dan varian mobile me-re-encode
+     portrait penuh dengan unsharp ringan supaya tajam di DPR 2-3. Jendela
+     crop dipilih dari screenshot hero yang benar-benar dilihat. */
+  {
+    from: '/media/curated/foto-2.webp',
+    to: '/media/curated/hero-unit-depan.webp',
+    crop: { left: 0, top: 450, width: 1207, height: 700 },
+    quality: 85,
+    sharpen: { sigma: 1.1, m1: 0.7, m2: 0.35 },
+  },
+  {
+    from: '/media/curated/foto-2.webp',
+    to: '/media/curated/hero-unit-depan-mobile.webp',
+    crop: { left: 0, top: 0, width: 1207, height: 1600 },
+    quality: 85,
+    sharpen: { sigma: 1.1, m1: 0.7, m2: 0.35 },
+  },
+  {
+    from: '/media/curated/foto-1.webp',
+    to: '/media/curated/hero-unit-carport.webp',
+    crop: { left: 0, top: 500, width: 903, height: 520 },
+    quality: 85,
+    sharpen: { sigma: 1.1, m1: 0.7, m2: 0.35 },
+  },
+  {
+    from: '/media/curated/foto-1.webp',
+    to: '/media/curated/hero-unit-carport-mobile.webp',
+    crop: { left: 0, top: 0, width: 903, height: 1600 },
+    quality: 85,
+    sharpen: { sigma: 1.1, m1: 0.7, m2: 0.35 },
+  },
 ];
 
 for (const d of DERIVATIVES) {
@@ -272,6 +307,7 @@ for (const d of DERIVATIVES) {
   }
   const target = path.join(publicDir, d.to.replace(/^\//, ''));
   let image = sharp(source).extract(d.crop);
+  if (d.sharpen) image = image.sharpen(d.sharpen);
   if (d.mask) {
     const white = await sharp({
       create: {
