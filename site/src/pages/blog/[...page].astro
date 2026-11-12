@@ -332,7 +332,29 @@ const schemas = [
   */
   .post-grid {
     display: grid;
-    gap: var(--s-4);
+    gap: var(--s-3);
+    align-items: stretch;
+  }
+
+
+  /* Kartu jadi surface utuh (hairline + radius) supaya grid terbaca rapi
+     dan seragam, bukan potongan gambar lepas dengan tinggi berbeda. */
+  .post-card {
+    height: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--white);
+    overflow: hidden;
+    transition:
+      transform var(--d-base) var(--ease-out),
+      border-color var(--d-base) var(--ease-out),
+      box-shadow var(--d-base) var(--ease-out);
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--brand-500) 40%, var(--border));
+    box-shadow: 0 14px 34px rgb(1 42 51 / 0.09);
   }
 
 
@@ -343,6 +365,7 @@ const schemas = [
     align-items: start;
     text-decoration: none;
     height: 100%;
+    padding: var(--s-2);
   }
 
 
@@ -356,9 +379,16 @@ const schemas = [
   .post-card__placeholder {
     display: grid;
     place-items: center;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1;
     background: var(--brand-050);
     color: var(--brand-300);
+  }
+
+
+  .post-card__body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
   }
 
 
@@ -375,6 +405,12 @@ const schemas = [
     margin-bottom: 0.4rem;
     color: var(--ink-900);
     transition: color var(--d-fast) linear;
+    /* clamp 3 baris: judul panjang tidak lagi mendorong kartu tetangga
+       sehingga baris grid tetap sejajar. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
 
@@ -455,17 +491,31 @@ const schemas = [
 
     .post-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-4);
     }
 
     /* Two columns is wide enough to put the cover back on top. */
     .post-card__link {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
     }
 
 
     .post-card__media {
-      border-radius: var(--r-lg);
-      margin-bottom: var(--s-3);
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+
+    .post-card__body {
+      flex: 1;
+      padding: var(--s-4);
+    }
+
+    /* excerpt rata bawah supaya semua kartu dalam satu baris berakhir
+       pada garis yang sama walau judulnya beda panjang. */
+    .post-card__excerpt {
+      margin-top: auto;
     }
 }
 @media (min-width: 900px) {

@@ -99,6 +99,30 @@
   to { transform: scale(1.1) translate3d(0, -1.5%, 0); }
 }
 
+/* BUG "hero kosong" (12 Nov 2026): global.css memaksa animation-duration
+   0.01ms + iteration 1 di bawah prefers-reduced-motion. Dengan fill `both`,
+   heroSlide langsung melompat ke keyframe 100% (opacity:0) dan MENAHANNYA —
+   kedua slide transparan, hero tampak kosong di perangkat Reduce Motion.
+   Di sini animasi dimatikan dan slide pertama dipaksa terlihat (slide kedua
+   disembunyikan) sehingga foto tetap ada walau tanpa gerakan. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide .hero__img {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero__slide + .hero__slide {
+    opacity: 0;
+  }
+  .hero__progress i::after {
+    animation: none !important;
+    transform: scaleX(0);
+  }
+  .hero__progress i:first-child::after {
+    transform: scaleX(1);
+  }
+}
+
 /* The <picture> that swaps the phone crop for the square original. A picture
    is an inline box, so without an explicit size its height collapses and the
    `height: 100%` above resolves against nothing. */
@@ -219,9 +243,23 @@
 
 .article__cover-img {
   width: 100%;
-  max-height: 460px;
+  /* Picture.astro menulis aspect-ratio INLINE (rasio alami sumber) untuk
+     mencegah CLS; tanpa !important rasio itu mengalahkan crop di sini dan
+     cover post jadi setinggi sumbernya (portrait = memenuhi layar).
+     !important memaksa banner landscape seragam untuk semua post. */
+  aspect-ratio: 16 / 9 !important;
+  height: auto;
+  max-height: none;
   object-fit: cover;
+  object-position: center 55%;
   border-radius: var(--r-xl);
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .article__cover-img {
+    aspect-ratio: 21 / 9 !important;
+  }
 }
 
 /* --- Blog cards ---------------------------------------------------------- */
@@ -229,9 +267,19 @@
 .featured__img,
 .post-card__img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  /* Sama seperti cover: kalahkan aspect-ratio inline dari Picture agar
+     semua kartu grid punya tinggi media SERAGAM (grid rapi, tidak ragged).
+     Mobile = thumb persegi di kolom 104px; >=560px = cover 16/10 di atas. */
+  aspect-ratio: 1 / 1 !important;
   object-fit: cover;
   transition: transform var(--d-slow) var(--ease-out);
+}
+
+@media (min-width: 560px) {
+  .featured__img,
+  .post-card__img {
+    aspect-ratio: 16 / 10 !important;
+  }
 }
 
 .featured:hover .featured__img {
