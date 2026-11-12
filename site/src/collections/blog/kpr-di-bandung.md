@@ -115,7 +115,7 @@ cover: "/media/curated/design-24.webp"
 <h2>Info &amp; Konsultasi Gratis
 </h2>
 <ul>
-<li> Hubungi via WhatsApp: <a href="https://wa.me/6281188010326" target="_blank" rel="dofollow noopener">0811-8801-0326</a>
+<li> Hubungi via WhatsApp: <a href="https://wa.me/6285775556783?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20di%20Valley%20Cityview.%20Boleh%20minta%20informasinya%3F" data-wa="blog" target="_blank" rel="dofollow noopener">Chat WhatsApp</a>
 </li>
 <li> Kunjungi:
 </li>

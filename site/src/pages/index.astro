@@ -9,7 +9,6 @@ import KprSimulator from '../components/KprSimulator.svelte';
 import Gallery from '../components/Gallery.svelte';
 import { site, waLink, waMessages } from '../data/site';
 import { mediaAttrs } from '../lib/media';
-import { isIllustration, ILLUSTRATION_LABEL } from '../data/media';
 
 const p = site.pricing;
 
@@ -23,9 +22,9 @@ const rupiah = new Intl.NumberFormat('id-ID', {
   The gallery carries what the media library actually holds. Reading the
   files (see src/data/media.ts) showed that only two of them are photographs
   of this project — the access road and the aerial of the land — and the
-  rest are architectural visualisations. F6 allows that, but every render is
-  labelled "Ilustrasi" so nobody reads a picture of a promise as a picture
-  of a finished house.
+  rest are architectural visualisations. F6 used to put an honest label chip
+  on every render; the owner removed those labels site-wide in Nov 2026, so
+  each caption now names plainly what is shown.
 */
 const galleryShots = [
   {
@@ -79,7 +78,6 @@ const galleryShots = [
 ].map((shot) => ({
   ...shot,
   ...mediaAttrs(shot.key),
-  label: isIllustration(shot.key) ? ILLUSTRATION_LABEL : undefined,
 }));
 
 const faqs = [
@@ -380,9 +378,8 @@ const schemas = [
           <!-- Permintaan owner (12 Nov 2026): slot Tentang memakai poster
                promosi "RUMAH READY STOCK! DP 0% CICILAN 2 JUTAAN"
                (image/WhatsApp 2026-11-05). Ini materi promosi, bukan foto
-               unit — kind `poster` di media-kinds.json, jadi tanpa chip
-               Ilustrasi. aspect-ratio 4/5 mengikuti poster agar teks atas
-               dan bawah tidak terpotong. -->
+               unit — kind `poster` di media-kinds.json. aspect-ratio 4/5
+               mengikuti poster agar teks atas dan bawah tidak terpotong. -->
           <Picture
             name="/media/curated/promo-ready.webp"
             alt="Poster promosi Valley Cityview: rumah ready stock, DP 0 persen, cicilan 2 jutaan — ajak jadwal survey"
@@ -551,8 +548,9 @@ const schemas = [
         -->
         <h2>Denah saja tidak cukup — lihat gambaran ruangannya</h2>
         <p>
-          Setiap visualisasi arsitektur diberi label "Ilustrasi"; yang tidak
-          berlabel adalah foto lokasi. Ketuk gambar untuk memperbesar.
+          Sebagian gambar adalah foto lokasi, sebagian lagi visualisasi
+          arsitektur — keterangan tiap gambar menjelaskan apa yang terlihat.
+          Ketuk gambar untuk memperbesar.
         </p>
       </div>
 
@@ -732,7 +730,7 @@ const schemas = [
             data-wa="booking-section"
           >
             <Icon name="whatsapp" size={18} />
-            {site.contact.whatsappDisplay}
+            Chat WhatsApp
           </a>
           <span class="booking-wrap__hours">
             <Icon name="clock" size={15} />
@@ -786,11 +784,9 @@ const schemas = [
     z-index: -2;
   }
 
-  /* F6: the hero picture is a visualisation, and the page says so on the
-     picture itself — not in a caption three screens down. The homepage spells
-     the sentence out ("Ilustrasi arsitektur — bukan foto proyek") because the
-     hero is the one image a visitor is most likely to read as finished work;
-     everywhere else the short MediaLabel chip is enough. */
+  /* F6: the hero picture is a visualisation and used to say so on the
+     picture itself with a spelled-out note. The owner removed those labels
+     in Nov 2026; the rule stays for any future note pinned to the hero. */
   .hero__note {
     position: absolute;
     /* Sits under the sticky bar now that the hero runs up behind it. It used
@@ -1876,6 +1872,36 @@ const schemas = [
 
     .panorama iframe {
       height: 300px;
+    }
+
+
+    /* Owner (12 Nov 2026): lists that only ever stacked vertically on a
+       phone become compact two-column grids — half the rows, meaningfully
+       less scroll. Every item keeps its full text; the grid just uses the
+       horizontal space a phone was leaving empty. The access cards flip to
+       a stacked tile so 50 % width doesn't squeeze icon and text apart. */
+    .spec-list {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 0.9rem;
+    }
+
+
+    .booking-wrap__points {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 0.9rem;
+    }
+
+
+    .access {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-3);
+    }
+
+
+    .access__item {
+      flex-direction: column;
+      gap: var(--s-2);
+      padding: var(--s-3);
     }
   }
 

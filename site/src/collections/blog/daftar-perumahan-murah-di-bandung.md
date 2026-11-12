@@ -107,7 +107,7 @@ cover: "/media/curated/hero.webp"
 <h2>Butuh Bantuan KPR & Survey Lokasi?
 </h2>
 <ul>
-<li> Hubungi WA kami: <a href="https://wa.me/6281188010326" target="_blank" rel="dofollow">0811-8801-0326</a>
+<li> Hubungi WA kami: <a href="https://wa.me/6285775556783?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20di%20Valley%20Cityview.%20Boleh%20minta%20informasinya%3F" data-wa="blog" target="_blank" rel="dofollow">Chat WhatsApp</a>
 </li>
 <li> Kunjungi Website: valleycity.id
 </li>

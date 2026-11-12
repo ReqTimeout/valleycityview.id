@@ -155,54 +155,15 @@
   object-position: center 35%;
 }
 
-/* --- Ilustrasi label (PLAN.md F6) --------------------------------------
+/* --- Media label (PLAN.md F6) — retired ---------------------------------
 
-   Rendered by components/MediaLabel.astro, which stays silent for a real
-   photograph. The chip is deliberately small and lives in one corner: the
-   point is honesty at a glance, not decorating the picture.
-
-   These rules are global because the chip is placed next to a <Picture>
-   whose element it cannot style, and because the same chip has to look
-   identical on eight different pages.
+   The "Ilustrasi" chip was removed site-wide (owner, 12 Nov 2026):
+   MediaLabel.astro renders nothing, the gallery tiles dropped their labels,
+   and the rehype plugin no longer injects one into article bodies. What
+   remains is only the positioning context the frames keep for their own
+   overlays (hero note, badges) — the chip styles are gone.
    ------------------------------------------------------------------------ */
 
-.media-chip {
-  position: absolute;
-  z-index: 2;
-  bottom: 0.6rem;
-  left: 0.6rem;
-  padding: 0.22rem 0.5rem;
-  border-radius: var(--r-sm);
-  background: color-mix(in srgb, var(--brand-900) 72%, transparent);
-  border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
-  color: var(--white);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-/* Full-bleed heroes fill their lower half with headline and CTA, so the chip
-   goes under the header instead — the same spot the homepage uses. */
-.media-chip--bleed {
-  top: calc(var(--header-h) + 0.85rem);
-  right: var(--gutter);
-  bottom: auto;
-  left: auto;
-}
-
-/* Inside an article the label is added by the rehype plugin, after the <img>,
-   where it sits in the text column instead of floating over the picture. */
-.media-chip--inline {
-  position: static;
-  display: inline-block;
-  margin-top: 0.4rem;
-}
-
-/* The boxes that hold a chip need a positioning context. They are listed here
-   rather than in each page's scoped styles so the chip behaves the same
-   wherever it is placed. */
 .about__frame,
 .featured__media,
 .kpr-hero__media,

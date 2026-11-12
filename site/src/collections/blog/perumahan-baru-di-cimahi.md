@@ -63,7 +63,7 @@ Segera booking unit selama periode launching dan dapatkan <strong>free pagar min
 
 <h2>Hubungi Kami Sekarang
 </h2>
-Untuk informasi lebih lanjut, silakan kunjungi <a href="/">website resmi Valley Cityview</a> atau hubungi tim marketing kami di <a href="https://wa.me/6281188010326">0811-8801-0326</a>.
+Untuk informasi lebih lanjut, silakan kunjungi <a href="/">website resmi Valley Cityview</a> atau hubungi tim marketing kami di <a href="https://wa.me/6285775556783?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20di%20Valley%20Cityview.%20Boleh%20minta%20informasinya%3F" data-wa="blog">Chat WhatsApp</a>.
 
 <h3>Ikuti Media Sosial Kami:
 </h3>

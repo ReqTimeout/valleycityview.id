@@ -3,6 +3,7 @@
    * KPR simulator — the same annuity maths that produces the Rp 3.871.000
    * headline figure, so the number on the page is always reproducible.
    */
+  import { site } from '../data/site';
   const rupiah = new Intl.NumberFormat('id-ID', {
     style: 'currency',
     currency: 'IDR',
@@ -36,8 +37,10 @@
     Math.abs(monthly - 3_871_000) < 15_000,
   );
 
+  // First rotation number as the SSR default; data-wa below lets the
+  // rotation script in layouts/Base.astro swap to the next number on click.
   const waHref = $derived(
-    'https://wa.me/6281188010326?text=' +
+    `https://wa.me/${site.contact.whatsapp}?text=` +
       encodeURIComponent(
         `Halo Valley Cityview! Saya mau tanya KPR untuk tipe 45/72. ` +
           `Dengan ${rupiah.format(monthly)} per bulan selama ${years} tahun, ` +

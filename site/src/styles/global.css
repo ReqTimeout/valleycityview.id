@@ -55,7 +55,8 @@
 */
 @media (max-width: 899px) {
   body.has-dock {
-    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+    /* the floating pill is ~72px tall and hovers 14px above the safe area */
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
 }
 

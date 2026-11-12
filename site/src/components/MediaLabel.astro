@@ -1,31 +1,13 @@
 ---
 /**
- * The "Ilustrasi" label required by PLAN.md F6 whenever a visualisation is
- * shown in place of a photograph of the project.
- *
- * Renders nothing for a real photograph, so it is safe to put on every
- * curated image: if the asset behind a slot is ever swapped for a render, the
- * label appears by itself. Unknown assets are labelled — an unlabelled render
- * misleads, an over-labelled photo only looks careful.
- *
- * `bleed` puts the chip high and to the right, for full-height heroes whose
- * lower half is filled with the headline and the CTA.
+ * Owner (12 Nov 2026): the visible "Ilustrasi" chip is removed site-wide.
+ * The component is kept (so every existing `<MediaLabel>` call site stays
+ * valid) but renders nothing. Honesty about renders vs photographs now lives
+ * in the alt text and captions, not in an overlaid badge.
  */
-import { isIllustration, ILLUSTRATION_LABEL } from '../data/media';
-
 interface Props {
   name: string;
   note?: string;
   bleed?: boolean;
 }
-
-const { name, note, bleed = false } = Astro.props;
 ---
-
-{
-  isIllustration(name) && (
-    <span class:list={['media-chip', { 'media-chip--bleed': bleed }]}>
-      {note ?? ILLUSTRATION_LABEL}
-    </span>
-  )
-}

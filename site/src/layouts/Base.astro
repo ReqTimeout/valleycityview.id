@@ -97,5 +97,34 @@ const {
         });
       })();
     </script>
+
+    <script is:inline>
+      // WhatsApp number rotation. Every click on a [data-wa] link advances a
+      // round-robin cursor through the three sales numbers and rewrites the
+      // wa.me target before the browser follows it, spreading the leads evenly.
+      // Kept in sync with site.contact.whatsappNumbers in src/data/site.ts.
+      (function () {
+        var NUMS = ['6285775556783', '6282115383826', '6285294475040'];
+        var KEY = 'vcv_wa_index';
+        function next() {
+          var i = 0;
+          try { i = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; } catch (e) { i = 0; }
+          var num = NUMS[i % NUMS.length];
+          try { localStorage.setItem(KEY, String((i + 1) % NUMS.length)); } catch (e) {}
+          return num;
+        }
+        document.addEventListener(
+          'click',
+          function (e) {
+            var a = e.target && e.target.closest ? e.target.closest('a[data-wa]') : null;
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            if (href.indexOf('wa.me/') === -1) return;
+            a.href = href.replace(/wa\.me\/\d+/, 'wa.me/' + next());
+          },
+          false,
+        );
+      })();
+    </script>
   </body>
 </html>

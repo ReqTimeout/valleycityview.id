@@ -74,21 +74,14 @@ const socials = [
         <p class="eyebrow" id="f-contact">Hubungi kami</p>
         <ul class="site-footer__contact">
           <li>
+            <!-- Owner (12 Nov 2026): no email in the footer, and the phone
+                 number is not a tel: link — every contact path now routes to
+                 the rotating WhatsApp button (see waRotate in Base.astro). The
+                 label stays generic because the number behind the click changes
+                 on each tap. -->
             <a href={waLink(waMessages.booking)} data-wa="footer">
               <Icon name="whatsapp" size={17} />
-              <span>{site.contact.whatsappDisplay}</span>
-            </a>
-          </li>
-          <li>
-            <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}>
-              <Icon name="phone" size={17} />
-              <span>{site.contact.phone}</span>
-            </a>
-          </li>
-          <li>
-            <a href={`mailto:${site.contact.email}`}>
-              <Icon name="mail" size={17} />
-              <span>{site.contact.email}</span>
+              <span>WhatsApp Valley Cityview</span>
             </a>
           </li>
           <li>

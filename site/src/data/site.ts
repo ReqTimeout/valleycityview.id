@@ -28,14 +28,16 @@ export const site = {
 
   contact: {
     /**
-     * Single canonical WhatsApp number. The WordPress build had three
-     * different numbers live at once (0811-8801-0326 on the footer,
-     * +6285294475040 in the joinchat plugin, and an unresolved wa.link).
-     * This is the one used by the static landing pages.
+     * WhatsApp numbers of record (owner, Nov 2026). The static landing pages
+     * rotate through these three on every click — see the `waRotate` script in
+     * layouts/Base.astro — so the load is spread across the sales team. The
+     * first entry is also the no-JS / SSR default and the JSON-LD value.
+     * International format (62 + number without the leading 0).
      */
-    whatsapp: '6281188010326',
-    whatsappDisplay: '0811-8801-0326',
-    phone: '+62 811-8801-0326',
+    whatsappNumbers: ['6285775556783', '6282115383826', '6285294475040'],
+    whatsapp: '6285775556783',
+    whatsappDisplay: '0857-7555-6783',
+    phone: '+62 857-7555-6783',
     email: 'halo@valleycity.id',
     hours: 'Senin – Sabtu, 09.00 – 18.00 WIB',
   },

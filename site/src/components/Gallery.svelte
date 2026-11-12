@@ -8,8 +8,6 @@
     srcset?: string;
     alt: string;
     caption?: string;
-    /** "Ilustrasi" for a visualisation — PLAN.md F6. */
-    label?: string;
     span?: 'wide' | 'tall' | 'normal';
   };
 
@@ -76,9 +74,6 @@
       {#if shot.caption}
         <span class="gallery__caption">{shot.caption}</span>
       {/if}
-      {#if shot.label}
-        <span class="gallery__label">{shot.label}</span>
-      {/if}
     </button>
   {/each}
 </div>
@@ -102,13 +97,8 @@
 
     <figure class="lightbox__figure">
       <img src={shots[openIndex].src} alt={shots[openIndex].alt} />
-      {#if shots[openIndex].caption || shots[openIndex].label}
-        <figcaption>
-          {shots[openIndex].caption}
-          {#if shots[openIndex].label}
-            <span class="lightbox__label">{shots[openIndex].label}</span>
-          {/if}
-        </figcaption>
+      {#if shots[openIndex].caption}
+        <figcaption>{shots[openIndex].caption}</figcaption>
       {/if}
     </figure>
 
@@ -200,22 +190,6 @@
     text-align: left;
   }
 
-  /* F6: the label sits opposite the caption so both stay readable. Small,
-     one corner, only on the visualisations. */
-  .gallery__label {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.2rem 0.45rem;
-    border-radius: var(--r-sm);
-    background: color-mix(in srgb, var(--brand-900) 72%, transparent);
-    color: var(--white);
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
   .lightbox {
     position: fixed;
     inset: 0;
@@ -284,18 +258,6 @@
     font-size: var(--t-sm);
     text-align: center;
     margin-top: var(--s-3);
-  }
-
-  .lightbox__label {
-    display: inline-block;
-    margin-left: 0.5rem;
-    padding: 0.15rem 0.45rem;
-    border-radius: var(--r-sm);
-    border: 1px solid color-mix(in srgb, var(--white) 26%, transparent);
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
   }
 
   .lightbox__close {

@@ -101,7 +101,7 @@ cover: "/media/curated/hero-2.webp"
 <p>Anda bisa langsung menghubungi tim marketing kami untuk informasi lengkap dan jadwal kunjungan ke lokasi:
 </p>
 <ul>
-<li> WhatsApp: <a href="https://wa.me/6281188010326" target="_blank" rel="dofollow">0811-8801-0326</a>
+<li> WhatsApp: <a href="https://wa.me/6285775556783?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20di%20Valley%20Cityview.%20Boleh%20minta%20informasinya%3F" data-wa="blog" target="_blank" rel="dofollow">Chat WhatsApp</a>
 </li>
 <li> Website: valleycity.id
 </li>
@@ -174,6 +174,6 @@ cover: "/media/curated/hero-2.webp"
 </h2>
 <h2>Suasana terang hangat, dan menenangkan sejak langkah pertama
 </h2><figure><img src="/media/curated/unit-5.webp" alt="Kamar kosong dengan jendela sudut" loading="lazy" /></figure>
-<figure><img src="/media/curated/design-24.webp" alt="Ilustrasi tampak depan unit tipe 45/72 (render, bukan foto)" loading="lazy" /></figure>
+<figure><img src="/media/curated/design-24.webp" alt="Visualisasi tampak depan unit tipe 45/72 (render, bukan foto)" loading="lazy" /></figure>
 <h2>Booking hanya Rp 5 juta</h2>
-<p>Booking fee Rp 5 juta bisa dicicil. <a href="https://wa.me/6281188010326" target="_blank" rel="noopener">Hubungi tim kami di WhatsApp 0811-8801-0326</a> — unit yang tersedia kami kabari setelah Anda menghubungi kami.</p>
+<p>Booking fee Rp 5 juta bisa dicicil. <a href="https://wa.me/6285775556783?text=Halo%2C%20saya%20tertarik%20dengan%20rumah%20di%20Valley%20Cityview.%20Boleh%20minta%20informasinya%3F" data-wa="blog" target="_blank" rel="noopener">Hubungi tim marketing Valley Cityview via WhatsApp</a> — unit yang tersedia kami kabari setelah Anda menghubungi kami.</p>
