@@ -573,6 +573,24 @@ const isActive = (href: string) => {
 }
 @media (max-width: 899px) {
 
+    /* Header mobile (owner 12 Nov): bersih — logo di tengah, tanpa
+     hamburger dan tanpa tombol Booking. Navigasi & aksi pindah penuh
+     ke dock bawah (Beranda/Unit/Booking/KPR/Blog), jadi menu overlay
+     tidak lagi terjangkau — sengaja begitu, satu krom saja. */
+    .menu-toggle {
+      display: none;
+    }
+
+
+    .site-header__actions {
+      display: none;
+    }
+
+
+    .site-header__inner {
+      justify-content: center;
+    }
+
 
     .site-header--overlay:not(.is-scrolled) .menu-toggle {
       background: color-mix(in srgb, var(--white) 18%, transparent);

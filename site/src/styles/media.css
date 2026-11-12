@@ -71,8 +71,9 @@
 }
 
 /* Slider hero: slide ditumpuk, rotasi crossfade + Ken Burns per slide.
-   Durasi penuh 16s / 2 slide; --i memberi offset 8s per slide sehingga
-   slide 2 baru muncul setelah slide 1 selesai masanya. */
+   Durasi penuh 12s / 2 slide; --i memberi offset 6s per slide sehingga
+   slide 2 baru muncul setelah slide 1 selesai masanya. 12s (dari 16s) —
+   owner 12 Nov: pergantian terasa terlalu lama sehingga hero seperti diam. */
 .hero__slide {
   position: absolute;
   inset: 0;
@@ -80,9 +81,9 @@
 
 .hero__slide .hero__img {
   animation:
-    heroSlide 16s linear infinite both,
-    heroKenburns 16s var(--ease-out) infinite both;
-  animation-delay: calc(var(--i) * 8s);
+    heroSlide 12s linear infinite both,
+    heroKenburns 12s var(--ease-out) infinite both;
+  animation-delay: calc(var(--i) * 6s);
 }
 
 @keyframes heroSlide {
@@ -105,16 +106,16 @@
    0.01ms + iteration 1 di bawah prefers-reduced-motion. Dengan fill `both`,
    heroSlide langsung melompat ke keyframe 100% (opacity:0) dan MENAHANNYA —
    kedua slide transparan, hero tampak kosong di perangkat Reduce Motion.
-   Di sini animasi dimatikan dan slide pertama dipaksa terlihat (slide kedua
-   disembunyikan) sehingga foto tetap ada walau tanpa gerakan. */
+   Kebijakan (owner 12 Nov, "kenapa hero ga gerak?"): Reduce Motion memangkas
+   GERAK, bukan kehidupan — crossfade (hanya opacity) tetap jalan, Ken Burns
+   (transform) dimatikan, slide kedua tetap ada agar rotasi terlihat. */
 @media (prefers-reduced-motion: reduce) {
   .hero__slide .hero__img {
-    animation: none !important;
-    opacity: 1 !important;
+    /* shorthand !important menang atas kill-switch global (spesifisitas
+       kelas > *), dan hanya menyisakan animasi opacity — tanpa gerak. */
+    animation: heroSlide 12s linear infinite both !important;
+    animation-delay: calc(var(--i) * 6s) !important;
     transform: none !important;
-  }
-  .hero__slide + .hero__slide {
-    opacity: 0;
   }
   .hero__progress i::after {
     animation: none !important;

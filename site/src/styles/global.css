@@ -55,8 +55,8 @@
 */
 @media (max-width: 899px) {
   body.has-dock {
-    /* the floating pill is ~72px tall and hovers 14px above the safe area */
-    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+    /* tab bar berlabel kini ~86px tinggi dan hover 12px di atas safe area */
+    padding-bottom: calc(108px + env(safe-area-inset-bottom));
   }
 }
 

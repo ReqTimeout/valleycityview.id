@@ -902,13 +902,13 @@ const schemas = [
     inset: 0;
     background: var(--accent-500);
     transform-origin: left;
-    animation: heroTick 16s linear infinite both;
+    animation: heroTick 12s linear infinite both;
   }
 
-  .hero__progress i:nth-child(2)::after { animation-delay: 8s; }
+  .hero__progress i:nth-child(2)::after { animation-delay: 6s; }
 
   @keyframes heroTick {
-    /* Tiap titik penuh selama masanya (8s dari 16s = 50%), lalu kosong.
+    /* Tiap titik penuh selama masanya (6s dari 12s = 50%), lalu kosong.
        1% = durasi fade-in slide agar tidak ada frame kosong. */
     0% { transform: scaleX(0); }
     1%, 50% { transform: scaleX(1); }
@@ -1917,19 +1917,12 @@ const schemas = [
     }
   }
 
-  /* Slider + micro-animation harus berhenti rapi, bukan berhenti setengah.
-     Kill-switch global sudah memangkas durasi, tapi opacity akhir keyframe
-     heroSlide adalah 0 — tanpa aturan ini foto membekas jadi slide gelap. */
+  /* Reduce Motion = kurangi gerak, bukan matikan kehidupan (owner 12 Nov:
+     "hero ga gerak, micro interaksi ga ada" — perangkat dengan Reduce
+     Motion sebelumnya membekukan semua). Crossfade slide (opacity, media.css)
+     dan denyut glow box-shadow tetap hidup; Ken Burns, rise masuk, ikon
+     bergetar, dan scroll hint (semua transform) dimatikan. */
   @media (prefers-reduced-motion: reduce) {
-
-    .hero__slide .hero__img {
-      animation: none;
-      opacity: 1;
-    }
-
-    .hero__slide[aria-hidden="true"] {
-      display: none;
-    }
 
     .hero__progress {
       display: none;
@@ -1937,6 +1930,20 @@ const schemas = [
 
     .hero__inner > * {
       animation: none;
+      opacity: 1;
+    }
+
+    /* box-shadow bukan gerak — glow tombol dan dot radar diizinkan lagi */
+    .hero__actions .btn--accent {
+      animation: heroCta 3.2s ease-in-out infinite !important;
+      animation-duration: 3.2s !important;
+      animation-iteration-count: infinite !important;
+    }
+
+    .hero__dot {
+      animation: heroDot 2.4s ease-in-out infinite !important;
+      animation-duration: 2.4s !important;
+      animation-iteration-count: infinite !important;
     }
   }
 </style>
