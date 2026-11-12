@@ -188,7 +188,10 @@
 
 .about__img {
   width: 100%;
-  aspect-ratio: 1;
+  /* 4/5 mengikuti poster promosi promo-ready (1122x1402) agar teks
+     "READY STOCK" di atas dan "DP 0% / CICILAN" di bawah tidak terpotong.
+     Sebelumnya 1 (persegi) untuk foto unit. */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 

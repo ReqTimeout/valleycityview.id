@@ -202,9 +202,10 @@ const schemas = [
     <!--
       Slider dua slide, keduanya FOTO ASLI unit yang sudah berdiri
       (foto-1..2, sumbangan owner Nov 2026 — diverifikasi visual: bersih
-      tanpa teks). Foto ketiga yang sempat disiapkan ternyata poster
-      pemasaran "READY STOCK!" — sudah dibuang; poster dilarang tampil
-      sebagai foto (lihat media-kinds.json, catatan foto-1-lama).
+      tanpa teks). Poster pemasaran "READY STOCK!" (image/WhatsApp
+      2026-11-05) TIDAK dipakai di hero — ia materi promosi berteks dan
+      kini tampil di section Tentang atas permintaan owner (lihat
+      media-kinds.json: promo-ready).
 
       Zero-JS: rotasi murni CSS (@keyframes heroSlide, indeks via
       --i di style attribute). Tanpa <picture>/mobileName — sumbernya sudah
@@ -370,15 +371,19 @@ const schemas = [
 
       <div class="about__media" data-reveal>
         <div class="about__frame">
-          <!-- Permintaan owner (12 Nov 2026): slot ini foto asli, bukan
-               ilustrasi ruang keluarga; tanpa teks ilustrasi apa pun. -->
+          <!-- Permintaan owner (12 Nov 2026): slot Tentang memakai poster
+               promosi "RUMAH READY STOCK! DP 0% CICILAN 2 JUTAAN"
+               (image/WhatsApp 2026-11-05). Ini materi promosi, bukan foto
+               unit — kind `poster` di media-kinds.json, jadi tanpa chip
+               Ilustrasi. aspect-ratio 4/5 mengikuti poster agar teks atas
+               dan bawah tidak terpotong. -->
           <Picture
-            name="/media/curated/foto-1.webp"
-            alt="Foto unit Valley Cityview yang sudah berdiri: carport kanopi baja di kiri, jendela lebar dan teras pinus di kanan"
+            name="/media/curated/promo-ready.webp"
+            alt="Poster promosi Valley Cityview: rumah ready stock, DP 0 persen, cicilan 2 jutaan — ajak jadwal survey"
             class="about__img"
             sizes="(max-width: 900px) 100vw, 45vw"
           />
-          <MediaLabel name="/media/curated/foto-1.webp" />
+          <MediaLabel name="/media/curated/promo-ready.webp" />
         </div>
         <div class="about__badge">
           <span class="about__badge-value">15</span>
@@ -805,12 +810,16 @@ const schemas = [
      dalam komponen). */
 
   /*
-    Permintaan owner 12 Nov 2026: "overlay jangan menutupi gambar". scrim
-    homepage kini versi ringan — foto harus terbaca sebagai FOTO; yang
-    berdegradasi hanya sudut kiri bawah tempat kata tinggal. Angka-angkanya
-    BUKAN tebakan: audit-contrast mengukur worst-5% white-on-photo per frame
-    dan gate 3:1 harus tetap hijau — kalau longgar tidak lolos, yang naik
-    adalah panel/Ken Burns, bukan kegelapan.
+    Permintaan owner 12 Nov 2026 (kedua): "hero ancur, foto ga ada" —
+    scrim versi sebelumnya (88% di tiga lapisan) menutup foto sampai
+    terlihat seperti bidang teal polos. Kini scrim jauh lebih ringan dan
+    HANYA berkumpul di kolom kiri tempat kata tinggal; separuh kanan
+    (rumah) dibiarkan bersih supaya foto terbaca sebagai foto.
+
+    Keterbacaan dibantu text-shadow di .hero__title/.hero__lead (bukan
+    menggelapkan seluruh foto). Angka tetap diukur audit-contrast
+    (worst-5% white-on-photo, gate 3:1) — kalau longgar tidak lolos,
+    yang dinaikkan adalah gradien kiri/text-shadow, bukan kabut global.
 
     Landing nup/sale/agent tetap memakai token penuh --scrim-hero di
     global.css; mereka diukur terpisah dan belum berubah.
@@ -820,46 +829,39 @@ const schemas = [
     inset: 0;
     z-index: -1;
     background:
-      /* gelap atas — headline mobile jatuh di zona langit foto (diukur:
-         p5 2.20 sebelum lapisan ini, langit srgb ~0.55 di titik x54 y443);
-         berhenti di 58% tinggi agar badan rumah kanan bawah bersih */
-      linear-gradient(to bottom,
-        color-mix(in srgb, var(--brand-900) 88%, transparent) 0%,
-        color-mix(in srgb, var(--brand-900) 42%, transparent) 34%,
-        color-mix(in srgb, var(--brand-900) 16%, transparent) 48%,
-        transparent 58%),
-      linear-gradient(to top,
-        color-mix(in srgb, var(--brand-900) 88%, transparent) 0%,
-        color-mix(in srgb, var(--brand-900) 62%, transparent) 34%,
-        color-mix(in srgb, var(--brand-900) 22%, transparent) 62%,
-        transparent 82%),
-      /* kiri — hanya separuh pertama; rumah di kanan harus terbaca foto */
+      /* kiri — kolom kata; berhenti di 62% lebar agar rumah kanan bersih */
       linear-gradient(to right,
-        color-mix(in srgb, var(--brand-900) 72%, transparent) 0%,
-        color-mix(in srgb, var(--brand-900) 38%, transparent) 34%,
-        transparent 56%);
+        color-mix(in srgb, var(--brand-900) 66%, transparent) 0%,
+        color-mix(in srgb, var(--brand-900) 40%, transparent) 34%,
+        color-mix(in srgb, var(--brand-900) 12%, transparent) 52%,
+        transparent 62%),
+      /* atas tipis — hanya untuk nav + eyebrow, bukan langit penuh */
+      linear-gradient(to bottom,
+        color-mix(in srgb, var(--brand-900) 46%, transparent) 0%,
+        transparent 26%),
+      /* bawah tipis — trust list + progress, rumah tetap terbaca */
+      linear-gradient(to top,
+        color-mix(in srgb, var(--brand-900) 52%, transparent) 0%,
+        transparent 30%);
   }
 
-  /* Desktop: rumah menempati kuadran kanan-bawah frame, jadi cukup satu
-     sapuan diagonal dari kiri-atas — foto terbaca bersih di tempat rumah
-     berada, tanpa kabut di tiga lapisan. Mobile tetap lapisan di atas
-     (headline jatuh di langit yang terbentang penuh lebarnya). */
+  /* Desktop: rumah di kuadran kanan-bawah; cukup sapuan kiri yang lebih
+     pendek + atas/bawah tipis. Mobile (basis di atas) memakai gradien
+     kiri yang lebih lebar karena headline jatuh di langit penuh lebar. */
   @media (min-width: 900px) {
     .hero__scrim {
       background:
+        linear-gradient(to right,
+          color-mix(in srgb, var(--brand-900) 62%, transparent) 0%,
+          color-mix(in srgb, var(--brand-900) 34%, transparent) 30%,
+          color-mix(in srgb, var(--brand-900) 10%, transparent) 46%,
+          transparent 56%),
         linear-gradient(to bottom,
-          color-mix(in srgb, var(--brand-900) 80%, transparent) 0%,
-          color-mix(in srgb, var(--brand-900) 34%, transparent) 36%,
-          transparent 60%),
-        linear-gradient(72deg,
-          color-mix(in srgb, var(--brand-900) 88%, transparent) 0%,
-          color-mix(in srgb, var(--brand-900) 52%, transparent) 38%,
-          color-mix(in srgb, var(--brand-900) 12%, transparent) 62%,
-          transparent 78%),
+          color-mix(in srgb, var(--brand-900) 40%, transparent) 0%,
+          transparent 24%),
         linear-gradient(to top,
-          color-mix(in srgb, var(--brand-900) 72%, transparent) 0%,
-          color-mix(in srgb, var(--brand-900) 30%, transparent) 30%,
-          transparent 52%);
+          color-mix(in srgb, var(--brand-900) 46%, transparent) 0%,
+          transparent 26%);
     }
   }
 
@@ -929,6 +931,52 @@ const schemas = [
     transform: translateY(-3px);
   }
 
+  /* ---- Micro-animation yang benar-benar terlihat (12 Nov 2026) ----
+     Sebelumnya hanya heroRise sekali saat load — setelah itu layar diam,
+     sehingga terasa "tidak ada animasi". Kini tiga denyut halus yang
+     terus hidup: dot lokasi, tombol WA, dan trust list masuk bergiliran.
+     Semua murni CSS; prefers-reduced-motion di global.css mematikan. */
+
+  /* Dot lokasi berdenyut seperti radar — sinyal "ini kawasan nyata". */
+  .hero__dot {
+    animation: heroDot 2.4s var(--ease-in-out, ease-in-out) infinite;
+  }
+
+  @keyframes heroDot {
+    0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-100) 22%, transparent); }
+    50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--brand-100) 6%, transparent); }
+  }
+
+  /* Tombol booking "bernapas" lewat glow kuning — satu-satunya aksen
+     kuning di layar (F5), jadi denyutnya tidak berebut perhatian. */
+  .hero__actions .btn--accent {
+    animation: heroCta 3.2s var(--ease-in-out, ease-in-out) infinite;
+  }
+
+  @keyframes heroCta {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-500) 42%, transparent); }
+    50% { box-shadow: 0 0 26px 4px color-mix(in srgb, var(--accent-500) 30%, transparent); }
+  }
+
+  /* Trust list masuk bergiliran setelah copy utama — gerakan kecil yang
+     membuat layar terasa hidup tanpa mengganggu pembacaan. */
+  .hero__trust li {
+    animation: heroRise 0.6s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+  }
+  .hero__trust li:nth-child(1) { animation-delay: 0.5s; }
+  .hero__trust li:nth-child(2) { animation-delay: 0.62s; }
+  .hero__trust li:nth-child(3) { animation-delay: 0.74s; }
+
+  /* Ikon WA di tombol ikut berdenyut halus selaras glow tombol. */
+  .hero__actions .btn--accent :global(svg) {
+    animation: heroWa 3.2s var(--ease-in-out, ease-in-out) infinite;
+  }
+
+  @keyframes heroWa {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
 
   .hero__inner {
     position: relative;
@@ -978,6 +1026,10 @@ const schemas = [
     color: var(--white);
     max-width: 15ch;
     margin-bottom: var(--s-4);
+    /* scrim kini ringan (foto terbaca); bayangan teks menjaga huruf tetap
+       terbaca di atas langit foto tanpa menggelapkan seluruh gambar. */
+    text-shadow: 0 2px 18px color-mix(in srgb, var(--brand-900) 78%, transparent),
+      0 1px 3px color-mix(in srgb, var(--brand-900) 60%, transparent);
   }
 
 
@@ -991,9 +1043,10 @@ const schemas = [
   .hero__lead {
     font-size: var(--t-base);
     line-height: 1.55;
-    color: color-mix(in srgb, var(--white) 88%, transparent);
+    color: color-mix(in srgb, var(--white) 92%, transparent);
     max-width: 34ch;
     margin-bottom: var(--s-5);
+    text-shadow: 0 1px 10px color-mix(in srgb, var(--brand-900) 72%, transparent);
   }
 
 

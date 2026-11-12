@@ -1385,6 +1385,13 @@
   "height": 1600,
   "type": "image/webp"
  },
+ "/media/curated/promo-ready.webp": {
+  "src": "/media/curated/promo-ready.webp",
+  "srcset": "/media/curated/promo-ready-400.webp 400w, /media/curated/promo-ready-800.webp 800w, /media/curated/promo-ready.webp 1122w",
+  "width": 1122,
+  "height": 1402,
+  "type": "image/webp"
+ },
  "/media/curated/denah-45-72.webp": {
   "src": "/media/curated/denah-45-72.webp",
   "srcset": "",
