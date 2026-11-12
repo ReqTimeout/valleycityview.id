@@ -246,9 +246,13 @@ const schemas = [
 
 <style>
 
+  /* Header artikel dirapikan 13 Nov (owner: "single blog belum rapi") —
+     dulu h1 warisi skala hero (4xl) — 4 baris di phone dan menelan
+     cover. Sekarang judul tetap dominan tapi seukuran sub-halaman, lead
+     seukuran body, meta satu baris kompak. */
   .article__head {
     background: var(--surface-alt);
-    padding-block: var(--s-7) var(--s-6);
+    padding-block: var(--s-6) var(--s-5);
   }
 
 
@@ -262,7 +266,7 @@ const schemas = [
     gap: 0.5rem;
     font-size: var(--t-xs);
     color: var(--ink-500);
-    margin-bottom: var(--s-4);
+    margin-bottom: var(--s-3);
   }
 
 
@@ -278,16 +282,18 @@ const schemas = [
 
 
   .article__head h1 {
-    font-size: var(--fs-h1);
-    margin-bottom: var(--s-4);
+    font-size: clamp(1.5rem, 1.22rem + 1.4vw, 2.15rem);
+    line-height: 1.18;
+    margin-bottom: var(--s-3);
   }
 
 
   .article__lead {
-    font-size: var(--t-lg);
+    font-size: var(--t-base);
+    line-height: 1.55;
     color: var(--ink-600);
-    margin-bottom: var(--s-5);
-    max-width: 52ch;
+    margin-bottom: var(--s-4);
+    max-width: 60ch;
   }
 
 
@@ -295,7 +301,7 @@ const schemas = [
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--s-4);
+    gap: var(--s-2) var(--s-4);
     font-size: var(--t-xs);
     color: var(--ink-500);
   }
@@ -304,15 +310,15 @@ const schemas = [
   .article__author {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
 
 
   .article__avatar {
     display: grid;
     place-items: center;
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: var(--brand-700);
     color: var(--white);
@@ -322,14 +328,29 @@ const schemas = [
   }
 
 
-  .article__author span span {
-    display: grid;
-  }
-
-
   .article__author strong {
     color: var(--ink-800);
     font-size: var(--t-sm);
+  }
+
+
+  /* Meta satu baris: avatar | nama · tanggal · menit baca — tanggal dan
+     baca menempel nama, tidak menggantung sendiri seperti dulu. */
+  .article__author span span {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.5rem;
+    align-items: baseline;
+  }
+
+  .article__author time::before {
+    content: '· ';
+    color: var(--ink-400);
+  }
+
+  .article__read::before {
+    content: '· ';
+    color: var(--ink-400);
   }
 
 
@@ -342,6 +363,16 @@ const schemas = [
     display: grid;
     gap: var(--s-7);
     padding-block: var(--s-7);
+  }
+
+
+  /* Grid item default min-width:auto — tabel nowrap di dalam .prose
+     (13 Nov) mendorong kolom selebar isinya dan halaman terpotong
+     horizontal di phone. min-width:0 mengunci kolom ke lebar container
+     sehingga table .prose scroll sendiri. */
+  .article__main,
+  .article__aside {
+    min-width: 0;
   }
 
 

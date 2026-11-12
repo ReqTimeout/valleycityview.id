@@ -253,28 +253,6 @@ const schemas = [
         segalanya <em>terlihat lebih jelas.</em>
       </h1>
 
-      <p class="hero__lead">
-        Rumah 45/72 m² di Laksanamekar, Padalarang — menghadap lembah hijau,
-        15 menit ke Stasiun KCIC, dan 10 menit ke kampus Unjani Cimahi.
-      </p>
-
-      <div class="hero__price">
-        <div class="hero__price-item hero__price-item--lead">
-          <span class="hero__price-label">Harga KPR</span>
-          <span class="hero__price-value">{rupiah.format(p.kprPrice)}</span>
-        </div>
-        <div class="hero__price-item">
-          <span class="hero__price-label">Cicilan</span>
-          <span class="hero__price-value">
-            {rupiah.format(p.monthly)}<small>/bulan</small>
-          </span>
-        </div>
-        <div class="hero__price-item">
-          <span class="hero__price-label">Booking</span>
-          <span class="hero__price-value">Rp 5 juta<small>bisa dicicil</small></span>
-        </div>
-      </div>
-
       <div class="hero__actions">
         <a
           class="btn btn--accent btn--lg"
@@ -284,17 +262,7 @@ const schemas = [
           <Icon name="whatsapp" size={19} />
           Amankan unit Anda
         </a>
-        <a class="btn btn--light btn--lg" href="#unit">
-          Lihat denah &amp; spesifikasi
-          <Icon name="arrowRight" size={18} />
-        </a>
       </div>
-
-      <ul class="hero__trust">
-        <li><Icon name="check" size={15} /> 2 kamar tidur + 1 kamar mandi</li>
-        <li><Icon name="check" size={15} /> Carport & halaman depan/belakang</li>
-        <li><Icon name="check" size={15} /> Bebas banjir</li>
-      </ul>
     </div>
 
     <a class="hero__scroll" href="#tentang" aria-label="Gulir ke bawah">
@@ -303,17 +271,47 @@ const schemas = [
     </a>
   </section>
 
-  <!-- ================= PROOF BAR ================= -->
-  <section class="proof" aria-label="Fakta singkat">
-    <div class="shell proof__inner">
-      {
-        site.facts.map((fact, i) => (
-          <div class="proof__item" data-reveal style={`--reveal-delay:${i * 70}ms`}>
-            <span class="proof__value">{fact.value}</span>
-            <span class="proof__label">{fact.label}</span>
-          </div>
-        ))
-      }
+  <!-- ================= OFFER BAND =================
+     Owner 13 Nov: hero dibersihkan — foto dulu, teks sedikit. Lead,
+     harga, trust point, dan tombol sekunder pindah ke sini (band gelap
+     tepat di bawah hero); proof bar lama dibuang karena angkanya
+     duplikat dengan isi band ini (15/10 menit ada di lead, 45/72 dan
+     booking ada di kartu harga). -->
+  <section class="offer" aria-label="Harga dan keunggulan">
+    <div class="shell offer__inner">
+      <div class="offer__text" data-reveal>
+        <p class="offer__lead">
+          Rumah 45/72 m² di Laksanamekar, Padalarang — menghadap lembah
+          hijau, 15 menit ke Stasiun KCIC, dan 10 menit ke kampus Unjani
+          Cimahi.
+        </p>
+        <ul class="offer__trust">
+          <li><Icon name="check" size={15} /> 2 kamar tidur + 1 kamar mandi</li>
+          <li><Icon name="check" size={15} /> Carport & halaman depan/belakang</li>
+          <li><Icon name="check" size={15} /> Bebas banjir</li>
+        </ul>
+        <a class="btn btn--light" href="#unit">
+          Lihat denah &amp; spesifikasi
+          <Icon name="arrowRight" size={18} />
+        </a>
+      </div>
+
+      <div class="offer__price" data-reveal style="--reveal-delay:120ms">
+        <div class="offer__price-item offer__price-item--lead">
+          <span class="offer__price-label">Harga KPR</span>
+          <span class="offer__price-value">{rupiah.format(p.kprPrice)}</span>
+        </div>
+        <div class="offer__price-item">
+          <span class="offer__price-label">Cicilan</span>
+          <span class="offer__price-value">
+            {rupiah.format(p.monthly)}<small>/bulan</small>
+          </span>
+        </div>
+        <div class="offer__price-item">
+          <span class="offer__price-label">Booking</span>
+          <span class="offer__price-value">Rp 5 juta<small>bisa dicicil</small></span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -767,10 +765,8 @@ const schemas = [
   }
 
 
-  /* On a phone the illustration note and the location badge cannot share the
-     row above the headline — the badge already runs nearly edge to edge. The
-     note gets its own line, so the hero needs the room for it. Without this
-     the two overlapped in .review/cap/home/mobile/000-y0.png. */
+  /* Mobile: ruang ekstra di atas supaya chip lokasi tidak menempel nav
+     saat hero masih di posisi awal (header overlay transparan). */
   @media (max-width: 899px) {
     .hero {
       padding-top: calc(var(--header-h) + 3.6rem);
@@ -818,9 +814,9 @@ const schemas = [
     HANYA berkumpul di kolom kiri tempat kata tinggal; separuh kanan
     (rumah) dibiarkan bersih supaya foto terbaca sebagai foto.
 
-    Keterbacaan dibantu text-shadow di .hero__title/.hero__lead (bukan
-    menggelapkan seluruh foto). Angka tetap diukur audit-contrast
-    (worst-5% white-on-photo, gate 3:1) — kalau longgar tidak lolos,
+    Keterbacaan dibantu text-shadow di .hero__title (bukan menggelapkan
+    seluruh foto). Angka tetap diukur audit-contrast (worst-5%
+    white-on-photo, gate 3:1) — kalau longgar tidak lolos,
     yang dinaikkan adalah gradien kiri/text-shadow, bukan kabut global.
 
     Landing nup/sale/agent tetap memakai token penuh --scrim-hero di
@@ -841,16 +837,17 @@ const schemas = [
       linear-gradient(to bottom,
         color-mix(in srgb, var(--brand-900) 46%, transparent) 0%,
         transparent 26%),
-      /* pita kata mobile: headline + lead jatuh selebar penuh di atas
-         atap yang terang (foto baru), jadi kolom kiri saja tidak cukup.
-         Pita ini menggelarkan zona kata (24-52%) lalu pudar sebelum fasad /
-         mobil / taman (>=66%) supaya rumah tetap bersih terbaca. */
+      /* pita kata mobile: sejak 13 Nov isi hero tinggal chip + judul +
+         satu tombol yang duduk MELENDOK di bawah (flex-end); judul kini
+         menempati 66-84% hero, baris terakhir di atas paving terang —
+         pita digeser ke 48-96% dan dipadatkan (audit kontras mobile
+         menuntutnya, bukan selera). Fasad atas rumah tetap bersih. */
       linear-gradient(to bottom,
-        transparent 24%,
-        color-mix(in srgb, var(--brand-900) 54%, transparent) 34%,
-        color-mix(in srgb, var(--brand-900) 50%, transparent) 52%,
-        transparent 66%),
-      /* bawah tipis — trust list + progress, rumah tetap terbaca */
+        transparent 48%,
+        color-mix(in srgb, var(--brand-900) 60%, transparent) 62%,
+        color-mix(in srgb, var(--brand-900) 56%, transparent) 88%,
+        transparent 96%),
+      /* bawah tipis — tombol + progress, rumah tetap terbaca */
       linear-gradient(to top,
         color-mix(in srgb, var(--brand-900) 52%, transparent) 0%,
         transparent 30%);
@@ -932,13 +929,13 @@ const schemas = [
   .hero__inner > :nth-child(5) { animation-delay: 0.32s; }
   .hero__inner > :nth-child(6) { animation-delay: 0.4s; }
 
-  /* Panel harga mengangkat diri sedikit saat disentuh pointer — kecil,
-     14px, bukan parallax yang menuntut JS. */
-  .hero__price-item {
+  /* Kartu harga di offer band — micro-interaction hover ikut pindah
+     bersama kontennya (13 Nov, hero clean). */
+  .offer__price-item {
     transition: transform 0.25s var(--ease-out, ease);
   }
 
-  .hero__price-item:hover {
+  .offer__price-item:hover {
     transform: translateY(-3px);
   }
 
@@ -969,14 +966,7 @@ const schemas = [
     50% { box-shadow: 0 0 26px 4px color-mix(in srgb, var(--accent-500) 30%, transparent); }
   }
 
-  /* Trust list masuk bergiliran setelah copy utama — gerakan kecil yang
-     membuat layar terasa hidup tanpa mengganggu pembacaan. */
-  .hero__trust li {
-    animation: heroRise 0.6s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
-  }
-  .hero__trust li:nth-child(1) { animation-delay: 0.5s; }
-  .hero__trust li:nth-child(2) { animation-delay: 0.62s; }
-  .hero__trust li:nth-child(3) { animation-delay: 0.74s; }
+  /* Micro-animation copy hero: chip + judul + tombol masuk bergiliran. */
 
   /* Ikon WA di tombol ikut berdenyut halus selaras glow tombol. */
   .hero__actions .btn--accent :global(svg) {
@@ -1051,53 +1041,85 @@ const schemas = [
   }
 
 
-  .hero__lead {
-    font-size: var(--t-base);
-    line-height: 1.55;
-    color: color-mix(in srgb, var(--white) 92%, transparent);
-    max-width: 34ch;
-    margin-bottom: var(--s-5);
-    text-shadow: 0 1px 10px color-mix(in srgb, var(--brand-900) 72%, transparent);
+  /* ---------------- Offer band ----------------
+     Pemindahan isi hero (13 Nov). Band gelap persis di bawah foto:
+     lead + trust + tombol denah di kiri, kartu harga di kanan. Mobile:
+     menumpuk, lead 2–3 baris, harga 1 besar + 2 kolom — compact agar
+     scroll hemat. */
+  .offer {
+    background: var(--brand-900);
+    color: var(--white);
+    padding-block: var(--s-6);
+    border-top: 1px solid color-mix(in srgb, var(--white) 10%, transparent);
   }
 
 
-  /*
-    The three numbers are the reason most people keep scrolling, so on a
-    phone the price takes the full width and the other two sit under it —
-    instead of three items wrapping into a ragged 1 + 2 row.
+  .offer__inner {
+    display: grid;
+    gap: var(--s-5);
+  }
 
-    Solid panel, not glass: the translucent version put grey labels on an
-    unpredictable photo background and the most important figures on the
-    site were the hardest to read.
-  */
-  .hero__price {
+
+  .offer__lead {
+    font-size: var(--t-base);
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--white) 88%, transparent);
+    max-width: 46ch;
+    margin: 0 0 var(--s-4);
+  }
+
+
+  .offer__trust {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem var(--s-4);
+    list-style: none;
+    margin: 0 0 var(--s-5);
+    padding: 0;
+    font-size: var(--t-sm);
+    color: color-mix(in srgb, var(--white) 78%, transparent);
+  }
+
+
+  .offer__trust li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+
+  .offer__trust :global(svg) {
+    color: var(--brand-100);
+    flex: none;
+  }
+
+
+  .offer__price {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--s-4) var(--s-3);
     padding: var(--s-4);
     border-radius: var(--r-lg);
-    background: var(--brand-900);
-    border: 1px solid var(--brand-700);
-    margin-bottom: var(--s-5);
-    max-width: 32rem;
+    background: color-mix(in srgb, var(--white) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
   }
 
 
-  .hero__price-item {
+  .offer__price-item {
     display: grid;
     gap: 0.1rem;
     align-content: start;
   }
 
 
-  .hero__price-item--lead {
+  .offer__price-item--lead {
     grid-column: 1 / -1;
     padding-bottom: var(--s-3);
-    border-bottom: 1px solid color-mix(in srgb, var(--brand-100) 22%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--white) 18%, transparent);
   }
 
 
-  .hero__price-label {
+  .offer__price-label {
     font-size: var(--t-xs);
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -1106,16 +1128,16 @@ const schemas = [
   }
 
 
-  .hero__price-value {
+  .offer__price-value {
     font-family: var(--font-display);
-    font-size: var(--t-2xl);
+    font-size: var(--t-xl);
     font-weight: 700;
     color: var(--white);
     white-space: nowrap;
   }
 
 
-  .hero__price-value small {
+  .offer__price-value small {
     display: block;
     font-family: var(--font-sans);
     font-size: var(--t-xs);
@@ -1130,32 +1152,6 @@ const schemas = [
   .hero__actions {
     display: grid;
     gap: var(--s-3);
-    margin-bottom: var(--s-5);
-  }
-
-
-  .hero__trust {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--s-2) var(--s-4);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: var(--t-sm);
-    color: color-mix(in srgb, var(--white) 78%, transparent);
-  }
-
-
-  .hero__trust li {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-
-  .hero__trust :global(svg) {
-    color: var(--brand-100);
-    flex: none;
   }
 
 
@@ -1208,44 +1204,6 @@ const schemas = [
       transform: translateY(250%);
     }
 }
-
-
-  /* ---------------- Proof bar ---------------- */
-  .proof {
-    background: var(--brand-900);
-    color: var(--white);
-    padding-block: var(--s-6);
-    border-top: 1px solid color-mix(in srgb, var(--white) 10%, transparent);
-  }
-
-
-  .proof__inner {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--s-5);
-  }
-
-
-  .proof__item {
-    display: grid;
-    gap: 0.2rem;
-  }
-
-
-  .proof__value {
-    font-family: var(--font-display);
-    font-size: var(--t-2xl);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.1;
-  }
-
-
-  .proof__label {
-    font-size: var(--t-xs);
-    color: color-mix(in srgb, var(--white) 62%, transparent);
-    line-height: 1.45;
-  }
 
 
   /* ---------------- About ---------------- */
@@ -1785,8 +1743,8 @@ const schemas = [
 }
 @media (min-width: 700px) {
 
-    .proof__inner {
-      grid-template-columns: repeat(4, 1fr);
+    .offer__trust {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 @media (min-width: 900px) {
@@ -1796,22 +1754,48 @@ const schemas = [
     }
 
 
-    .hero__price {
-      grid-template-columns: 1.35fr 1fr 1fr;
-      gap: var(--s-5);
+    .offer__inner {
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      max-width: 36rem;
+      gap: var(--s-6);
     }
 
 
-    .hero__price-item--lead {
+    /* Budget scroll desktop (9500): offer band dipadatkan — padding
+     band turun, jeda lead/trust mengecil. Tidak ada kata yang dibuang. */
+    .offer {
+      padding-block: var(--s-4);
+    }
+
+
+    .offer__lead {
+      margin-bottom: var(--s-3);
+    }
+
+
+    .offer__trust {
+      margin-bottom: var(--s-3);
+      gap: 0.25rem var(--s-4);
+    }
+
+
+    .offer__price {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--s-4);
+      align-items: center;
+    }
+
+
+    .offer__price-item--lead {
       grid-column: auto;
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
 
-    .hero__price-item + .hero__price-item {
-      border-left: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
-      padding-left: var(--s-5);
+    .offer__price-item + .offer__price-item {
+      border-left: 1px solid color-mix(in srgb, var(--white) 18%, transparent);
+      padding-left: var(--s-4);
     }
 
 

@@ -54,7 +54,11 @@ for (let i = 0; i < argv.length; i++) {
    shows the photograph as a band above the copy: the box starts where that
    band ends (40svh or 44svh of image, plus the 72px header). */
 const PRESETS = {
-  '.review/cap/home/mobile/000-y0.png': [0.05, 0.185, 0.9, 0.49],
+  /* 13 Nov: hero dibersihkan — copy sekarang duduk melendok di bawah
+     (diukur via Playwright: eyebrow 442, judul 486-605, tombol 621-682
+     CSS pada viewport 844). Box lama .185-.49 menangkap langit foto yang
+     sudah tidak ada tulisannya dan melewatkan judul yang sebenarnya. */
+  '.review/cap/home/mobile/000-y0.png': [0.02, 0.52, 0.96, 0.82],
   '.review/cap/home/desktop/000-y0.png': [0.11, 0.33, 0.48, 0.6],
   '.review/cap/nup/mobile/000-y0.png': [0.05, 0.54, 0.95, 0.99],
   '.review/cap/sale/mobile/000-y0.png': [0.05, 0.5, 0.95, 0.99],

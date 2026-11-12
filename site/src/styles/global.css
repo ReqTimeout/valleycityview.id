@@ -732,26 +732,34 @@ h4 {
   line-height: 1.5;
 }
 
-/* --- 9. Article (blog prose) --------------------------------------------- */
+/* --- 9. Article (blog prose) ---------------------------------------------
+   Owner 13 Nov: "single blog belum rapi" — tipografi artikel sebelumnya
+   memakai skala halaman depan (h1 4xl, body t-lg, jeda antar-elemen besar)
+   sehingga di 390px satu paragraf menghabiskan satu layar dan tabel
+   menghancur kolom. Skala artikel sekarang lebih padat dari skema halaman;
+   tabel melebar ke scroll horizontal, bukan meremas angka. */
 
 .prose {
   max-width: var(--max-w-prose);
-  font-size: var(--t-lg);
-  line-height: 1.75;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.7;
   color: var(--ink-700);
 }
 
 .prose > * + * {
-  margin-top: var(--s-5);
+  margin-top: var(--s-4);
 }
 
 .prose h2 {
-  margin-top: var(--s-7);
+  font-size: clamp(1.3rem, 1.14rem + 0.75vw, 1.7rem);
+  line-height: 1.25;
+  margin-top: var(--s-6);
   scroll-margin-top: calc(var(--header-h) + 1.5rem);
 }
 
 .prose h3 {
-  margin-top: var(--s-6);
+  font-size: clamp(1.12rem, 1.05rem + 0.35vw, 1.3rem);
+  margin-top: var(--s-5);
   scroll-margin-top: calc(var(--header-h) + 1.5rem);
 }
 
@@ -765,7 +773,7 @@ h4 {
 }
 
 .prose li + li {
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
 }
 
 .prose li::marker {
@@ -783,16 +791,20 @@ h4 {
   background: var(--surface-alt);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   font-family: var(--font-display);
-  font-size: var(--t-xl);
+  font-size: var(--t-lg);
   line-height: 1.4;
 }
 
+/* Tabel markdown: blok yang bisa digeser horizontal di phone. Sel nowrap
+   supaya "Rp 180.000.000" tidak patah jadi tiga baris — kalau kolom lebih
+   lebar dari layar, pengguna menggeser, bukan membaca kolom hancur. */
 .prose table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--t-sm);
   display: block;
   overflow-x: auto;
+  max-width: 100%;
 }
 
 .prose thead {
@@ -802,9 +814,10 @@ h4 {
 
 .prose th,
 .prose td {
-  padding: 0.7rem 0.9rem;
+  padding: 0.55rem 0.75rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
+  white-space: nowrap;
 }
 
 .prose tbody tr:nth-child(even) {
