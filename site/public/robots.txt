@@ -9,4 +9,4 @@ Disallow: /agent/terms/
 Disallow: /agent/alt/
 Disallow: /thank-you/
 
-Sitemap: https://valleycity.id/sitemap-index.xml
+Sitemap: https://valleycityview.id/sitemap-index.xml

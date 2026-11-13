@@ -55,6 +55,13 @@ domains/
 # bukan konten; 80 MB per sesi audit dan isinya berubah tiap jalankan ulang.
 .review/
 
+# ---- Pool harvest SEO (bisa dibangun ulang) --------------------------------
+# keywords.mined.json / keywords.suggested.json = hasil panen autocomplete
+# mentah dari mine-matrix.mjs / keyword-suggest.mjs. Bisa dibangun ulang kapan
+# saja; yang di-commit hanya keywords.json (kurasi final) + queue.json + tool-nya.
+seo/keywords.mined.json
+seo/keywords.suggested.json
+
 # ---- OS / editor -----------------------------------------------------------
 .DS_Store
 ._*

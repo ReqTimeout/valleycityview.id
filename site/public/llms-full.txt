@@ -1,5 +1,5 @@
 # Valley Cityview — Full Content for LLM ingestion
-# Generated: 2026-11-12
+# Generated: 2026-11-13
 # Articles: 54
 # Sitemap URLs: 66
 #
