@@ -16,7 +16,7 @@ export default defineConfig({
   trailingSlash: 'always',
   build: {
     format: 'directory',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   compressHTML: true,
   markdown: {
