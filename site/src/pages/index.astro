@@ -525,11 +525,44 @@ const schemas = [
           height="550"
           width="100%"
           allowfullscreen="true"
-          src="https://momento360.com/e/u/336ef22f2f3c4439aa123deaa6d706de?utm_campaign=embed&utm_source=other&heading=-0.2&pitch=-11.7&field-of-view=75&size=medium&autoplay-annotations=true&display-plan=true"
+          allow="accelerometer; gyroscope; fullscreen"
+          data-src="https://momento360.com/e/u/336ef22f2f3c4439aa123deaa6d706de?utm_campaign=embed&utm_source=other&heading=-0.2&pitch=-11.7&field-of-view=75&size=medium&autoplay-annotations=true&display-plan=true"
           title="Panorama 360 derajat Valley Cityview"
           loading="lazy"
         ></iframe>
+        <button class="panorama__facade" type="button" aria-label="Putar tur 360 derajat Valley Cityview">
+          <img
+            class="panorama__poster"
+            src="/media/curated/knowledge-1-800.webp"
+            srcset="/media/curated/knowledge-1-400.webp 400w, /media/curated/knowledge-1-800.webp 800w, /media/curated/knowledge-1-1200.webp 1200w"
+            sizes="(max-width: 900px) 100vw, 1100px"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="panorama__scrim" aria-hidden="true"></span>
+          <span class="panorama__cta">
+            <span class="panorama__play" aria-hidden="true"><Icon name="play" size={30} /></span>
+            <span class="panorama__cta-title">Putar tur 360°</span>
+            <span class="panorama__cta-hint">Klik untuk memuat panorama interaktif</span>
+          </span>
+        </button>
       </div>
+      <script is:inline>
+        (function () {
+          var box = document.querySelector('.panorama');
+          if (!box) return;
+          var facade = box.querySelector('.panorama__facade');
+          var frame = box.querySelector('iframe');
+          if (!facade || !frame) return;
+          facade.addEventListener('click', function () {
+            if (!frame.getAttribute('src') && frame.dataset.src) {
+              frame.setAttribute('src', frame.dataset.src);
+            }
+            box.classList.add('is-loaded');
+          });
+        })();
+      </script>
     </div>
   </section>
 
@@ -1464,6 +1497,7 @@ const schemas = [
 
   /* ---------------- Panorama ---------------- */
   .panorama {
+    position: relative;
     border-radius: var(--r-xl);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -1476,6 +1510,96 @@ const schemas = [
     width: 100%;
     height: clamp(340px, 52vw, 560px);
     border: 0;
+  }
+
+  .panorama__facade {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background: var(--brand-800);
+    color: var(--white);
+    font: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .panorama__poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .panorama__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(1, 40, 48, 0.2) 0%, rgba(1, 40, 48, 0.6) 100%);
+  }
+
+  .panorama__cta {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-5);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .panorama__play {
+    display: grid;
+    place-items: center;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: var(--white);
+    transition: transform 0.3s var(--ease-out), background-color 0.3s var(--ease-out);
+  }
+
+  .panorama__facade:hover .panorama__play,
+  .panorama__facade:focus-visible .panorama__play {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.26);
+  }
+
+  .panorama__facade:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: -3px;
+  }
+
+  .panorama__cta-title {
+    font-family: var(--font-display);
+    font-size: var(--t-lg);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
+
+  .panorama__cta-hint {
+    font-size: var(--t-sm);
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .panorama.is-loaded .panorama__facade {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panorama__play {
+      transition: none;
+    }
   }
 
 

@@ -15,18 +15,31 @@ const { gtm, stape } = site.tracking;
   Stape is a separate first-party server-side endpoint, so it stays inline.
 -->
 
-<!-- Google Tag Manager -->
+<!--
+  Google Tag Manager — deferred off the critical path.
+
+  The container plus its GA4 tag pull ~300KB and compete with the hero/CSS
+  during first paint. dataLayer is initialised immediately so every event
+  (whatsapp_click, generate_lead, …) queues even before GTM arrives; GTM
+  drains the queue when it loads on idle. The Stape server-side pixel below
+  still fires immediately, so an early click-to-WhatsApp that navigates away
+  before GTM loads is captured server-side regardless.
+-->
 <script is:inline define:vars={{ gtm }}>
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l !== 'dataLayer' ? '&l=' + l : '';
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+  function vcvLoadGtm() {
+    var f = document.getElementsByTagName('script')[0],
+      j = document.createElement('script');
     j.async = true;
-    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtm;
     f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', gtm);
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(vcvLoadGtm, { timeout: 2500 });
+  } else {
+    setTimeout(vcvLoadGtm, 2500);
+  }
 </script>
 
 <!-- Stape Signals Gateway (server-side pixel, first-party) -->
