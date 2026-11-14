@@ -12,8 +12,14 @@
  * `runner/README.md` (Scheduled Task).
  */
 
+import { startServer } from './lib/http.mjs';
+
 console.log(`[idle] valleycity-seo-runner siap (pid ${process.pid}). Menunggu Scheduled Task.`);
 console.log('[idle] task harian: node runner/daily.mjs · mingguan: node runner/weekly.mjs');
+
+// Dashboard HTTP hidup selama container hidup. CMD=idle menjaga container tidak
+// restart-loop; server ini yang menyajikan /healthz (probe Coolify) + dashboard.
+startServer();
 
 // Inti tetap hidup tanpa busy-loop.
 const timer = setInterval(() => {}, 1 << 30);

@@ -40,12 +40,15 @@ import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync, spawnSync } from 'node:child_process';
+// SITE + CF_PROJECT dari satu sumber (seo/site.mjs). Dulu SITE di-hardcode ke
+// domain lama valleycity.id dan CF_PAGES_PROJECT tidak pernah didefinisikan
+// (ReferenceError saat poll deploy) — keduanya diperbaiki ke impor kanonik.
+import { SITE, CF_PROJECT } from './site.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..'); // checkout repo (clone) — perintah ini jalan DARI clone
 const BLOG_DIR = process.env.SEO_CONTENT_DIR || join(ROOT, 'site/src/collections/blog');
 const QUEUE_PATH = process.env.SEO_QUEUE_PATH || join(ROOT, 'seo/queue.json');
-const SITE = 'https://valleycity.id';
 const CF_API = 'https://api.cloudflare.com/client/v4';
 
 // Pool lebih besar dari count supaya gate punya kandidat pengganti.
@@ -182,7 +185,7 @@ async function waitForDeploy(commitSha) {
   console.log(`\n=== tunggu Pages deploy commit ${short} ===`);
   const deadline = Date.now() + POLL_TIMEOUT_MS;
   while (Date.now() < deadline) {
-    const data = await cfGet(`/pages/projects/${CF_PAGES_PROJECT}/deployments?env=production&per_page=5`);
+    const data = await cfGet(`/pages/projects/${CF_PROJECT}/deployments?env=production&per_page=5`);
     const list = data.result || [];
     const match = list.find((d) => {
       const h = d?.deployment_trigger?.metadata?.commit_hash || '';
@@ -308,8 +311,8 @@ async function main() {
   // 5) Mesh + llms (operasi file, ringan — TANPA build).
   console.log('\n=== mesh-build ===');
   runNode('mesh-build.mjs', ['--write']);
-  console.log('\n=== llms-mdx ===');
-  runNode('llms-mdx.mjs');
+  console.log('\n=== llms (regen llms.txt + llms-full.txt) ===');
+  runNode('llms.mjs');
 
   // 6) Commit + push (queue ikut di-commit sebagai jejak audit).
   copyFileSync(QUEUE_PATH, join(ROOT, 'seo/queue.json'));

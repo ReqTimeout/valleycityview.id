@@ -1,0 +1,45 @@
+# Rahasia & artefak lokal — JANGAN pernah masuk image.
+accountscf.md
+*.tar.gz
+*.sql.gz
+*.sql
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+project-*.json
+session handoff.md
+URUTAN-KERJA.md
+
+# Git, memori, tools, shots — tidak dipakai runtime engine.
+.git
+.gitignore
+memory
+domains
+image
+tools
+shots
+
+# node_modules & build artefak. YAML di-vendor eksplisit (pure-JS, zero-dep)
+# supaya llms.mjs + article-lint punya parser YAML penuh di container.
+site/node_modules
+!site/node_modules/yaml
+site/dist
+site/.astro
+dashboard/dist
+**/.wrangler
+
+# Dashboard statis lama (pensiun #18 — lib/ tetap dipakai renderer server).
+dashboard/build.mjs
+dashboard/check.mjs
+dashboard/README.md
+
+# Artefak runtime SEO yang di-ignore repo (ditulis ke volume, bukan image).
+seo/keywords.mined.json
+seo/keywords.suggested.json
+
+# OS
+.DS_Store
+**/.DS_Store

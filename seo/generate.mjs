@@ -388,6 +388,17 @@ async function main() {
     }
   }
 
+  // Backlog cap (#19): tahan generate bila draft sudah menumpuk. Tanpa ini,
+  // saat publish tertahan (GSC mati / ramp hold) generator terus menumpuk draft
+  // yang tidak pernah tayang — backlog tak terbatas. Batas dari SEO_BACKLOG_MAX.
+  const backlogMax = Number(process.env.SEO_BACKLOG_MAX || 16);
+  const draftBacklog = QUEUE.items.filter((i) => i.status === 'draft').length;
+  if (Number.isFinite(backlogMax) && draftBacklog >= backlogMax) {
+    console.error(`BACKLOG CAP: ${draftBacklog} draft >= batas ${backlogMax} — generate ditahan sampai draft dipublish.`);
+    console.error('Turunkan backlog: node seo/publish-git.mjs --count=N (atau naikkan SEO_BACKLOG_MAX bila memang sengaja).');
+    process.exit(1);
+  }
+
   // Urutan antrean (keputusan user 30 Sep): KOTA DULU.
   // 1. Geo (`added_by:geo`) didahulukan, round-robin per kota supaya variasi
   //    (tidak 12x kota yang sama beruntun). Kota tier-1 (prioritas tertinggi)

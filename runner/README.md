@@ -1,70 +1,113 @@
-# runner/ — eksekutor terjadwal mesin SEO
+# runner/ — eksekutor terjadwal + dashboard mesin SEO
 
-Runner ini sengaja **minimal**: satu proses Node tanpa dependency, tanpa Worker,
-tanpa DB. Semua state ada di repo (`seo/*.json`) dan semua langkah adalah
-perintah yang bisa Anda jalankan tangan di terminal yang sama.
+Runner ini **minimal**: proses Node tanpa dependency runtime (satu paket `yaml`
+pure-JS di-vendor ke image), tanpa Worker, tanpa DB. State ada di `seo/*.json`
+(lokal) atau volume `/app/data` (container). Semua langkah adalah perintah CLI
+yang bisa dijalankan tangan di terminal yang sama.
+
+## Dua wajah
+
+1. **Dashboard HTTP** (`runner/lib/http.mjs`, dihidupkan `idle.mjs`): 10 halaman
+   + login, dirakit per-request dari `collect()` — angka selalu keadaan mesin
+   sekarang, bukan snapshot build. noindex 3 lapis, sesi HMAC, mutasi = spawn CLI
+   engine yang sama (gerbang fail-closed tidak dilewati). Menggantikan generator
+   statis `dashboard/build.mjs` (legacy, lihat bawah).
+2. **Pipeline terjadwal** (dipicu Scheduled Task Coolify via `docker exec`):
+   daily / tick / weekly / watchdog / rank.
 
 ## Kenapa ada `idle.mjs`
 
 Coolify memperlakukan application sebagai service: kalau CMD selesai, container
-di-restart terus-menerus (`restart loop`) dan `docker exec` jadi berebut dengan
-poll. Scheduled Task Coolify menjalankan command **di dalam** container aplikasi,
-jadi container harus hidup. Karena itu CMD bawaan adalah idle, bukan pipeline —
-pipeline dipicu oleh Scheduled Task.
+restart-loop dan `docker exec` berebut dengan poll. Scheduled Task menjalankan
+command DI DALAM container, jadi container harus hidup. CMD = idle (bukan
+pipeline); idle juga menghidupkan server dashboard + `/healthz` (probe Coolify).
 
-## Jadwal
+## Jadwal (host UTC; WIB = UTC+7)
 
-| waktu | perintah | isi |
-|---|---|---|
-| 06:00 WIB | `node runner/daily.mjs` | ramp-gate → indexer → generate → publish → indexnow → report email |
-| Senin 07:00 WIB | `node runner/weekly.mjs` | tambang query GSC, lapor klik/impressi, mining keyword baru ke `keywords.mined.json` |
+| waktu WIB | cron UTC | perintah | isi |
+|---|---|---|---|
+| 06:00 | `0 23 * * *` | `node runner/daily.mjs` | indexer → generate → publish → report email |
+| tiap jam | `0 * * * *` | `node runner/tick.mjs` | catch-up publish 1/jam dalam jendela 09–16 WIB; mencatat run TIAP jam (detak jantung watchdog) |
+| Senin 07:00 | `0 0 * * 1` | `node runner/weekly.mjs` | tambang query GSC → `keywords.mined.json` + report |
+| tiap 6 jam | `0 */6 * * *` | `node runner/watchdog.mjs` | deteksi scheduler/pipeline mati → alert (read-only) |
+| 06:30 | `30 23 * * *` | `node seo/rank.mjs` | posisi keyword GSC + alert turun > `SEO_RANK_DROP` (3) |
 
-Kunci (`lib/lock.mjs`) mencegah dua pipeline berjalan menimpa state yang sama.
-Lock lepas kalau proses mati; tidak ada daemon yang membersihkannya.
+Kunci (`lib/lock.mjs`) mencegah dua pipeline menimpa state yang sama; lepas kalau
+proses mati. watchdog tidak mengambil lock (hanya membaca).
 
 ## Dependency runtime
 
-- **Node ≥ 23.6** (kami mengembangkan di 24.x). `seo/generate.mjs` meng-
-  `import('./prompts.ts')` tanpa langkah build — butuh type-stripping native.
-  Di Node 22.x ini hanya jalan dengan `--experimental-strip-types`; jangan pakai
-  itu diam-diam di image — tulis versi Node-nya di Dockerfile, jangan di flag.
-- Tidak ada `package.json` untuk runner: nol dependency, hanya modul `node:*`.
-- **Belum ada Dockerfile.** Image harus dibuat saat deploy (Fase 11+):
-  `node:24-slim`, checkout repo dengan akses tulis ke `seo/`, git configured,
-  CMD `node runner/idle.mjs`. Menjalinkan image tanpa itu = runner jalan tapi
-  tidak bisa commit apa pun.
+- **Node ≥ 23.6** (image pakai `node:24-slim`). `generate.mjs` meng-import
+  `prompts.ts` lewat type-stripping native — jangan pakai Node 22 + flag
+  `--experimental-strip-types` diam-diam; tulis versi Node di Dockerfile.
+- Nol npm dependency untuk menjalankan. Satu paket `yaml@2.9.1` (pure-JS,
+  zero-dep) di-vendor ke `site/node_modules/yaml` di image supaya `llms.mjs`
+  regen llms.txt benar dan `article-lint` menjaga gerbang YAML penuh. Tanpa itu
+  llms.txt kosong (0 artikel) + lint turun ke fallback regex yang buta quote rusak.
 
-## Butuh kredensial ini supaya pipeline lengkap
+## Dockerfile & deploy (#20–21)
 
-`GROQ_API_KEY` (generator) · `GITHUB_TOKEN` (push hasil) · `CLOUDFLARE_API_TOKEN`
-+ `CLOUDFLARE_ACCOUNT_ID` (tunggu Pages deploy selesai) ·
-`GSC_SERVICE_ACCOUNT_JSON` (inspeksi indeks + mining query) · `BING_API_KEY` +
-`BING_SITE_URL` (opsional; IndexNow tidak butuh kunci Bing) · `RESEND_API_KEY` +
-`NOTIFY_EMAIL_FROM` + `NOTIFY_EMAIL_TO` (laporan).
+`runner/Dockerfile`: `node:24-slim` + `curl`/`git`/`ca-certificates`, COPY source
+runtime saja (bukan `COPY . .` — `accountscf.md` + backup di-exclude `.dockerignore`),
+vendor yaml, healthcheck `/healthz`, **CMD idle**, **tanpa instruksi VOLUME**.
 
-Tanpa salah satunya, langkah terkait **dilewati dan dilaporkan**, tidak dibuat-
-buat sukses: `daily.mjs` mencetak `INDEXER GAGAL`/`SKIP` dan mengirim report
-dengan status itu apa adanya. Untuk uji tanpa email: `SEO_NOTIFY_DRYRUN=1`;
-untuk melewati langkah tertentu: `SEO_SKIP_INDEXER=1`, `SEO_SKIP_GENERATE=1`,
-`SEO_SKIP_PUBLISH=1`.
+- Persistensi: named volume Coolify `local_persistent_volumes` mount `/app/data`
+  (jebakan #15: instruksi `VOLUME` = anonymous volume baru tiap deploy → state hilang).
+- `runner/entrypoint.sh`: menyiapkan working tree git (origin HTTPS) saat startup
+  bila `GITHUB_TOKEN` ada — `publish-git.mjs` butuh pull/push. Tanpa token →
+  dashboard read-only tetap jalan; publish fail-closed (bukan palsu sukses).
+- **Publish di container = `seo/publish-git.mjs`** (flip+commit+push, build di
+  Cloudflare Pages). `publish.mjs` MENOLAK build in-container (insiden OOM 6 Okt).
+  `runner/lib/config.mjs` memilih otomatis via `existsSync('/.dockerenv')`.
+- Seed volume saat deploy pertama: salin `seo/{state,config,queue,keywords}.json`
+  ke `/app/data`; `node seo/bootstrap-state.mjs` membangun state sahih dari disk.
+
+Build lokal (butuh Docker):
+
+```
+docker build -f runner/Dockerfile -t valleycity-seo-runner .
+docker run -d --name vcv -v vcv_data:/app/data -p 8080:8080 valleycity-seo-runner
+docker inspect vcv --format '{{json .Mounts}}'   # verifikasi named volume
+curl localhost:8080/healthz                       # {"ok":true,...}
+```
+
+## Kredensial supaya pipeline lengkap
+
+`GROQ_API_KEY` (generator) · `GITHUB_TOKEN` (push) · `CLOUDFLARE_API_TOKEN` +
+`CLOUDFLARE_ACCOUNT_ID` (tunggu Pages deploy) · `GSC_SERVICE_ACCOUNT_JSON_B64`
+(inspeksi + mining + rank) · `BING_API_KEY` (opsional; IndexNow tanpa kunci Bing) ·
+`RESEND_API_KEY` + `NOTIFY_EMAIL_FROM` + `NOTIFY_EMAIL_TO` (laporan) ·
+`DASHBOARD_USER` + `DASHBOARD_PASS` (login dashboard; kosong = terbuka tapi noindex).
+
+Tanpa salah satunya, langkah terkait **dilewati dan dilaporkan**, bukan dibuat
+sukses. Uji: `SEO_NOTIFY_DRYRUN=1`, `SEO_SKIP_INDEXER/GENERATE/PUBLISH=1`.
 
 ## State di container
 
-Mount volume persistent di `/app/data` dan set:
+Mount volume `/app/data`; ENV Dockerfile sudah men-set:
 
 ```
 SEO_STATE_PATH=/app/data/state.json
 SEO_CONFIG_PATH=/app/data/config.json
 SEO_QUEUE_PATH=/app/data/queue.json
+SEO_RUNS_PATH=/app/data/runs.json
+SEO_RANK_PATH=/app/data/rank.json
+SEO_AUDIT_PATH=/app/data/audit-log.json
+SEO_KEYWORDS_PATH=/app/data/keywords.json
 ```
 
-Kalau tidak di-set, runner menulis ke `seo/` di worktree — benar untuk lokal,
-salah untuk container yang image-nya bisa diganti. `state.seed.json` hanya
-bootstrap kosong; state yang sahih dibangun dari disk oleh
-`node seo/bootstrap-state.mjs`.
+`keywords.mined.json` ikut volume (diturunkan dari dirname STATE). Lock tetap di
+`/tmp` (ephemeral per-container, bukan volume — hindari stale lock lintas-host).
+
+## Dashboard statis lama (legacy)
+
+`dashboard/build.mjs` + `check.mjs` + `dist/` = generator statis lama (proyek CF
+Pages "valleyvity" terpisah), sudah digantikan renderer server `seo/dashboard.mjs`.
+`dashboard/lib/{data,ui}.mjs` TETAP dipakai (helper bersama). Generator statis
+dijadwalkan dihapus setelah deploy server terverifikasi (#21).
 
 ## Yang menahan pipeline hari ini
 
-Gerbang keyword masih tertutup (`seo/keywords.json._meta.approved_at = null`)
-dan `daily_count` ditahan di 1 karena belum ada pengukuran GSC. Keduanya
-sengaja: lihat `seo/README.md` §"Gerbang dan artinya hari ini".
+Keyword: 694 approved. `daily_count` ditahan 1 karena belum ada pengukuran GSC
+(B2). Deploy dashboard menunggu B1 (DNS `valleycity.beriklan.co.id`) + B9
+(kredensial login). Lihat `URUTAN-KERJA.md` untuk blocker lengkap.

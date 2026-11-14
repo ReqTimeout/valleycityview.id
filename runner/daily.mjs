@@ -35,6 +35,7 @@ import { dirname, join } from 'node:path';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport } from './lib/notify.mjs';
 import { openRun } from './lib/runlog.mjs';
+import { publishScript } from './lib/config.mjs';
 // Prefix subject datang dari seo/site.mjs: kalau defaultnya berubah di satu
 // tempat, kita tidak ingin email masih memakai nama proyek lama.
 import { NOTIFY_PREFIX } from '../seo/site.mjs';
@@ -186,8 +187,8 @@ async function main() {
       log('daily_count=0 → tidak ada yang dipublish hari ini');
       rl.step('publish', 'skip', 'daily_count=0');
     } else {
-      log(`jalan: seo/publish.mjs --count=${dailyCount}`);
-      const r = await run('seo/publish.mjs', [`--count=${dailyCount}`]);
+      log(`jalan: ${publishScript} --count=${dailyCount}`);
+      const r = await run(publishScript, [`--count=${dailyCount}`]);
       publishCode = r.code;
       log(`publish selesai exit=${r.code}`);
       rl.step('publish', publishCode === 0 ? 'ok' : 'fail', `--count=${dailyCount}, exit ${publishCode}`);
