@@ -51,7 +51,12 @@
       <dt>IndexNow key</dt><dd>{d?.indexnowKey?.exists ? 'Ada' : 'Tidak'} · <a href={d?.indexnowKey?.servedAt} target="_blank" rel="noopener">cek served ↗</a></dd>
       <dt>Dist situs</dt><dd>{d?.distExists ? 'Ada' : 'Tidak'}</dd>
     </dl>
-    <div class="callout {accessTone}" style="margin-top:10px"><b>Access: {access.label || access.mode}</b><br />{access.note}</div>
+    {#if d?.auth}
+      <div class="callout ok" style="margin-top:10px"><b>Login app aktif</b> — dashboard hanya disajikan setelah login (user: {d?.user || '—'}). Ini proteksi utama.</div>
+    {:else}
+      <div class="callout bad" style="margin-top:10px"><b>Login app NONAKTIF</b> — dashboard terbuka tanpa login. Segera set DASHBOARD_USER/PASS.</div>
+    {/if}
+    <div class="callout {accessTone}" style="margin-top:8px"><b>Cloudflare Access (layer tambahan): {access.label || access.mode}</b><br />{access.note}</div>
     {#if lock && !lock.corrupt}<div class="callout warn" style="margin-top:8px">Lock dipegah {lock.host || '?'} (pid {lock.pid}) sejak {ago(lock.at)}.</div>{/if}
     {#if lock?.corrupt}<div class="callout bad" style="margin-top:8px">Berkas lock korup — periksa {lock.path}.</div>{/if}
   </Card>
