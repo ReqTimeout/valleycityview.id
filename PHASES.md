@@ -113,28 +113,54 @@ Sumber data: `dashboard/lib/data.mjs#collect()` (snapshot tunggal) +
 - **Acceptance ✅:** screenshot nyata tersimpan; 0 error; primary flow lengkap;
   refinement funnel semantik + KPI null deliberate terverifikasi vision.
 
-## Phase 6 — Build final + uji lokal + commit
+## Phase 6 — Build final + uji lokal + commit ✅
 - [x] `npm run build` final → bundle 0 warning. `node --check` server OK.
 - [x] E2E lokal port 8099 (auth admin/creds-uji-lokal, COOKIE_SECURE=false): healthz 200,
       login, 10 halaman, /api/data, noindex, 0 path bocor, 0 error.
-- [ ] Commit (terpisah) + push ke main. Secret-scan dulu. **← butuh izin eksplisit user.**
-- **Acceptance:** E2E hijau ✅; bundle + server ter-push ⏳; tidak ada rahasia ter-commit.
+- [x] Commit terpisah + push: `c7bbc6d4` (Svelte) → `a63486ab` (Health jujur) →
+      `d267a38c` (vendor yaml). Secret-scan bersih; 3 docs tetap untracked.
+- **Acceptance ✅:** E2E hijau; bundle + server ter-push (HEAD=origin/main=`d267a38c`);
+  tidak ada rahasia ter-commit.
 
-## Phase 7 — Deploy Coolify + verifikasi
-- [ ] Set env app (is_runtime): DASHBOARD_USER/PASS (dari `/tmp/vcv-dashboard-creds.txt`)
-      + TZ + DASHBOARD_ACCESS. Cek duplikat env (trap #13/#18) → DELETE dobel.
-- [ ] Deploy (POST /start, token root) → poll deployment sampai finished.
-- [ ] Seed volume dari state repo (copy /app/seo/*.json → /app/data bila kosong).
-- [ ] Enable 5 scheduled task. Verifikasi mount volume (bukan anonim).
-- [ ] Verifikasi live: https://valleycity.beriklan.co.id/healthz, login, 10 halaman,
-      /api/data, mount, scheduled task. Pantau RAM/disk (jangan prune).
-- **Acceptance:** domain live + login + dashboard Svelte tampil + state nyata +
-  task aktif; project lain tak tersentuh; tidak OOM.
+## Phase 7 — Deploy Coolify + verifikasi ✅
+- [x] Env app (is_runtime): DASHBOARD_USER/PASS (dari `/tmp/vcv-dashboard-creds.txt`)
+      + SEO_MINED_PATH=/app/data/keywords.mined.json. **3 env unik** (duplikat trap
+      #13/#18 muncul → DELETE). SEO_*_PATH + TZ sudah di-bake Dockerfile (ENV).
+- [x] Deploy: POST /start → poll. **Deploy pertama GAGAL** (`COPY site/node_modules/yaml`
+      not found) — Coolify build dari git clone GitHub, node_modules di-gitignore →
+      yaml absen di context. Fix: commit vendor yaml@2.9.1 (`d267a38c`). Redeploy →
+      **`running:healthy`**, commit build = `d267a38c` = HEAD.
+- [x] Seed volume: cp -n seo/{state,config,queue,keywords,runs}.json → /app/data.
+      State nyata: 54 published, 694 keyword approved. Mount = **named volume**
+      `xkyc6wt6lh5avl5tvtghortw_data` (bukan anonymous). YAML-OK di image.
+- [x] Enable 5 scheduled task (PATCH enabled:true → 5/5). Cron WIB→UTC benar.
+- [x] Verifikasi live https://valleycity.beriklan.co.id: healthz 200; noauth / →302
+      login, /api/data→401; login→303; /api/data authed→200 (live 54, keywords 694,
+      tracking avg 70, indexRate null jujur); noindex 3 lapis; bundle 200. Browser
+      Playwright: 10 halaman render, **0 error**, 0 overflow. Health: "Login app aktif".
+- [x] Resource aman: RAM available ±5615MB (no OOM), disk 7.0G free (tanpa prune).
+      Project lain (openwa/wa-assistant, sbdental, coolify-proxy) tetap Up healthy.
+- **Acceptance ✅:** domain live + login + dashboard Svelte tampil + state nyata +
+  5 task aktif; project lain tak tersentuh; tidak OOM.
+
+## Jebakan baru (dicatat agar tidak terulang)
+- **Coolify build dari git clone GitHub** → berkas yang di-gitignore (mis.
+  `site/node_modules/yaml`) TIDAK ada di build context, walau `.dockerignore` punya
+  negation `!site/node_modules/yaml`. Vendor yang di-COPY Dockerfile **wajib di-commit**
+  (force-add). Negation .dockerignore hanya menyaring context, bukan mengadakan file.
+- `POST /applications/{uuid}/envs` menolak field `is_build_time` (422). Cukup
+  `{key, value, is_runtime}`. Duplikat tetap muncul → GET + DELETE dupe (loop `read`
+  harus `|| [ -n "$U" ]` agar baris terakhir tanpa newline ikut terproses).
+- `PATCH /applications/{uuid}/scheduled-tasks/{uuid}` `{enabled:true}` **jalan** (200),
+  beda dengan PATCH envs yang bug.
 
 ## Status eksekusi
-- Phase 0–5: ✅ selesai (build 0 warning; runtime 0 error; QA visual lolos).
-- Phase 6: build+E2E ✅; **commit/push menunggu izin eksplisit user**.
-- Phase 7: ⏳ deploy Coolify (setelah commit/push).
-- Perubahan belum commit: `PHASES.md`, `web/`, `runner/lib/http.mjs`,
-  `dashboard/lib/data.mjs`, bundle `runner/assets/{index.html,app.js,app.css}`.
-- Server uji 8099 sudah dimatikan setelah QA.
+- **Phase 0–7: ✅ SELESAI.** Dashboard Svelte live di https://valleycity.beriklan.co.id
+  (login admin), state nyata ter-seed di named volume, 5 scheduled task aktif.
+- HEAD = origin/main = `d267a38c`. Bundle `runner/assets/{index.html,app.js,app.css}`.
+- **Sisa blocker pipeline (bukan dashboard):** B8 GITHUB_TOKEN, B2 GSC OAuth user,
+  B5 GROQ/MiniMax belum ada → langkah generate/publish/indexer/rank **skip jujur**
+  (fail-closed). Dashboard read-only berfungsi penuh; pipeline aktif begitu creds di-set.
+- Follow-up terpisah: #34 sync docs, #29 landing cleanup, pensiunkan dashboard statis
+  (`dashboard/build.mjs`+`check.mjs`+`dist/`; `dashboard/lib` tetap dipakai server).
+- Server uji lokal 8099 sudah dimatikan. Screenshot QA: `/tmp/vcv-shots/`.
