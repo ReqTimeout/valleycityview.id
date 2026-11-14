@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Valley City · SEO Console</title>
+    <script>
+      // Tema sebelum paint (hindari flash). Default terang; hormati preferensi.
+      try {
+        var t = localStorage.getItem('vcv-theme');
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

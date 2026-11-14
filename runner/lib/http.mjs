@@ -19,15 +19,19 @@ import { fileURLToPath } from 'node:url';
 
 import { ROOT, CONFIG_PATH } from '../../seo/paths.mjs';
 import { CFG, hasAuth, publishScript } from './config.mjs';
-import { logAudit } from './audit.mjs';
+import { logAudit, readAudit } from './audit.mjs';
 import { COOKIE_NAME, sign, verify, parseCookies, sessionCookie, clearCookie, checkCredentials } from './session.mjs';
-import { renderPage, pageList } from '../../seo/dashboard.mjs';
+import { pageList } from '../../seo/dashboard.mjs';
 import { renderLogin } from '../../seo/login.mjs';
+import { collect } from '../../dashboard/lib/data.mjs';
+import { buildTracking } from '../../seo/tracking.mjs';
+import { readRank } from '../../seo/rank.mjs';
 
 const ASSETS_DIR = join(ROOT, 'runner/assets');
 const MIME = { '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 const PAGES = new Set(pageList());
 const STARTED = Date.now();
+const SPA_SHELL_PATH = join(ASSETS_DIR, 'index.html');
 
 // ── util respons ───────────────────────────────────────────────────────────
 function secure(res, extra = {}) {
@@ -41,6 +45,11 @@ function send(res, code, body, type = 'text/html; charset=utf-8', extra = {}) {
   secure(res, { 'Content-Type': type, 'Cache-Control': 'no-store', ...extra });
   res.writeHead(code);
   res.end(body);
+}
+function sendJson(res, code, obj) {
+  secure(res, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+  res.writeHead(code);
+  res.end(JSON.stringify(obj));
 }
 function redirect(res, location, { code = 302, cookie = null } = {}) {
   secure(res, { Location: location, 'Cache-Control': 'no-store', ...(cookie ? { 'Set-Cookie': cookie } : {}) });
@@ -63,6 +72,27 @@ const sessionOf = (req) => (hasAuth() ? verify(parseCookies(req.headers.cookie)[
 function dailyCount() {
   try { return Number(JSON.parse(readFileSync(CONFIG_PATH, 'utf8')).daily_count ?? 1); }
   catch { return 1; }
+}
+
+// Snapshot tunggal untuk SPA Svelte: collect() + tracking + rank + audit.
+// Angka tetap jujur (null = belum diukur); collect() sudah me-relatifkan path.
+function snapshot(user) {
+  const d = collect();
+  let tracking = null;
+  try { tracking = buildTracking(d); } catch (e) { tracking = { error: String(e.message) }; }
+  let rank; try { rank = readRank(); } catch { rank = { available: false }; }
+  let audit; try { audit = readAudit(80); } catch { audit = []; }
+  return { ...d, tracking, rank, audit, decisions: d.audit, auth: hasAuth(), user: user || null };
+}
+
+// SPA shell (Svelte). Router client-side menangani 10 halaman; data via /api/data.
+function serveShell(res) {
+  if (!existsSync(SPA_SHELL_PATH)) {
+    return send(res, 503, '<!doctype html><meta name="robots" content="noindex"><title>Build belum ada</title><p style="font-family:sans-serif;padding:40px">Dashboard Svelte belum di-build. Jalankan <code>npm run build</code> di web/ lalu commit runner/assets.</p>');
+  }
+  secure(res, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' });
+  res.writeHead(200);
+  res.end(readFileSync(SPA_SHELL_PATH));
 }
 
 // ── mutasi: spawn CLI engine (gerbang tetap di CLI) ────────────────────────
@@ -140,28 +170,40 @@ async function handler(req, res) {
       return redirect(res, hasAuth() ? '/login' : '/', { code: 303, cookie: clearCookie() });
     }
 
+    // JSON API untuk SPA Svelte (di balik sesi bila auth on).
+    if (method === 'GET' && path === '/api/session') {
+      const sess = sessionOf(req);
+      if (hasAuth() && !sess) return sendJson(res, 401, { auth: true, user: null });
+      return sendJson(res, 200, { auth: hasAuth(), user: sess?.u || null });
+    }
+    if (method === 'GET' && path === '/api/data') {
+      const sess = sessionOf(req);
+      if (hasAuth() && !sess) return sendJson(res, 401, { error: 'unauthorized' });
+      try { return sendJson(res, 200, snapshot(sess?.u)); }
+      catch (e) { console.error(`[http] snapshot gagal: ${e.message}`); return sendJson(res, 500, { error: 'snapshot gagal' }); }
+    }
+
     // Mutasi API.
     if (method === 'POST' && ACTIONS[path]) {
-      if (hasAuth() && !sessionOf(req)) return redirect(res, '/login', { code: 303 });
-      const r = trigger(path, sessionOf(req)?.u);
+      const sess = sessionOf(req);
+      const wantsJson = (req.headers.accept || '').includes('application/json');
+      if (hasAuth() && !sess) {
+        return wantsJson
+          ? sendJson(res, 401, { ok: false, msg: 'Sesi berakhir — masuk lagi.' })
+          : redirect(res, '/login', { code: 303 });
+      }
+      const r = trigger(path, sess?.u);
+      if (wantsJson) return sendJson(res, r.ok ? 200 : 429, r);
       const to = (r.to || '/runs') + '?msg=' + encodeURIComponent(r.msg);
       return redirect(res, to, { code: 303 });
     }
 
-    // Halaman dashboard.
+    // Halaman dashboard → SPA shell Svelte (router client-side).
     if (method === 'GET') {
       if (hasAuth() && !sessionOf(req)) return redirect(res, '/login');
       const key = path === '/index.html' ? '/' : path.replace(/\/$/, '') || '/';
       if (!PAGES.has(key)) return notFound(res);
-      const sess = sessionOf(req);
-      let html;
-      try {
-        html = renderPage(key, { user: sess?.u || null });
-      } catch (e) {
-        console.error(`[http] render ${key} gagal: ${e.message}`);
-        return send(res, 500, `<!doctype html><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/dashboard.css"><div class="auth-shell"><div class="auth-backdrop"></div><div class="auth-inner"><div class="auth-card"><h1 style="margin-top:0">Gagal merakit halaman</h1><p class="note">Mesin tidak bisa membaca keadaan saat ini. Cek <a href="/health">Health</a> atau log container. Pesan: ${String(e.message).replace(/[<>&]/g, '')}</p><a class="btn ghost" href="/">Coba lagi</a></div></div></div>`);
-      }
-      return send(res, 200, html);
+      return serveShell(res);
     }
 
     return notFound(res);

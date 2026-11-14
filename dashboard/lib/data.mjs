@@ -271,6 +271,7 @@ export function collect() {
     recent: live
       .filter((p) => p.updated && Date.parse(p.updated) > Date.now() - 30 * 864e5)
       .sort((a, b) => (a.updated < b.updated ? 1 : -1)),
+    posts: allPosts,
     drafts: draftish,
     credentials: credentials(),
   };

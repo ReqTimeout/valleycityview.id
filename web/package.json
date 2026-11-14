@@ -1,0 +1,17 @@
+{
+  "name": "valleycity-dashboard-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Svelte 5 source for the Valley City SEO dashboard. Compiled locally to runner/assets (app.js/app.css). Runtime server stays zero-dep.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.19.0",
+    "vite": "^6.0.11"
+  }
+}
