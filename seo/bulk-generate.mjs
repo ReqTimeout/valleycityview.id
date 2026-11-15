@@ -96,11 +96,16 @@ while (ok < LIMIT) {
   const stillPending = after.pending;
   log(`batch selesai — exit ${r.status}, draft baru ${made}, pending sisa ${stillPending}, published ${after.published}`);
 
-  if (r.status === 0 && made > 0) { ok += made; failStreak = 0; }
-  else if (r.status === 0 && made === 0 && !stillPending) { log('selesai — queue kosong'); process.exit(0); }
+  // Batch dinilai dari HASIL (draft dibuat), bukan exit code: generate.mjs
+  // exit 1 bila ada 1 artikel gagal walau 7 lain sukses. Pada tingkat sukses
+  // ~85-90%, hampir tiap batch exit 1 — memakai exit code akan menghentikan
+  // bulk prematur. Hanya batch yang menghasilkan NOL draft dihitung gagal
+  // (indikasi masalah sistemik: key/gate), sesuai maksud stop-beruntun.
+  if (made > 0) { ok += made; failStreak = 0; }
+  else if (!stillPending) { log('selesai — queue kosong'); process.exit(0); }
   else {
     failStreak += 1;
-    log(`batch bermasalah — streak gagal ${failStreak}/${MAX_FAIL}`);
+    log(`batch tanpa hasil — streak gagal ${failStreak}/${MAX_FAIL}`);
     if (failStreak >= MAX_FAIL) { log(`STOP — ${MAX_FAIL} batch gagal beruntun. Sisi sistemik: cek LLM key/gate. ${stillPending} pending tersisa.`); process.exit(1); }
   }
 }
