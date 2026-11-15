@@ -385,7 +385,10 @@ export function validateMdx(content: string, keyword: string, allowedRp: number[
 
   // Angka rupiah di prosa: hanya angka rekaman + angka profil pembeli (queue)
   // yang boleh. allowedRp diisi generate.mjs dari rpFiguresFrom(local_buyer).
-  const ALLOWED = new Set([599000000, 3871000, 5000000, ...allowedRp]);
+  // 4000000 & 10000000 = rentang penghasilan pembeli "Rp 4-10 juta/bulan" yang
+  // selalu disebut PARTS_SYSTEM_PROMPT; model kerap menulisnya sebagai angka
+  // mentah (Rp4000000) di prosa. Ini angka rekaman brand, bukan karangan.
+  const ALLOWED = new Set([599000000, 3871000, 5000000, 4000000, 10000000, ...allowedRp]);
   // Baris tabel dan dua bullet blok geo-anchor dikecualikan — isinya data
   // terverifikasi dari queue item (bukan karangan LLM), contoh:
   // "- **Siapa yang biasanya mencari:** … berpenghasilan Rp 4-10 juta/bulan"

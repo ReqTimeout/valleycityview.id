@@ -167,6 +167,11 @@ async function runQwen({ model, system, user, max_tokens = 3000, timeout = 120_0
         ],
         temperature: 0.7,
         max_tokens,
+        // Matikan reasoning internal: untuk artikel SEO yang dibutuhkan output
+        // jadi, bukan proses berpikir. Thinking aktif membuat tiap panggilan
+        // 90-108s (vs ~7s tanpa) — boros waktu untuk ratusan artikel. Gate
+        // kualitas tetap menahan output yang buruk.
+        enable_thinking: false,
       }),
     });
     if (!res.ok) throw new Error(`qwen ${res.status}: ${(await res.text()).slice(0, 150)}`);
@@ -616,11 +621,22 @@ async function main() {
         titles,
       };
       try {
-        const pA = await callLLM({ system: PARTS_SYSTEM_PROMPT, user: buildPartA(ctx), label: 'partA' });
-        const a = splitIntroSections(parseOutput(pA));
+        // Retry tunggal terarah bila struktur prosa kurang (section tipis /
+        // pembuka pendek) — panggilan murah ~5s, bukan retry boros seluruh
+        // artikel. Model tanpa thinking kadang menulis section <60 kata.
+        let a = null;
+        for (let attempt = 0; attempt < 2 && !a; attempt++) {
+          const pA = await callLLM({ system: PARTS_SYSTEM_PROMPT, user: buildPartA(ctx), label: 'partA' });
+          a = splitIntroSections(parseOutput(pA));
+          if (!a && attempt === 0) console.log('  partA struktur kurang — ulang sekali');
+        }
         if (!a) throw new Error('partA: <2 section atau pembuka terlalu pendek');
-        const pB = await callLLM({ system: PARTS_SYSTEM_PROMPT, user: buildPartB(ctx), label: 'partB' });
-        const b = splitBodySections(parseOutput(pB));
+        let b = null;
+        for (let attempt = 0; attempt < 2 && !b; attempt++) {
+          const pB = await callLLM({ system: PARTS_SYSTEM_PROMPT, user: buildPartB(ctx), label: 'partB' });
+          b = splitBodySections(parseOutput(pB));
+          if (!b && attempt === 0) console.log('  partB struktur kurang — ulang sekali');
+        }
         if (!b) throw new Error('partB: <2 section');
         const pFaq = await callLLM({ system: PARTS_SYSTEM_PROMPT, user: buildPartPrompt('faq', ctx), label: 'faq' });
         faqPairs = parseFaqPart(pFaq);

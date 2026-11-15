@@ -95,9 +95,9 @@ export function sectionTitles(keyword) {
   const t1 = kw.length <= 48 ? `${kw}: ${T1_TAILS[h % T1_TAILS.length]}` : kw;
   return [
     t1,
-    T2_TITLES[(h >> 3) % T2_TITLES.length],
-    T3_TITLES[(h >> 6) % T3_TITLES.length],
-    T4_TITLES[(h >> 9) % T4_TITLES.length],
+    T2_TITLES[(h >>> 3) % T2_TITLES.length],
+    T3_TITLES[(h >>> 6) % T3_TITLES.length],
+    T4_TITLES[(h >>> 9) % T4_TITLES.length],
   ];
 }
 

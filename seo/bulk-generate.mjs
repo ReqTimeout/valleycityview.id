@@ -58,7 +58,10 @@ const readJson = (p) => {
 
 const log = (m) => {
   const line = `[bulk ${new Date().toISOString()}] ${m}`;
-  console.log(line);
+  // Hanya tampilkan ke console saat interaktif (TTY). Bila dijalankan via
+  // nohup yang me-redirect stdout ke berkas log yang sama, console.log akan
+  // menduplikasi tiap baris — jadi cukup tulis berkas sekali di mode itu.
+  if (process.stdout.isTTY) console.log(line);
   try { appendFileSync('seo/bulk-gen.log', line + '\n'); } catch {}
 };
 
