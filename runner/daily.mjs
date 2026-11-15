@@ -171,7 +171,14 @@ async function main() {
     }
 
     // ── tahap 3: publish draft sesuai kuota GSC ────────────────────────────
-    if (indexerCode !== 0) {
+    // PROD (SEO_DAILY_PUBLISH=0): publish DIPEGANG tick (jendela 08–16 WIB,
+    // 1/jam) — sama seperti sbdental. Daily hanya menyiapkan: indexer +
+    // generate + laporan. Artikel selalu tayang di jam kerja, bukan 06:00,
+    // dan kuota harian dijaga satu mekanisme saja (tick).
+    if (process.env.SEO_DAILY_PUBLISH === '0') {
+      log('SEO_DAILY_PUBLISH=0 → publish dipegang tick (jendela harian)');
+      rl.step('publish', 'skip', 'tick yang publish dalam jendela 08–16 WIB');
+    } else if (indexerCode !== 0) {
       log('indexer gagal → publish TIDAK dijalankan (fail-closed)');
       rl.step('publish', 'blocked', 'fail-closed: indexer gagal');
     } else if (cfg.halt === true) {

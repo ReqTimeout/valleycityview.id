@@ -151,7 +151,12 @@ function uniquenessGate(slug) {
 
 function flipDraft(path) {
   const src = readFileSync(path, 'utf8');
-  const today = new Date().toISOString().slice(0, 10);
+  // Tanggal terbit HARUS WIB (UTC+7), bukan UTC. Publish harian jalan 23:00 UTC
+  // = 06:00 WIB hari berikutnya — memakai UTC date meleset satu hari (bug serupa
+  // pubDate sbdental, beda akar: timezone bukan tanggal generate).
+  const today = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date());
   const flipped = src
     .replace(/^status:\s*draft\s*$/m, 'status: publish')
     .replace(/^date:\s*\d{4}-\d{2}-\d{2}\s*$/m, `date: ${today}`);

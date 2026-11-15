@@ -15,8 +15,9 @@
  * scheduler. Kalau tick hanya mencatat saat publish, malam hari tampak mati.
  *
  * Kuota "hari ini" dihitung dari stempel `published YYYY-MM-DD` di queue
- * (tanggal UTC, sama dengan flipDraft publish-git). Dalam jendela 09–16 WIB
- * (= 02–09 UTC) tanggal UTC == tanggal WIB, jadi keduanya konsisten.
+ * (tanggal WIB, sama dengan flipDraft publish-git — keduanya lewat Intl
+ * Asia/Jakarta). Dalam jendela 08–16 WIB (= 01–09 UTC) tanggal UTC == tanggal
+ * WIB, tapi stempel WIB tetap dipakai supaya konsisten walau jendela diubah.
  *
  * Env: SEO_TICK_START/END (jam WIB, default 9–16) · GITHUB_TOKEN ·
  *      CLOUDFLARE_API_TOKEN/ACCOUNT_ID · SEO_SKIP_PUBLISH=1 (uji).
@@ -49,7 +50,10 @@ function run(script, args) {
 function wibHour() {
   return Number(new Intl.DateTimeFormat('en-GB', { timeZone: CFG.tz, hour: '2-digit', hour12: false }).format(new Date()));
 }
-const todayStamp = () => new Date().toISOString().slice(0, 10);
+/** Tanggal WIB — disamakan dengan flipDraft publish-git (stempel `published YYYY-MM-DD`). */
+const todayStamp = () => new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
 
 function publishedToday(queue) {
   const stamp = `published ${todayStamp()}`;
