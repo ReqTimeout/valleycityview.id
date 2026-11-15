@@ -2,11 +2,11 @@
   import Icon from './Icon.svelte';
   import { router } from '../lib/state.svelte.js';
   const DOCK = [
-    { href: '/', label: 'Overview', icon: 'home' },
+    { href: '/', label: 'Beranda', icon: 'home' },
     { href: '/queue', label: 'Antrean', icon: 'list' },
     { href: '/content', label: 'Konten', icon: 'file' },
-    { href: '/runs', label: 'Runs', icon: 'play' },
-    { href: '/health', label: 'Health', icon: 'activity' },
+    { href: '/runs', label: 'Riwayat', icon: 'play' },
+    { href: '/health', label: 'Sistem', icon: 'shield' },
   ];
 </script>
 

@@ -19,7 +19,7 @@
       { href: '/indexasi', label: 'Status Google', icon: 'search' },
     ] },
     { group: 'Sistem', items: [
-      { href: '/health', label: 'Kesehatan', icon: 'activity' },
+      { href: '/health', label: 'Status Sistem', icon: 'shield' },
       { href: '/alerts', label: 'Perlu Perhatian', icon: 'bell' },
     ] },
   ];
