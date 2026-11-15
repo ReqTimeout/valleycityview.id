@@ -61,7 +61,24 @@ async function main() {
   for (const [key, path, opts] of defs) {
     const r = await probe(path, opts);
     checks[key] = { ...r, checkedAt: now };
-    console.log(`[checks] ${key}: ${r.status} — ${r.detail}`);
+    // Sitemap: ikuti index → hitung <loc> SANGGUP diambil langsung dari situs.
+    // (Berkas dist/ sengaja TIDAK ada di container — build jalan di Cloudflare
+    // Pages — jadi satu-satunya sumber jujur jumlah alamat adalah isi live-nya.)
+    if (key === 'sitemap' && r.status === 'ok') {
+      try {
+        const idx = await (await fetch(`${SITE}/sitemap-index.xml`, { signal: AbortSignal.timeout(TIMEOUT_MS) })).text();
+        const first = (idx.match(/<loc>([^<]+)<\/loc>/) || [])[1];
+        if (first) {
+          const sm = await (await fetch(first, { signal: AbortSignal.timeout(TIMEOUT_MS) })).text();
+          const urls = (sm.match(/<loc>/g) || []).length;
+          checks.sitemap = { ...checks.sitemap, urls, child: first, detail: `HTTP 200 · ${urls} alamat · ${(sm.length / 1024).toFixed(1)} KB` };
+          console.log(`[checks] sitemap: ${urls} alamat live dari ${first.split('/').pop()}`);
+        }
+      } catch (e) {
+        console.log(`[checks] sitemap: hitung alamat live gagal (${String(e.message).slice(0, 80)}) — indeks tetap ok`);
+      }
+    }
+    if (key !== 'sitemap') console.log(`[checks] ${key}: ${r.status} — ${r.detail}`);
   }
   const ok = Object.values(checks).filter((c) => c.status === 'ok').length;
   checks._meta = { checkedAt: now, ok, total: defs.length, overall: ok === defs.length ? 'ok' : ok >= defs.length - 1 ? 'warn' : 'fail' };

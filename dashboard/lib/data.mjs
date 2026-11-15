@@ -158,11 +158,11 @@ function credentials() {
 }
 
 /** Umur sitemap + tanggal lastmod tertua/terbaru yang benar-benar ada di file. */
-function sitemapInfo() {
+function sitemapInfo(state) {
   const xml = existsSync(SITEMAP_PATH) ? readFileSync(SITEMAP_PATH, 'utf8') : '';
   const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const mods = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]).sort();
-  return {
+  const file = {
     exists: xml.length > 0,
     path: rel(SITEMAP_PATH),
     urls: urls.length,
@@ -170,7 +170,22 @@ function sitemapInfo() {
     oldest: mods[0] || null,
     newest: mods[mods.length - 1] || null,
     ageHours: ageHours(SITEMAP_PATH),
+    via: 'file',
   };
+  if (file.exists) return file;
+  // Container TIDAK memuat dist/ (build jalan di CF Pages) — fallback ke
+  // hasil pemeriksaan langsung seo/site-checks.mjs yang menghitung <loc>
+  // dari sitemap live. Jujur: ada kalau benar-benar terukur, bukan nol karangan.
+  const live = state?.checks?.sitemap;
+  if (live?.status === 'ok' && live.urls > 0) {
+    return {
+      exists: true, path: live.child ? new URL(live.child).pathname : '/sitemap-index.xml',
+      urls: live.urls, withLastmod: null, oldest: null, newest: null,
+      ageHours: live.checkedAt ? Math.round((Date.now() - Date.parse(live.checkedAt)) / 36e5 * 10) / 10 : null,
+      via: 'live',
+    };
+  }
+  return file;
 }
 
 function auditInfo() {
@@ -382,7 +397,7 @@ export function collect() {
     cities: Array.isArray(cities) ? cities : cities?.cities || [],
     audit,
     traffic: trafficInfo(),
-    sitemap: sitemapInfo(),
+    sitemap: sitemapInfo(state),
     distExists: existsSync(DIST_DIR),
     access: accessInfo(),
     runs: (runs.runs || []).slice(0, 60),
