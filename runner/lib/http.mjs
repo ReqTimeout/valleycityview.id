@@ -98,10 +98,10 @@ function serveShell(res) {
 // ── mutasi: spawn CLI engine (gerbang tetap di CLI) ────────────────────────
 const lastTrigger = {};
 const ACTIONS = {
-  '/api/run-daily': { script: 'runner/daily.mjs', args: () => [], to: '/runs', msg: 'Pipeline harian dimulai — pantau tahapnya di Runs.' },
-  '/api/generate': { script: 'seo/generate.mjs', args: () => [`--count=${Math.min(CFG.generateCount, CFG.generateCountMax)}`], to: '/runs', msg: 'Generate draft dimulai — gerbang keyword tetap berlaku.' },
-  '/api/publish': { script: publishScript, args: () => [`--count=${dailyCount()}`], to: '/runs', msg: `Publish dimulai (kuota ${dailyCount()}/hari dari config).` },
-  '/api/inspect': { script: 'seo/gsc-inspect.mjs', args: () => ['--all'], to: '/indexasi', msg: 'Inspeksi GSC dimulai — butuh kredensial GSC terpasang.' },
+  '/api/run-daily': { script: 'runner/daily.mjs', args: () => [], to: '/runs', msg: 'Siklus harian dimulai — pantau tahapnya di Riwayat.' },
+  '/api/generate': { script: 'seo/generate.mjs', args: () => [`--count=${Math.min(CFG.generateCount, CFG.generateCountMax)}`], to: '/runs', msg: 'Penulisan draf dimulai — hanya kata kunci yang disetujui.' },
+  '/api/publish': { script: publishScript, args: () => [`--count=${dailyCount()}`], to: '/runs', msg: `Publikasi dimulai (kuota ${dailyCount()} artikel/hari).` },
+  '/api/inspect': { script: 'seo/gsc-inspect.mjs', args: () => ['--all'], to: '/indexasi', msg: 'Pemeriksaan Google dimulai — butuh koneksi Google terpasang.' },
 };
 
 function trigger(action, user) {

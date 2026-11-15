@@ -20,6 +20,30 @@
     return ms < 1000 ? ms + 'ms' : (ms / 1000).toFixed(1) + 's';
   };
   const exitChip = (r) => (r.exit === 0 ? { value: 'ok', label: 'sukses', kind: 'ok' } : r.exit == null ? { value: 'run', label: 'berjalan', kind: 'info' } : { value: 'fail', label: 'gagal', kind: 'bad' });
+  const kindName = (k) => ({
+    tick: 'Cek jadwal tayang',
+    daily: 'Siklus harian',
+    weekly: 'Data mingguan',
+    watchdog: 'Pengawas mesin',
+    rank: 'Pantau posisi',
+    generate: 'Tulis draf',
+    publish: 'Tayangkan',
+    inspect: 'Periksa Google',
+    bing: 'Kirim ke Bing',
+  }[k] || k);
+  const actionName = (a) => ({
+    '/api/run-daily': 'Siklus harian',
+    '/api/generate': 'Buat draf',
+    '/api/publish': 'Tayangkan',
+    '/api/inspect': 'Periksa Google',
+  }[a] || a);
+  const scriptName = (s) => ({
+    'runner/daily.mjs': 'Siklus harian lengkap',
+    'seo/generate.mjs': 'Penulis artikel',
+    'seo/publish-git.mjs': 'Publikasi ke situs',
+    'seo/publish.mjs': 'Publikasi ke situs',
+    'seo/gsc-inspect.mjs': 'Pemeriksaan Google',
+  }[s] || s);
   const stepName = (n) => ({
     bootstrap: 'Persiapan',
     indexer: 'Periksa & catat status',
@@ -29,7 +53,7 @@
   }[n] || n);
   const stepTone = (st) => ({ ok: 'ok', fail: 'bad', skip: 'info', blocked: 'warn' }[st] || 'info');
   const runCols = [
-    { key: 'kind', label: 'Jenis kerja', sortable: true, get: (r) => r.kind },
+    { key: 'kind', label: 'Jenis kerja', sortable: true, get: (r) => kindName(r.kind) },
     { key: 'exit', label: 'Hasil', chip: exitChip },
     { key: 'at', label: 'Mulai', sortable: true, get: (r) => ago(r.at) },
     { key: 'dur', label: 'Durasi', align: 'r', get: dur },
@@ -38,8 +62,8 @@
   const auditCols = [
     { key: 'at', label: 'Waktu', sortable: true, get: (r) => ago(r.at) },
     { key: 'user', label: 'Oleh', get: (r) => r.user || '—' },
-    { key: 'action', label: 'Aksi', chip: (r) => ({ value: r.action, label: r.action, kind: 'info' }) },
-    { key: 'script', label: 'Detail', get: (r) => r.script || '—' },
+    { key: 'action', label: 'Aksi', chip: (r) => ({ value: r.action, label: actionName(r.action), kind: 'info' }) },
+    { key: 'script', label: 'Detail', get: (r) => scriptName(r.script) || '—' },
   ];
   function trigger(action, label, body) {
     ui.ask({ title: label + '?', body, action, label });
@@ -56,7 +80,7 @@
 
 <div class="grid g3" style="margin-top:16px">
   <Kpi i={0} label="Total pekerjaan" value={d?.runsTotal ?? runs.length} />
-  <Kpi i={1} label="Pekerjaan terakhir" value={runs[0] ? ago(runs[0].at) : '—'} tone={runs[0] ? (runs[0].exit === 0 ? 'ok' : runs[0].exit == null ? 'info' : 'bad') : ''} note={runs[0] ? runs[0].kind : 'belum pernah'} />
+  <Kpi i={1} label="Pekerjaan terakhir" value={runs[0] ? ago(runs[0].at) : '—'} tone={runs[0] ? (runs[0].exit === 0 ? 'ok' : runs[0].exit == null ? 'info' : 'bad') : ''} note={runs[0] ? kindName(runs[0].kind) : 'belum pernah'} />
   <Kpi i={2} label="Aksi manual tercatat" value={audit.length} tone="teal" note="terbaru" />
 </div>
 
@@ -66,7 +90,7 @@
 <h2 class="sec">Aksi manual</h2>
 <DataTable columns={auditCols} rows={audit} searchKeys={['user', 'action', 'script']} placeholder="Cari aksi / pengguna…" empty="Belum ada aksi manual tercatat." />
 
-<Drawer open={!!selected} title="Pekerjaan: {selected?.kind || ''}" sub={selected ? date(selected.at) : ''} onClose={() => (selected = null)}>
+<Drawer open={!!selected} title="Pekerjaan: {kindName(selected?.kind) || ''}" sub={selected ? date(selected.at) : ''} onClose={() => (selected = null)}>
   {#if selected}
     <dl class="kv">
       <dt>Hasil</dt><dd><Chip value={exitChip(selected).value} label={exitChip(selected).label} kind={exitChip(selected).kind} /></dd>

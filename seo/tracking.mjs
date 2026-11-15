@@ -85,11 +85,11 @@ export function funnel(d) {
   const q = d.queue?.counts || {};
   const s = d.summary || {};
   return [
-    { stage: 'Keyword disetujui', value: d.keywords?.approved ?? null },
-    { stage: 'Antrean (pending)', value: q.pending ?? null },
-    { stage: 'Draft siap', value: q.draft ?? null },
-    { stage: 'URL tayang', value: s.total ?? null },
-    { stage: 'Terindeks (terukur)', value: s.measured ? (s.labels?.indexed ?? 0) : null },
+    { stage: 'Kata kunci disetujui', value: d.keywords?.approved ?? null },
+    { stage: 'Menunggu dibuat', value: q.pending ?? null },
+    { stage: 'Draf siap', value: q.draft ?? null },
+    { stage: 'Artikel tayang', value: s.total ?? null },
+    { stage: 'Masuk pencarian', value: s.measured ? (s.labels?.indexed ?? 0) : null },
   ];
 }
 

@@ -25,7 +25,7 @@
     { label: 'Diblokir', value: labels.blocked || 0, color: 'var(--plum)' },
     { label: 'Belum diperiksa', value: labels.unknown || 0, color: 'var(--ink-4)' },
   ]);
-  const funnelColors = { 'Keyword disetujui': 'var(--gold)', 'Antrean (pending)': 'var(--warn)', 'Draft siap': 'var(--sky)', 'URL tayang': 'var(--ok)', 'Terindeks (terukur)': 'var(--teal)' };
+  const funnelColors = { 'Kata kunci disetujui': 'var(--gold)', 'Menunggu dibuat': 'var(--warn)', 'Draf siap': 'var(--sky)', 'Artikel tayang': 'var(--ok)', 'Masuk pencarian': 'var(--teal)' };
   const funnel = $derived((d?.tracking?.funnel || []).filter((f) => f.value != null).map((f) => ({ label: f.stage, value: f.value, color: funnelColors[f.stage] || 'var(--teal)' })));
   const alerts = $derived(s.alerts || []);
   const recent = $derived((d?.recent || []).slice(0, 6));
