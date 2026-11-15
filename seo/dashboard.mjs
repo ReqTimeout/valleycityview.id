@@ -778,6 +778,9 @@ const PAGES = {
   '/runs': { title: 'Runs', sub: 'Riwayat eksekusi pipeline termasuk yang dilewati', build: runs },
   '/health': { title: 'Health', sub: 'Sitemap, berkas state, kredensial, proteksi', build: health },
   '/alerts': { title: 'Alerts', sub: 'Alert mesin + yang menahan pipeline', build: alerts },
+  // Rute SPA (Svelte) — entri di sini hanya supaya runner mengenali path untuk
+  // shell; render HTML lama tidak dipakai lagi (serveShell untuk semua halaman).
+  '/laporan': { title: 'Laporan', sub: 'Riwayat laporan otomatis + jadwal kirim', build: alerts },
 };
 
 const ACTIONS = {
