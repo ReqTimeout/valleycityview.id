@@ -1,8 +1,8 @@
 {
-  "_comment": "Ramp gate + batas publish harian. daily_count = berapa artikel yang boleh flip draft→published per hari. Ditulis seo/ramp-gate.mjs tiap Senin dari index_rate 14 hari GSC. JANGAN edit daily_count manual kecuali lewat `node seo/ramp-gate.mjs --set=N`. Nilai awal lebih rendah dari socio.id (1 bukan 3): satu produk, satu alamat, 68 halaman — dua artikel kembar di sini jauh lebih merusak daripada dua belas artikel kembar di katalog 8.000 layanan.",
-  "daily_count": 1,
+  "_comment": "Ramp gate + batas publish harian. daily_count = berapa artikel yang boleh flip draft→published per hari. Keputusan user 15 Nov 2026: drip 8 artikel/hari, jendela publish 08:00-15:59 WIB (SEO_TICK_START=8 di Coolify), dari backlog 694 draft yang di-generate penuh lebih dulu. ramp-gate.mjs tetap menulis Senin dari index_rate GSC, clamp [daily_count_min, daily_count_max] — indexing buruk = otomatis melambat. Hanya edit lewat `node seo/ramp-gate.mjs --set=N`.",
+  "daily_count": 8,
   "daily_count_min": 1,
-  "daily_count_max": 5,
+  "daily_count_max": 8,
   "halt": false,
   "halt_reason": "",
   "index_window_days": 14,

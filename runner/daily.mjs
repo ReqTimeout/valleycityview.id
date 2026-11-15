@@ -20,7 +20,7 @@
  * hanya menghasilkan halaman yang tidak terukur. Itu memperbesar discovery_gap.
  *
  * Env:
- *   SEO_STATE_PATH · SEO_CONFIG_PATH · SEO_RUNS_PATH · GSC_* · BING_API_KEY · GROQ_API_KEY
+ *   SEO_STATE_PATH · SEO_CONFIG_PATH · SEO_RUNS_PATH · GSC_* · BING_API_KEY · QWEN_API_KEY · GROQ_API_KEY
  *   CLOUDFLARE_API_TOKEN · CLOUDFLARE_ACCOUNT_ID
  *   RESEND_API_KEY · NOTIFY_EMAIL_TO · NOTIFY_EMAIL_FROM
  *   SEO_SKIP_INDEXER=1   · SEO_SKIP_GENERATE=1 · SEO_SKIP_PUBLISH=1
@@ -155,9 +155,9 @@ async function main() {
     } else if (process.env.SEO_SKIP_GENERATE === '1') {
       log('SEO_SKIP_GENERATE=1 — tahap generate dilewati');
       rl.step('generate', 'skip', 'SEO_SKIP_GENERATE=1');
-    } else if (!process.env.GROQ_API_KEY) {
-      log('GROQ_API_KEY tidak ada → tahap generate dilewati (tidak ada LLM)');
-      rl.step('generate', 'skip', 'GROQ_API_KEY belum di-set');
+    } else if (!(process.env.QWEN_API_KEY || process.env.GROQ_API_KEY)) {
+      log('QWEN_API_KEY / GROQ_API_KEY tidak ada → tahap generate dilewati (tidak ada LLM)');
+      rl.step('generate', 'skip', 'QWEN_API_KEY / GROQ_API_KEY belum di-set');
     } else {
       const n = Number(process.env.SEO_GENERATE_COUNT ?? Math.max(1, dailyCount * 2));
       log(`jalan: seo/generate.mjs --count=${n}`);

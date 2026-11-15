@@ -68,9 +68,11 @@ function saveState(state) {
 }
 
 function apiKey() {
-  const k = process.env.BING_API_KEY;
-  if (!k) throw new Error('BING_API_KEY belum di-set (lihat seo/README.md §5)');
-  return k;
+  // Null berarti "belum dikonfigurasi" — pemanggil wajib SKIP dengan pesan
+  // jelas, bukan FATAL. Dulu throw di sini → indexer critical → daily gagal
+  // tiap 06:00 WIB hanya karena env kosong. API error saat key ADA tetap
+  // FATAL (key salah/site unverified = butuh tindakan manusia).
+  return process.env.BING_API_KEY || null;
 }
 
 /** Sisa kuota hari ini. 200 = key hidup + site terdaftar; 403 = key salah/site belum verified. */
@@ -164,6 +166,12 @@ async function main() {
   const cooled = candidates.length - fresh.length;
 
   const key = apiKey();
+  if (!key) {
+    console.log('bing-submit: SKIP — BING_API_KEY belum di-set.');
+    console.log('  Bing tetap terjangkau lewat IndexNow (tahap indexnow). Aktifkan 100 URL/hari via');
+    console.log('  Bing Webmaster → Settings → API Access → key, lalu env BING_API_KEY di Coolify.');
+    return 0;
+  }
   const quotaBefore = await fetchQuota(key);
 
   // 4. batasi kuota

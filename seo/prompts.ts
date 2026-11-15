@@ -311,7 +311,33 @@ function injectAfterFirstH2(body: string, table: string): string {
  * membuat Fase 10 langkah 0 ada. Bentuk diverifikasi terpisah di
  * lib/article-lint.mjs dan qc-uniqueness.mjs.
  */
-export function validateMdx(content: string, keyword: string) {
+/**
+ * Ambil semua angka rupiah dari teks data terverifikasi (profil pembeli queue,
+ * mis. "penghasilan Rp 4-8 juta"). Hasilnya = whitelist angka untuk gate Rp:
+ * income BUKAN klaim harga — datanya milik kita, jadi prose yang mengutip
+ * "Rp 4-8 juta" sah. Bentuk "Rp 2,5 miliar" juga menghasilkan floor-nya (2e9)
+ * karena regex pemindaian prosa membaca "2" sebelum koma.
+ */
+export function rpFiguresFrom(text: string | null | undefined): number[] {
+  if (!text) return [];
+  const out = new Set<number>();
+  const add = (n: number) => { if (n > 0 && Number.isFinite(n)) out.add(n); };
+  const mul = (u?: string) =>
+    u ? (/^ribu/i.test(u) ? 1e3 : /^juta/i.test(u) ? 1e6 : /^miliar/i.test(u) ? 1e9 : 1) : 1;
+  const push = (raw: string, unit: string | undefined) => {
+    const n = Number(raw.replace(',', '.'));
+    add(n * mul(unit));
+    if (raw.includes(',')) add(Math.floor(n) * mul(unit));
+  };
+  const re = /Rp\.?\s?(\d+(?:[.,]\d+)?)(?:\s?(?:-|–|sd|sampai|hingga)\s?(\d+(?:[.,]\d+)?))?\s?(ribu|juta|miliar)?/gi;
+  for (const m of text.matchAll(re)) {
+    push(m[1], m[3]);
+    if (m[2]) push(m[2], m[3]);
+  }
+  return [...out];
+}
+
+export function validateMdx(content: string, keyword: string, allowedRp: number[] = []) {
   const errors: string[] = [];
   if (!content || !content.startsWith('---')) errors.push('Tanpa frontmatter');
 
@@ -357,14 +383,26 @@ export function validateMdx(content: string, keyword: string) {
   if (/^##\s*(kesimpulan|penutup|ringkasan|closing)\s*$/gim.test(body))
     errors.push('heading Kesimpulan/Penutup dilarang');
 
-  // Angka rupiah di prosa: hanya angka rekaman yang boleh.
-  const ALLOWED = new Set([599000000, 3871000, 5000000]);
-  const bodyNoTable = body.replace(/^\|.*\|$/gm, '');
-  const rpHits = [...bodyNoTable.matchAll(/Rp\s?(\d[\d.]*)\s?(ribu|juta|miliar)?/gi)].map((m) => {
+  // Angka rupiah di prosa: hanya angka rekaman + angka profil pembeli (queue)
+  // yang boleh. allowedRp diisi generate.mjs dari rpFiguresFrom(local_buyer).
+  const ALLOWED = new Set([599000000, 3871000, 5000000, ...allowedRp]);
+  // Baris tabel dan dua bullet blok geo-anchor dikecualikan — isinya data
+  // terverifikasi dari queue item (bukan karangan LLM), contoh:
+  // "- **Siapa yang biasanya mencari:** … berpenghasilan Rp 4-10 juta/bulan"
+  const bodyNoTable = body
+    .replace(/^\|.*\|$/gm, '')
+    .replace(/^- \*\*(?:Konteks lokasi|Siapa yang biasanya mencari):.*$/gm, '');
+  const rpHits = [...bodyNoTable.matchAll(
+    /Rp\s?(\d[\d.]*)((?:\s?(?:-|–|—|sd|sampai|hingga)\s?\d+(?:[.,]\d+)?)?)\s?(ribu|juta|miliar)?/gi,
+  )].map((m) => {
+    // "Rp 4-8 juta" → 4e6 (unit juta berlaku utk seluruh rentang, dibaca dr awal),
+    // "Rp 2,5 miliar" → 2e9 (koma = desimal, floor-nya ada di whitelist),
+    // "Rp 3.871.000" → 3871000 (pemisah ribu).
     let n = Number(m[1].replace(/\./g, ''));
-    if (/^ribu/i.test(m[2] || '')) n *= 1_000;
-    if (/^juta/i.test(m[2] || '')) n *= 1_000_000;
-    if (/^miliar/i.test(m[2] || '')) n *= 1_000_000_000;
+    const mul = m[3]
+      ? (/^ribu/i.test(m[3]) ? 1_000 : /^juta/i.test(m[3]) ? 1_000_000 : /^miliar/i.test(m[3]) ? 1_000_000_000 : 1)
+      : 1;
+    n *= mul;
     return n;
   });
   const rpBad = rpHits.filter((n) => !ALLOWED.has(n) && n !== 45 && n !== 72 && n !== 20);

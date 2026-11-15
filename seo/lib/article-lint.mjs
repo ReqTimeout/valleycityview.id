@@ -198,12 +198,17 @@ export function lintArticle(src) {
         err.push(`YAML frontmatter rusak: ${String(e.message).split('\n')[0]}`);
       }
       if (doc && typeof doc === 'object') {
+        // Key `faq:` di frontmatter OPSIONAL. FAQ resmi site ini hidup di body
+        // (renderFaq di prompts.ts) dan sudah digate validateMdx (tepat 5).
+        // Kalau penulis tetap menaruh faq: di frontmatter, isinya wajib 5 item
+        // dengan field a — dua-duanya tidak boleh setengah jalan.
+        const hasFaqKey = Object.prototype.hasOwnProperty.call(doc, 'faq');
         const faq = Array.isArray(doc.faq) ? doc.faq : [];
         d = {
           title: doc.title ?? null,
           description: doc.description ?? null,
-          faq: faq.length,
-          a: faq.filter((f) => f && typeof f.a === 'string' && f.a.trim()).length,
+          faq: hasFaqKey ? faq.length : null,
+          a: hasFaqKey ? faq.filter((f) => f && typeof f.a === 'string' && f.a.trim()).length : null,
           draft: doc.draft ?? null,
         };
         for (const [i, f] of faq.entries()) {
@@ -217,18 +222,25 @@ export function lintArticle(src) {
       return m ? m[1] : null;
     };
     if (!d) {
-      const faqBlock = fmRaw.slice(fmRaw.indexOf('faq:') + 4);
+      const fi = fmRaw.indexOf('faq:');
+      const faqBlock = fi === -1 ? '' : fmRaw.slice(fi + 4);
       const faqs = [...faqBlock.matchAll(/^\s*-\s*q:\s*"([^"]*)"\s*$/gm)];
       const as = [...faqBlock.matchAll(/^\s*a:\s*"([^"]*)"\s*$/gm)];
-      d = { title: get('title'), description: get('description'), faq: faqs.length, a: as.length, draft: get('draft') };
+      d = {
+        title: get('title'),
+        description: get('description'),
+        faq: fi === -1 ? null : faqs.length,
+        a: fi === -1 ? null : as.length,
+        draft: get('draft'),
+      };
     }
 
     if (!d.title) err.push('title tidak terbaca');
     else if (d.title.length > 70) err.push(`title ${d.title.length} karakter (maks 70)`);
     if (!d.description) err.push('description tidak terbaca');
     else if (d.description.length > 160) err.push(`description ${d.description.length} karakter (maks 160)`);
-    if (d.faq !== 5) err.push(`faq ${d.faq} item (harus tepat 5)`);
-    if (d.a !== 5) err.push(`faq punya ${d.a} field 'a' (harus 5)`);
+    if (d.faq !== null && d.faq !== 5) err.push(`faq ${d.faq} item (harus tepat 5)`);
+    if (d.faq !== null && d.a !== 5) err.push(`faq punya ${d.a} field 'a' (harus 5)`);
     if (fmRaw.includes('- q::') || fmRaw.includes('::')) err.push('ada key YAML ganda (::)');
   } catch (e) {
     err.push(`frontmatter gagal dibaca: ${e.message}`);
