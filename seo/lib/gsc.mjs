@@ -1,5 +1,5 @@
 /**
- * seo/lib/gsc.mjs — Google Search Console client untuk SEO runner valleycity.id.
+ * seo/lib/gsc.mjs — Google Search Console client untuk SEO runner valleycityview.id.
  *
  * ZERO DEPENDENCY (node:crypto + global fetch, Node >= 18) — image runner
  * `node:22-slim` tidak perlu `googleapis`, jadi `pnpm install` tidak pernah
@@ -8,8 +8,8 @@
  * Runbook + status terverifikasi: seo/README.md
  * Pemakaian: seo/gsc-inspect.mjs, seo/ramp-gate.mjs, seo/distribute/*.mjs
  *
- * WAJIB: GSC_SITE_URL = `sc-domain:valleycity.id` (domain property). URL prefix
- * (`https://valleycity.id/`) → 403 "You do not own this site".
+ * WAJIB: GSC_SITE_URL = `sc-domain:valleycityview.id` (domain property). URL prefix
+ * (`https://valleycityview.id/`) → 403 "You do not own this site".
  *
  * Scope: webmasters (inspect + search analytics) DAN indexing (Indexing API).
  * Kalau hanya webmasters, Indexing API balas ACCESS_TOKEN_SCOPE_INSUFFICIENT.
@@ -30,7 +30,7 @@ export const SCOPE_INDEXING = 'https://www.googleapis.com/auth/indexing';
 const SCOPES = [SCOPE_WEBMASTER, SCOPE_INDEXING];
 
 /** Site property. Jangan hardcode URL prefix — selalu domain property. */
-export const SITE_URL = process.env.GSC_SITE_URL || 'sc-domain:valleycity.id';
+export const SITE_URL = process.env.GSC_SITE_URL || 'sc-domain:valleycityview.id';
 
 const b64url = (input) => Buffer.from(input).toString('base64url');
 
@@ -211,7 +211,7 @@ export async function listSitemaps() {
  */
 export async function submitSitemap(sitemapUrl) {
   const site = encodeURIComponent(SITE_URL);
-  const url = sitemapUrl || process.env.GSC_SITEMAP_URL || 'https://valleycity.id/sitemap-index.xml';
+  const url = sitemapUrl || process.env.GSC_SITEMAP_URL || 'https://valleycityview.id/sitemap-index.xml';
   const res = await gscFetch(`/webmasters/v3/sites/${site}/sitemaps/${encodeURIComponent(url)}`, {
     method: 'PUT',
     base: SC_WEBMASTER,

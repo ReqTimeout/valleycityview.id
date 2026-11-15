@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * gsc-doctor — health check kredensial + API untuk SEO runner valleycity.id.
+ * gsc-doctor — health check kredensial + API untuk SEO runner valleycityview.id.
  * Runbook: seo/README.md §10
  *
  * ZERO DEPENDENCY (node:crypto + global fetch, butuh Node >= 20)
@@ -10,19 +10,19 @@
  *   GSC_SERVICE_ACCOUNT_JSON_B64  base64 JSON SA (Coolify/prod)
  *   GSC_SERVICE_ACCOUNT_JSON      raw JSON SA dengan \n escaped (back-compat)
  *   GSC_SA_FILE                   path ke file JSON (dev lokal)
- *   GSC_SITE_URL                  default sc-domain:valleycity.id
+ *   GSC_SITE_URL                  default sc-domain:valleycityview.id
  *   GSC_INDEXING_PROBE            set "0" untuk skip probe Indexing API
  *
  * Usage:
  *   GSC_SA_FILE=/path/sa.json node seo/scripts/gsc-doctor.mjs
- *   node seo/scripts/gsc-doctor.mjs https://valleycity.id/artikel-tua
+ *   node seo/scripts/gsc-doctor.mjs https://valleycityview.id/artikel-tua
  *   node seo/scripts/gsc-doctor.mjs --auth-only     # creds + token + sites saja (preflight runner)
  */
 
 import { readFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 
-const SITE = process.env.GSC_SITE_URL || 'sc-domain:valleycity.id';
+const SITE = process.env.GSC_SITE_URL || 'sc-domain:valleycityview.id';
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
 const SCOPE = [
   'https://www.googleapis.com/auth/webmasters',
@@ -104,7 +104,7 @@ const iso = (d) => d.toISOString().slice(0, 10);
 async function main() {
   const argv = process.argv.slice(2);
   const authOnly = argv.includes('--auth-only');
-  const targetUrl = argv.find((a) => a.startsWith('http')) || 'https://valleycity.id/';
+  const targetUrl = argv.find((a) => a.startsWith('http')) || 'https://valleycityview.id/';
 
   let creds;
   try {
@@ -183,7 +183,7 @@ async function main() {
     }
   }
 
-  for (const url of ['https://valleycity.id/indexnow.txt', 'https://valleycity.id/sitemap-index.xml']) {
+  for (const url of ['https://valleycityview.id/indexnow.txt', 'https://valleycityview.id/sitemap-index.xml']) {
     try {
       const res = await fetch(url, { redirect: 'follow' });
       res.status === 200 ? ok(`public ${new URL(url).pathname}`, `${res.headers.get('content-length') || '?'} bytes`) : bad(`public ${new URL(url).pathname}`, `HTTP ${res.status}`);
