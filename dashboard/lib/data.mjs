@@ -74,14 +74,83 @@ function envSet(name) {
   return Boolean(process.env[name]);
 }
 
+/** Hari WIB (UTC+7) dalam format YYYY-MM-DD — dasar KPI "hari ini". */
+function wibDay(offsetDays = 0) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date(Date.now() + offsetDays * 864e5));
+}
+/** Jam WIB (0-23) — hourCycle h23 supaya tengah malam = 0, bukan 24. */
+function wibHour() {
+  return Number(new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Jakarta', hour: '2-digit', hour12: false, hourCycle: 'h23',
+  }).format(new Date()));
+}
+const dayKey = (v) => (v ? String(v).slice(0, 10) : null);
+
+/**
+ * Hitung KPI "hari ini" + deret 14 hari dari stempel generatedAt/publishedAt
+ * (tanggal WIB). Angka nol di hari tanpa kegiatan = NOL NYATA, bukan kosong.
+ */
+function produksiHariIni(items) {
+  const today = wibDay();
+  const countOn = (field, day) => items.filter((i) => dayKey(i[field]) === day).length;
+  const series = (field) => {
+    const m = {};
+    for (const i of items) {
+      const d = dayKey(i[field]);
+      if (d) m[d] = (m[d] || 0) + 1;
+    }
+    return Array.from({ length: 14 }, (_, k) => {
+      const day = wibDay(k - 13);
+      return { day, n: m[day] || 0 };
+    });
+  };
+  return {
+    today,
+    createdToday: countOn('generatedAt', today),
+    publishedToday: countOn('publishedAt', today),
+    createdSeries: series('generatedAt'),
+    publishedSeries: series('publishedAt'),
+  };
+}
+
+/**
+ * Jadwal tayang: kapan tik berikutnya boleh menerbitkan (jendela jam WIB +
+ * kuota harian + ketersediaan draf). Tanpa publishAt per artikel — tik mengejar
+ * kuota 1/jam selama jendela, jadi "berikutnya" = tik berikutnya selama masih
+ * ada yang bisa diterbitkan. Alasan selalu dijelaskan apa adanya.
+ */
+function nextTik(schedule, { drafts, publishedToday, halt }) {
+  const { startHour, endHour, dailyCount } = schedule;
+  const reason = (r) => ({ at: null, inWindow: false, reason: r });
+  if (halt) return reason('dihentikan manual (halt)');
+  if (!(startHour != null && endHour != null)) return reason('jendela tik belum dikonfigurasi');
+  if (drafts <= 0) return reason('belum ada draf siap tayang');
+  if (dailyCount != null && publishedToday >= dailyCount) return reason(`kuota ${dailyCount}/hari sudah terpenuhi`);
+  const nowH = wibHour();
+  const inWindow = nowH >= startHour && nowH < endHour;
+  // Tik jalan tiap jam tepat. Kandidat = jam pertama yang VALID di jendela
+  // (start..end-1): naik ke start kalau masih pagi, lompat ke start besok
+  // kalau hari ini jendela sudah tutup.
+  let h = nowH + 1;
+  if (h < startHour) h = startHour;
+  let dayOffset = 0;
+  if (h >= endHour) { h = startHour; dayOffset = 1; }
+  // Bangun ISO (WIB → UTC): jam 00 WIB = 17:00 UTC hari sebelumnya.
+  const wibMidnightUtc = Date.parse(`${wibDay(dayOffset)}T00:00:00+07:00`);
+  const at = new Date(wibMidnightUtc + h * 36e5).toISOString();
+  return { at, inWindow, reason: inWindow ? 'dalam jendela — menunggu tik berikutnya' : 'di luar jendela — menunggu jendela buka' };
+}
+
 /** Env yang dibutuhkan pipeline — nama saja, nilai tidak pernah dibaca. */
 function credentials() {
   return [
-    { env: 'GROQ_API_KEY', role: 'generator draft', neededBy: 'generate' },
+    { env: 'QWEN_API_KEY', role: 'penulis artikel (Qwen)', neededBy: 'generate' },
     { env: 'GITHUB_TOKEN', role: 'push hasil ke repo', neededBy: 'publish' },
     { env: 'CLOUDFLARE_API_TOKEN', role: 'tunggu deploy Pages', neededBy: 'publish' },
     { env: 'CLOUDFLARE_ACCOUNT_ID', role: 'tunggu deploy Pages', neededBy: 'publish' },
-    { env: 'GSC_SERVICE_ACCOUNT_JSON', role: 'inspeksi indeks + mining query', neededBy: 'indexer|weekly' },
+    { env: 'GSC_SERVICE_ACCOUNT_JSON_B64', role: 'inspeksi indeks + riwayat harian', neededBy: 'indexer|history' },
     { env: 'BING_API_KEY', role: 'submit Bing (IndexNow tidak butuh ini)', neededBy: 'bing-submit' },
     { env: 'RESEND_API_KEY', role: 'laporan email', neededBy: 'notify' },
     { env: 'NOTIFY_EMAIL_TO', role: 'penerima laporan', neededBy: 'notify' },
@@ -184,6 +253,17 @@ export function collect() {
   const summary = buildSummary(state);
   summary.dailyCount = config.daily_count ?? null;
   const schedule = scheduleInfo(config);
+  const items = queue.items || [];
+  const produksi = produksiHariIni(items);
+  const draftsNow = items.filter((i) => i.status === 'draft').length;
+  const nt = nextTik(schedule, { drafts: draftsNow, publishedToday: produksi.publishedToday, halt: schedule.halt });
+  schedule.drafts = draftsNow;
+  schedule.publishedToday = produksi.publishedToday;
+  schedule.quotaLeft = schedule.dailyCount != null ? Math.max(0, schedule.dailyCount - produksi.publishedToday) : null;
+  schedule.nowHour = wibHour();
+  schedule.inWindow = nt.inWindow;
+  schedule.nextAt = nt.at;
+  schedule.nextReason = nt.reason;
 
   const allPosts = posts();
   const live = allPosts.filter((p) => p.live);
@@ -203,6 +283,7 @@ export function collect() {
       lastChecked: p.lastChecked || null,
       verdict: insp?.verdict ?? null,
       coverageState: insp?.coverageState ?? null,
+      indexing: insp?.indexingState ?? null,
       lastCrawlTime: insp?.lastCrawlTime ?? null,
       submitted: indexnow.has(p.url),
     };
@@ -254,7 +335,32 @@ export function collect() {
       exists: existsSync(join(ROOT, 'site/public/indexnow.txt')),
       servedAt: `${SITE}/indexnow.txt`,
     },
+    produksi,
+    // Deret metrik harian + agregat GSC (ditulis seo/gsc-history.mjs harian).
+    gsc: {
+      agg: state.gsc?.agg || null,
+      history: state.gsc?.history || null,
+      topPages: state.gsc?.topPages || null,
+      historyAt: state.gsc?.historyAt || null,
+      historyNote: state.gsc?.historyNote || null,
+    },
+    // Pemeriksaan langsung ke situs hidup (seo/site-checks.mjs harian).
+    checks: state.checks || null,
+    // Riwayat laporan email (state.reports, direkam notify.mjs).
+    reports: (state.reports || []).slice(0, 60),
+    reportsEnv: {
+      to: process.env.NOTIFY_EMAIL_TO || null,
+      from: process.env.NOTIFY_EMAIL_FROM || null,
+      configured: envSet('RESEND_API_KEY') && envSet('NOTIFY_EMAIL_TO') && envSet('NOTIFY_EMAIL_FROM'),
+      dailyAt: '06:00 WIB', // cron task harian (UTC 23:00) di Coolify
+    },
     queue: {
+      // Per-item ringkas: dipakai chip status per kata kunci + KPI hari ini.
+      items: items.map((i) => ({
+        slug: i.slug, status: i.status, priority: i.priority ?? null,
+        category: i.category || null, intent: i.intent || null,
+        generatedAt: i.generatedAt || null, publishedAt: i.publishedAt || null,
+      })),
       counts: (queue.items || []).reduce((a, i) => {
         a[i.status] = (a[i.status] || 0) + 1;
         return a;

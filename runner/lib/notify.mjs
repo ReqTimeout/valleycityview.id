@@ -8,7 +8,32 @@
  *      SEO_NOTIFY_DRYRUN=1 → jangan kirim sungguhan (untuk uji coba).
  */
 
+import { readFileSync, writeFileSync, renameSync, existsSync } from 'node:fs';
+import { STATE_PATH } from '../../seo/paths.mjs';
+
 const API = 'https://api.resend.com/emails';
+
+/**
+ * Rekam riwayat laporan ke state.reports (state.json → volume container,
+ * selamat dari redeploy). Dipakai halaman /laporan. Gagal menulis riwayat
+ * TIDAK PERNAH menggagalkan pengiriman — log saja.
+ */
+function recordReport(entry) {
+  try {
+    let state = {};
+    if (existsSync(STATE_PATH)) {
+      try { state = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch {}
+    }
+    const list = Array.isArray(state.reports) ? state.reports : [];
+    list.unshift(entry);
+    state.reports = list.slice(0, 60);
+    const tmp = `${STATE_PATH}.tmp`;
+    writeFileSync(tmp, JSON.stringify(state, null, 2) + '\n');
+    renameSync(tmp, STATE_PATH);
+  } catch (e) {
+    console.error(`[notify] rekam riwayat gagal (pengiriman tetap jalan): ${e.message}`);
+  }
+}
 
 export function notifyConfigured() {
   return Boolean(process.env.RESEND_API_KEY && process.env.NOTIFY_EMAIL_TO && process.env.NOTIFY_EMAIL_FROM);
@@ -48,6 +73,7 @@ ${msg.text ? `<pre style="white-space:pre-wrap;background:#f6f6f6;padding:10px;b
     console.log('[notify] RESEND_API_KEY / NOTIFY_EMAIL_* belum di-set — hanya log.');
     console.log(`[notify] subjek: ${msg.subject}`);
     for (const l of msg.lines || []) console.log(`[notify]   - ${l}`);
+    recordReport({ at: new Date().toISOString(), kind: msg.kind || null, subject: msg.subject, to: recipients(), sent: false, reason: 'not-configured' });
     return { sent: false, reason: 'not-configured' };
   }
 
@@ -68,9 +94,11 @@ ${msg.text ? `<pre style="white-space:pre-wrap;background:#f6f6f6;padding:10px;b
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
     console.error(`[notify] Resend HTTP ${res.status}: ${JSON.stringify(data).slice(0, 200)}`);
+    recordReport({ at: new Date().toISOString(), kind: msg.kind || null, subject: msg.subject, to, sent: false, reason: `http-${res.status}`, id: data?.id || null });
     return { sent: false, reason: `http-${res.status}`, id: data?.id };
   }
   console.log(`[notify] terkirim ke ${to.join(', ')} (id ${data?.id})`);
+  recordReport({ at: new Date().toISOString(), kind: msg.kind || null, subject: msg.subject, to, sent: true, id: data?.id || null });
   return { sent: true, id: data?.id };
 }
 

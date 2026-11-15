@@ -121,6 +121,7 @@ async function main() {
     const impressions = mined.reduce((a, q) => a + q.impressions, 0);
 
     await sendReport({
+      kind: 'mingguan',
       subject: `[${NOTIFY_PREFIX}] mingguan — ${clicks} klik / ${impressions} imp (28 hari)${minedError ? ' (mining gagal)' : ''}`,
       heading: 'SEO engine valleycity.id — laporan mingguan',
       lines: [

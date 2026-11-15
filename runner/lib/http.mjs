@@ -12,12 +12,12 @@
  * Tidak ada framework, tidak ada npm runtime dependency. Node >= 23.6.
  */
 import http from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, renameSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { ROOT, CONFIG_PATH } from '../../seo/paths.mjs';
+import { ROOT, CONFIG_PATH, QUEUE_PATH } from '../../seo/paths.mjs';
 import { CFG, hasAuth, publishScript } from './config.mjs';
 import { logAudit, readAudit } from './audit.mjs';
 import { COOKIE_NAME, sign, verify, parseCookies, sessionCookie, clearCookie, checkCredentials } from './session.mjs';
@@ -102,16 +102,31 @@ const ACTIONS = {
   '/api/generate': { script: 'seo/generate.mjs', args: () => [`--count=${Math.min(CFG.generateCount, CFG.generateCountMax)}`], to: '/runs', msg: 'Penulisan draf dimulai — hanya kata kunci yang disetujui.' },
   '/api/publish': { script: publishScript, args: () => [`--count=${dailyCount()}`], to: '/runs', msg: `Publikasi dimulai (kuota ${dailyCount()} artikel/hari).` },
   '/api/inspect': { script: 'seo/gsc-inspect.mjs', args: () => ['--all'], to: '/indexasi', msg: 'Pemeriksaan Google dimulai — butuh koneksi Google terpasang.' },
+  // Aksi per-baris (padanan sbdental): tulis/terbitkan SATU artikel.
+  '/api/generate-one': { script: 'seo/generate.mjs', args: (b) => [slugArg(b)], to: '/queue', msg: 'Penulisan artikel itu dimulai — pantau di Riwayat.' },
+  '/api/publish-one': { script: publishScript, args: (b) => [slugArg(b)], to: '/content', msg: 'Publikasi artikel dimulai — gerbang kualitas tetap berlaku.' },
 };
 
-function trigger(action, user) {
+/** slug aman untuk argumen CLI (tolak injeksi argumen). */
+function slugArg(body, prefix = '--slug=') {
+  const slug = String(body?.slug || '');
+  if (!/^[a-z0-9][a-z0-9-]{1,120}$/.test(slug)) throw new Error('slug tidak sah');
+  return prefix + slug;
+}
+
+function trigger(action, user, body) {
   const a = ACTIONS[action];
   const now = Date.now();
   if (lastTrigger[action] && now - lastTrigger[action] < 5000) {
     return { ok: false, msg: 'Baru saja dipicu — tunggu beberapa detik.' };
   }
+  let args;
+  try {
+    args = a.args(body);
+  } catch (e) {
+    return { ok: false, msg: `Permintaan ditolak: ${e.message}` };
+  }
   lastTrigger[action] = now;
-  const args = a.args();
   const child = spawn(process.execPath, [join(ROOT, a.script), ...args], {
     cwd: ROOT, stdio: 'ignore', detached: true, env: process.env,
   });
@@ -192,10 +207,73 @@ async function handler(req, res) {
           ? sendJson(res, 401, { ok: false, msg: 'Sesi berakhir — masuk lagi.' })
           : redirect(res, '/login', { code: 303 });
       }
-      const r = trigger(path, sess?.u);
+      let body = {};
+      try { body = JSON.parse((await readBody(req)) || '{}') || {}; } catch { body = {}; }
+      const r = trigger(path, sess?.u, body);
       if (wantsJson) return sendJson(res, r.ok ? 200 : 429, r);
       const to = (r.to || '/runs') + '?msg=' + encodeURIComponent(r.msg);
       return redirect(res, to, { code: 303 });
+    }
+
+    // Mutasi antrean per-item (buang/pulihkan) — bukan spawn, tulis langsung.
+    // Satu baca satu tulis + lock supaya tidak menabrak daily/tick yang juga
+    // menulis queue.json (aturan yang sama dengan sbdental setStatusSafe).
+    if (method === 'POST' && path === '/api/status') {
+      const sess = sessionOf(req);
+      const wantsJson = (req.headers.accept || '').includes('application/json');
+      if (hasAuth() && !sess) {
+        return wantsJson ? sendJson(res, 401, { ok: false, msg: 'Sesi berakhir — masuk lagi.' }) : redirect(res, '/login', { code: 303 });
+      }
+      let body = {};
+      try { body = JSON.parse((await readBody(req)) || '{}') || {}; } catch {}
+      const slug = String(body.slug || '');
+      const to = String(body.to || '');
+      if (!/^[a-z0-9][a-z0-9-]{1,120}$/.test(slug) || !['dropped', 'pending'].includes(to)) {
+        return sendJson(res, 400, { ok: false, msg: 'Permintaan tidak sah (slug/status).' });
+      }
+      try {
+        const { acquireLock } = await import('./lock.mjs');
+        const lock = await acquireLock('api-status', { timeoutMs: 8000, pollMs: 500 });
+        if (!lock.acquired) return sendJson(res, 409, { ok: false, msg: 'Mesin sedang menulis antrean — coba lagi sebentar.' });
+        try {
+          const q = JSON.parse(readFileSync(QUEUE_PATH, 'utf8'));
+          const item = (q.items || []).find((i) => i.slug === slug);
+          if (!item) return sendJson(res, 404, { ok: false, msg: 'Artikel itu tidak ada di antrean.' });
+          const prev = item.status;
+          if (prev === to) return sendJson(res, 200, { ok: true, msg: 'Sudah dalam status itu.' });
+          item.status = to;
+          item.updatedAt = new Date().toISOString();
+          const tmp = `${QUEUE_PATH}.tmp`;
+          writeFileSync(tmp, JSON.stringify(q, null, 2) + '\n');
+          renameSync(tmp, QUEUE_PATH);
+          logAudit({ user: sess?.u || 'tamu', action: '/api/status', script: 'queue', args: [slug, `${prev}→${to}`], pid: process.pid });
+          const msg = to === 'dropped'
+            ? `${slug} dibuang dari antrean (bisa dipulihkan).`
+            : `${slug} dikembalikan ke antrean menunggu ditulis.`;
+          console.log(`[http] status ${slug} ${prev}→${to} oleh ${sess?.u || 'tamu'}`);
+          return sendJson(res, 200, { ok: true, msg, to });
+        } finally { lock.release(); }
+      } catch (e) {
+        console.error(`[http] /api/status gagal: ${e.message}`);
+        return sendJson(res, 500, { ok: false, msg: 'Gagal menulis antrean — coba lagi.' });
+      }
+    }
+
+    // Pratinjau isi artikel (MDX) untuk Drawer review — hanya file blog yang ada.
+    if (method === 'GET' && path === '/api/draft') {
+      const sess = sessionOf(req);
+      if (hasAuth() && !sess) return sendJson(res, 401, { error: 'unauthorized' });
+      const slug = String(url.searchParams.get('slug') || '');
+      if (!/^[a-z0-9][a-z0-9-]{1,120}$/.test(slug)) return sendJson(res, 400, { error: 'slug tidak sah' });
+      const file = join(ROOT, 'site/src/collections/blog', `${slug}.md`);
+      if (!file.startsWith(join(ROOT, 'site/src/collections/blog')) || !existsSync(file)) {
+        return sendJson(res, 404, { error: 'artikel tidak ada' });
+      }
+      const raw = readFileSync(file, 'utf8');
+      const fm = raw.startsWith('---') ? raw.split('---')[1] : '';
+      const grab = (k) => (fm.match(new RegExp(`^${k}:\\s*(.+)$`, 'm')) || [])[1]?.trim().replace(/^["']|["']$/g, '') || null;
+      const body = raw.startsWith('---') ? raw.split('---').slice(2).join('---').trim() : raw;
+      return sendJson(res, 200, { slug, title: grab('title'), description: grab('description'), status: grab('status'), date: grab('date'), md: body.slice(0, 40000) });
     }
 
     // Halaman dashboard → SPA shell Svelte (router client-side).

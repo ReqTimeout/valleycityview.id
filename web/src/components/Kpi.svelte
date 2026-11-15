@@ -1,6 +1,7 @@
 <script>
   import { num } from '../lib/format.js';
-  let { label, value, note = '', tone = '', i = 0 } = $props();
+  import Sparkline from './Sparkline.svelte';
+  let { label, value, note = '', tone = '', i = 0, spark = null, sparkColor = 'var(--gold)' } = $props();
   let display = $state(0);
   const isNum = $derived(typeof value === 'number' && Number.isFinite(value));
 
@@ -24,5 +25,12 @@
 <div class="cell kpi reveal {tone ? 'tone-' + tone : ''}" style="--i:{i}">
   <div class="l">{label}</div>
   <div class="v {isNum ? '' : 'v-text'}">{isNum ? num(display) : (value ?? '—')}</div>
+  {#if spark && spark.length >= 2}
+    <div class="sp"><Sparkline points={spark.map((n) => ({ value: n }))} h={30} color={sparkColor} /></div>
+  {/if}
   {#if note}<div class="n">{note}</div>{/if}
 </div>
+
+<style>
+  .sp { margin: 4px 0 2px; opacity: .9; }
+</style>

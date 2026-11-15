@@ -409,6 +409,9 @@ function blogLinkBrokenInfo(mdx, validSlugs) {
  * Ambang bawah default 25: cukup untuk menjaga generator tidak mengulang
  * tema yang sama, tetap realistis untuk satu proyek properti.
  */
+// Tanggal selalu WIB (UTC+7) — dipakai KPI 'Dibuat hari ini' di dashboard.
+const wibDay = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+
 function keywordGate() {
   if (!existsSync(KEYWORDS_PATH)) {
     return `${KEYWORDS_PATH} belum ada — daftar keyword harus disetujui dulu sebelum satu artikel pun dibuat`;
@@ -429,12 +432,13 @@ function parseArgs() {
   const args = process.argv.slice(2);
   // Mode template (split kecil) = DEFAULT sejak modul article-template.mjs.
   // --single = path lama satu prompt besar, hanya untuk perbandingan/debug.
-  const opts = { count: 1, dry: false, keyword: null, ignoreGate: false, list: 0, deferQueue: false, mergeQueue: false, split: true };
+  const opts = { count: 1, dry: false, keyword: null, slug: null, ignoreGate: false, list: 0, deferQueue: false, mergeQueue: false, split: true };
   for (const a of args) {
     if (a.startsWith('--count=')) opts.count = parseInt(a.slice(8));
     else if (a === '--dry') opts.dry = true;
     else if (a === '--ignore-gate') opts.ignoreGate = true;
     else if (a.startsWith('--keyword=')) opts.keyword = a.slice(10);
+    else if (a.startsWith('--slug=')) opts.slug = a.slice(7);
     else if (a.startsWith('--list=')) opts.list = parseInt(a.slice(7));
     else if (a === '--defer-queue') opts.deferQueue = true;
     else if (a === '--merge-queue') opts.mergeQueue = true;
@@ -457,7 +461,8 @@ function mergeQueue() {
   for (const it of QUEUE.items) {
     if (it.status === 'pending' && it.slug && draftSlugs.has(it.slug)) {
       it.status = 'draft';
-      it.notes = (it.notes || '') + ` | generated ${new Date().toISOString().slice(0, 10)}`;
+      it.notes = (it.notes || '') + ` | generated ${wibDay()}`;
+      it.generatedAt = it.generatedAt || wibDay();
       marked++;
     }
   }
@@ -540,7 +545,12 @@ async function main() {
   }
 
   let targets;
-  if (opts.keyword) {
+  if (opts.slug) {
+    // Aksi per-baris di dashboard: tulis ulang artikel spesifik.
+    // Kandidat: pending (tulis baru) ATAU draft (tulis ulang — file ditimpa).
+    targets = QUEUE.items.filter((i) => i.slug === opts.slug && (i.status === 'pending' || i.status === 'draft'));
+    if (!targets.length) { console.error(`slug ${opts.slug} tidak ditemukan di antrean (pending/draft)`); process.exit(1); }
+  } else if (opts.keyword) {
     targets = QUEUE.items.filter((i) => i.keyword === opts.keyword && i.status === 'pending');
   } else {
     targets = pickTargets(QUEUE.items, opts.count);
@@ -765,7 +775,8 @@ async function main() {
 
     writeFileSync(outPath, mdx);
     t.status = 'draft';
-    t.notes = (t.notes || '') + ` | generated ${new Date().toISOString().slice(0, 10)}`;
+    t.notes = (t.notes || '') + ` | generated ${wibDay()}`;
+    t.generatedAt = wibDay();
     ok++;
   }
 

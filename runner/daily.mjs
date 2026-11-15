@@ -142,6 +142,20 @@ async function main() {
       rl.step('indexer', indexerCode === 0 ? 'ok' : 'fail', `exit ${indexerCode}`);
     }
 
+    // ── pengukuran pendukung dashboard (SELALU jalan, non-fatal) ───────────
+    // gsc-history: deret klik/tayangan/posisi harian + halaman teratas (chart).
+    // site-checks: robots/sitemap/llms/indexnow/beranda diambil langsung dari
+    // situs hidup. Keduanya tidak boleh menggagalkan daily — kegagalan mereka
+    // cukup tampil apa adanya di dashboard.
+    log('jalan: seo/gsc-history.mjs');
+    const rh = await run('seo/gsc-history.mjs', []);
+    log(`gsc-history exit=${rh.code}`);
+    rl.step('history', rh.code === 0 ? 'ok' : 'warn', `exit ${rh.code}`);
+    log('jalan: seo/site-checks.mjs');
+    const rc = await run('seo/site-checks.mjs', []);
+    log(`site-checks exit=${rc.code}`);
+    rl.step('checks', rc.code === 0 ? 'ok' : 'warn', `exit ${rc.code}`);
+
     const cfg = readConfig();
     const dailyCount = Number(cfg.daily_count ?? 1);
     log(`config: daily_count=${dailyCount} (ditulis ramp-gate dari index_rate GSC)`);
@@ -219,9 +233,12 @@ async function main() {
       `Bing: ${s.bing ? `submit ${s.bing.submitted} URL, kuota ${s.bing.quotaAfter}/${s.bing.quotaBefore}` : 'belum ada run'}`,
       `inspeksi GSC terakhir: ${s.lastInspect || 'belum'}`,
       `indexer: ${s.indexer ? s.indexer.stages.map((x) => `${x.name}=${x.status}`).join(' ') : 'belum ada run'}`,
+      `pemeriksaan situs: ${state.checks?._meta ? `${state.checks._meta.ok}/${state.checks._meta.total} lolos` : 'belum pernah'}`,
+      `riwayat harian Google: ${state.gsc?.history ? state.gsc.history.length + ' hari terukur' : (state.gsc?.historyNote || 'belum pernah')}`,
     ];
 
     await sendReport({
+      kind: 'harian',
       subject: `[${NOTIFY_PREFIX}] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateStr}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
       heading: 'SEO engine valleycity.id — laporan harian',
       lines,

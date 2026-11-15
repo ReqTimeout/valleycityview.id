@@ -442,5 +442,65 @@
       "https://valleycityview.id/blog/rumah-murah-di-cimahi/"
     ],
     "last": null
+  },
+  "checks": {
+    "robots": {
+      "status": "ok",
+      "detail": "HTTP 200 · 0.2 KB · 314ms",
+      "url": "https://valleycityview.id/robots.txt",
+      "http": 200,
+      "bytes": 248,
+      "ms": 314,
+      "checkedAt": "2026-11-15T18:05:40.572Z"
+    },
+    "sitemap": {
+      "status": "ok",
+      "detail": "HTTP 200 · 0.2 KB · 141ms",
+      "url": "https://valleycityview.id/sitemap-index.xml",
+      "http": 200,
+      "bytes": 188,
+      "ms": 141,
+      "checkedAt": "2026-11-15T18:05:40.572Z"
+    },
+    "llms": {
+      "status": "ok",
+      "detail": "HTTP 200 · 13.2 KB · 108ms",
+      "url": "https://valleycityview.id/llms.txt",
+      "http": 200,
+      "bytes": 13468,
+      "ms": 108,
+      "checkedAt": "2026-11-15T18:05:40.572Z"
+    },
+    "indexnow": {
+      "status": "ok",
+      "detail": "HTTP 200 · 0.0 KB · 100ms",
+      "url": "https://valleycityview.id/indexnow.txt",
+      "http": 200,
+      "bytes": 32,
+      "ms": 100,
+      "checkedAt": "2026-11-15T18:05:40.572Z"
+    },
+    "beranda": {
+      "status": "ok",
+      "detail": "HTTP 200 · 160.4 KB · 195ms",
+      "url": "https://valleycityview.id/",
+      "http": 200,
+      "bytes": 164249,
+      "ms": 195,
+      "checkedAt": "2026-11-15T18:05:40.572Z"
+    },
+    "_meta": {
+      "checkedAt": "2026-11-15T18:05:40.572Z",
+      "ok": 5,
+      "total": 5,
+      "overall": "ok"
+    }
+  },
+  "gsc": {
+    "history": null,
+    "topPages": null,
+    "agg": null,
+    "historyAt": "2026-11-15T17:59:26.422Z",
+    "historyNote": "kredensial GSC belum terpasang"
   }
 }

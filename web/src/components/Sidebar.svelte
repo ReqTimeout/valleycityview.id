@@ -8,6 +8,7 @@
       { href: '/', label: 'Beranda', icon: 'home' },
       { href: '/traffic', label: 'Trafik', icon: 'chart' },
       { href: '/tracking', label: 'Kualitas', icon: 'target' },
+      { href: '/laporan', label: 'Laporan', icon: 'inbox' },
     ] },
     { group: 'Produksi', items: [
       { href: '/queue', label: 'Antrean', icon: 'list' },

@@ -30,11 +30,11 @@ class Data {
     }
   }
 
-  async run(action, label) {
+  async run(action, label, body = null) {
     if (this.busy) return;
     this.busy = action;
     try {
-      const r = await postAction(action);
+      const r = await postAction(action, body);
       if (r.ok) {
         ui.toast(r.msg || `${label} dimulai — pantau di Runs.`, 'ok');
         router.go(r.to || '/runs');

@@ -28,6 +28,7 @@
     { key: 'label', label: 'Status', chip: (r) => ({ value: r.label, label: humanLabel(r.label), kind: toneOf(r.label) }) },
     { key: 'verdict', label: 'Kesimpulan Google', get: (r) => r.verdict || '—' },
     { key: 'coverageState', label: 'Keterangan', get: (r) => r.coverageState || '—' },
+    { key: 'indexing', label: 'Cara Google mengindeks', get: (r) => (r.indexing || '—').replace(/_/g, ' ').toLowerCase() },
     { key: 'lastCrawlTime', label: 'Dikunjungi', sortable: true, get: (r) => (r.lastCrawlTime ? date(r.lastCrawlTime) : '—') },
   ];
   function inspect() {
@@ -61,6 +62,10 @@
   </Card>
   <Card i={5} title="Rincian status" sub="hasil pemeriksaan terakhir"><StackedBar parts={parts} /></Card>
 </div>
+
+{#if (d?.gscRun?.failures ?? 0) > 0}
+  <div class="callout warn"><b>{num(d.gscRun.failures)} alamat gagal diperiksa</b> pada pemeriksaan terakhir ({ago(d.gscRun.at)}) — hasilnya tidak dihitung, bukan dianggap gagal indeks. Coba periksa ulang.</div>
+{/if}
 
 <h2 class="sec">Detail pemeriksaan</h2>
 {#if rows.length}

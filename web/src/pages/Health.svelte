@@ -11,7 +11,8 @@
 
   const services = $derived([
     { key: 'publish', label: 'Publikasi ke situs', desc: 'Artikel baru tayang otomatis di website Anda', icon: 'up', hue: 'teal', ok: isSet('GITHUB_TOKEN') && isSet('CLOUDFLARE_API_TOKEN') && isSet('CLOUDFLARE_ACCOUNT_ID') },
-    { key: 'google', label: 'Koneksi Google', desc: 'Memeriksa apakah artikel sudah muncul di Google', icon: 'search', hue: 'sky', ok: isSet('GSC_SERVICE_ACCOUNT_JSON') },
+    { key: 'writer', label: 'Penulis artikel (Qwen)', desc: 'Menulis draf baru tiap hari dari antrean kata kunci', icon: 'file', hue: 'forest', ok: isSet('QWEN_API_KEY') },
+    { key: 'google', label: 'Koneksi Google', desc: 'Memeriksa apakah artikel sudah muncul di Google', icon: 'search', hue: 'sky', ok: isSet('GSC_SERVICE_ACCOUNT_JSON_B64') },
     { key: 'bing', label: 'Kirim ke Bing', desc: 'Memberi tahu Bing setiap ada artikel baru', icon: 'globe', hue: 'plum', ok: isSet('BING_API_KEY') },
     { key: 'email', label: 'Laporan email', desc: 'Ringkasan hasil dikirim ke email Anda', icon: 'bell', hue: 'gold', ok: isSet('RESEND_API_KEY') && isSet('NOTIFY_EMAIL_TO'), optional: true },
   ]);

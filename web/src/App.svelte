@@ -15,9 +15,10 @@
   import Runs from './pages/Runs.svelte';
   import Health from './pages/Health.svelte';
   import Alerts from './pages/Alerts.svelte';
+  import Laporan from './pages/Laporan.svelte';
 
-  const PAGES = { '/': Overview, '/traffic': Traffic, '/queue': Queue, '/content': Content, '/tracking': Tracking, '/urls': Urls, '/indexasi': Indexasi, '/runs': Runs, '/health': Health, '/alerts': Alerts };
-  const TITLES = { '/': 'Beranda', '/traffic': 'Trafik', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Kualitas', '/urls': 'URL', '/indexasi': 'Status Google', '/runs': 'Riwayat', '/health': 'Status Sistem', '/alerts': 'Perlu Perhatian' };
+  const PAGES = { '/': Overview, '/traffic': Traffic, '/queue': Queue, '/content': Content, '/tracking': Tracking, '/urls': Urls, '/indexasi': Indexasi, '/runs': Runs, '/health': Health, '/alerts': Alerts, '/laporan': Laporan };
+  const TITLES = { '/': 'Beranda', '/traffic': 'Trafik', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Kualitas', '/urls': 'URL', '/indexasi': 'Status Google', '/runs': 'Riwayat', '/health': 'Status Sistem', '/alerts': 'Perlu Perhatian', '/laporan': 'Laporan' };
   const Page = $derived(PAGES[router.path] || Overview);  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20l4-9 3 5 2-3 5 7"/><path d="M14 6h3v3"/><path d="M17 6l-4 4"/></svg>';
 
   $effect(() => { document.body.classList.toggle('drawer-open', ui.drawerOpen); });

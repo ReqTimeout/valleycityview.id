@@ -77,6 +77,7 @@ async function main() {
 
   if (alerts.length) {
     await sendReport({
+      kind: 'watchdog',
       subject: `[${NOTIFY_PREFIX}] watchdog — ${alerts.length} masalah`,
       heading: 'SEO engine valleycity.id — watchdog',
       lines: [

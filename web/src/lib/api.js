@@ -6,8 +6,19 @@ export async function fetchSnapshot() {
   return r.json();
 }
 
-export async function postAction(action) {
-  const r = await fetch(action, { method: 'POST', headers: { Accept: 'application/json' } });
+export async function postAction(action, body = null) {
+  const r = await fetch(action, {
+    method: 'POST',
+    headers: { Accept: 'application/json', ...(body ? { 'Content-Type': 'application/json' } : {}) },
+    body: body ? JSON.stringify(body) : undefined,
+  });
   if (r.status === 401) { location.href = '/login'; return { ok: false, msg: 'Sesi berakhir — masuk lagi.' }; }
   try { return await r.json(); } catch { return { ok: r.ok }; }
+}
+
+/** Ambil isi artikel (MDX) untuk pratinjau di Drawer review. */
+export async function fetchDraft(slug) {
+  const r = await fetch('/api/draft?slug=' + encodeURIComponent(slug), { headers: { Accept: 'application/json' } });
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
 }

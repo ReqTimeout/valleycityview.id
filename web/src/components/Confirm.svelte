@@ -10,7 +10,7 @@
   function proceed() {
     const opts = c;
     ui.closeConfirm();
-    if (opts?.action) data.run(opts.action, opts.label || 'Aksi');
+    if (opts?.action) data.run(opts.action, opts.label || 'Aksi', opts.body || null);
   }
 </script>
 

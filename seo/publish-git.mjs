@@ -306,6 +306,7 @@ async function main() {
     console.log(`\n--- publish ${t.slug} ---`);
     const today = flipDraft(path);
     t.status = 'published';
+    t.publishedAt = today; // tanggal WIB (hari terbit) — KPI 'Terbit hari ini'
     t.notes = (t.notes || '').replace(/\s*\|\s*generated[^\n]*/, '').trim();
     t.notes = (t.notes ? t.notes + ' | ' : '') + `published ${today}`;
     publishedUrls.push(`${SITE}/blog/${t.slug}/`);
