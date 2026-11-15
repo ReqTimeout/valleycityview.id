@@ -73,7 +73,7 @@ export const site = {
    * the old site.
    */
   tracking: {
-    gtm: 'GTM-NWMFR7ZN',
+    gtm: 'GTM-NX9DBPKL',
     ga4: 'G-032P9CXFSM',
     metaPixel: '1187304636741697',
     stape: '7346906174684316448',
