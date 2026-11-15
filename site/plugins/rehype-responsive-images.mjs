@@ -54,8 +54,15 @@ export function rehypeResponsiveImages() {
       if (!Array.isArray(parent.children)) return;
       for (let i = parent.children.length - 1; i >= 0; i -= 1) {
         const node = parent.children[i];
-        if (!node || node.type !== 'element' || node.tagName !== 'img') continue;
-        responsiveImage(node);
+        if (!node || node.type !== 'element') continue;
+        if (node.tagName === 'img') {
+          responsiveImage(node);
+        } else if (node.tagName === 'iframe' && !isEmbedFigure(parent)) {
+          // Jangan bungkus ulang: walk() akan turun ke figure.embed yang baru
+          // dibuat dan menemukan iframe yang sama — tanpa penjaga ini terjadi
+          // rekursi tak hingga (Maximum call stack size exceeded).
+          parent.children[i] = wrapEmbed(node);
+        }
       }
     });
   };
@@ -84,6 +91,51 @@ function responsiveImage(node) {
       props.fetchpriority = 'high';
     }
   }
+}
+
+/*
+  Embed (iframe) dibungkus <figure class="embed"> supaya bisa diberi bingkai
+  dan caption. Khusus 360° (momento360) diberi petunjuk interaksi, karena
+  tanpa itu pengunjung tidak tahu tampilannya bisa digeser. Atribut height
+  bawaan markdown dibuang agar CSS .prose iframe (aspect-ratio 16/9) yang
+  menentukan ukuran — embed jadi selebar kolom baca, bukan 300px default.
+*/
+function isEmbedFigure(node) {
+  return (
+    node?.tagName === 'figure' &&
+    Array.isArray(node.properties?.className) &&
+    node.properties.className.includes('embed')
+  );
+}
+
+function wrapEmbed(node) {
+  const props = node.properties ?? (node.properties = {});
+  const src = typeof props.src === 'string' ? props.src : '';
+  const is360 = src.includes('momento360.com');
+
+  delete props.height;
+  delete props.width;
+  if (!props.loading) props.loading = 'lazy';
+  if (is360 && !props.title) props.title = 'Tampilan 360 derajat Valley Cityview';
+
+  const children = [node];
+  if (is360) {
+    children.push({
+      type: 'element',
+      tagName: 'figcaption',
+      properties: {},
+      children: [
+        { type: 'text', value: 'Tampilan 360° — seret atau geser untuk menjelajah lembah dan unit.' },
+      ],
+    });
+  }
+
+  return {
+    type: 'element',
+    tagName: 'figure',
+    properties: { className: is360 ? ['embed', 'embed--360'] : ['embed'] },
+    children,
+  };
 }
 
 export default rehypeResponsiveImages;

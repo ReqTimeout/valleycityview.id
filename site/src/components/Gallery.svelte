@@ -11,7 +11,7 @@
     span?: 'wide' | 'tall' | 'normal';
   };
 
-  let { shots = [] as Shot[] } = $props();
+  let { shots = [] as Shot[], square = false } = $props();
 
   let openIndex = $state<number | null>(null);
   // A native <dialog> gives the lightbox a focus trap, an inert background
@@ -52,7 +52,7 @@
   }
 </script>
 
-<div class="gallery">
+<div class="gallery" class:gallery--square={square}>
   {#each shots as shot, index}
     <button
       class="gallery__item gallery__item--{shot.span ?? 'normal'}"
@@ -330,6 +330,73 @@
 
     .gallery__item--wide {
       grid-column: span 2;
+    }
+  }
+
+  /* --- Square variant (single-post gallery) ------------------------------
+     Kotak-kotak kecil seragam, bukan mosaic homepage. Caption pindah ke
+     lightbox (terlalu kecil dibaca di tile); badge zoom kecil yang selalu
+     tampak memberi isyarat "ketuk untuk memperbesar" di layar sentuh. */
+  .gallery--square {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 0.5rem;
+  }
+
+  .gallery--square .gallery__item {
+    aspect-ratio: 1 / 1;
+    background: rgb(255 255 255 / 0.06);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+
+  .gallery--square .gallery__item--wide {
+    grid-column: auto;
+  }
+
+  .gallery--square .gallery__caption {
+    display: none;
+  }
+
+  .gallery--square .gallery__zoom {
+    top: auto;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+    transform: none;
+    background: rgb(1 42 51 / 0.55);
+    color: var(--white);
+  }
+
+  .gallery--square .gallery__zoom svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .gallery--square .gallery__item:hover .gallery__zoom,
+  .gallery--square .gallery__item:focus-visible .gallery__zoom {
+    opacity: 1;
+    background: rgb(1 42 51 / 0.78);
+  }
+
+  @media (hover: none) {
+    .gallery--square .gallery__zoom {
+      display: grid;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .gallery--square {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .gallery--square {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.7rem;
     }
   }
 </style>

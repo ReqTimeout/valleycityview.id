@@ -827,10 +827,41 @@ h4 {
 .prose img {
   border-radius: var(--r-md);
   margin-inline: auto;
+  width: 100%;
+  height: auto;
 }
 
 .prose figure {
   margin: var(--s-6) 0;
+}
+
+/* Sematan (iframe 360°, dll.) memenuhi lebar kolom baca, bukan lebar default
+   300px milik browser. Rasio 16/9 + height:auto mengalahkan atribut
+   height="350px" bawaan markdown, sehingga embed responsif di semua layar. */
+.prose iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  border-radius: var(--r-md);
+  background: var(--surface-alt);
+}
+
+.prose .embed {
+  margin: var(--s-6) 0;
+}
+
+.prose .embed iframe {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.prose .embed figcaption {
+  margin-top: var(--s-2);
+  font-size: var(--t-xs);
+  color: var(--ink-500);
+  text-align: center;
 }
 
 .prose a {

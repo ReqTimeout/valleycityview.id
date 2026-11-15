@@ -5,7 +5,9 @@ import Seo from '../../components/Seo.astro';
 import Icon from '../../components/Icon.astro';
 import Picture from '../../components/Picture.astro';
 import MediaLabel from '../../components/MediaLabel.astro';
+import Gallery from '../../components/Gallery.svelte';
 import { mediaCaption } from '../../data/media';
+import { mediaAttrs } from '../../lib/media';
 import { site, waLink, waMessages } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -47,6 +49,55 @@ const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
 const readMinutes = Math.max(3, Math.round(words / 200));
 
 const path = `/blog/${post.data.slug}/`;
+
+/*
+  Galeri proyek untuk single post — memakai SELURUH aset visual yang sudah
+  dikurasi dan diberi caption jujur di src/data/media-kinds.json (foto asli,
+  visualisasi, dan denah). Crop duplikat untuk hero (hero-unit-*,
+  design-45-portrait), poster pemasaran, ikon, dan logo sengaja tidak ikut:
+  itu bukan foto proyek. Setiap tile membawa caption apa adanya sehingga
+  lightbox tetap jujur soal mana foto dan mana visualisasi.
+*/
+const galleryKeys = [
+  '/media/curated/foto-1.webp',
+  '/media/curated/foto-2.webp',
+  '/media/curated/knowledge-1.webp',
+  '/media/curated/detail-5.webp',
+  '/media/curated/design-45.webp',
+  '/media/curated/design-24.webp',
+  '/media/curated/design-25.webp',
+  '/media/curated/render.webp',
+  '/media/curated/render-2.webp',
+  '/media/curated/hero.webp',
+  '/media/curated/hero-2.webp',
+  '/media/curated/hero-3.webp',
+  '/media/curated/unit-3.webp',
+  '/media/curated/unit-4.webp',
+  '/media/curated/unit-5.webp',
+  '/media/curated/unit-6.webp',
+  '/media/curated/unit-7.webp',
+  '/media/curated/detail-1.webp',
+  '/media/curated/detail-2.webp',
+  '/media/curated/detail-3.webp',
+  '/media/curated/detail-4.webp',
+  '/media/curated/detail-6.webp',
+  '/media/curated/detail-7.webp',
+  '/media/curated/knowledge-2.webp',
+  '/media/curated/knowledge-3.webp',
+  '/media/curated/knowledge-4.webp',
+  '/media/curated/whisk-1.webp',
+  '/media/curated/whisk-2.webp',
+  '/media/curated/denah-45-72.webp',
+];
+const galleryShots = galleryKeys
+  .map((key) => ({ key, caption: mediaCaption(key), attrs: mediaAttrs(key) }))
+  .filter((shot) => Boolean(shot.attrs.src))
+  .map((shot) => ({
+    src: shot.attrs.src,
+    srcset: shot.attrs.srcset || undefined,
+    alt: shot.caption ?? 'Valley Cityview',
+    caption: shot.caption,
+  }));
 
 const schemas = [
   {
@@ -120,22 +171,22 @@ const schemas = [
           <span class="article__read">{readMinutes} menit baca</span>
         </div>
       </div>
-    </header>
 
-    {
-      post.data.cover && (
-        <div class="shell article__cover">
-          <Picture
-            name={post.data.cover}
-            alt={mediaCaption(post.data.cover) ?? post.data.title}
-            class="article__cover-img"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            loading="eager"
-          />
-          <MediaLabel name={post.data.cover} />
-        </div>
-      )
-    }
+      {
+        post.data.cover && (
+          <div class="shell article__cover">
+            <Picture
+              name={post.data.cover}
+              alt={mediaCaption(post.data.cover) ?? post.data.title}
+              class="article__cover-img"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              loading="eager"
+            />
+            <MediaLabel name={post.data.cover} />
+          </div>
+        )
+      }
+    </header>
 
     <div class="shell article__body">
       <div class="article__main">
@@ -211,6 +262,26 @@ const schemas = [
   </article>
 
   {
+    galleryShots.length > 0 && (
+      <section class="section section--dark article-gallery" id="galeri">
+        <div class="shell">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Galeri Foto</p>
+            <h2>Lihat lebih dekat Valley Cityview</h2>
+            <p>
+              {galleryShots.length} foto &amp; visualisasi kawasan, unit, dan
+              denah. Klik salah satu untuk memperbesar.
+            </p>
+          </div>
+          <div data-reveal>
+            <Gallery client:visible square shots={galleryShots} />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
     related.length > 0 && (
       <section class="section section--alt">
         <div class="shell">
@@ -252,7 +323,7 @@ const schemas = [
      seukuran body, meta satu baris kompak. */
   .article__head {
     background: var(--surface-alt);
-    padding-block: var(--s-6) var(--s-5);
+    padding-block: var(--s-6);
   }
 
 
@@ -354,8 +425,12 @@ const schemas = [
   }
 
 
+  /* Cover kini berada DI DALAM pita header (bukan ditarik naik dengan margin
+     negatif). Dulu margin-top negatif membuat foto menabrak baris meta
+     penulis/tanggal. Sekarang foto mengalir normal setelah meta dengan jarak
+     positif, menyatu dengan latar header — tidak ada lagi tumpang tindih. */
   .article__cover {
-    margin-top: calc(var(--s-6) * -1);
+    margin-top: var(--s-5);
   }
 
 
