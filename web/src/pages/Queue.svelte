@@ -27,7 +27,7 @@
     { key: 'cluster', label: 'Cluster', sortable: true, get: (r) => r.cluster || '—' },
     { key: 'priority', label: 'Prioritas', align: 'r', sortable: true, get: (r) => num(r.priority) },
     { key: 'geo', label: 'Geo', get: (r) => r.geo || '—' },
-    { key: 'approved', label: 'Status', chip: (r) => (r.approved ? { value: 'approved', label: 'approved', kind: 'ok' } : { value: 'suggested', label: 'suggested', kind: 'warn' }) },
+    { key: 'approved', label: 'Status', chip: (r) => (r.approved ? { value: 'approved', label: 'disetujui', kind: 'ok' } : { value: 'suggested', label: 'usulan', kind: 'warn' }) },
   ];
   const queueParts = $derived([
     { label: 'Pending', value: d?.queue?.counts?.pending || 0, color: 'var(--warn)' },
@@ -37,18 +37,18 @@
   const history = $derived((d?.config?.history || []).map((h) => ({ value: h.daily_count ?? h.count ?? null })));
 </script>
 
-<PageHead title="Antrean" sub="Keyword disetujui, kuota ramp, dan anchor area" />
+<PageHead title="Antrean" sub="Daftar kata kunci dan progres pengerjaannya" />
 
 <div class="grid g4">
   <Kpi i={0} label="Total keyword" value={kw.total ?? 0} />
-  <Kpi i={1} label="Disetujui" value={kw.approved ?? 0} tone="ok" note="min {num(kw.minApproved)}" />
-  <Kpi i={2} label="Siap pakai (unused)" value={kw.unused ?? 0} tone="teal" />
-  <Kpi i={3} label="Antrean pending" value={d?.queue?.counts?.pending ?? 0} tone="info" />
+  <Kpi i={1} label="Disetujui" value={kw.approved ?? 0} tone="ok" note="dari {num(kw.total)} kata kunci" />
+  <Kpi i={2} label="Belum dikerjakan" value={kw.unused ?? 0} tone="teal" />
+  <Kpi i={3} label="Menunggu dibuat" value={d?.queue?.counts?.pending ?? 0} tone="info" />
 </div>
 
 <div class="grid g2" style="margin-top:14px">
-  <Card i={4} title="Status antrean" sub="{num(d?.queue?.total)} item"><StackedBar parts={queueParts} /></Card>
-  <Card i={5} title="Kuota ramp" sub="ditulis ramp-gate tiap Senin">
+  <Card i={4} title="Status antrean" sub="{num(d?.queue?.total)} artikel"><StackedBar parts={queueParts} /></Card>
+  <Card i={5} title="Kuota tayang harian" sub="disetel otomatis tiap Senin">
     <div class="ramp">
       <span class="ramp-v">{num(d?.config?.daily_count)}</span>
       <span class="ramp-l">artikel/hari</span>
@@ -67,8 +67,8 @@
   </select>
   <div class="seg" role="group" aria-label="Filter status">
     <button aria-pressed={appr === 'all'} onclick={() => (appr = 'all')}>Semua</button>
-    <button aria-pressed={appr === 'approved'} onclick={() => (appr = 'approved')}>Approved</button>
-    <button aria-pressed={appr === 'suggested'} onclick={() => (appr = 'suggested')}>Suggested</button>
+    <button aria-pressed={appr === 'approved'} onclick={() => (appr = 'approved')}>Disetujui</button>
+    <button aria-pressed={appr === 'suggested'} onclick={() => (appr = 'suggested')}>Usulan</button>
   </div>
 {/snippet}
 <DataTable {toolbar} columns={cols} rows={filtered} searchKeys={['keyword', 'slug', 'cluster', 'geo', 'intent']} placeholder="Cari keyword / cluster / geo…" onRowClick={(r) => (selected = r)} empty="Tidak ada keyword yang cocok dengan filter." />
@@ -80,18 +80,18 @@
       <dt>Cluster</dt><dd>{selected.cluster || '—'}</dd>
       <dt>Geo</dt><dd>{selected.geo || '—'}</dd>
       <dt>Prioritas</dt><dd>{num(selected.priority)}</dd>
-      <dt>Sinyal</dt><dd>{selected.demand_signal || '—'}</dd>
-      <dt>Status</dt><dd><Chip value={selected.approved ? 'approved' : 'suggested'} kind={selected.approved ? 'ok' : 'warn'} label={selected.approved ? 'approved' : 'suggested'} /></dd>
+      <dt>Sumber permintaan</dt><dd>{selected.demand_signal || '—'}</dd>
+      <dt>Status</dt><dd><Chip value={selected.approved ? 'approved' : 'suggested'} kind={selected.approved ? 'ok' : 'warn'} label={selected.approved ? 'disetujui' : 'usulan'} /></dd>
     </dl>
-    <h2 class="sec">Intent</h2>
+    <h2 class="sec">Yang dicari pembaca</h2>
     <p class="note" style="margin-top:0">{selected.intent || '—'}</p>
     {#if selected.evidence}
-      <h2 class="sec">Evidence</h2>
+      <h2 class="sec">Bukti data</h2>
       <dl class="kv">
         <dt>Sumber</dt><dd>{selected.evidence.source || '—'}</dd>
         <dt>Volume</dt><dd>{num(selected.evidence.volume)}</dd>
         <dt>Skor</dt><dd>{num(selected.evidence.score)}</dd>
-        <dt>Seed</dt><dd>{selected.evidence.seed || '—'}</dd>
+        <dt>Kata kunci awal</dt><dd>{selected.evidence.seed || '—'}</dd>
       </dl>
     {/if}
   {/if}

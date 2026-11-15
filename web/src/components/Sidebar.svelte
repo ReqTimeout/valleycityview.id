@@ -5,22 +5,22 @@
 
   const NAV = [
     { group: 'Pantauan', items: [
-      { href: '/', label: 'Overview', icon: 'home' },
-      { href: '/traffic', label: 'Traffic', icon: 'chart' },
-      { href: '/tracking', label: 'Tracking', icon: 'target' },
+      { href: '/', label: 'Beranda', icon: 'home' },
+      { href: '/traffic', label: 'Trafik', icon: 'chart' },
+      { href: '/tracking', label: 'Kualitas', icon: 'target' },
     ] },
     { group: 'Produksi', items: [
       { href: '/queue', label: 'Antrean', icon: 'list' },
       { href: '/content', label: 'Konten', icon: 'file' },
-      { href: '/runs', label: 'Runs', icon: 'play' },
+      { href: '/runs', label: 'Riwayat', icon: 'play' },
     ] },
-    { group: 'Indexing', items: [
+    { group: 'Google', items: [
       { href: '/urls', label: 'URL', icon: 'link' },
-      { href: '/indexasi', label: 'Indexasi', icon: 'search' },
+      { href: '/indexasi', label: 'Status Google', icon: 'search' },
     ] },
     { group: 'Sistem', items: [
-      { href: '/health', label: 'Health', icon: 'activity' },
-      { href: '/alerts', label: 'Alerts', icon: 'bell' },
+      { href: '/health', label: 'Kesehatan', icon: 'activity' },
+      { href: '/alerts', label: 'Perlu Perhatian', icon: 'bell' },
     ] },
   ];
   const d = $derived(data.snapshot);
@@ -56,9 +56,9 @@
 
   <div class="side-foot">
     <div class="status-dot {halt ? 'bad' : d?.lock?.held ? 'closed' : ''}">
-      <span class="dot"></span>{halt ? 'Pipeline di-halt' : d?.lock?.held ? 'Lock aktif' : 'Mesin siap'}
+      <span class="dot"></span>{halt ? 'Publikasi dijeda sementara' : d?.lock?.held ? 'Sedang bekerja' : 'Siap bekerja'}
     </div>
-    <div class="side-meta">Snapshot {ago(d?.generatedAt)}</div>
+    <div class="side-meta">Data diperbarui {ago(d?.generatedAt)}</div>
     <div class="side-actions">
       <span class="user-chip" title={d?.user || 'tamu'}>{d?.user || 'tamu'}</span>
       <button class="icon-btn" onclick={() => ui.toggleTheme()} aria-label={ui.dark ? 'Mode terang' : 'Mode gelap'}><Icon name={ui.dark ? 'sun' : 'moon'} /></button>

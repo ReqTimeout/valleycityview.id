@@ -17,12 +17,11 @@
   import Alerts from './pages/Alerts.svelte';
 
   const PAGES = { '/': Overview, '/traffic': Traffic, '/queue': Queue, '/content': Content, '/tracking': Tracking, '/urls': Urls, '/indexasi': Indexasi, '/runs': Runs, '/health': Health, '/alerts': Alerts };
-  const TITLES = { '/': 'Overview', '/traffic': 'Traffic', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Tracking', '/urls': 'URL', '/indexasi': 'Indexasi', '/runs': 'Runs', '/health': 'Health', '/alerts': 'Alerts' };
-  const Page = $derived(PAGES[router.path] || Overview);
-  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20l4-9 3 5 2-3 5 7"/><path d="M14 6h3v3"/><path d="M17 6l-4 4"/></svg>';
+  const TITLES = { '/': 'Beranda', '/traffic': 'Trafik', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Kualitas', '/urls': 'URL', '/indexasi': 'Status Google', '/runs': 'Riwayat', '/health': 'Kesehatan', '/alerts': 'Perlu Perhatian' };
+  const Page = $derived(PAGES[router.path] || Overview);  const MARK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20l4-9 3 5 2-3 5 7"/><path d="M14 6h3v3"/><path d="M17 6l-4 4"/></svg>';
 
   $effect(() => { document.body.classList.toggle('drawer-open', ui.drawerOpen); });
-  $effect(() => { document.title = (TITLES[router.path] || 'Overview') + ' · Valley City SEO'; });
+  $effect(() => { document.title = (TITLES[router.path] || 'Beranda') + ' · Valley City SEO'; });
   $effect(() => {
     const handler = (e) => {
       const a = e.target.closest?.('a[href]');

@@ -1,7 +1,7 @@
 <script>
   import Icon from './Icon.svelte';
   import { ui, router, data } from '../lib/state.svelte.js';
-  const TITLES = { '/': 'Overview', '/traffic': 'Traffic', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Tracking', '/urls': 'URL', '/indexasi': 'Indexasi', '/runs': 'Runs', '/health': 'Health', '/alerts': 'Alerts' };
+  const TITLES = { '/': 'Beranda', '/traffic': 'Trafik', '/queue': 'Antrean', '/content': 'Konten', '/tracking': 'Kualitas', '/urls': 'URL', '/indexasi': 'Status Google', '/runs': 'Riwayat', '/health': 'Kesehatan', '/alerts': 'Perlu Perhatian' };
   const title = $derived(TITLES[router.path] || 'Valley City');
 </script>
 

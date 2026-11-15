@@ -157,6 +157,22 @@ function accessInfo() {
   };
 }
 
+/**
+ * Jadwal publikasi otomatis, dibaca langsung dari konfigurasi yang memakai
+ * runner (env jendela jam + kuota harian di config). Ini angka operasional,
+ * bukan rahasia, dan jadi sumber tunggal halaman progres di beranda.
+ */
+function scheduleInfo(config) {
+  const start = Number(process.env.SEO_TICK_START ?? 9);
+  const end = Number(process.env.SEO_TICK_END ?? 16);
+  return {
+    startHour: Number.isFinite(start) ? start : null,
+    endHour: Number.isFinite(end) ? end : null,
+    dailyCount: config.daily_count ?? null,
+    halt: Boolean(config.halt),
+  };
+}
+
 export function collect() {
   const state = readJson(STATE_PATH, {}) || {};
   const config = readJson(CONFIG_PATH, {}) || {};
@@ -167,6 +183,7 @@ export function collect() {
 
   const summary = buildSummary(state);
   summary.dailyCount = config.daily_count ?? null;
+  const schedule = scheduleInfo(config);
 
   const allPosts = posts();
   const live = allPosts.filter((p) => p.live);
@@ -224,6 +241,7 @@ export function collect() {
       redirects: allPosts.filter((p) => p.redirectTo).length,
     },
     summary,
+    schedule,
     stateMeta: state._meta || null,
     config,
     ramp: { lastRun: state.rampGate?.lastRun || null, alert: state.rampGate?.alert || null, history: config.history || [] },

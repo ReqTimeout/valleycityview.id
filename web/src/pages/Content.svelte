@@ -34,13 +34,13 @@
   ];
 </script>
 
-<PageHead title="Konten" sub="Seluruh berkas collection blog — tayang, draft, dan redirect" />
+<PageHead title="Konten" sub="Semua artikel blog — tayang, draf, dan alamat lama yang dialihkan" />
 
 <div class="grid g4">
-  <Kpi i={0} label="Total berkas" value={d?.counts?.files ?? 0} />
+  <Kpi i={0} label="Total artikel" value={d?.counts?.files ?? 0} />
   <Kpi i={1} label="Tayang" value={d?.counts?.live ?? 0} tone="ok" />
-  <Kpi i={2} label="Draft / review" value={d?.counts?.drafts ?? 0} tone="warn" />
-  <Kpi i={3} label="Redirect" value={d?.counts?.redirects ?? 0} tone="clay" />
+  <Kpi i={2} label="Draf / tinjauan" value={d?.counts?.drafts ?? 0} tone="warn" />
+  <Kpi i={3} label="Alamat lama" value={d?.counts?.redirects ?? 0} tone="clay" />
 </div>
 
 <div style="margin-top:14px"><Card i={4} title="Komposisi status"><StackedBar parts={parts} /></Card></div>
@@ -50,8 +50,8 @@
   <div class="seg" role="group" aria-label="Filter status konten">
     <button aria-pressed={filter === 'all'} onclick={() => (filter = 'all')}>Semua</button>
     <button aria-pressed={filter === 'live'} onclick={() => (filter = 'live')}>Tayang</button>
-    <button aria-pressed={filter === 'draft'} onclick={() => (filter = 'draft')}>Draft</button>
-    <button aria-pressed={filter === 'redirect'} onclick={() => (filter = 'redirect')}>Redirect</button>
+    <button aria-pressed={filter === 'draft'} onclick={() => (filter = 'draft')}>Draf</button>
+    <button aria-pressed={filter === 'redirect'} onclick={() => (filter = 'redirect')}>Alamat lama</button>
   </div>
 {/snippet}
 <DataTable {toolbar} columns={cols} rows={filtered} searchKeys={['title', 'slug']} placeholder="Cari judul / slug…" onRowClick={(r) => (selected = r)} />
@@ -60,10 +60,10 @@
   {#if selected}
     <dl class="kv">
       <dt>Status</dt><dd><Chip value={kindOf(selected)} label={kindOf(selected)} kind={toneOf(kindOf(selected))} /></dd>
-      <dt>Frontmatter</dt><dd>{selected.status || '—'}</dd>
+      <dt>Status di berkas</dt><dd>{selected.status || '—'}</dd>
       <dt>Tanggal</dt><dd>{date(selected.date)}</dd>
       <dt>Diperbarui</dt><dd>{selected.updated ? date(selected.updated) : '—'}</dd>
-      <dt>Redirect ke</dt><dd>{selected.redirectTo || '—'}</dd>
+      <dt>Dialihkan ke</dt><dd>{selected.redirectTo || '—'}</dd>
       <dt>Tayang?</dt><dd>{selected.live ? 'Ya' : 'Tidak'}</dd>
     </dl>
     <a class="btn ghost sm" style="margin-top:14px" href="https://{d?.site}/blog/{selected.slug}" target="_blank" rel="noopener">Buka halaman publik ↗</a>

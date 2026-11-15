@@ -11,20 +11,20 @@
 
   const alerts = $derived.by(() => {
     const out = [];
-    for (const a of s.alerts || []) out.push({ kind: 'bad', title: 'Alert mesin', body: typeof a === 'string' ? a : (a.message || JSON.stringify(a)), to: '/runs' });
+    for (const a of s.alerts || []) out.push({ kind: 'bad', title: 'Catatan mesin', body: typeof a === 'string' ? a : (a.message || JSON.stringify(a)), to: '/runs' });
     const missingCreds = (d?.credentials || []).filter((c) => !c.set);
-    if (missingCreds.length) out.push({ kind: 'warn', title: `${missingCreds.length} kredensial belum terpasang`, body: missingCreds.map((c) => c.env).join(', ') + ' — langkah terkait akan skip jujur, bukan gagal diam-diam.', to: '/health' });
-    if (d?.access && d.access.mode !== 'enforced') out.push({ kind: d.access.mode === 'not-configured' ? 'bad' : 'warn', title: 'Proteksi akses: ' + (d.access.label || d.access.mode), body: d.access.note, to: '/health' });
-    if (d?.sitemap && !d.sitemap.exists) out.push({ kind: 'bad', title: 'Sitemap tidak ada', body: 'Mesin belum menghasilkan sitemap — URL tidak terdiscovery lewat sitemap.', to: '/health' });
-    if ((d?.missing || []).length) out.push({ kind: 'warn', title: `${d.missing.length} URL tayang belum tercatat`, body: 'Ada konten tayang yang belum masuk state mesin. Jalankan indexer.', to: '/urls' });
-    if ((d?.rank?.drops || []).length) out.push({ kind: 'warn', title: `${d.rank.drops.length} query turun posisi`, body: 'Perubahan posisi melebihi ambang. Tinjau di Traffic.', to: '/traffic' });
-    if ((d?.tracking?.thin || []).length) out.push({ kind: 'info', title: `${d.tracking.thin.length} artikel tipis`, body: 'Artikel di bawah 900 kata — kandidat perluasan konten.', to: '/tracking' });
+    if (missingCreds.length) out.push({ kind: 'warn', title: `${missingCreds.length} koneksi belum terpasang`, body: missingCreds.map((c) => c.role).join(', ') + ' — pekerjaan yang membutuhkannya dilewati dan dilaporkan jujur.', to: '/health' });
+    if (d?.access && d.access.mode !== 'enforced') out.push({ kind: d.access.mode === 'not-configured' ? 'bad' : 'warn', title: 'Pelindung ekstra: ' + (d.access.label || d.access.mode), body: d.access.note, to: '/health' });
+    if (d?.sitemap && !d.sitemap.exists) out.push({ kind: 'bad', title: 'Daftar alamat untuk Google belum ada', body: 'Tanpa daftar ini artikel bisa lambat ditemukan Google. Daftar dibuat otomatis saat situs di-build.', to: '/health' });
+    if ((d?.missing || []).length) out.push({ kind: 'warn', title: `${d.missing.length} artikel tayang belum tercatat`, body: 'Pencatatan berjalan otomatis tiap pagi — jika masih muncul besok, periksa di Riwayat.', to: '/urls' });
+    if ((d?.rank?.drops || []).length) out.push({ kind: 'warn', title: `${d.rank.drops.length} kata kunci turun posisi`, body: 'Penurunan melebihi ambang normal. Tinjau di halaman Trafik.', to: '/traffic' });
+    if ((d?.tracking?.thin || []).length) out.push({ kind: 'info', title: `${d.tracking.thin.length} artikel masih pendek`, body: 'Artikel di bawah 900 kata — kandidat untuk diperpanjang.', to: '/tracking' });
     return out;
   });
   const counts = $derived({ bad: alerts.filter((a) => a.kind === 'bad').length, warn: alerts.filter((a) => a.kind === 'warn').length, info: alerts.filter((a) => a.kind === 'info').length });
 </script>
 
-<PageHead title="Alerts" sub="Semua hal yang butuh perhatian — mesin, kredensial, proteksi, dan konten" />
+<PageHead title="Perlu Perhatian" sub="Semua hal yang perlu dilihat — mesin, koneksi, proteksi, dan konten" />
 
 <div class="grid g3">
   <div class="alert-sum bad"><Icon name="alert" size={18} /><div><b>{counts.bad}</b><span>kritis</span></div></div>
@@ -44,7 +44,7 @@
       </Card>
     {/each}
   {:else}
-    <EmptyState icon="check" title="Tidak ada alert" note="Mesin, kredensial, proteksi, dan konten dalam keadaan normal. Semua gerbang sehat." />
+    <EmptyState icon="check" title="Tidak ada yang perlu diperhatikan" note="Mesin, koneksi, proteksi, dan konten berjalan normal." />
   {/if}
 </div>
 

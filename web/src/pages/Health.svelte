@@ -16,59 +16,58 @@
   const setCount = $derived(creds.filter((c) => c.set).length);
 
   const fileCols = [
-    { key: 'path', label: 'Berkas state', get: (r) => r.path },
+    { key: 'path', label: 'Catatan', get: (r) => r.path },
     { key: 'mtime', label: 'Ditulis', sortable: true, get: (r) => (r.mtime ? ago(r.mtime) : '—') },
     { key: 'note', label: 'Isi', get: (r) => r.note },
   ];
   const accessTone = $derived({ enforced: 'ok', 'enforce-off': 'warn', 'not-configured': 'bad', unknown: 'warn' }[access.mode] || 'warn');
 </script>
 
-<PageHead title="Health" sub="Kesehatan mesin: kredensial, sitemap, state, lock, dan proteksi akses" />
+<PageHead title="Kesehatan" sub="Kondisi mesin: koneksi, daftar alamat untuk Google, pencatatan, dan proteksi akses" />
 
 <div class="grid g4">
-  <Kpi i={0} label="Kredensial terpasang" value="{setCount}/{creds.length}" tone={setCount === creds.length ? 'ok' : 'warn'} />
-  <Kpi i={1} label="Umur sitemap" value={sm.ageHours == null ? '—' : num(Math.round(sm.ageHours)) + ' jam'} tone={sm.exists ? 'teal' : 'bad'} note="{num(sm.urls)} URL" />
-  <Kpi i={2} label="Berkas state" value={files.length} />
-  <Kpi i={3} label="Lock pipeline" value={lock ? (lock.corrupt ? 'korup' : 'aktif') : 'bebas'} tone={lock ? (lock.corrupt ? 'bad' : 'warn') : 'ok'} />
+  <Kpi i={0} label="Koneksi terpasang" value="{setCount}/{creds.length}" tone={setCount === creds.length ? 'ok' : 'warn'} />
+  <Kpi i={1} label="Daftar alamat (sitemap)" value={sm.exists ? num(sm.urls) + ' alamat' : 'belum ada'} tone={sm.exists ? 'teal' : 'bad'} note={sm.exists ? 'diperbarui ' + (sm.ageHours == null ? '—' : num(Math.round(sm.ageHours)) + ' jam') + ' lalu' : 'Google belum punya daftar alamat'} />
+  <Kpi i={2} label="Berkas pencatatan" value={files.length} />
+  <Kpi i={3} label="Status proses" value={lock ? (lock.corrupt ? 'masalah' : 'sedang bekerja') : 'siap'} tone={lock ? (lock.corrupt ? 'bad' : 'warn') : 'ok'} />
 </div>
 
 <div class="grid g2" style="margin-top:14px">
-  <Card i={4} title="Kredensial environment" sub="ditampilkan apa adanya — tidak dikarang">
+  <Card i={4} title="Koneksi ke layanan luar" sub="status nyata — tanpa memperlihatkan isi rahasia">
     <div class="cred-list">
       {#each creds as c (c.env)}
         <div class="cred-row">
-          <Chip value={c.set ? 'set' : 'kosong'} label={c.set ? 'terpasang' : 'kosong'} kind={c.set ? 'ok' : 'warn'} />
-          <div class="cred-meta"><b>{c.env}</b><span>{c.role} · {c.neededBy}</span></div>
+          <Chip value={c.set ? 'set' : 'kosong'} label={c.set ? 'terhubung' : 'belum terpasang'} kind={c.set ? 'ok' : 'warn'} />
+          <div class="cred-meta"><b>{c.role}</b><span>{c.env} · dipakai untuk {c.neededBy}</span></div>
         </div>
       {/each}
     </div>
   </Card>
-  <Card i={5} title="Sitemap & proteksi">
+  <Card i={5} title="Daftar alamat & proteksi">
     <dl class="kv">
-      <dt>Sitemap ada</dt><dd>{sm.exists ? 'Ya' : 'Tidak'}</dd>
-      <dt>URL / lastmod</dt><dd>{num(sm.urls)} / {num(sm.withLastmod)}</dd>
-      <dt>Lastmod terbaru</dt><dd>{sm.newest ? date(sm.newest) : '—'}</dd>
-      <dt>IndexNow key</dt><dd>{d?.indexnowKey?.exists ? 'Ada' : 'Tidak'} · <a href={d?.indexnowKey?.servedAt} target="_blank" rel="noopener">cek served ↗</a></dd>
-      <dt>Dist situs</dt><dd>{d?.distExists ? 'Ada' : 'Tidak'}</dd>
+      <dt>Daftar alamat untuk Google</dt><dd>{sm.exists ? 'Ada' : 'Belum ada'}</dd>
+      <dt>Alamat terbaru tercatat</dt><dd>{sm.newest ? date(sm.newest) : '—'}</dd>
+      <dt>Kunci kirim cepat</dt><dd>{d?.indexnowKey?.exists ? 'Ada' : 'Belum ada'} · <a href={d?.indexnowKey?.servedAt} target="_blank" rel="noopener">buka bukti ↗</a></dd>
+      <dt>Hasil build situs</dt><dd>{d?.distExists ? 'Ada' : 'Belum ada'}</dd>
     </dl>
     {#if d?.auth}
-      <div class="callout ok" style="margin-top:10px"><b>Login app aktif</b> — dashboard hanya disajikan setelah login (user: {d?.user || '—'}). Ini proteksi utama.</div>
+      <div class="callout ok" style="margin-top:10px"><b>Login aktif</b> — dashboard hanya bisa dibuka setelah login (sebagai {d?.user || '—'}). Ini pelindung utama.</div>
     {:else}
-      <div class="callout bad" style="margin-top:10px"><b>Login app NONAKTIF</b> — dashboard terbuka tanpa login. Segera set DASHBOARD_USER/PASS.</div>
+      <div class="callout bad" style="margin-top:10px"><b>Login belum aktif</b> — dashboard terbuka tanpa kata sandi. Segera aktifkan login dashboard.</div>
     {/if}
-    <div class="callout {accessTone}" style="margin-top:8px"><b>Cloudflare Access (layer tambahan): {access.label || access.mode}</b><br />{access.note}</div>
-    {#if lock && !lock.corrupt}<div class="callout warn" style="margin-top:8px">Lock dipegah {lock.host || '?'} (pid {lock.pid}) sejak {ago(lock.at)}.</div>{/if}
-    {#if lock?.corrupt}<div class="callout bad" style="margin-top:8px">Berkas lock korup — periksa {lock.path}.</div>{/if}
+    <div class="callout {accessTone}" style="margin-top:8px"><b>Pelindung ekstra (Cloudflare Access): {access.label || access.mode}</b><br />{access.note}</div>
+    {#if lock && !lock.corrupt}<div class="callout warn" style="margin-top:8px">Mesin sedang mengerjakan sesuatu sejak {ago(lock.at)} — tunggu sampai selesai sebelum menjalankan aksi lain.</div>{/if}
+    {#if lock?.corrupt}<div class="callout bad" style="margin-top:8px">Berkas kunci proses rusak — mesin mungkin tidak bisa menjalankan pekerjaan sampai dibersihkan.</div>{/if}
   </Card>
 </div>
 
-<h2 class="sec">Berkas state mesin</h2>
-<DataTable columns={fileCols} rows={files} searchKeys={['path', 'note']} placeholder="Cari berkas…" />
+<h2 class="sec">Berkas pencatatan mesin</h2>
+<DataTable columns={fileCols} rows={files} searchKeys={['path', 'note']} placeholder="Cari catatan…" />
 
 <style>
   .cred-list { display: flex; flex-direction: column; gap: 8px; }
   .cred-row { display: flex; align-items: center; gap: 10px; }
   .cred-meta { display: flex; flex-direction: column; min-width: 0; }
-  .cred-meta b { font-size: 12.5px; font-family: var(--mono); }
-  .cred-meta span { font-size: 11.5px; color: var(--ink-3); }
+  .cred-meta b { font-size: 13px; }
+  .cred-meta span { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono); }
 </style>

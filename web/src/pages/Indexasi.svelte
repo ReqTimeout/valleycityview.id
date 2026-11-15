@@ -14,58 +14,59 @@
   const labels = $derived(s.labels || {});
   const rows = $derived((d?.urlRows || []).filter((r) => r.verdict || r.coverageState || r.label !== 'unknown'));
 
+  const humanLabel = (l) => ({ indexed: 'masuk pencarian', not_indexed: 'belum masuk', not_discovered: 'belum ditemukan', blocked: 'diblokir', unknown: 'belum diperiksa' }[l] || l.replace(/_/g, ' '));
   const parts = $derived([
-    { label: 'Indexed', value: labels.indexed || 0, color: 'var(--ok)' },
-    { label: 'Not indexed', value: labels.not_indexed || 0, color: 'var(--bad)' },
-    { label: 'Not discovered', value: labels.not_discovered || 0, color: 'var(--warn)' },
-    { label: 'Blocked', value: labels.blocked || 0, color: 'var(--plum)' },
-    { label: 'Unknown', value: labels.unknown || 0, color: 'var(--ink-4)' },
+    { label: 'Masuk pencarian', value: labels.indexed || 0, color: 'var(--ok)' },
+    { label: 'Belum masuk', value: labels.not_indexed || 0, color: 'var(--bad)' },
+    { label: 'Belum ditemukan', value: labels.not_discovered || 0, color: 'var(--warn)' },
+    { label: 'Diblokir', value: labels.blocked || 0, color: 'var(--plum)' },
+    { label: 'Belum diperiksa', value: labels.unknown || 0, color: 'var(--ink-4)' },
   ]);
   const toneOf = (l) => ({ indexed: 'ok', not_indexed: 'bad', not_discovered: 'warn', blocked: 'clay' }[l] || 'info');
   const cols = [
-    { key: 'slug', label: 'Slug', sortable: true, get: (r) => r.slug },
-    { key: 'label', label: 'Label', chip: (r) => ({ value: r.label, label: r.label.replace(/_/g, ' '), kind: toneOf(r.label) }) },
-    { key: 'verdict', label: 'Verdict', get: (r) => r.verdict || '—' },
-    { key: 'coverageState', label: 'Coverage', get: (r) => r.coverageState || '—' },
-    { key: 'lastCrawlTime', label: 'Crawl', sortable: true, get: (r) => (r.lastCrawlTime ? date(r.lastCrawlTime) : '—') },
+    { key: 'slug', label: 'Alamat', sortable: true, get: (r) => r.slug },
+    { key: 'label', label: 'Status', chip: (r) => ({ value: r.label, label: humanLabel(r.label), kind: toneOf(r.label) }) },
+    { key: 'verdict', label: 'Kesimpulan Google', get: (r) => r.verdict || '—' },
+    { key: 'coverageState', label: 'Keterangan', get: (r) => r.coverageState || '—' },
+    { key: 'lastCrawlTime', label: 'Dikunjungi', sortable: true, get: (r) => (r.lastCrawlTime ? date(r.lastCrawlTime) : '—') },
   ];
   function inspect() {
-    ui.ask({ title: 'Inspeksi GSC semua URL?', body: 'Menjalankan seo/gsc-inspect.mjs --all. Butuh kredensial GSC terpasang; tanpa itu langkah ini akan skip jujur.', action: '/api/inspect', label: 'Mulai inspeksi' });
+    ui.ask({ title: 'Periksa semua alamat di Google?', body: 'Mengirim permintaan pemeriksaan status untuk setiap alamat tayang. Butuh koneksi Google terpasang; tanpa itu pemeriksaan dilewati dan dilaporkan jujur.', action: '/api/inspect', label: 'Mulai pemeriksaan' });
   }
 </script>
 
-<PageHead title="Indexasi" sub="Status indeks Google Search Console untuk URL tayang">
-  <button class="btn gold sm" onclick={inspect} disabled={data.busy === '/api/inspect'}><Icon name="refresh" size={15} /> Inspeksi GSC</button>
+<PageHead title="Status Google" sub="Hasil pemeriksaan Google untuk setiap alamat tayang">
+  <button class="btn gold sm" onclick={inspect} disabled={data.busy === '/api/inspect'}><Icon name="refresh" size={15} /> Periksa semua di Google</button>
 </PageHead>
 
 <div class="grid g4">
-  <Kpi i={0} label="Index rate" value={s.indexRate == null ? 'belum diukur' : pct(s.indexRate, 1)} tone={s.indexRate == null ? '' : 'info'} note="indexed / (indexed+not+blocked)" />
-  <Kpi i={1} label="Terukur inspeksi" value={s.measured ?? 0} tone="teal" />
-  <Kpi i={2} label="Discovery gap" value={s.discoveryGap ?? 0} tone={(s.discoveryGap ?? 0) ? 'warn' : 'ok'} note="belum terdiscovery Google" />
-  <Kpi i={3} label="Inspeksi terakhir" value={s.lastInspect ? ago(s.lastInspect) : '—'} note={s.lastInspect ? date(s.lastInspect) : 'belum pernah'} />
+  <Kpi i={0} label="Masuk pencarian" value={s.indexRate == null ? 'belum diukur' : pct(s.indexRate, 1)} tone={s.indexRate == null ? '' : 'info'} note="dari alamat yang sudah diperiksa" />
+  <Kpi i={1} label="Sudah diperiksa" value={s.measured ?? 0} tone="teal" />
+  <Kpi i={2} label="Belum ditemukan" value={s.discoveryGap ?? 0} tone={(s.discoveryGap ?? 0) ? 'warn' : 'ok'} note="Google belum mengetahui alamatnya" />
+  <Kpi i={3} label="Pemeriksaan terakhir" value={s.lastInspect ? ago(s.lastInspect) : '—'} note={s.lastInspect ? date(s.lastInspect) : 'belum pernah'} />
 </div>
 
 <div class="grid g2" style="margin-top:14px">
-  <Card i={4} title="Index rate" sub="{num(s.total)} URL tercatat">
+  <Card i={4} title="Masuk pencarian" sub="{num(s.total)} alamat tayang">
     <div class="idx-row">
-      <Donut value={s.indexRate} label="indexed" color="var(--ok)" />
+      <Donut value={s.indexRate} label="masuk" color="var(--ok)" />
       <div class="idx-note">
         {#if s.indexRate == null}
-          <div class="callout info">Belum ada inspeksi GSC. Angka indeks tidak dikarang — jalankan inspeksi dengan kredensial terpasang.</div>
+          <div class="callout info">Belum ada pemeriksaan Google, jadi angkanya belum bisa dihitung — tidak dikarang. Pemeriksaan berjalan otomatis tiap pagi, atau tekan tombol di atas.</div>
         {:else}
-          <p class="note">{num(labels.indexed)} terindeks dari {num(s.measured)} URL yang benar-benar terukur. {num(s.discoveryGap)} URL belum terdiscovery.</p>
+          <p class="note">{num(labels.indexed)} alamat masuk pencarian dari {num(s.measured)} yang sudah diperiksa. {num(s.discoveryGap)} alamat belum ditemukan Google.</p>
         {/if}
       </div>
     </div>
   </Card>
-  <Card i={5} title="Distribusi label" sub="hasil inspeksi terakhir"><StackedBar parts={parts} /></Card>
+  <Card i={5} title="Rincian status" sub="hasil pemeriksaan terakhir"><StackedBar parts={parts} /></Card>
 </div>
 
-<h2 class="sec">Detail inspeksi URL</h2>
+<h2 class="sec">Detail pemeriksaan</h2>
 {#if rows.length}
-  <DataTable columns={cols} rows={rows} searchKeys={['slug', 'verdict', 'coverageState', 'label']} placeholder="Cari slug / verdict / coverage…" />
+  <DataTable columns={cols} rows={rows} searchKeys={['slug', 'verdict', 'coverageState', 'label']} placeholder="Cari alamat / keterangan…" />
 {:else}
-  <div class="callout info">Belum ada hasil inspeksi tersimpan. Setelah <code>gsc-inspect</code> berjalan dengan kredensial GSC, verdict & coverage state tiap URL muncul di sini.</div>
+  <div class="callout info">Belum ada hasil pemeriksaan tersimpan. Setelah pemeriksaan berjalan dengan koneksi Google terpasang, hasilnya untuk tiap alamat muncul di sini.</div>
 {/if}
 
 <style>
