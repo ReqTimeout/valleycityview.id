@@ -23,10 +23,13 @@ if [ -n "${GITHUB_TOKEN:-}" ] && [ ! -d /app/.git ]; then
   AUTH="http.extraHeader=AUTHORIZATION: basic $B64"
   REMOTE="https://github.com/ReqTimeout/valleycityview.id.git"
   # fetch penuh (bukan shallow) supaya push dari container diterima GitHub.
+  # checkout -f WAJIB: image COPY source tanpa .git, jadi semua file untracked
+  # dan checkout biasa menolak menimpanya (verify-absent). Isinya memang dari
+  # repo yang sama, jadi -f aman dan working tree jadi persis origin/main.
   if git init -q -b main /app \
      && git -C /app remote add origin "$REMOTE" \
      && git -C /app -c "$AUTH" fetch -q origin main \
-     && git -C /app -c "$AUTH" checkout -q -B main FETCH_HEAD \
+     && git -C /app -c "$AUTH" checkout -q -f -B main FETCH_HEAD \
      && git -C /app branch --set-upstream-to=origin/main main; then
     echo "[entrypoint] working tree git siap di main."
   else
