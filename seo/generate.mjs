@@ -30,7 +30,7 @@ import { spawn, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { ROOT, BLOG_DIR, QUEUE_PATH, PROMPTS_PATH, KEYWORDS_PATH } from './paths.mjs';
-import { PRICES, MONEY_PAGES } from './site.mjs';
+import { PRICES, MONEY_PAGES, SITE } from './site.mjs';
 import { injectGeoAnchor } from './lib/geo-anchor.mjs';
 import { liveSlugs } from './lib/live-posts.mjs';
 import { lintArticle, ASING } from './lib/article-lint.mjs';
@@ -446,6 +446,9 @@ function parseArgs() {
     else if (a === '--ignore-gate') opts.ignoreGate = true;
     else if (a.startsWith('--keyword=')) opts.keyword = a.slice(10);
     else if (a.startsWith('--slug=')) opts.slug = a.slice(7);
+    // Mode freshness: regenerasi artikel yang SUDAH publish (status publish
+    // dipertahankan, `updated` di-bump hari ini) — dipanggil seo/freshness.mjs.
+    else if (a.startsWith('--refresh=')) { opts.refresh = a.slice(10); opts.slug = opts.refresh; }
     else if (a.startsWith('--list=')) opts.list = parseInt(a.slice(7));
     else if (a === '--defer-queue') opts.deferQueue = true;
     else if (a === '--merge-queue') opts.mergeQueue = true;
@@ -555,8 +558,14 @@ async function main() {
   if (opts.slug) {
     // Aksi per-baris di dashboard: tulis ulang artikel spesifik.
     // Kandidat: pending (tulis baru) ATAU draft (tulis ulang — file ditimpa).
-    targets = QUEUE.items.filter((i) => i.slug === opts.slug && (i.status === 'pending' || i.status === 'draft'));
-    if (!targets.length) { console.error(`slug ${opts.slug} tidak ditemukan di antrean (pending/draft)`); process.exit(1); }
+    targets = QUEUE.items.filter((i) => i.slug === opts.slug &&
+      (opts.refresh ? i.status === 'published' : (i.status === 'pending' || i.status === 'draft')));
+    if (!targets.length) {
+      console.error(opts.refresh
+        ? `slug ${opts.refresh} tidak ditemukan sebagai artikel TERBIT di antrean`
+        : `slug ${opts.slug} tidak ditemukan di antrean (pending/draft)`);
+      process.exit(1);
+    }
   } else if (opts.keyword) {
     targets = QUEUE.items.filter((i) => i.keyword === opts.keyword && i.status === 'pending');
   } else {
@@ -590,10 +599,15 @@ async function main() {
     console.log(`\n--- ${t.keyword} ---`);
     const slug = t.slug || slugify(t.keyword);
     const outPath = join(BLOG_DIR, `${slug}.md`);
-    if (existsSync(outPath)) {
+    if (existsSync(outPath) && !opts.refresh) {
       console.log(`  SKIP: exists`);
       continue;
     }
+    // Refresh: pertahankan tanggal terbit ASLI (date tidak boleh berubah —
+    // hanya `updated` yang di-bump supaya lastmod jujur pada konten baru).
+    const origDate = opts.refresh && existsSync(outPath)
+      ? (((readFileSync(outPath, 'utf8').match(/^date:\s*"?([^"\n]+)/m) || [])[1] || '').trim())
+      : '';
 
     const prices = pickPrices(t.keyword);
     // A4: related HANYA dari artikel publish di disk (bukan tebakan queue) — cegah 404.
@@ -719,6 +733,7 @@ async function main() {
       }
     }
     const meta = deriveMeta({ keyword: t.keyword, llmBody, category: t.category || 'Lainnya' });
+    if (opts.refresh && origDate) meta.pubDate = origDate;
 
     let mdx = assembleMdx({
       llmBody,
@@ -727,6 +742,8 @@ async function main() {
       related,
       faq,
       meta,
+      status: opts.refresh ? 'publish' : 'draft',
+      updated: opts.refresh ? wibDay() : '',
     });
     // Anchor kota untuk artikel geo: disuntik DETERMINISTIK setelah assembleMdx.
     // Bukan bergantung pada LLM menulisnya — free model sering tidak patuh, dan
@@ -783,9 +800,15 @@ async function main() {
 
     writeFileSync(outPath, mdx);
     written.push(outPath);
-    t.status = 'draft';
-    t.notes = (t.notes || '') + ` | generated ${wibDay()}`;
-    t.generatedAt = wibDay();
+    if (opts.refresh) {
+      // Status TETAP published; hanya catatan + updated (di frontmatter) yang
+      // berubah — queue tidak boleh kembali draft.
+      t.notes = (t.notes || '') + ` | refreshed ${wibDay()}`;
+    } else {
+      t.status = 'draft';
+      t.notes = (t.notes || '') + ` | generated ${wibDay()}`;
+      t.generatedAt = wibDay();
+    }
     ok++;
   }
 
@@ -813,7 +836,7 @@ async function main() {
         const repoQueue = join(ROOT, 'seo/queue.json');
         if (resolve(QUEUE_PATH) !== resolve(repoQueue)) copyFileSync(QUEUE_PATH, repoQueue);
         execFileSync('git', [...auth, 'add', '--', ...written, repoQueue], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
-        execFileSync('git', [...auth, 'commit', '-q', '-m', `chore(generate): ${written.length} draft baru (otomatis)`], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        execFileSync('git', [...auth, 'commit', '-q', '-m', opts.refresh ? `refresh(seo): perbarui ${opts.refresh} — konten baru, updated ${wibDay()}, status tetap publish` : `chore(generate): ${written.length} draft baru (otomatis)`], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         console.log(`Draft ${written.length} file + queue di-commit & push (tahan redeploy).`);
       } catch (e) {
@@ -821,6 +844,33 @@ async function main() {
       }
     } else {
       console.warn('[generate] GITHUB_TOKEN/.git absen — draft TIDAK dipush, akan hilang saat redeploy.');
+    }
+  }
+
+  // Jalur refresh: setelah push, halaman di-deploy ke Cloudflare Pages lalu
+  // Google/Bing diberi tahu konten berubah (URL_UPDATED + IndexNow) — kalau tidak,
+  // hasil segaran hanya hidup di repo, bukan di situs.
+  if (opts.refresh && written.length) {
+    try {
+      const { deployPages, verifyUrls } = await import('./publish-git.mjs');
+      const deployed = await deployPages();
+      if (deployed) {
+        const url = `${SITE}/blog/${opts.refresh}/`;
+        try { await verifyUrls([url]); } catch (e) { console.warn(`  ⚠ verifikasi live: ${e.message}`); }
+        try {
+          const { publishIndexing } = await import('./lib/gsc.mjs');
+          const r = await publishIndexing(url, 'URL_UPDATED');
+          console.log(`  GSC URL_UPDATED: ${r ? 'OK' : 'gagal'}`);
+        } catch (e) { console.warn(`  ⚠ GSC URL_UPDATED: ${e.message.slice(0, 100)}`); }
+        const r = spawnSync(process.execPath, [join(ROOT, 'seo', 'indexnow.mjs'), url], {
+          cwd: ROOT, encoding: 'utf8', env: { ...process.env },
+        });
+        console.log(String(r.stdout || '').trim().split('\n').slice(-2).join(' | '));
+      } else {
+        console.warn('  ⚠ deploy Pages gagal — perubahan tersimpan di repo, deploy menyusul.');
+      }
+    } catch (e) {
+      console.warn(`  ⚠ tahap pasca-refresh gagal (konten sudah ter-push): ${String(e.message).slice(0, 160)}`);
     }
   }
 

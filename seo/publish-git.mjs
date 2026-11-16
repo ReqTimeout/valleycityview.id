@@ -38,7 +38,7 @@
 
 import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFileSync, spawnSync } from 'node:child_process';
 // SITE + CF_PROJECT dari satu sumber (seo/site.mjs). Dulu SITE di-hardcode ke
 // domain lama valleycity.id dan CF_PAGES_PROJECT tidak pernah didefinisikan
@@ -442,7 +442,13 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error('FATAL:', safeErr(e));
-  process.exit(1);
-});
+// Ekspor untuk pemakaian sebagai modul (seo/freshness.mjs → deployPages/
+// verifyUrls setelah menyegarkan artikel). main() HANYA saat CLI.
+export { deployPages, verifyUrls };
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((e) => {
+    console.error('FATAL:', safeErr(e));
+    process.exit(1);
+  });
+}

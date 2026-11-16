@@ -58,6 +58,7 @@
   }[s] || s);
   const stepName = (n) => ({
     bootstrap: 'Persiapan',
+    'freshness+mesh': 'Segarkan artikel',
     indexer: 'Periksa & catat status',
     generate: 'Tulis draf artikel',
     publish: 'Tayangkan',

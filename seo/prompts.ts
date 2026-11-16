@@ -163,7 +163,7 @@ export function parseOutput(content: string): string {
  * Nama fungsi dipertahankan (assembleMdx) karena generate.mjs memanggilnya
  * dengan nama itu; hasilnya kini berkas .md dengan frontmatter koleksi kami.
  */
-export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta }: any): string {
+export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta, status = 'draft', updated = '' }: any): string {
   const bodyNoFaq = linkifyBareUrls(stripFabricatedRp(llmBody));
   const bodyWithFacts = injectAfterFirstH2(bodyNoFaq, renderFactTable(prices));
   // FAQ = teks model juga: wajib lewat strip yang sama dengan body. Tanpa ini,
@@ -195,23 +195,24 @@ export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta }: 
     slug: meta.slug,
     description: meta.description,
     date: meta.pubDate || today,
+    updated,
     tags: meta.tags || [meta.category],
     cover: meta.cover,
     imageAlt: meta.imageAlt,
-    status: 'draft',
+    status,
   });
   return `${fm}\n\n${bodyFinal}\n`;
 }
 
 // ===== helper template (dipakai langsung via import, tidak lagi disalin ke generate.mjs) =====
 
-function renderFrontmatter({ title, slug, description, date, tags, cover, imageAlt, status }: any): string {
+function renderFrontmatter({ title, slug, description, date, updated, tags, cover, imageAlt, status }: any): string {
   const tagYaml = (tags || []).filter(Boolean).map((t) => `"${escapeYaml(t)}"`).join(', ');
   return `---
 title: "${escapeYaml(title)}"
 slug: "${escapeYaml(slug)}"
 description: "${escapeYaml(description)}"
-date: "${date}"
+date: "${date}"${updated ? `\nupdated: "${updated}"` : ''}
 author: "Tim Valley Cityview"
 status: ${status}
 tags: [${tagYaml}]${cover ? `\ncover: "${cover}"` : ''}${imageAlt ? `\nimageAlt: "${escapeYaml(imageAlt)}"` : ''}

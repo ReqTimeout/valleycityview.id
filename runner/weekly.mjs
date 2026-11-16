@@ -5,7 +5,8 @@
  * Tahap:
  *   1. seo/indexer.mjs            — refresh status index (termasuk ramp-gate hari Senin)
  *   2. mining Search Analytics    — 28 hari → query terbaik → seo/keywords.mined.json
- *   3. freshness + mesh            — belum (butuh repo konten), dicatat sebagai no-op
+ *   3. freshness                   — segarkan maks FRESH_MAX (2) artikel tua/tipis
+ *                                    (seo/freshness.mjs → generate --refresh)
  *   4. ringkasan + email
  *
  * Env: sama seperti runner/daily.mjs, plus SEO_SKIP_INDEXER=1 untuk uji.
@@ -16,7 +17,7 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { NOTIFY_PREFIX } from '../seo/site.mjs';
+import { NOTIFY_PREFIX, SITE } from '../seo/site.mjs';
 import { acquireLock } from './lib/lock.mjs';
 import { sendReport, notifyCc } from './lib/notify.mjs';
 import { openRun } from './lib/runlog.mjs';
@@ -111,8 +112,40 @@ async function main() {
       rl.step('mining', 'fail', e.message);
     }
 
-    log('freshness + mesh rebuild: belum aktif (butuh repo konten) — no-op eksplisit');
-    rl.step('freshness+mesh', 'skip', 'belum aktif — no-op eksplisit, bukan lupa');
+    // 3) Freshness — segarkan artikel tua/tipis terpilih (kebijakan & batas di
+    // seo/freshness.mjs). Mesh internal-link sendiri sudah dijalankan publish-git
+    // tiap terbit, jadi langkah ini murni "segarkan konten lama".
+    let freshSlugs = [];
+    let freshStats = '';
+    try {
+      const fr = spawnSync(process.execPath, [join(ROOT, 'seo/freshness.mjs')], {
+        cwd: ROOT, encoding: 'utf8', env: { ...process.env }, timeout: 210000,
+      });
+      const fout = `${fr.stdout || ''}${fr.stderr || ''}`;
+      const mLine = fout.trim().split('\n').reverse().find((l) => l.startsWith('freshness: '));
+      freshStats = (mLine || 'freshness: tanpa keluaran').replace(/^freshness: /, '');
+      const mList = fout.match(/daftar disegarkan: (.+)/);
+      freshSlugs = mList ? mList[1].split(',').map((x) => x.trim()).filter(Boolean) : [];
+      const mNum = freshStats.match(/(\d+)\/(\d+) disegarkan/);
+      const okN = mNum ? Number(mNum[1]) : 0;
+      const tryN = mNum ? Number(mNum[2]) : 0;
+      if (fr.error || fr.status !== 0) {
+        log(`freshness GAGAL: ${(fr.error && fr.error.message) || fout.slice(-200)}`);
+        rl.step('freshness+mesh', 'fail', freshStats.slice(0, 200));
+      } else if (okN > 0) {
+        log(`freshness: ${freshStats}`);
+        rl.step('freshness+mesh', 'ok', freshStats.slice(0, 200));
+      } else if (tryN > 0) {
+        log(`freshness: ${freshStats} (percobaan gagal — lihat log)`);
+        rl.step('freshness+mesh', 'fail', freshStats.slice(0, 200));
+      } else {
+        log(`freshness: ${freshStats}`);
+        rl.step('freshness+mesh', 'skip', freshStats.slice(0, 200));
+      }
+    } catch (e) {
+      log(`freshness GAGAL: ${e.message}`);
+      rl.step('freshness+mesh', 'fail', String(e.message).slice(0, 200));
+    }
 
     const state = readState();
     const s = buildSummary(state);
@@ -141,6 +174,12 @@ async function main() {
           ].join('\n'),
         },
         { title: 'Top Query', body: top.length ? top.join('\n') : '  (belum ada data query)' },
+        ...(freshSlugs.length
+          ? [{
+              title: 'Artikel Disegarkan',
+              body: freshSlugs.map((sl, i) => `  ${i + 1}. ${SITE}/blog/${sl}/ — konten ditulis ulang, updated hari ini, sudah live`).join('\n'),
+            }]
+          : []),
         ...(s.alerts || []).length
           ? [{
               title: 'Peringatan',
