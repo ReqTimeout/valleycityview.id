@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-ciuyah-cimahi.html"
 wpId: 771
 status: publish
 cover: "/media/curated/design-25.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

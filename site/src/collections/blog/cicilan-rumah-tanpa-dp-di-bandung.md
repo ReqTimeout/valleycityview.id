@@ -9,6 +9,10 @@ legacyUrl: "/cicilan-rumah-tanpa-dp-di-bandung.html"
 wpId: 857
 status: publish
 cover: "/media/curated/unit-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cluster-amanda-summarecon-bandung
 ---
 
 <p><strong>Cicilan rumah tanpa DP di Bandung</strong> kini bukan sekadar impian. Banyak pengembang dan program KPR kini menawarkan skema tanpa uang muka, menjadikan peluang memiliki rumah lebih mudah diakses, khususnya bagi generasi milenial dan pasangan muda yang baru memulai hidup.

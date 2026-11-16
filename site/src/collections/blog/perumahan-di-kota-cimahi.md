@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-di-kota-cimahi.html"
 wpId: 746
 status: publish
 cover: "/media/curated/knowledge-1.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

@@ -9,6 +9,10 @@ legacyUrl: "/kpr-di-bandung.html"
 wpId: 907
 status: publish
 cover: "/media/curated/design-24.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>KPR rumah Bandung kota</strong> semakin dicari karena tingginya kebutuhan akan tempat tinggal yang nyaman namun tetap terjangkau. Bandung, dengan iklim sejuk dan kemudahan akses ke berbagai fasilitas, menjadi salah satu kota favorit untuk menetap.

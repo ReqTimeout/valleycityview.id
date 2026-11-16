@@ -9,6 +9,10 @@ legacyUrl: "/perum-nusa-hijau-cimahi.html"
 wpId: 727
 status: publish
 cover: "/media/curated/hero-2.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perumahan-baru-di-cimahi
 ---
 
 <h2>Perum Nusa Hijau Cimahi &#8211; Valley Cityview

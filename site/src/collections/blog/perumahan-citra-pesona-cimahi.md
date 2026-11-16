@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-citra-pesona-cimahi.html"
 wpId: 687
 status: publish
 cover: "/media/curated/hero-2.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

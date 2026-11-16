@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-permana-cimahi.html"
 wpId: 739
 status: publish
 cover: "/media/curated/design-24.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

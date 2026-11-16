@@ -9,6 +9,10 @@ legacyUrl: "/pesona-alam-residence-cimahi.html"
 wpId: 668
 status: publish
 cover: "/media/curated/design-25.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

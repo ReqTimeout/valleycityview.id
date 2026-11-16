@@ -9,6 +9,10 @@ legacyUrl: "/kpr-rumah-bandung-kota.html"
 wpId: 929
 status: publish
 cover: "/media/curated/knowledge-1.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>KPR rumah Bandung kota</strong> menjadi pilihan utama bagi masyarakat yang ingin memiliki hunian strategis di tengah kota dengan fasilitas lengkap dan akses transportasi yang mudah. Saat ini, berbagai developer menawarkan rumah KPR dengan skema cicilan ringan, mulai dari Rp 3 jutaan per bulan dan DP minimal 10%. Cocok untuk keluarga muda, pekerja, hingga investor properti yang mengincar nilai kenaikan aset.

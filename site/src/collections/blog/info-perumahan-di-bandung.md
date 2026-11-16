@@ -9,6 +9,10 @@ legacyUrl: "/info-perumahan-di-bandung.html"
 wpId: 901
 status: publish
 cover: "/media/curated/design-45.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Info perumahan di Bandung</strong> terus dicari oleh masyarakat yang ingin menetap di kota dengan udara sejuk, fasilitas lengkap, dan akses strategis. Bandung tak hanya menjadi tujuan wisata, tapi juga pilihan tempat tinggal yang nyaman, baik bagi keluarga muda, investor properti, maupun pensiunan.

@@ -9,6 +9,10 @@ legacyUrl: "/daftar-perumahan-di-kota-bandung.html"
 wpId: 863
 status: publish
 cover: "/media/curated/detail-5.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Daftar perumahan di Kota Bandung</strong> terus bertambah setiap tahun, mencerminkan tingginya permintaan akan hunian nyaman di salah satu kota dengan pertumbuhan properti tercepat di Indonesia. Mulai dari rumah minimalis modern, perumahan subsidi, hingga cluster eksklusif, semua tersedia dengan skema cicilan ringan dan lokasi strategis.

@@ -9,6 +9,10 @@ legacyUrl: "/rumah-dijual-di-baros-cimahi.html"
 wpId: 760
 status: publish
 cover: "/media/curated/knowledge-1.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

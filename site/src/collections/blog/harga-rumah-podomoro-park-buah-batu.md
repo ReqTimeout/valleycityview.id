@@ -9,6 +9,10 @@ legacyUrl: "/harga-rumah-podomoro-park-buah-batu.html"
 wpId: 1099
 status: publish
 cover: "/media/curated/design-25.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p>Rian, seorang manajer muda di Bandung, punya impian besar: memiliki rumah pertama di usia 30-an. Setelah berbulan-bulan menabung, ia mulai menjelajahi internet. Kata kunci yang sering ia ketik di mesin pencari adalah <strong>harga rumah Podomoro Park Buah Batu</strong>. Nama Podomoro memang sudah sangat terkenal, dan iklan-iklannya sangat memukau. Rian membayangkan kehidupan mewah di tengah fasilitas serba ada, dikelilingi danau buatan dan *clubhouse* megah. Namun, semakin dalam ia mencari, semakin banyak keraguan yang muncul di benaknya.

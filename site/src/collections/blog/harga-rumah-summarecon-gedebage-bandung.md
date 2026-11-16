@@ -9,6 +9,10 @@ legacyUrl: "/harga-rumah-summarecon-gedebage-bandung.html"
 wpId: 895
 status: publish
 cover: "/media/curated/detail-5.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Harga rumah Summarecon Gedebage Bandung</strong> menjadi perbincangan hangat di kalangan pencari hunian maupun investor properti. Proyek prestisius dari Summarecon ini hadir di kawasan strategis Gedebage, yang merupakan salah satu pusat pertumbuhan baru di Bandung Timur. Dengan harga rumah mulai dari Rp 1,2 miliar, perumahan ini menyasar kalangan menengah ke atas yang mengutamakan kenyamanan, kemewahan, dan fasilitas modern.

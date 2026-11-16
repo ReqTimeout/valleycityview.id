@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-baru-di-cimahi.html"
 wpId: 480
 status: publish
 cover: "/media/curated/detail-5.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 Mencari <strong>perumahan baru di Cimahi</strong> yang nyaman, asri, dan dekat dengan pusat kota? Valley Cityview adalah pilihan terbaik bagi Anda yang ingin memiliki hunian modern minimalis dengan akses mudah ke berbagai fasilitas umum. Terletak di Padalarang, Bandung Barat, kawasan ini menawarkan keseimbangan sempurna antara kehidupan kota dan suasana alam yang segar.

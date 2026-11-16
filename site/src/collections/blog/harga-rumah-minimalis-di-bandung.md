@@ -9,6 +9,10 @@ legacyUrl: "/harga-rumah-minimalis-di-bandung.html"
 wpId: 889
 status: publish
 cover: "/media/curated/unit-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Harga rumah minimalis di Bandung</strong> menjadi salah satu topik paling dicari oleh keluarga muda, investor properti, dan pasangan baru menikah. Dengan desain yang simple, fungsional, dan tetap estetik, rumah minimalis cocok untuk berbagai kalangan. Bandung menawarkan beragam pilihan rumah minimalis dengan harga kompetitif, mulai dari Rp 300 jutaan hingga Rp 700 jutaan.

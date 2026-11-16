@@ -4,8 +4,12 @@ slug: "perumahan-dekat-stasiun-whoosh-padalarang"
 description: "Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit"
 date: "2026-11-15"
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit. Padahal jarak tempuhnya bergantung pada jam berangkat dan titik keluar komplek.

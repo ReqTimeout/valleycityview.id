@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
-# Generated: 2026-11-13
-# Articles: 54
-# Sitemap URLs: 66
+# Generated: 2026-11-16
+# Articles: 55
+# Sitemap URLs: 0
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (54)
+## Articles (55)
+
+### Perumahan Dekat Stasiun Whoosh Padalarang: 9 Panduan Praktis
+URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-whoosh-padalarang
+Category: lokasi
+Published: 2026-11-15
+Description: Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit
+
+FAQ:
+
+
+Body:
+Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit. Padahal jarak tempuhnya bergantung pada jam berangkat dan titik keluar komplek.
+
+Perumahan Dekat Stasiun Whoosh Padalarang: Titik Awal yang Jujur
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Padalarang
+
+Padalarang (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.
+- Siapa yang biasanya mencari di sini: pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Laksanamekar berada di Padalarang, kecamatan di timur Kabupaten Bandung Barat. Kecamatan ini hidup dari dua hal: stasiun KCIC Padalarang dan koridor jalan raya Padalarang-Cimahi. Stasiunnya sekitar lima belas menit dari komplek, sementara koridor itu padat pukul 06.30 sampai 08.30. Minggu ini, coba berangkat dari gerbang komplek pada jam yang sama dengan jadwal kerja Anda.
+
+Pembeli yang paling mungkin di sini adalah pekerja pabrik dan logistik di sisi selatan. Kawasan industri dan pergudangan menyerap banyak pekerja muda yang sebelumnya mengontrak. Mereka berpenghasilan empat juta sampai delapan juta dan biasanya membeli rumah pertama. Langkah konkret: catat biaya transportasi harian Anda selama satu minggu sebelum menghitung cicilan.
+
+Urutan Pengecekan dari yang Termurah
+
+Mulai dari yang tidak perlu uang: ukur waktu tempuh ke stasiun KCIC pada jam sibuk. Bandingkan dengan waktu tempuh ke tempat kerja Anda yang sebenarnya, bukan hanya ke stasiun. Kalau pekerjaan Anda di Jakarta, uji sekali perjalanan pulang-pergi sebelum memutuskan. Langkah ini bisa Anda lakukan akhir pekan ini tanpa biaya apa pun.
+
+Setelah rute masuk akal, baru cek uangnya. Tipe 45/72 di Desa Laksanamekar ditawarkan dengan KPR Rp 599.000.000 dan cicilan Rp 3.871.000 per bulan. Booking fee Rp 5.000.000, dengan tenor hingga 20 tahun. Minta rincian cicilan tertulis dan bandingkan dengan sisa penghasilan setelah biaya transportasi.
+
+Yang Sering Salah Dibaca Pembeli
+
+Banyak pembeli membaca “lima belas menit” sebagai waktu sampai peron. 
+
+[... truncated, full article at https://valleycityview.id/blog/perumahan-dekat-stasiun-whoosh-padalarang]
+
+---
 
 ### Harga Rumah Podomoro Park Buah Batu dan Hunian di Padalarang
 URL: https://valleycityview.id/blog/harga-rumah-podomoro-park-buah-batu

@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-pancanaka-royal-garden-cimahi.html"
 wpId: 659
 status: publish
 cover: "/media/curated/hero.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

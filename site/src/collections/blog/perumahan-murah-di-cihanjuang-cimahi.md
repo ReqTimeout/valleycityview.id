@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-murah-di-cihanjuang-cimahi.html"
 wpId: 699
 status: publish
 cover: "/media/curated/design-45.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

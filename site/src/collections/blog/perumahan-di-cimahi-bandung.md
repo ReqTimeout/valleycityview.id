@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-di-cimahi-bandung.html"
 wpId: 766
 status: publish
 cover: "/media/curated/design-24.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 

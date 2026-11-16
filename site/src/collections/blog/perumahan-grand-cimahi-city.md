@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-grand-cimahi-city.html"
 wpId: 674
 status: publish
 cover: "/media/curated/hero-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 

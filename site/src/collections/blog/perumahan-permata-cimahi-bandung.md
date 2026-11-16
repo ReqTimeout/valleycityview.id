@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-permata-cimahi-bandung.html"
 wpId: 789
 status: publish
 cover: "/media/curated/unit-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <h2>Perumahan Cimahi – Pilihan Hunian Strategis di Bandung Barat

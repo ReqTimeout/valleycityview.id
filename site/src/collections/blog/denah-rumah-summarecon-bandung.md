@@ -9,6 +9,10 @@ legacyUrl: "/denah-rumah-summarecon-bandung.html"
 wpId: 1008
 status: publish
 cover: "/media/curated/design-24.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p>Jika Anda mencari <strong>denah rumah Summarecon Bandung</strong>, pasti yang ada di pikiran Anda adalah desain rumah mewah, modern, dan luas. Benar! Klaster-klaster seperti Amanda, Emily, dan Srimaya memang menawarkan layout rumah yang lega, namun tentu diiringi harga miliaran.

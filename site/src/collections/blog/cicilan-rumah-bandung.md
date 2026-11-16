@@ -9,6 +9,10 @@ legacyUrl: "/cicilan-rumah-bandung.html"
 wpId: 841
 status: publish
 cover: "/media/curated/hero.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-tanpa-dp-di-bandung
+  - cluster-amanda-summarecon-bandung
 ---
 
 <p><strong>Cicilan rumah Bandung</strong> kini hadir dengan beragam skema ringan yang memudahkan siapa saja untuk memiliki hunian impian. Dari kawasan Cimahi hingga Padalarang, banyak perumahan baru yang menawarkan harga terjangkau, DP rendah, dan proses KPR yang dibantu developer.

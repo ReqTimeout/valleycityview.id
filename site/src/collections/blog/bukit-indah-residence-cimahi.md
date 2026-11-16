@@ -9,6 +9,10 @@ legacyUrl: "/bukit-indah-residence-cimahi.html"
 wpId: 647
 status: publish
 cover: "/media/curated/design-45.webp"
+related:
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
+  - perumahan-baru-di-cimahi
 ---
 
 

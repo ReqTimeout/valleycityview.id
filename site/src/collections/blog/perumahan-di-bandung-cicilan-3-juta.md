@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-di-bandung-cicilan-3-juta.html"
 wpId: 820
 status: publish
 cover: "/media/curated/design-45.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p>Mencari <strong>perumahan di Bandung cicilan 3 juta</strong> per bulan kini semakin mudah. Bandung yang terus berkembang menawarkan berbagai pilihan hunian dengan harga terjangkau dan cicilan bersahabat. Cocok bagi keluarga muda, pasangan baru menikah, maupun para pekerja yang ingin memiliki rumah sendiri.

@@ -9,6 +9,10 @@ legacyUrl: "/rumah-dekat-kcic-bandung.html"
 wpId: 916
 status: publish
 cover: "/media/curated/design-24.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Rumah dekat KCIC Bandung</strong> kini jadi incaran banyak keluarga dan investor. Keberadaan Stasiun Kereta Cepat Indonesia–China (KCIC) di Padalarang membawa dampak besar terhadap perkembangan properti di sekitarnya. Akses cepat dari Bandung ke Jakarta kini bisa dinikmati dalam waktu kurang dari 1 jam, menjadikan kawasan ini sangat ideal untuk hunian maupun investasi jangka panjang.

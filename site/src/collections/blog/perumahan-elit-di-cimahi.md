@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-elit-di-cimahi.html"
 wpId: 680
 status: publish
 cover: "/media/curated/design-25.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

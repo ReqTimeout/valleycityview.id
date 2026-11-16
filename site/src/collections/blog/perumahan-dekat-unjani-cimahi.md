@@ -9,6 +9,10 @@ legacyUrl: "/perumahan-dekat-unjani-cimahi.html"
 wpId: 708
 status: publish
 cover: "/media/curated/hero-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

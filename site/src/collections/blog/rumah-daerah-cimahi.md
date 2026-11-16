@@ -9,6 +9,10 @@ legacyUrl: "/rumah-daerah-cimahi.html"
 wpId: 733
 status: publish
 cover: "/media/curated/hero.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 

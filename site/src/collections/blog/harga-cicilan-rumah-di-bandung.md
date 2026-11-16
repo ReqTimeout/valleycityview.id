@@ -9,6 +9,10 @@ legacyUrl: "/harga-cicilan-rumah-di-bandung.html"
 wpId: 883
 status: publish
 cover: "/media/curated/unit-3.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Harga cicilan rumah di Bandung</strong> kini semakin bersahabat, mulai dari Rp 3 jutaan per bulan. Dengan banyaknya pilihan perumahan baru dan skema pembayaran fleksibel, memiliki rumah impian di Bandung bukan lagi mimpi. Artikel ini membahas harga cicilan rumah di Bandung dari berbagai developer dan simulasi KPR untuk membantu Anda mengambil keputusan cerdas.

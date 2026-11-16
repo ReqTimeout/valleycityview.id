@@ -9,6 +9,10 @@ legacyUrl: "/daftar-perumahan-elit-di-bandung.html"
 wpId: 869
 status: publish
 cover: "/media/curated/design-45.webp"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 <p><strong>Daftar perumahan elit di Bandung</strong> menjadi pencarian utama bagi keluarga mapan, eksekutif, maupun investor properti yang menginginkan hunian prestisius dengan lingkungan eksklusif. Bandung tak hanya dikenal sebagai kota wisata dan pendidikan, tapi juga sebagai kota dengan deretan perumahan elit terbaik di Indonesia.
