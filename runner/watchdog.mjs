@@ -17,13 +17,14 @@
  * Email hanya dikirim bila ADA alert (hindari spam tiap 6 jam saat sehat).
  * Env: WATCHDOG_PUBLISH_H/REPORT_H/RUN_H · RESEND_API_KEY · NOTIFY_EMAIL_*.
  */
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, renameSync, existsSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { hostname } from 'node:os';
 import { openRun } from './lib/runlog.mjs';
 import { sendReport } from './lib/notify.mjs';
 import { lockStatus } from './lib/lock.mjs';
 import { CFG, inContainer } from './lib/config.mjs';
-import { RUNS_PATH, CONFIG_PATH, SITEMAP_PATH } from '../seo/paths.mjs';
+import { RUNS_PATH, CONFIG_PATH, SITEMAP_PATH, STATE_PATH } from '../seo/paths.mjs';
 import { NOTIFY_PREFIX } from '../seo/site.mjs';
 
 const log = (m) => console.log(`[watchdog] ${m}`);
@@ -98,6 +99,79 @@ async function main() {
         },
       ],
     });
+  }
+
+  // ── POSTINGAN alert dashboard (halaman /alerts) ────────────────────────────
+  // Halaman /alerts itu PASIF: tanpa langkah ini tidak satu pun catatannya
+  // sampai ke email siapa pun (watchdog lama hanya mengecek kesehatan pipeline
+  // sendiri). Watchdog jalan tiap 30 menit → kirim ke internal (TANPA cc klien)
+  // HANYA saat daftar catatan BERUBAH (hash), supaya pos yang sama tidak
+  // membanjiri inbox.
+  try {
+    let st = {};
+    try { st = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch { st = {}; }
+    const { posts } = await import('../seo/lib/live-posts.mjs');
+    const { inventory } = await import('../seo/tracking.mjs');
+    const dash = [];
+    if (st.rampGate && st.rampGate.alert) {
+      dash.push({ kind: (st.rampGate.alert.level === 'critical' ? 'bad' : 'warn'), code: st.rampGate.alert.code || 'ramp', msg: st.rampGate.alert.msg || '' });
+    }
+    if (st.remedyAlert) {
+      dash.push({ kind: 'warn', code: 'remedy', msg: st.remedyAlert.msg || st.remedyAlert.message || JSON.stringify(st.remedyAlert).slice(0, 160) });
+    }
+    const accessMode = process.env.DASHBOARD_ACCESS || 'not-configured';
+    if (accessMode !== 'enforced') {
+      dash.push({ kind: 'bad', code: 'access', msg: 'Access ' + accessMode + ' — halaman ini hanya terlindungi oleh tidak terindeks; itu BUKAN proteksi.' });
+    }
+    try {
+      const pubUrls = new Set((st.published || []).map((p) => (typeof p === 'string' ? p : p.url || '')));
+      const missing = posts().filter((p) => p.live && !pubUrls.has(`https://valleycityview.id/blog/${p.slug}/`) && !pubUrls.has(`https://valleycityview.id/blog/${p.slug}`)).length;
+      if (missing > 0) dash.push({ kind: 'warn', code: 'uncatalogued', msg: `${missing} artikel tayang belum tercatat di state — pencatatan berjalan otomatis tiap pagi.` });
+    } catch { /* inventaris gagal → lewati, jangan gagalkan watchdog */ }
+    try {
+      const thin = inventory().published.filter((a) => a.words < 900).length;
+      if (thin > 0) dash.push({ kind: 'info', code: 'thin', msg: `${thin} artikel masih pendek (<900 kata) — kandidat dijalankan freshness tiap Senin.` });
+    } catch { /* tracking gagal → lewati */ }
+    const creds = ['QWEN_API_KEY', 'GSC_SERVICE_ACCOUNT_JSON_B64', 'BING_API_KEY', 'RESEND_API_KEY', 'NOTIFY_EMAIL_TO'].filter((k) => !process.env[k]);
+    if (creds.length) dash.push({ kind: 'warn', code: 'credentials', msg: `Kredensial belum terpasang: ${creds.join(', ')} — pekerjaan terkait dilewati dan dilaporkan jujur.` });
+
+    const hash = createHash('sha1').update(JSON.stringify(dash)).digest('hex').slice(0, 16);
+    const prev = (st.alertPost && st.alertPost.hash) || '';
+    const saveAlertPost = (rec) => {
+      try {
+        st.alertPost = rec;
+        const tmp = `${STATE_PATH}.tmp`;
+        writeFileSync(tmp, JSON.stringify(st, null, 2) + '\n');
+        renameSync(tmp, STATE_PATH);
+      } catch (e) { log(`catat alertPost gagal: ${e.message}`); }
+    };
+    if (dash.length && hash !== prev) {
+      const LVL = { bad: 'KRITIS', warn: 'PERHATIAN', info: 'INFO' };
+      const r = await sendReport({
+        kind: 'alerts',
+        tone: 'alert',
+        cc: false,
+        subject: `[${NOTIFY_PREFIX}] Peringatan dashboard — ${dash.length} catatan aktif`,
+        title: `Perlu tindakan — ${dash.length} catatan di halaman Perlu Perhatian`,
+        sections: [
+          { title: 'Catatan aktif', body: dash.map((a, i) => `  ${i + 1}. [${LVL[a.kind] || 'INFO'}] ${a.msg}`).join('\n') },
+          { title: 'Sumber', body: `  Daftar ini identik dengan halaman /alerts — dikirim otomatis saat daftar berubah.\n  Rincian: https://valleycity.beriklan.co.id/alerts` },
+        ],
+      });
+      saveAlertPost({ hash, at: new Date().toISOString(), sent: r.sent, count: dash.length });
+      log(`posting alert dashboard: ${dash.length} catatan → email internal (${r.sent ? 'terkirim id ' + r.id : 'GAGAL ' + (r.reason || '')})`);
+      rl.step('alert-post', r.sent ? 'ok' : 'fail', `${dash.length} catatan · hash ${hash}`);
+    } else if (!dash.length && prev) {
+      saveAlertPost({ hash: '', at: new Date().toISOString(), sent: false, count: 0 });
+      log('posting alert dashboard: semua catatan bersih — pos direset');
+    } else if (!dash.length) {
+      log('posting alert dashboard: tidak ada catatan aktif');
+    } else {
+      log(`posting alert dashboard: tidak berubah (hash ${hash}) — tidak dikirim ulang`);
+    }
+  } catch (e) {
+    log(`posting alert dashboard GAGAL: ${e.message}`);
+    rl.step('alert-post', 'fail', String(e.message).slice(0, 160));
   }
 
   rl.finish(0);

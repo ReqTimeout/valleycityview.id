@@ -12,7 +12,7 @@
   const reports = $derived(d?.reports || []);
   const env = $derived(d?.reportsEnv || {});
 
-  const kindLabel = (k) => ({ harian: 'Harian', mingguan: 'Mingguan', watchdog: 'Pengawas', rank: 'Ranking', uji: 'Uji' }[k] || k || '—');
+  const kindLabel = (k) => ({ harian: 'Harian', mingguan: 'Mingguan', watchdog: 'Pengawas', rank: 'Ranking', alerts: 'Peringatan', uji: 'Uji' }[k] || k || '—');
 
   const cols = [
     { key: 'at', label: 'Waktu', sortable: true, get: (r) => `${new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(r.at))} WIB` },
