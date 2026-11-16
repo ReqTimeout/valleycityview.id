@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-16
-# Articles: 57
-# Sitemap URLs: 0
+# Articles: 58
+# Sitemap URLs: 69
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,60 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (57)
+## Articles (58)
+
+### Perumahan Dekat Stasiun Padalarang: 8 Panduan Praktis
+URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-padalarang
+Category: lokasi
+Published: 2026-11-15
+Description: Panduan perumahan dekat stasiun padalarang untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Memilih perumahan dekat stasiun padalarang sering terdengar mudah di iklan. Kenyataannya, jarak ke Stasiun KCIC Padalarang menentukan ritme harian Anda. Angka di brosur perlu diuji sendiri sebelum akad.
+
+Perumahan Dekat Stasiun Padalarang: Titik Awal yang Jujur
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Padalarang
+
+Padalarang (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.
+- Siapa yang biasanya mencari di sini: pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Laksanamekar berada sekitar lima belas menit dari Stasiun KCIC Padalarang. Kereta cepat membuat Jakarta–Bandung di bawah satu jam. Waktu itu berlaku saat jalan lengang, bukan jam sibuk. Koridor Padalarang–Cimahi padat pada pukul 06.30 sampai 08.30.
+
+Bagi pekerja pabrik dan logistik di sisi selatan, jarak ini masuk akal. Penghasilan empat juta sampai delapan juta masih bisa menutup cicilan Rp 3.871.000 per bulan. Uji dulu rute Anda pada jam berangkat kerja minggu ini. Catat waktu tempuh nyata dari gerbang sampai peron.
+
+Daftar Periksa Sebelum Melangkah
+
+Sebelum memutuskan, kunjungi lokasi dua kali: sekali pagi, sekali sore. Perhatikan angkutan pengumpan menuju stasiun. Tanyakan apakah pengelola menyediakan antar-jemput. Kunjungan sederhana ini biasanya membuka hal yang tidak muncul di brosur.
+
+Siapkan juga anggaran di luar harga rumah. Unit tipe 45/72 di Laksanamekar ditawarkan dengan KPR Rp 599.000.000. Booking fee Rp 5.000.000 dan tenor hingga 20 tahun perlu masuk hitungan bulanan. Minta rincian biaya notaris, provisi, dan BPHTB secara tertulis minggu ini.
+
+Yang Sering Salah Dibaca Pembeli
+
+Banyak iklan menulis "dekat stasiun" lalu pembeli membayangkan jalan kaki lima menit. Padahal jarak dari Laksanamekar ke stasiun KCIC Padalarang sekitar lima belas menit dengan kendaraan. Angka itu masuk akal untuk komuter, asal dihitung pada jam berangkat yang sebenarnya. Minggu ini, coba ukur sendiri waktu tempuh dari gerbang perumahan ke parkir stasiun pada pukul 06.30.
+
+Kesalahan
+
+[... truncated, full article at https://valleycityview.id/blog/perumahan-dekat-stasiun-padalarang]
+
+---
 
 ### Perumahan Dekat Stasiun Whoosh Padalarang: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-whoosh-padalarang
