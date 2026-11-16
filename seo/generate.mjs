@@ -26,7 +26,7 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { ROOT, BLOG_DIR, QUEUE_PATH, PROMPTS_PATH, KEYWORDS_PATH } from './paths.mjs';
@@ -578,6 +578,7 @@ async function main() {
   }
 
   let ok = 0, fail = 0;
+  const written = [];
   for (const t of targets) {
     console.log(`\n--- ${t.keyword} ---`);
     const slug = t.slug || slugify(t.keyword);
@@ -774,6 +775,7 @@ async function main() {
     }
 
     writeFileSync(outPath, mdx);
+    written.push(outPath);
     t.status = 'draft';
     t.notes = (t.notes || '') + ` | generated ${wibDay()}`;
     t.generatedAt = wibDay();
@@ -786,6 +788,29 @@ async function main() {
   } else if (ok > 0) {
     console.log(`\n--defer-queue: Markdown tertulis, queue di-merge belakangan`);
   }
+
+  // Daya tahan file draft: file .md tinggal di LAYER container, bukan volume —
+  // deploy berikutnya (checkout -f dari origin/main) menghapusnya sementara
+  // queue.json (volume) tetap status 'draft' → jadilah draft hantu tanpa file
+  // yang tidak akan pernah bisa dipublish (pickDrafts menolaknya). Komprominya:
+  // file draft ikut di-commit+push tiap batch, sama seperti publish-git.
+  if (written.length) {
+    if (process.env.GITHUB_TOKEN && existsSync(join(ROOT, '.git'))) {
+      try {
+        const b64 = Buffer.from('x-access-token:' + process.env.GITHUB_TOKEN).toString('base64');
+        const auth = ['-c', `http.extraHeader=AUTHORIZATION: basic ${b64}`];
+        execFileSync('git', [...auth, 'add', '--', ...written, QUEUE_PATH], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        execFileSync('git', [...auth, 'commit', '-q', '-m', `chore(generate): ${written.length} draft baru (otomatis)`], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        console.log(`Draft ${written.length} file + queue di-commit & push (tahan redeploy).`);
+      } catch (e) {
+        console.warn(`[generate] commit/push draft GAGAL — file tetap lokal, BISA hilang saat redeploy: ${String(e.message).slice(0, 200)}`);
+      }
+    } else {
+      console.warn('[generate] GITHUB_TOKEN/.git absen — draft TIDAK dipush, akan hilang saat redeploy.');
+    }
+  }
+
   console.log(`\nSummary: ${ok} ok, ${fail} fail`);
   process.exit(fail > 0 ? 1 : 0);
 }
