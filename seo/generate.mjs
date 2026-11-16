@@ -33,7 +33,7 @@ import { ROOT, BLOG_DIR, QUEUE_PATH, PROMPTS_PATH, KEYWORDS_PATH } from './paths
 import { PRICES, MONEY_PAGES } from './site.mjs';
 import { injectGeoAnchor } from './lib/geo-anchor.mjs';
 import { liveSlugs } from './lib/live-posts.mjs';
-import { lintArticle } from './lib/article-lint.mjs';
+import { lintArticle, ASING } from './lib/article-lint.mjs';
 import {
   PARTS_SYSTEM_PROMPT,
   buildPartA,
@@ -217,7 +217,14 @@ async function callLLM({ system, user, label, maxTokens = 3000 }) {
     try {
       console.log(`  [${label}] [${name}] call...`);
       const st = Date.now();
-      const out = await fn();
+      let out = await fn();
+      // Model preview kadang menyisipkan aksara asing (contoh nyata: "通 勤"
+      // pada artikel Batujajar via qwen4-max-preview). Artikel = Bahasa
+      // Indonesia berhuruf Latin; karakter yang DITOLAK gerbang ASING dibuang
+      // di sini dengan regex impor yang SAMA (satu sumber kebenaran) — tidak
+      // ada kata Latin yang diubah atau dikarang, hanya aksara asing yang
+      // disingkirkan sebelum gate.
+      out = out.replace(new RegExp(ASING.source, 'gu'), ' ').replace(/ {3,}/g, ' ');
       console.log(`  [${label}] ${((Date.now() - st) / 1000).toFixed(1)}s OK out=${out.length}c`);
       if (process.env.SEO_DEBUG) writeFileSync(`/tmp/seo-part-${label}.md`, out);
       return out;

@@ -56,7 +56,7 @@ const KATA_CAMPUR_LEGIT = new Set(['date']);
 // fullwidth, dan emoji/simbol astral — ketiganya nyata muncul sebagai glitch
 // 2 Okt 2026 dan lolos. Sekarang semuanya ditutup.
 // SENGAJA tidak dimasukkan: tanda baca Latin sah (— · → ≥ ≤).
-const ASING = /[\u0100-\u017f\u0370-\u03ff\u0400-\u04ff\u0530-\u058f\u0900-\u0dff\u0e00-\u0fff\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]|[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/u;
+export const ASING = /[\u0100-\u017f\u0370-\u03ff\u0400-\u04ff\u0530-\u058f\u0900-\u0dff\u0e00-\u0fff\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]|[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/u;
 
 const BOLEH = new Set([
   'padalarang', 'cimahi', 'laksanamekar', 'podomoro', 'summarecon', 'soreang',
@@ -152,25 +152,31 @@ export function lintArticle(src) {
     return { err, info };
   }
 
+  // Gerbang glitch (2/3/4) memindai ISI ARTIKEL saja. Frontmatter ditulis oleh
+  // template kode sendiri (mis. kunci `imageAlt` = camelCase lahir dari kode,
+  // bukan dari LLM) — memindai frontmatter membuat SEMUA artikel baru gagal
+  // gate "kata campuran huruf" begitu imageAlt dipasang (insiden 16 Nov 2026).
+  const body = src.slice(src.indexOf('\n---', 3) + 4);
+
   // ── 2. karakter non-Latin ───────────────────────────────────────────────
-  if (ASING.test(src)) {
-    const contoh = [...new Set([...src.matchAll(/[\u0100-\u017f\u0370-\u03ff\u0400-\u04ff\u0530-\u058f\u0900-\u0dff\u0e00-\u0fff\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/gu)].map((m) => m[0]))];
+  if (ASING.test(body)) {
+    const contoh = [...new Set([...body.matchAll(/[\u0100-\u017f\u0370-\u03ff\u0400-\u04ff\u0530-\u058f\u0900-\u0dff\u0e00-\u0fff\u3000-\u9fff\uac00-\ud7af\uff00-\uffef]/gu)].map((m) => m[0]))];
     err.push(`ada karakter non-Latin: ${contoh.slice(0, 5).join(' ')}`);
   }
 
   // ── 3. kata menempel ───────────────────────────────────────────────────
   const mixed = [
-    ...new Set([...src.matchAll(KATA_CAMPUR)].map((m) => m[0])),
+    ...new Set([...body.matchAll(KATA_CAMPUR)].map((m) => m[0])),
   ].filter((w) => !BOLEH.has(w.toLowerCase()) && !KATA_CAMPUR_LEGIT.has(w));
   if (mixed.length) err.push(`kata campuran huruf: ${mixed.join(', ')}`);
 
   // ── 4. junk markup Liquid/Jekyll ────────────────────────────────────────
   const junk = [
     ...new Set([
-      ...[...src.matchAll(/\b[a-z]+_[a-z]+\b/g)].map((m) => m[0]),
-      ...[...src.matchAll(/&\[[a-z]{1,4}\]|\]\[[a-z]{1,4}\]/gi)].map((m) => m[0]),
+      ...[...body.matchAll(/\b[a-z]+_[a-z]+\b/g)].map((m) => m[0]),
+      ...[...body.matchAll(/&\[[a-z]{1,4}\]|\]\[[a-z]{1,4}\]/gi)].map((m) => m[0]),
       // sisa templating Liquid/Jekyll yang belum ter-substitusi
-      ...[...src.matchAll(/\{\{[^}]{0,40}\}\}/g)].map((m) => m[0]),
+      ...[...body.matchAll(/\{\{[^}]{0,40}\}\}/g)].map((m) => m[0]),
     ]),
   ];
   if (junk.length) err.push(`junk markup: ${junk.join(', ')}`);

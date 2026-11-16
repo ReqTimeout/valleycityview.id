@@ -46,6 +46,7 @@ FORMAT OUTPUT (cek sebelum submit):
 - TEPAT 1 link eksternal ke sumber resmi Indonesia (bps.go.id, ojk.go.id, pupr.go.id, bi.go.id, atau situs pemerintah kota) yang benar-benar mendukung klaim di paragraf itu.
 - Ditutup 1-2 paragraf TANPA heading. Dilarang memakai heading "Kesimpulan"/"Penutup"/"Ringkasan".
 - Output body saja: tanpa frontmatter "---", tanpa "# H1", tanpa emoji.
+- HANYA Bahasa Indonesia berhuruf Latin. Dilarang keras menulis karakter CJK/Jepang/Korea/aksara asing apa pun (termasuk terjemahan harfiah seperti 通勤) — satu karakter asing = artikel dibuang gerbang.
 
 GAYA:
 - Variasikan panjang kalimat. Sesekali bicara langsung ke pembaca ("coba hitung sendiri").
