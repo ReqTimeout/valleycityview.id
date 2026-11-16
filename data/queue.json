@@ -2868,14 +2868,15 @@
       "intent": "rumah dijual di Bandung Barat — apa yang harus dicek sebelum membeli unit baru di koridor ini",
       "priority": 88,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "bandung-barat",
       "city": "Bandung Barat",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.",
       "local_buyer": "pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah dijual murah di kabupaten bandung",
@@ -2902,14 +2903,15 @@
       "intent": "rumah dijual di Bandung Barat — apa yang harus dicek sebelum membeli unit baru di koridor ini",
       "priority": 88,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "bandung-barat",
       "city": "Bandung Barat",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.",
       "local_buyer": "pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "jual beli rumah cimahi",
@@ -8154,14 +8156,15 @@
       "intent": "rumah di Cimahi Selatan — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "cimahi",
       "city": "Cimahi",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
       "local_buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan cimahi kota cimahi jawa barat",
@@ -8171,14 +8174,15 @@
       "intent": "rumah di Cimahi — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "cimahi",
       "city": "Cimahi",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
       "local_buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan mandalika cimahi longsor",
@@ -8188,14 +8192,15 @@
       "intent": "rumah di Cimahi — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "cimahi",
       "city": "Cimahi",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
       "local_buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tuan rumah porprov jawa barat 2026",
@@ -8256,14 +8261,15 @@
       "intent": "rumah di Cimahi — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "geo-matrix",
-      "status": "pending",
+      "status": "draft",
       "geo": "cimahi",
       "city": "Cimahi",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
       "local_buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah jalan cimahi menteng",
