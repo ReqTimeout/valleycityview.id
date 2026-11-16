@@ -7190,14 +7190,15 @@
       "intent": "angka yang ditulis orang di brosur itu apa sebenarnya",
       "priority": 75,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "denah rumah 2 kamar 1 lantai",
@@ -7369,14 +7370,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 73,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah cluster cimahi",
@@ -7602,14 +7604,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara cek pbb rumah jawa barat",
@@ -7619,14 +7622,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah rumah kasepuhan dari jawa barat",
@@ -7636,14 +7640,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa nama rumah jawa barat",
@@ -7671,14 +7676,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa rumah jawa barat",
@@ -7832,14 +7838,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara bayar pajak rumah jawa barat",
@@ -7849,14 +7856,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan di ngamprah bandung barat",
@@ -8478,14 +8486,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah jawa barat namanya",
@@ -9017,14 +9026,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah bandung jadul",
@@ -10078,14 +10088,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "booking fee rumah biasanya berapa",
@@ -10095,14 +10106,15 @@
       "intent": "booking fee / NUP rumah — apa itu, berapa (Rp 5 juta), dan apakah bisa dicicil",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah ppjb bisa dibatalkan",
@@ -10112,14 +10124,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah ppjb ada masa berlakunya",
@@ -10129,14 +10142,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu nup rumah",
@@ -10235,14 +10249,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "bphtb 2025 berapa persen",
@@ -12935,14 +12950,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "syarat bphtb 0",
