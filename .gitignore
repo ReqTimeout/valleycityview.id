@@ -70,3 +70,10 @@ seo/keywords.suggested.json
 *.swp
 .idea/
 .vscode/
+
+# ---- Runtime volume (jangan PERNAH di-track) -------------------------------
+# data/queue.json dkk = isi volume container (/app/data). Kalau file ini ikut
+# ter-commit, `git checkout -f` tiap deploy MENIMPA volume dengan snapshot lama
+# dan membalik status publish yang baru saja terjadi (insiden 16 Nov 2026:
+# artikel terbit 08:00 dibalik lagi jadi draft saat deploy 08:45).
+data/

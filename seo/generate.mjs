@@ -24,8 +24,8 @@
  *   node seo/generate.mjs --count=2 --dry
  */
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, readdirSync, copyFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { spawn, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
@@ -799,7 +799,13 @@ async function main() {
       try {
         const b64 = Buffer.from('x-access-token:' + process.env.GITHUB_TOKEN).toString('base64');
         const auth = ['-c', `http.extraHeader=AUTHORIZATION: basic ${b64}`];
-        execFileSync('git', [...auth, 'add', '--', ...written, QUEUE_PATH], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        // Mirror antrean ke jalur REPO (seo/queue.json) dulu. JANGAN sekali-kali
+        // `git add` QUEUE_PATH kalau isinya volume (/app/data) — file volume yang
+        // ter-commit akan ditimpa `git checkout -f` tiap deploy dan MEMBALIK
+        // status publish yang baru terjadi (insiden 16 Nov 2026).
+        const repoQueue = join(ROOT, 'seo/queue.json');
+        if (resolve(QUEUE_PATH) !== resolve(repoQueue)) copyFileSync(QUEUE_PATH, repoQueue);
+        execFileSync('git', [...auth, 'add', '--', ...written, repoQueue], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         execFileSync('git', [...auth, 'commit', '-q', '-m', `chore(generate): ${written.length} draft baru (otomatis)`], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         console.log(`Draft ${written.length} file + queue di-commit & push (tahan redeploy).`);
