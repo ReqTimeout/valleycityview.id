@@ -3032,14 +3032,15 @@
       "intent": "cicilan rumah terjangkau — apakah Rp 3.871.000/bl tenor 20 tahun masuk akal untuk penghasilan saya",
       "priority": 88,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "pelepasan cukai 2025 rumah pertama",
@@ -3247,14 +3248,15 @@
       "intent": "cicilan rumah terjangkau — apakah Rp 3.871.000/bl tenor 20 tahun masuk akal untuk penghasilan saya",
       "priority": 88,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "pinjaman untuk rumah pertama",
@@ -3714,14 +3716,15 @@
       "intent": "berapa DP KPR rumah yang harus disiapkan, dan biaya apa saja yang muncul di luar DP",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu dp akad rumah",
@@ -3731,14 +3734,15 @@
       "intent": "berapa DP KPR rumah yang harus disiapkan, dan biaya apa saja yang muncul di luar DP",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips untuk pembeli rumah pertama",
@@ -3964,14 +3968,15 @@
       "intent": "apa itu KPR rumah dan bagaimana kerjanya untuk pembeli rumah pertama",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu floating cicilan rumah",
@@ -3981,14 +3986,15 @@
       "intent": "cicilan rumah terjangkau — apakah Rp 3.871.000/bl tenor 20 tahun masuk akal untuk penghasilan saya",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips memilih rumah pertama",
@@ -4178,14 +4184,15 @@
       "intent": "apa itu KPR rumah dan bagaimana kerjanya untuk pembeli rumah pertama",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu sistem kpr rumah",
@@ -4195,14 +4202,15 @@
       "intent": "apa itu KPR rumah dan bagaimana kerjanya untuk pembeli rumah pertama",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu cicilan rumah",
@@ -4212,14 +4220,15 @@
       "intent": "cicilan rumah terjangkau — apakah Rp 3.871.000/bl tenor 20 tahun masuk akal untuk penghasilan saya",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips rumah pertama",
@@ -4697,14 +4706,15 @@
       "intent": "apa itu KPR rumah dan bagaimana kerjanya untuk pembeli rumah pertama",
       "priority": 85,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbandingan harga rumah dan gaji",
@@ -6406,14 +6416,15 @@
       "intent": "kenapa status tanah mengubah harga dan nilai jual kembali",
       "priority": 85,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cek kualitas bangunan saat serah terima rumah",
@@ -6423,14 +6434,15 @@
       "intent": "daftar periksa sebelum tanda tangan berita acara",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "sewa rumah atau cicil rumah hitungannya",
@@ -6440,14 +6452,15 @@
       "intent": "pada gaji berapa pindah dari ngontrak jadi milik sendiri masuk akal",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "komuter KCIC Padalarang waktu tempuh",
@@ -6529,14 +6542,15 @@
       "intent": "cara simulasi KPR rumah yang benar sebelum survei — hitung cicilan, tenor, dan kemampuan bayar",
       "priority": 80,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "biaya provisi KPR",
@@ -6614,14 +6628,15 @@
       "intent": "kalau ditolak, apa yang saya perbaiki",
       "priority": 80,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "PPJB sebelum akta jual beli",
@@ -6735,14 +6750,15 @@
       "intent": "cara jadi agen properti — komisi, syarat, dan program kemitraan developer",
       "priority": 78,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara menghitung luas rumah tipe 45",
