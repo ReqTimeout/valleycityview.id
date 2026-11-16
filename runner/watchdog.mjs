@@ -139,9 +139,14 @@ async function main() {
     const prev = (st.alertPost && st.alertPost.hash) || '';
     const saveAlertPost = (rec) => {
       try {
-        st.alertPost = rec;
+        // BACA ULANG state dari disk — object `st` dimuat SEBELUM sendReport;
+        // menulis `st` mentah akan menimpa baris riwayat laporan yang baru saja
+        // direkam sendReport (insiden: baris 'Peringatan' hilang dari /laporan).
+        let cur = {};
+        try { cur = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch { cur = st; }
+        cur.alertPost = rec;
         const tmp = `${STATE_PATH}.tmp`;
-        writeFileSync(tmp, JSON.stringify(st, null, 2) + '\n');
+        writeFileSync(tmp, JSON.stringify(cur, null, 2) + '\n');
         renameSync(tmp, STATE_PATH);
       } catch (e) { log(`catat alertPost gagal: ${e.message}`); }
     };
