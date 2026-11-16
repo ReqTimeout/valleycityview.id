@@ -4,10 +4,14 @@ slug: "perumahan-dekat-whoosh-bandung"
 description: "Panduan perumahan dekat whoosh bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
 date: "2026-11-15"
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Perumahan Dekat Whoosh Bandung: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Perumahan dekat whoosh bandung sering dianggap solusi komuter. Namun, jarak fisik dan waktu tempuh nyata perlu diverifikasi sebelum mengambil keputusan besar bagi pembeli rumah pertama.
