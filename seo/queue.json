@@ -11708,14 +11708,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan bphtb dan pphtb",
@@ -11959,14 +11960,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb gantung",
@@ -11976,14 +11978,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan bphtb dan pnbp",
@@ -12209,14 +12212,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan bphtb dan ppn",
@@ -13252,14 +13256,15 @@
       "intent": "buat makelar: skema komisi dan apa yang dijual",
       "priority": 40,
       "demand_signal": "low",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     }
   ]
 }
