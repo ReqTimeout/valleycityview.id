@@ -3,11 +3,11 @@
   import { num, pct, date } from '../lib/format.js';
   import PageHead from '../components/PageHead.svelte';
   import Kpi from '../components/Kpi.svelte';
+  import Chip from '../components/Chip.svelte';
   import Card from '../components/Card.svelte';
   import BarChart from '../components/BarChart.svelte';
   import LineChart from '../components/LineChart.svelte';
   import DataTable from '../components/DataTable.svelte';
-  import EmptyState from '../components/EmptyState.svelte';
 
   const d = $derived(data.snapshot);
   const t = $derived(d?.traffic || {});
@@ -16,29 +16,22 @@
   const hist = $derived(d?.gsc?.history || []);
   const topPages = $derived(d?.gsc?.topPages || []);
   const gscNote = $derived(d?.gsc?.historyNote || null);
+  const connected = $derived(Boolean(agg || t.available));
 
-  const topItems = $derived((t.top || []).map((q) => ({ label: q.query, value: q.clicks || 0 })));
-  const impItems = $derived((t.top || []).slice(0, 10).map((q) => ({ label: q.query, value: q.impressions || 0, color: 'var(--sky)' })));
+  const impItems = $derived((t.top || []).slice(0, 8).map((q) => ({ label: q.query, value: q.impressions || 0, color: 'var(--sky)' })));
 
   const topCols = [
     { key: 'query', label: 'Kata kunci', sortable: true, get: (r) => r.query },
     { key: 'clicks', label: 'Klik', align: 'r', sortable: true, get: (r) => num(r.clicks) },
-    { key: 'impressions', label: 'Tayangan', align: 'r', sortable: true, get: (r) => num(r.impressions) },
-    { key: 'ctr', label: 'Klik per tayangan', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 1)) },
+    { key: 'impressions', label: 'Tayangan', align: 'r', sortable: true, sortVal: (r) => r.impressions ?? 0, get: (r) => num(r.impressions) },
+    { key: 'ctr', label: 'Rasio klik', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 1)) },
     { key: 'position', label: 'Posisi', align: 'r', sortable: true, get: (r) => (r.position == null ? '—' : num(r.position)) },
   ];
   const pageCols = [
     { key: 'page', label: 'Halaman', sortable: true, get: (r) => String(r.page || '').replace(/^https?:\/\/[^/]+/, '') || '/' },
     { key: 'clicks', label: 'Klik', align: 'r', sortable: true, get: (r) => num(r.clicks) },
     { key: 'impressions', label: 'Tayangan', align: 'r', sortable: true, get: (r) => num(r.impressions) },
-    { key: 'ctr', label: 'Klik per tayangan', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 1)) },
-    { key: 'position', label: 'Posisi', align: 'r', sortable: true, get: (r) => (r.position == null ? '—' : num(r.position)) },
-  ];
-  const histCols = [
-    { key: 'date', label: 'Tanggal', sortable: true, get: (r) => date(r.date) },
-    { key: 'clicks', label: 'Klik', align: 'r', sortable: true, get: (r) => num(r.clicks) },
-    { key: 'impressions', label: 'Tayangan', align: 'r', sortable: true, get: (r) => num(r.impressions) },
-    { key: 'ctr', label: 'Klik per tayangan', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 2)) },
+    { key: 'ctr', label: 'Rasio klik', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 1)) },
     { key: 'position', label: 'Posisi', align: 'r', sortable: true, get: (r) => (r.position == null ? '—' : num(r.position)) },
   ];
   const rankCols = [
@@ -53,18 +46,38 @@
   ];
 </script>
 
-<PageHead title="Trafik" sub="Kunjungan dan tayangan dari pencarian Google" />
+<PageHead title="Trafik" sub="Klik, tayangan, rasio klik, dan posisi dari data Google (28 hari).">
+  <Chip value={connected ? 'on' : 'off'} kind={connected ? 'ok' : 'warn'} label={connected ? 'terhubung' : 'menunggu data'} />
+</PageHead>
 
-<div class="grid g4">
-  <Kpi i={0} label="Klik" value={agg ? agg.clicks : (t.available ? t.clicks : null)} note={agg ? `periode ${agg.period?.start} → ${agg.period?.end}` : (t.available ? '28 hari (kata kunci)' : 'menunggu pengukuran')} tone="ok" />
-  <Kpi i={1} label="Tayangan" value={agg ? agg.impressions : (t.available ? t.impressions : null)} tone="teal" />
-  <Kpi i={2} label="Rasio klik" value={agg ? (agg.ctr == null ? '—' : pct(agg.ctr, 2)) : (t.available && t.impressions ? pct(t.clicks / t.impressions, 1) : '—')} tone="info" />
-  <Kpi i={3} label="Posisi rata-rata" value={agg ? (agg.position ?? '—') : null} note={agg ? 'tertimbang tayangan, 30 hari' : (gscNote || 'menunggu pengukuran')} tone="warn" />
-</div>
+{#if t.available}
+  <div class="grid g2">
+    <Card i={0} title="Kata kunci teratas" sub="28 hari · urut tayangan — klik baris untuk mencari">
+      <DataTable columns={topCols} rows={t.top || []} searchKeys={['query']} placeholder="Cari kata kunci…" pageSize={50} />
+    </Card>
+    <Card i={1} title="Sebaran pencarian" sub="{num((t.top || []).length)} kata kunci teratas · per tayangan">
+      {#if impItems.length}
+        <BarChart items={impItems} />
+      {:else}
+        <p class="note">Belum ada tayangan tercatat untuk kata kunci mana pun.</p>
+      {/if}
+    </Card>
+  </div>
+{:else}
+  <div class="callout info">Perincian kata kunci (28 hari) belum pernah dikumpulkan — pengumpulan berjalan otomatis tiap Senin pagi. Tidak ada angka yang dikarang.</div>
+{/if}
+
+{#if topPages.length}
+  <h2 class="sec">Halaman teratas</h2>
+  <DataTable columns={pageCols} rows={topPages} searchKeys={['page']} placeholder="Cari halaman…" />
+{:else if agg}
+  <h2 class="sec">Halaman teratas</h2>
+  <div class="callout info">Data per-halaman dari Google belum pernah terkumpul untuk periode ini — angka yang tidak ada tidak ditampilkan.</div>
+{/if}
 
 {#if hist.length >= 2}
   <h2 class="sec">Tren posisi harian</h2>
-  <Card i={4} title="Posisi rata-rata harian" sub="makin kecil makin dekat halaman pertama — digambar apa adanya">
+  <Card i={2} title="Posisi rata-rata harian" sub="semakin kecil semakin dekat ke halaman pertama — digambar apa adanya">
     <LineChart
       labels={hist.map((x) => x.date)}
       series={[{ key: 'position', label: 'Posisi', color: 'var(--teal)', fill: true }]}
@@ -74,30 +87,6 @@
       empty={gscNote || 'Belum ada pengukuran.'}
     />
   </Card>
-{/if}
-
-{#if !t.available}
-  <div class="callout info">Perincian kata kunci (28 hari) belum pernah dikumpulkan — pengumpulan berjalan otomatis tiap Senin pagi. Tidak ada angka yang dikarang.</div>
-{:else}
-  <h2 class="sec">Sebaran pencarian</h2>
-  <div class="grid g2">
-    <Card i={5} title="Kata kunci teratas (klik)"><BarChart items={topItems} /></Card>
-    <Card i={6} title="Sebaran tayangan" sub="10 kata kunci paling sering muncul"><BarChart items={impItems} /></Card>
-  </div>
-  <h2 class="sec">Detail kata kunci</h2>
-  <DataTable columns={topCols} rows={t.top || []} searchKeys={['query']} placeholder="Cari kata kunci…" />
-{/if}
-
-{#if topPages.length}
-  <h2 class="sec">Halaman teratas</h2>
-  <DataTable columns={pageCols} rows={topPages} searchKeys={['page']} placeholder="Cari halaman…" />
-{/if}
-
-{#if hist.length}
-  <h2 class="sec">Riwayat harian</h2>
-  <DataTable columns={histCols} rows={[...hist].reverse()} searchKeys={['date']} placeholder="Cari tanggal…" />
-{:else}
-  <div class="callout info">Riwayat metrik harian diisi otomatis oleh Siklus harian bersama pemeriksaan Google — {gscNote || 'belum pernah berjalan'}.</div>
 {/if}
 
 <h2 class="sec">Perubahan posisi</h2>

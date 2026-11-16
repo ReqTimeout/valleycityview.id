@@ -49,7 +49,10 @@
     <div class="scrim" role="button" tabindex="-1" aria-label="Tutup menu" onclick={() => (ui.drawerOpen = false)} onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') ui.drawerOpen = false; }}></div>
     <div class="main">
       <Topbar />
-      <div class="content"><Page /></div>
+      <div class="content">
+        <Page />
+        <footer class="page-foot">Panel performa SEO Valley City · data diperbarui otomatis setiap jam · {data.snapshot?.site || 'valleycityview.id'}</footer>
+      </div>
     </div>
     <Dock />
   </div>

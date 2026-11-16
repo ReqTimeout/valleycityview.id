@@ -56,13 +56,30 @@ function metrics(file) {
   return { words, h2, faq, image, related, money, title, desc, outLinks, score: Math.round(score) };
 }
 
+/**
+ * Syarat yang BELUM terpenuhi oleh sebuah artikel — dipakai halaman Kualitas
+ * sebagai kolom "kekurangan" (polanya sama dengan sbdental: daftar syarat
+ * gagal, bukan angka misterius). Skor 100 = daftar kosong = "lengkap".
+ */
+function missingOf(m) {
+  const miss = [];
+  if (!(m.words >= 900 && m.words <= 1600)) miss.push('900–1600 kata');
+  if (m.h2 < 3) miss.push('3–6 sub-judul (H2)');
+  if (m.faq < 5) miss.push('5 tanya-jawab');
+  if (!m.image) miss.push('1 gambar');
+  if ((m.related || []).length < 3) miss.push('3 internal link (related)');
+  if (!m.money) miss.push('Tautan money page');
+  if (!m.desc) miss.push('Deskripsi meta');
+  return miss;
+}
+
 /** Inventaris artikel tayang + metrik kualitas. */
 export function inventory() {
   const live = posts().filter((p) => p.live);
   const articles = live.map((p) => {
     let m;
     try { m = metrics(p.file); } catch { m = { words: 0, h2: 0, faq: 0, image: false, related: [], money: false, title: p.title, desc: null, outLinks: [], score: 0 }; }
-    return { slug: p.slug, title: p.title, date: p.date, updated: p.updated, ...m };
+    return { slug: p.slug, title: p.title, date: p.date, updated: p.updated, ...m, missing: missingOf(m) };
   });
   return { published: articles };
 }

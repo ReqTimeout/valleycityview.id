@@ -3,6 +3,8 @@
   import { num, ago } from '../lib/format.js';
   import PageHead from '../components/PageHead.svelte';
   import Icon from '../components/Icon.svelte';
+  import Card from '../components/Card.svelte';
+  import Workflow from '../components/Workflow.svelte';
 
   const d = $derived(data.snapshot);
   const creds = $derived(d?.credentials || []);
@@ -75,6 +77,12 @@
     <span class="ii {sm.exists ? 'ok' : 'warn'}"><Icon name="globe" size={16} /></span>
     <div><b>Daftar alamat untuk Google</b><span>{sm.exists ? num(sm.urls) + ' alamat · diperbarui ' + (sm.ageHours == null ? '—' : num(Math.round(sm.ageHours)) + ' jam') + ' lalu' : 'Belum tersedia'}</span></div>
   </div>
+</div>
+
+<div style="margin-top:14px">
+  <Card i={6} title="Progres kerja otomatis" sub="urutan pekerjaan mesin — semua angka nyata, tanpa data palsu">
+    <Workflow snapshot={d} />
+  </Card>
 </div>
 
 <style>

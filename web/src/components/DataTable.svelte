@@ -45,10 +45,18 @@
       {#each shown as row, i (key(row, i))}
         <tr class={onRowClick ? 'clickable' : ''} onclick={() => onRowClick?.(row)}>
           {#each columns as c}
-            <td class="{c.align === 'r' ? 'r' : ''} {c.mono ? 'mono' : ''}">
-              {#if c.chip && c.chip(row)}{@const cv = c.chip(row)}{#if typeof cv === 'object'}<Chip value={cv.value} label={cv.label} kind={cv.kind} />{:else}<Chip value={cv} />{/if}
+            <td class="{c.align === 'r' ? 'r' : ''} {c.mono ? 'mono' : ''} {c.actions ? 'acts' : ''}">
+              {#if c.actions && c.buttons}
+                <span class="row-acts">
+                  {#each c.buttons(row) as b}
+                    <button class="ra {b.kind || ''}" title={b.title} aria-label={b.title} disabled={b.disabled} onclick={(e) => { e.stopPropagation(); b.onClick?.(row); }}>
+                      <Icon name={b.icon} size={14} />
+                    </button>
+                  {/each}
+                </span>
+              {:else if c.chip && c.chip(row)}{@const cv = c.chip(row)}{#if typeof cv === 'object'}<Chip value={cv.value} label={cv.label} kind={cv.kind} />{:else}<Chip value={cv} />{/if}
               {:else if c.href && c.href(row)}<a href={c.href(row)} target="_blank" rel="noopener" onclick={(e) => e.stopPropagation()}>{c.get(row)}</a>
-              {:else}{c.get(row)}{/if}
+              {:else}{c.get ? c.get(row) : ''}{/if}
             </td>
           {/each}
         </tr>
@@ -60,3 +68,11 @@
 {#if filtered.length > limit}
   <button class="btn ghost sm" style="margin-top:10px" onclick={() => (limit += pageSize)}>Tampilkan {Math.min(pageSize, filtered.length - limit)} lagi</button>
 {/if}
+<style>
+  .row-acts { display: inline-flex; gap: 4px; justify-content: flex-end; }
+  .ra { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-3); cursor: pointer; transition: all .15s; padding: 0; }
+  .ra:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-soft); }
+  .ra:disabled { opacity: .5; cursor: wait; }
+  .ra.danger:hover { color: var(--bad); border-color: var(--bad); background: var(--bad-soft); }
+  td.acts { text-align: right; width: 1%; white-space: nowrap; }
+</style>

@@ -1,6 +1,6 @@
 <script>
   import { data, ui } from '../lib/state.svelte.js';
-  import { num, ago, date } from '../lib/format.js';
+  import { num, ago, date, pct } from '../lib/format.js';
   import PageHead from '../components/PageHead.svelte';
   import Kpi from '../components/Kpi.svelte';
   import Card from '../components/Card.svelte';
@@ -12,7 +12,19 @@
   const d = $derived(data.snapshot);
   const runs = $derived(d?.runs || []);
   const audit = $derived(d?.audit || []);
+  const hist = $derived(d?.gsc?.history || []);
+  const gscNote = $derived(d?.gsc?.historyNote || null);
   let selected = $state(null);
+
+  // Catatan metrik harian (30 hari) — dipindahkan dari Trafik supaya halaman
+  // "Riwayat" = rekam jejak lengkap, sama seperti sbdental.
+  const histCols = [
+    { key: 'date', label: 'Tanggal', sortable: true, get: (r) => date(r.date) },
+    { key: 'clicks', label: 'Klik', align: 'r', sortable: true, get: (r) => num(r.clicks) },
+    { key: 'impressions', label: 'Tayangan', align: 'r', sortable: true, get: (r) => num(r.impressions) },
+    { key: 'ctr', label: 'Rasio klik', align: 'r', sortable: true, get: (r) => (r.ctr == null ? '—' : pct(r.ctr, 2)) },
+    { key: 'position', label: 'Posisi', align: 'r', sortable: true, get: (r) => (r.position == null ? '—' : num(r.position)) },
+  ];
 
   const dur = (r) => {
     if (!r.finishedAt || !r.at) return '—';
@@ -70,7 +82,9 @@
   }
 </script>
 
-<PageHead title="Riwayat" sub="Kerja otomatis mesin dan aksi yang pernah dijalankan" />
+<PageHead title="Riwayat" sub="Rekam jejak metrik harian + pekerjaan otomatis mesin">
+  {#if hist.length}<Chip value="harian" kind="info" label="{hist.length} hari tercatat" />{/if}
+</PageHead>
 
 <div class="action-bar">
   <button class="btn gold" onclick={() => trigger('/api/run-daily', 'Jalankan siklus harian', 'Menjalankan seluruh siklus kerja harian: periksa status di Google, tulis draf artikel, tayangkan sesuai kuota, lalu catat ringkasan. Semua batas tetap berlaku.')} disabled={!!data.busy}><Icon name="play" size={16} /> Jalankan siklus harian</button>
@@ -83,6 +97,13 @@
   <Kpi i={1} label="Pekerjaan terakhir" value={runs[0] ? ago(runs[0].at) : '—'} tone={runs[0] ? (runs[0].exit === 0 ? 'ok' : runs[0].exit == null ? 'info' : 'bad') : ''} note={runs[0] ? kindName(runs[0].kind) : 'belum pernah'} />
   <Kpi i={2} label="Aksi manual tercatat" value={audit.length} tone="teal" note="terbaru" />
 </div>
+
+<h2 class="sec">Riwayat harian</h2>
+{#if hist.length}
+  <DataTable columns={histCols} rows={[...hist].reverse()} searchKeys={['date']} placeholder="Cari tanggal…" pageSize={31} />
+{:else}
+  <div class="callout info">Catatan metrik harian diisi otomatis oleh siklus harian bersama pemeriksaan Google — {gscNote || 'belum pernah berjalan'}.</div>
+{/if}
 
 <h2 class="sec">Riwayat kerja otomatis</h2>
 <DataTable columns={runCols} rows={runs} searchKeys={['kind']} placeholder="Cari jenis kerja…" onRowClick={(r) => (selected = r)} empty="Belum ada pekerjaan tercatat." />

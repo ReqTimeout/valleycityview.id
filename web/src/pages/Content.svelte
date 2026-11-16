@@ -1,7 +1,7 @@
 <script>
   import { data, ui } from '../lib/state.svelte.js';
   import { fetchDraft } from '../lib/api.js';
-  import { num, date, ago } from '../lib/format.js';
+  import { num, date } from '../lib/format.js';
   import Icon from '../components/Icon.svelte';
   import PageHead from '../components/PageHead.svelte';
   import Kpi from '../components/Kpi.svelte';
@@ -57,6 +57,21 @@
 
   const bySlug = $derived(new Map((d?.queue?.items || []).map((q) => [q.slug, q])));
   const selQ = $derived(selected ? bySlug.get(selected.slug) : null);
+
+  // ── aksi per baris (ala sbdental: terbitkan/tulis ulang/buang di tempat) ──
+  function rowPublish(r) {
+    ui.ask({ title: `Terbitkan "${r.title || r.slug}" sekarang?`, body: 'Artikel diperiksa gerbang kualitas lalu diterbitkan ke situs — melewati jadwal harian.', action: '/api/publish-one', body: { slug: r.slug }, label: 'Terbitkan' });
+  }
+  function rowRewrite(r) {
+    data.run('/api/generate-one', 'Menulis ulang', { slug: r.slug });
+  }
+  function rowDrop(r) {
+    ui.ask({ title: `Buang "${r.title || r.slug}"?`, body: 'Artikel keluar dari antrean tayang. Anda bisa memulihkannya kapan saja dari halaman Antrean.', action: '/api/status', body: { slug: r.slug, to: 'dropped' }, label: 'Buang' });
+  }
+  function rowOpen(r) {
+    window.open(`https://${d?.site}/blog/${r.slug}`, '_blank', 'noopener');
+  }
+
   function actTerbitkan() {
     ui.ask({ title: `Terbitkan "${selected?.title || selected?.slug}" sekarang?`, body: 'Artikel diperiksa gerbang kualitas lalu diterbitkan ke situs — melewati jadwal harian.', action: '/api/publish-one', body: { slug: selected?.slug }, label: 'Terbitkan' });
     selected = null;
@@ -68,7 +83,7 @@
 
   const kindOf = (p) => (p.redirectTo ? 'redirect' : p.live ? 'tayang' : p.status === 'review' ? 'review' : 'draft');
   const toneOf = (k) => ({ tayang: 'ok', draft: 'warn', review: 'info', redirect: 'clay' }[k] || 'info');
-  const filtered = $derived(posts.filter((p) => {
+  const filtered = $derived(rowsAll.filter((p) => {
     const k = kindOf(p);
     return filter === 'all' || (filter === 'live' ? k === 'tayang' : filter === 'redirect' ? k === 'redirect' : k === 'draft' || k === 'review');
   }));
@@ -77,12 +92,27 @@
     { label: 'Draft/review', value: d?.counts?.drafts || 0, color: 'var(--warn)' },
     { label: 'Redirect', value: d?.counts?.redirects || 0, color: 'var(--clay)' },
   ]);
+  // Baris diperkaya kata kunci (dari antrean) supaya pencarian juga menemukan
+  // istilah yang dicari pembaca, bukan hanya judul.
+  const rowsAll = $derived(posts.map((p) => ({ ...p, keyword: bySlug.get(p.slug)?.keyword || '' })));
   const cols = [
-    { key: 'title', label: 'Judul', sortable: true, get: (r) => r.title || r.slug },
-    { key: 'slug', label: 'Slug', sortable: true, get: (r) => r.slug },
+    { key: 'title', label: 'Artikel', sortable: true, get: (r) => r.title || r.slug },
     { key: 'status', label: 'Status', chip: (r) => { const k = kindOf(r); return { value: k, label: k, kind: toneOf(k) }; } },
+    { key: 'words', label: 'Kata', align: 'r', sortable: true, sortVal: (r) => r.words ?? -1, get: (r) => (r.words == null ? '—' : num(r.words)) },
     { key: 'date', label: 'Tanggal', sortable: true, get: (r) => date(r.date) },
-    { key: 'updated', label: 'Diperbarui', sortable: true, get: (r) => (r.updated ? ago(r.updated) : '—') },
+    {
+      key: 'aksi', label: 'Aksi', actions: true,
+      buttons: (r) => {
+        const k = kindOf(r);
+        if (k === 'draft' || k === 'review') return [
+          { icon: 'up', title: 'Terbitkan sekarang', onClick: rowPublish, disabled: !!data.busy },
+          { icon: 'refresh', title: 'Tulis ulang', onClick: rowRewrite, disabled: !!data.busy },
+          { icon: 'x', title: 'Buang dari antrean', onClick: rowDrop, kind: 'danger', disabled: !!data.busy },
+        ];
+        if (k === 'tayang') return [{ icon: 'globe', title: 'Buka halaman publik', onClick: rowOpen }];
+        return [];
+      },
+    },
   ];
 </script>
 
@@ -100,13 +130,14 @@
 <h2 class="sec">Daftar konten</h2>
 {#snippet toolbar()}
   <div class="seg" role="group" aria-label="Filter status konten">
-    <button aria-pressed={filter === 'all'} onclick={() => (filter = 'all')}>Semua</button>
-    <button aria-pressed={filter === 'live'} onclick={() => (filter = 'live')}>Tayang</button>
-    <button aria-pressed={filter === 'draft'} onclick={() => (filter = 'draft')}>Draf</button>
-    <button aria-pressed={filter === 'redirect'} onclick={() => (filter = 'redirect')}>Alamat lama</button>
+    <button aria-pressed={filter === 'all'} onclick={() => (filter = 'all')}>Semua <b>{num(posts.length)}</b></button>
+    <button aria-pressed={filter === 'live'} onclick={() => (filter = 'live')}>Tayang <b>{num(d?.counts?.live ?? 0)}</b></button>
+    <button aria-pressed={filter === 'draft'} onclick={() => (filter = 'draft')}>Draf <b>{num(d?.counts?.drafts ?? 0)}</b></button>
+    <button aria-pressed={filter === 'redirect'} onclick={() => (filter = 'redirect')}>Alamat lama <b>{num(d?.counts?.redirects ?? 0)}</b></button>
   </div>
 {/snippet}
-<DataTable {toolbar} columns={cols} rows={filtered} searchKeys={['title', 'slug']} placeholder="Cari judul / slug…" onRowClick={(r) => (selected = r)} />
+<DataTable {toolbar} columns={cols} rows={filtered} searchKeys={['title', 'slug', 'keyword']} placeholder="Cari judul / kata kunci…" onRowClick={(r) => (selected = r)} />
+<p class="note">Klik judul untuk pratinjau isi · tombol di kolom aksi: terbitkan, tulis ulang, atau buang — tanpa membuka artikel.</p>
 
 <Drawer open={!!selected} title={selected?.title || selected?.slug || ''} sub={selected?.slug || ''} onClose={() => (selected = null)}>
   {#if selected}
@@ -143,6 +174,8 @@
 
 <style>
   .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .seg button b { font-variant-numeric: tabular-nums; color: var(--ink-4); font-weight: 700; }
+  .seg button[aria-pressed="true"] b { color: var(--gold); }
   .prev { font-size: 13.5px; line-height: 1.65; color: var(--ink-2); max-height: 46vh; overflow: auto; padding-right: 6px; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; background: var(--surface-2); }
   .prev :global(h4) { font-size: 15px; margin: 16px 0 6px; color: var(--ink); }
   .prev :global(h4:first-child) { margin-top: 0; }

@@ -4,6 +4,7 @@
   import PageHead from '../components/PageHead.svelte';
   import Card from '../components/Card.svelte';
   import EmptyState from '../components/EmptyState.svelte';
+  import Chip from '../components/Chip.svelte';
   import Icon from '../components/Icon.svelte';
 
   const d = $derived(data.snapshot);
@@ -11,7 +12,7 @@
 
   const alerts = $derived.by(() => {
     const out = [];
-    for (const a of s.alerts || []) out.push({ kind: 'bad', title: 'Catatan mesin', body: typeof a === 'string' ? a : (a.message || JSON.stringify(a)), to: '/runs' });
+    for (const a of s.alerts || []) out.push({ kind: a?.level === 'critical' ? 'bad' : a?.level === 'warn' ? 'warn' : 'bad', title: 'Catatan mesin' + (a?.code ? ` · ${a.code}` : ''), body: typeof a === 'string' ? a : (a.msg || a.message || JSON.stringify(a)), to: '/runs' });
     const missingCreds = (d?.credentials || []).filter((c) => !c.set);
     if (missingCreds.length) out.push({ kind: 'warn', title: `${missingCreds.length} koneksi belum terpasang`, body: missingCreds.map((c) => c.role).join(', ') + ' — pekerjaan yang membutuhkannya dilewati dan dilaporkan jujur.', to: '/health' });
     if (d?.access && d.access.mode !== 'enforced') out.push({ kind: d.access.mode === 'not-configured' ? 'bad' : 'warn', title: 'Pelindung ekstra: ' + (d.access.label || d.access.mode), body: d.access.note, to: '/health' });
@@ -24,7 +25,9 @@
   const counts = $derived({ bad: alerts.filter((a) => a.kind === 'bad').length, warn: alerts.filter((a) => a.kind === 'warn').length, info: alerts.filter((a) => a.kind === 'info').length });
 </script>
 
-<PageHead title="Perlu Perhatian" sub="Semua hal yang perlu dilihat — mesin, koneksi, proteksi, dan konten" />
+<PageHead title="Perlu Perhatian" sub="Semua hal yang perlu dilihat — mesin, koneksi, proteksi, dan konten">
+  <Chip value="n" kind={counts.bad ? 'bad' : counts.warn ? 'warn' : 'ok'} label={counts.bad + counts.warn + counts.info ? `${counts.bad + counts.warn + counts.info} catatan` : 'semua baik'} />
+</PageHead>
 
 <div class="grid g3">
   <div class="alert-sum bad"><Icon name="alert" size={18} /><div><b>{counts.bad}</b><span>kritis</span></div></div>

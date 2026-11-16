@@ -26,6 +26,7 @@ import {
   AUDIT_DECISIONS_PATH,
   SITEMAP_PATH,
   DIST_DIR,
+  BLOG_DIR,
 } from '../../seo/paths.mjs';
 import { SITE, BRAND } from '../../seo/site.mjs';
 import { buildSummary } from '../../seo/lib/summary.mjs';
@@ -257,6 +258,24 @@ function scheduleInfo(config) {
   };
 }
 
+/**
+ * Jumlah kata isi artikel, dibaca dari berkasnya — dipakai tabel Konten
+ * (kolom KATA) supaya pembaca bisa menilai artikel tanpa membuka satu per satu,
+ * sama seperti dashboard sbdental. Gagal membaca → null ("—"), bukan angka 0
+ * palsu.
+ */
+function wordsOf(p) {
+  try {
+    const src = readFileSync(join(BLOG_DIR, p.file), 'utf8');
+    const end = src.indexOf('\n---', 3);
+    const body = end > 0 ? src.slice(end + 4) : src;
+    const text = body.replace(/<[^>]+>/g, ' ').replace(/[#*_`>\-|]/g, ' ').replace(/\s+/g, ' ').trim();
+    return text ? text.split(' ').length : 0;
+  } catch {
+    return null;
+  }
+}
+
 export function collect() {
   const state = readJson(STATE_PATH, {}) || {};
   const config = readJson(CONFIG_PATH, {}) || {};
@@ -411,7 +430,7 @@ export function collect() {
     recent: live
       .filter((p) => p.updated && Date.parse(p.updated) > Date.now() - 30 * 864e5)
       .sort((a, b) => (a.updated < b.updated ? 1 : -1)),
-    posts: allPosts,
+    posts: allPosts.map((p) => ({ ...p, words: wordsOf(p) })),
     drafts: draftish,
     credentials: credentials(),
   };
