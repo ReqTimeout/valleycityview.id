@@ -1,5 +1,5 @@
 ---
-title: "Perumahan Baru Di Cimahi: Unit Siap Huni Dan Unit Yang Masih Dikerj..."
+title: "Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan"
 slug: "perumahan-baru-di-cimahi"
 description: "Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan sering muncul dalam satu halaman penawaran"
 date: "2025-05-09"
@@ -7,8 +7,8 @@ updated: "2026-11-16"
 author: "Tim Valley Cityview"
 status: publish
 tags: ["panduan"]
-cover: "/media/curated/hero-3.webp"
-imageAlt: "Perumahan Baru Di Cimahi: Unit Siap Huni Dan Unit Yang Masih Dikerj... — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
+cover: "/media/curated/detail-5.webp"
+imageAlt: "Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan sering terlihat sama di brosur. Padahal status pembangunannya mengubah jadwal pindah, biaya sewa, dan cara Anda menyiapkan cicilan.

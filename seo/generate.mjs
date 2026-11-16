@@ -748,7 +748,9 @@ async function main() {
       if (grab('description')) meta.description = grab('description');
       const tagsLine = (fm0.match(/^tags:\s*\[([^\]]*)\]/m) || [])[1];
       if (tagsLine) meta.tags = tagsLine.split(',').map((x) => x.replace(/"/g, '').trim()).filter(Boolean);
-      if (meta.cover) meta.imageAlt = imageAltFor(meta.title, meta.cover); // alt mengikuti judul asli
+      const origCover = grab('cover');
+      if (origCover) meta.cover = origCover; // cover legacy dipertahankan, jangan dipetakan ulang
+      meta.imageAlt = imageAltFor(meta.title, meta.cover); // alt mengikuti identitas asli
     }
 
     let mdx = assembleMdx({
