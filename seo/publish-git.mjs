@@ -190,6 +190,47 @@ async function cfGet(path) {
   return res.json();
 }
 
+/**
+ * Build + deploy Cloudflare Pages dari dalam container.
+ *
+ * Kenapa wajib: proyek `valleycity` bertipe DIRECT UPLOAD (source:null, tanpa
+ * integrasi Git) — semua push hari ini 16 Nov 2026 TIDAK pernah sampai live;
+ * dua artikel terbit "berhasil" tapi URL-nya tak pernah ada di situs (verifyUrls
+ * lama lolos palsu karena homepage pun >2000 byte). Deploy = bagian dari siklus
+ * publish, bukan pekerjaan manual.
+ */
+async function deployPages() {
+  console.log('\n=== build + deploy Cloudflare Pages ===');
+  const siteDir = join(ROOT, 'site');
+  if (!existsSync(join(siteDir, 'node_modules/.bin/astro'))) {
+    console.log('  ✗ dependensi site tidak ada di image (npm --prefix site ci) — halaman BARU BELUM tayang!');
+    return false;
+  }
+  const b = spawnSync('npm', ['--prefix', 'site', 'run', 'build'], {
+    cwd: ROOT, encoding: 'utf8', timeout: 240000,
+    env: { ...process.env },
+  });
+  if (b.status !== 0) {
+    console.log(`  ✗ build site exit ${b.status}: ${String(b.stdout || '').slice(-300)}${String(b.stderr || '').slice(-300)}`);
+    return false;
+  }
+  console.log('  ✓ build site selesai');
+  const d = spawnSync(join(siteDir, 'node_modules/.bin/wrangler'), [
+    'pages', 'deploy', 'dist', '--project-name', CF_PROJECT, '--branch', 'main',
+  ], {
+    cwd: siteDir, encoding: 'utf8', timeout: 180000,
+    env: { ...process.env, WRANGLER_SEND_METRICS: 'false', CI: '1' },
+  });
+  const out = String(d.stdout || '') + String(d.stderr || '');
+  if (d.status === 0) {
+    const line = out.split('\n').filter((l) => /Deployment complete|Uploaded/.test(l)).join(' · ');
+    console.log(`  ✓ deploy sukses: ${line || 'ok'}`);
+    return true;
+  }
+  console.log(`  ✗ wrangler exit ${d.status}: ${out.slice(-400)}`);
+  return false;
+}
+
 async function waitForDeploy(commitSha) {
   const short = commitSha.slice(0, 7);
   console.log(`\n=== tunggu Pages deploy commit ${short} ===`);
@@ -237,8 +278,18 @@ async function verifyUrls(urls) {
       try {
         const res = await fetch(u, { redirect: 'follow', signal: AbortSignal.timeout(12000) });
         const body = await res.text();
-        ok = res.ok && body.length > 2000;
-        console.log(`  ${ok ? '✓' : `✗(${res.status})`} ${u} (usaha ${attempt})`);
+        // Ukuran saja TIDAK cukup: kalau halaman tidak ada, Cloudflare bisa
+        // menyajikan homepage (200, >2000 byte) — verify lama lolos palsu dan
+        // mengira artikel tayang. Wajib ada penanda URL INI SENDIRI.
+        const isThisPage =
+          body.includes(`rel="canonical" href="${u}"`) ||
+          body.includes(`property="og:url" content="${u}"`);
+        ok = res.ok && body.length > 2000 && isThisPage;
+        if (res.ok && body.length > 2000 && !isThisPage) {
+          console.log(`  ✗(bukan halaman ini — kemungkinan halaman lain/fallback) ${u} (usaha ${attempt})`);
+        } else {
+          console.log(`  ${ok ? '✓' : `✗(${res.status})`} ${u} (usaha ${attempt})`);
+        }
       } catch (e) {
         console.log(`  ✗(jaringan) ${u} (usaha ${attempt})`);
       }
@@ -358,8 +409,10 @@ async function main() {
     );
     console.log('  ✓ pushed ke main');
 
-    // 7) Tunggu Pages build commit ini.
-    await waitForDeploy(sha);
+    // 7) Build + deploy Pages (langsung, proyek direct-upload) — kalau gagal,
+    //    jatuh ke pemantauan API: mungkin ada pipeline upload lain.
+    const deployed = await deployPages();
+    if (!deployed) await waitForDeploy(sha);
 
     // 8) Verifikasi live.
     await verifyUrls(publishedUrls);

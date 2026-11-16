@@ -48,20 +48,21 @@ COPY runner ./runner
 COPY seo ./seo
 COPY dashboard/lib ./dashboard/lib
 COPY audit ./audit
-COPY site/scripts ./site/scripts
-COPY site/src/collections/blog ./site/src/collections/blog
-COPY site/src/data ./site/src/data
-COPY site/public ./site/public
-
-# Vendor YAML dari site/node_modules (sudah di-pin 2.9.1 di package-lock situs).
-# createRequire(site/noop.js) me-resolve dari /app/site/node_modules → yaml ada.
-# Di-copy dari context (bukan npm i) supaya build tidak bergantung registry.
-COPY site/node_modules/yaml ./site/node_modules/yaml
+# Seluruh site/ (node_modules, dist, .astro dibuang oleh .dockerignore):
+# publish-git kini BUILD + DEPLOY Cloudflare Pages dari dalam container tiap
+# artikel terbit — proyek valleycity direct upload (tanpa integrasi Git), jadi
+# git push saja TIDAK menerbitkan halaman (insiden 16 Nov 2026: 2 artikel
+# terbit tak pernah live). functions/ (booking API + middleware) ikut ter-copy —
+# wrangler mengunggahnya dari cwd saat `pages deploy dist`.
+COPY site ./site
+RUN npm --prefix site ci
 
 RUN mkdir -p /app/data \
  && chmod +x /app/runner/entrypoint.sh \
  && git config --global --add safe.directory /app \
- && test -f /app/site/node_modules/yaml/package.json
+ && test -f /app/site/node_modules/.bin/astro \
+ && test -f /app/site/node_modules/.bin/wrangler \
+ && test -f /app/site/src/content.config.ts
 
 # JANGAN pakai `VOLUME ["/app/data"]` (jebakan #15: anonymous volume tiap deploy).
 # Coolify mount named volume ke /app/data via local_persistent_volumes.
