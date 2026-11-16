@@ -44,7 +44,9 @@ async function ping(urls) {
     return { ok: false, results: [] };
   }
   const body = JSON.stringify({
-    host: 'valleycity.id',
+    // WAJIB = domain yang sama dengan URL dikirim (spec IndexNow). Literal
+    // 'valleycity.id' membuat SEMUA pengiriman 422 invalid sejak awal (16 Nov).
+    host: new URL(SITE).host,
     key: KEY,
     keyLocation: `${SITE}/indexnow.txt`,
     urlList: urls.slice(0, 10),

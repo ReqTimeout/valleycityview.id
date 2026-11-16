@@ -31,9 +31,12 @@
 
 import { existsSync, readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { STATE_PATH } from './paths.mjs';
+import { SITE as SITE_CANONICAL } from './site.mjs';
 
 const API = 'https://ssl.bing.com/webmaster/api.svc/json';
-const SITE = process.env.BING_SITE_URL || 'https://valleycity.id';
+// Domain BENAR dari site.mjs (literal 'valleycity.id' = domain lama → kuota
+// dan submit tersedak ke site yang salah / kandidat 0 — insiden 16 Nov 2026).
+const SITE = process.env.BING_SITE_URL || SITE_CANONICAL;
 const BATCH_MAX = 10; // batas API: 10 URL per request
 const COOLDOWN_DAYS = 30; // submit ulang URL yang sama tidak mempercepat crawl
 const DEFAULT_LIMIT = 90; // sisakan kuota daily untuk keperluan lain
