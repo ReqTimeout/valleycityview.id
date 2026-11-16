@@ -55,7 +55,8 @@ COPY audit ./audit
 # terbit tak pernah live). functions/ (booking API + middleware) ikut ter-copy —
 # wrangler mengunggahnya dari cwd saat `pages deploy dist`.
 COPY site ./site
-RUN npm --prefix site ci
+# npm ci butuh cwd (npm --prefix ... ci gagal dengan usage error pada npm 12)
+RUN cd site && npm ci
 
 RUN mkdir -p /app/data \
  && chmod +x /app/runner/entrypoint.sh \
