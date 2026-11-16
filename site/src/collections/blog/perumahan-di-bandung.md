@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Bandung: Rekomendasi Lokasi untuk Keluarga Baru — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 

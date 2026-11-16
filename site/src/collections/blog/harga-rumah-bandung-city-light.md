@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Bandung City Light: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Banyak calon pembeli mencari harga rumah bandung city light untuk membandingkan opsi di Bandung Barat. Data pasar menunjukkan posisi unik unit kami. Kita akan bedah angka sebenarnya tanpa bumbu marketing berlebihan.

@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah KPR Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Ketika mencari jual rumah kpr bandung, banyak pembeli terfokus pada harga. Namun, lokasi menentukan kenyamanan jangka panjang. Memahami peta wilayah membantu Anda memilih unit yang tepat sejak awal.

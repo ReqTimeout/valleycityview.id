@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Minimalis Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Anda mencari opsi jual rumah minimalis bandung di sisi barat? Padalarang menawarkan akses tol cepat. Namun, harga tanah naik lebih tinggi daripada rata-rata kabupaten. Cek fakta lapangan sebelum memutuskan beli unit baru di koridor selatan ini.

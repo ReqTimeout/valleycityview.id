@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Pesona Alam Residence Cimahi: Hunian Asri dengan Udara Segar — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 

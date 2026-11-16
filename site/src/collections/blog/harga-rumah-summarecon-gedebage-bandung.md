@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Harga Rumah Summarecon Gedebage Bandung: Rincian dan Bandingkan — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 <p><strong>Harga rumah Summarecon Gedebage Bandung</strong> menjadi perbincangan hangat di kalangan pencari hunian maupun investor properti. Proyek prestisius dari Summarecon ini hadir di kawasan strategis Gedebage, yang merupakan salah satu pusat pertumbuhan baru di Bandung Timur. Dengan harga rumah mulai dari Rp 1,2 miliar, perumahan ini menyasar kalangan menengah ke atas yang mengutamakan kenyamanan, kemewahan, dan fasilitas modern.

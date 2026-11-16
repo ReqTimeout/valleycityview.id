@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cibeureum Cimahi Selatan: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jika Anda mencari jual rumah cibeureum cimahi selatan, jangan terburu-buru. Lokasi ini menawarkan akses unik, namun butuh verifikasi teliti.

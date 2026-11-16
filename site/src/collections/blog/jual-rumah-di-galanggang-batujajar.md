@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Galanggang Batujajar: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jika Anda mencari opsi jual rumah di galanggang batujajar, cek dulu koridor selatan Bandung Barat. Padalarang menawarkan akses tol yang lebih cepat daripada wilayah utara perbukitan.

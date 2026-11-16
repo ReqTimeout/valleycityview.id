@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Menu Rumah Embun Cimahi: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Menu rumah embun cimahi sering jadi kata kunci pencarian bagi keluarga muda yang ingin lepas dari rumah orang tua. Namun, banyak calon pembeli bingung membedakan lokasi strategis dengan harga terjangkau di area perbatasan ini.

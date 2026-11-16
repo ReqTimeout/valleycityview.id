@@ -10,6 +10,7 @@ legacyUrl: "/harga-rumah-summarecon-bandung-2025.html"
 wpId: 965
 status: publish
 cover: "/media/curated/hero-3.webp"
+imageAlt: "Harga Rumah Summarecon Bandung: Rincian dan Tren Harga — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 <p><strong>Harga rumah Summarecon Bandung 2025</strong> kembali mencuri perhatian karena terus mengalami kenaikan signifikan. Summarecon Bandung, yang dikembangkan oleh developer raksasa Summarecon Agung Tbk, memang menawarkan hunian eksklusif dengan konsep kota mandiri. Namun, apakah Anda tahu bahwa dengan budget jauh lebih rendah, Anda bisa memiliki rumah nyaman dan strategis di Valley Cityview Padalarang?

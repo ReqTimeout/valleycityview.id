@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perumahan-baru-di-cimahi
+imageAlt: "Perum Nusa Hijau Cimahi: Lokasi, Unit, dan Harga — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 <h2>Perum Nusa Hijau Cimahi &#8211; Valley Cityview

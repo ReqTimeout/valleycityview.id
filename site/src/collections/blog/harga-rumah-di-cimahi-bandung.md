@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Cimahi Bandung: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah di cimahi bandung terus bergerak naik. Bagi keluarga muda, mencari unit terjangkau terasa sulit. Posisi Rp 599 juta menjadi titik awal yang jujur untuk memahami pasar saat ini.

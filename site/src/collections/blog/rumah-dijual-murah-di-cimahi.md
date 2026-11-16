@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Murah Di Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual murah di cimahi butuh ketelitian. Banyak tawaran menggiurkan, namun lokasi menentukan nilai jangka panjang. Cek akses jalan dan lingkungan sekitar sebelum menandatangani surat perjanjian jual beli unit tersebut.

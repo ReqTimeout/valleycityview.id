@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Jadul Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Orang yang mencari jual rumah jadul bandung sering mengabaikan potensi wilayah baru. Di Bandung Barat, koridor selatan tumbuh pesat berkat infrastruktur tol modern.

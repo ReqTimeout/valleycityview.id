@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Cluster Cimahi: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah cluster cimahi yang terjangkau bagi keluarga muda? Tipe 45/72 di Laksanamekar menawarkan solusi nyata. Lokasinya strategis di perbatasan Cimahi dan Bandung Barat, dekat gerbang tol Baros serta fasilitas pendidikan dan kesehatan utama kota ini.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dekat Unjani: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dekat unjani berarti memilih lokasi strategis di Padalarang. Valley Cityview menawarkan tipe 45/72 dengan cicilan Rp 3.871.000 per bulan, cocok bagi keluarga muda yang ingin stabilitas finansial tanpa mengorbankan akses kampus dan fasilitas kesehatan terdekat.

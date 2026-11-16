@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Pangauban Batujajar: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Orang yang mencari "jual rumah pangauban batujajar" sering kali belum menyadari bahwa lokasi sebenarnya berada di Padalarang. Area ini menawarkan akses tol yang lebih baik dibanding Batujajar murni, menjadikannya pilihan cerdas bagi pekerja komuter menuju Bandung atau Jakarta.

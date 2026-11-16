@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Kabupaten Bandung Barat: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah di kabupaten bandung barat bervariasi tergantung lokasi. Padalarang kini menjadi sorotan utama bagi pencari hunian baru yang ingin dekat dengan akses tol dan fasilitas kota Cimahi.

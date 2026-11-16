@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Bandung Barat: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah bandung barat bervariasi tergantung lokasi. Padalarang kini jadi sorotan karena akses tol baru. Anda perlu memahami posisi harga sebelum memilih unit yang tepat untuk keluarga kecil.

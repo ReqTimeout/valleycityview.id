@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Cimahi dan Bandung: Dua Pasar Hunian yang Berbeda — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 

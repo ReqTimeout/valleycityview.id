@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Daftar Harga Rumah di Summarecon Bandung dan Bandingkan dengan Padalarang — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 <p><strong>Summarecon Bandung</strong> dikenal sebagai kawasan elit dan modern di Bandung Timur. Dengan fasilitas super lengkap seperti mal, sekolah, dan pusat bisnis, banyak orang bermimpi tinggal di sana. Namun, bagaimana dengan harganya di tahun 2025? Berikut ini adalah <strong>daftar harga rumah di Summarecon Bandung</strong> terbaru dan solusi hunian sejuk dengan harga terjangkau di Valley Cityview.

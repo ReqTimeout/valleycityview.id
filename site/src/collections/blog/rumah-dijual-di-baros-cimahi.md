@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Rumah Dijual di Baros Cimahi: Strategi Membeli di Area Padalarang — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 

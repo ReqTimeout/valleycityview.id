@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Minimalis Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga rumah minimalis bandung sering membingungkan karena rentang angkanya sangat lebar. Artikel ini menjelaskan posisi spesifik Rp 599 juta untuk tipe 45/72 di Padalarang, Cimahi, agar Anda punya dasar perbandingan yang jelas dan tidak salah tafsir pasar.

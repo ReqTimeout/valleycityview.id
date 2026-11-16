@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["agen"]
+cover: "/media/curated/foto-2.webp"
+imageAlt: "Agen Properti Cimahi: 9 Panduan Praktis — Foto tampak depan unit Valley Cityview: mobil terparkir di carport, taman kecil dan jendela ruang keluarga menyala menjelang malam"
 ---
 
 Menjadi agen properti cimahi bukan sekadar menawarkan hunian. Anda perlu memahami pasar lokal yang unik di antara Bandung dan Padalarang. Peluang besar menanti bagi mereka yang siap menghitung risiko dengan cermat sebelum memulai survei lapangan.

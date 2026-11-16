@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Harga Perumahan Summarecon Bandung: Rincian dan Alternatif — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 <p><strong>Harga perumahan Summarecon Bandung</strong> memang sudah tidak diragukan lagi berada di kelas premium. Dengan konsep kota mandiri, fasilitas mewah, dan pengembang ternama seperti Summarecon Agung, harga unit di kawasan ini bisa tembus miliaran rupiah. Tapi tunggu dulu—apakah ada alternatif yang tak kalah menarik tapi jauh lebih ramah di kantong? Jawabannya: Valley Cityview.

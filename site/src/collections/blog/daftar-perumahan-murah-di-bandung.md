@@ -10,6 +10,7 @@ legacyUrl: "/daftar-perumahan-murah-di-bandung.html"
 wpId: 874
 status: publish
 cover: "/media/curated/hero.webp"
+imageAlt: "Daftar Perumahan Murah di Bandung: Batas Harga yang Wajar — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 <p><strong>Daftar perumahan murah di Bandung</strong> menjadi incaran banyak keluarga muda dan pekerja yang ingin memiliki hunian sendiri tanpa harus terbebani biaya tinggi. Bandung sebagai kota metropolitan dengan udara sejuk menawarkan berbagai pilihan perumahan harga terjangkau mulai dari Rp 200 jutaan hingga Rp 600 jutaan.

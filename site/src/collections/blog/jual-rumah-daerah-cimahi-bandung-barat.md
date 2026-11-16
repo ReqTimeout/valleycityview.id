@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Daerah Cimahi Bandung Barat: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual rumah daerah cimahi bandung barat? Cek lokasi Laksanamekar, Padalarang. Area ini menawarkan akses tol Baros dan dekat Unjani. Cocok untuk keluarga muda dengan gaji angka pada tabel di atas-10 juta yang butuh hunian terjangkau namun strategis di perbatasan kota.

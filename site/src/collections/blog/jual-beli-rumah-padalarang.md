@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Beli Rumah Padalarang: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Aktivitas jual beli rumah padalarang ramai karena kedekatan dengan stasiun KCIC. Banyak pekerja muda memilih hunian tipe 45/72 di Laksanamekar sebagai langkah awal kepemilikan aset yang terjangkau bagi komuter harian menuju Jakarta atau Bandung.

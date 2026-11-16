@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Perumahan Murah Di Padalarang Bandung Barat: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Perumahan murah di padalarang bandung barat sering membuat calon pembeli ragu. Banyak yang takut harga rendah berarti kualitas buruk atau masalah legalitas. Padahal, hunian terjangkau bisa tetap layak dan aman bagi keluarga muda.

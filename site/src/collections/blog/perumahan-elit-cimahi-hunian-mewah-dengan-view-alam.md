@@ -10,6 +10,7 @@ legacyUrl: "/perumahan-elit-cimahi-hunian-mewah-dengan-view-alam.html"
 wpId: 640
 status: publish
 cover: "/media/curated/hero-2.webp"
+imageAlt: "Perumahan Elit di Cimahi: Hunian Premium dengan View Alam — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 

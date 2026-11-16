@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Bandung Dekat Itb: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Orang mencari "rumah dijual bandung dekat itb" sering lupa cek lokasi. Padalarang jadi alternatif logis. Harganya masuk akal bagi gaji bulanan empat sampai sepuluh juta rupiah. Anda perlu tahu apa yang harus diperiksa sebelum tanda tangan.

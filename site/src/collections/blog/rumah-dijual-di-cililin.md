@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Di Cililin: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Rumah dijual di Cililin menarik bagi pencari hunian terjangkau. Namun, koridor selatan Bandung Barat memiliki dinamika harga unik yang perlu dipahami sebelum mengambil keputusan besar ini.

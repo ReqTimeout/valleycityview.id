@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Bandung 500 Jutaan: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari rumah bandung 500 jutaan sering kali berakhir dengan kekecewaan. Banyak iklan menyesatkan atau lokasi yang terlalu jauh dari akses utama. Valley Cityview menawarkan kejelasan harga dan posisi strategis di Padalarang, Cimahi.

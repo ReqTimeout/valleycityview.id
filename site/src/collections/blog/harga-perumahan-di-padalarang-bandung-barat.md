@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Perumahan Di Padalarang Bandung Barat: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga perumahan di Padalarang Bandung Barat sering membuat calon pembeli bingung. Banyak angka berseliweran tanpa konteks jelas. Kami menyajikan data konkret agar Anda tidak salah langkah saat mencari hunian pertama yang layak dan terjangkau bagi keluarga muda.

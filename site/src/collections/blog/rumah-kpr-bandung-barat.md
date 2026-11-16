@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["kpr"]
+cover: "/media/curated/design-45.webp"
+imageAlt: "Rumah KPR Bandung Barat: 7 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 Mencari rumah kpr bandung barat sering membingungkan karena banyak opsi tersebar. Fokus pada Padalarang memberikan akses tol yang nyata. Cek kemampuan bayar sebelum jatuh hati pada brosur.

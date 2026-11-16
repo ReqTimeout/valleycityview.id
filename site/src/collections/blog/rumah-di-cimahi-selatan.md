@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Cimahi Selatan: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah di cimahi selatan sering kali terasa membingungkan bagi pembeli pertama. Anda perlu memahami batas wilayah administratif dan akses transportasi sebelum memutuskan lokasi spesifik yang sesuai anggaran bulanan keluarga muda saat ini.

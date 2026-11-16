@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["panduan"]
+cover: "/media/curated/foto-1.webp"
+imageAlt: "Perumahan Baru Di Cimahi Selatan: 8 Panduan Praktis — Foto unit Valley Cityview yang sudah berdiri: kanopi carport baja, jendela lebar menyala sore, deretan pinus muda di halaman paving"
 ---
 
 Perumahan baru di cimahi selatan menawarkan alternatif bagi keluarga muda. Banyak yang bingung membedakan harga tanah dengan biaya bangun. Cek detail unit sebelum tanda tangan kontrak agar tidak menyesal.

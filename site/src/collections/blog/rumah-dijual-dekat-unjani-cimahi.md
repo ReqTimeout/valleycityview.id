@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Dekat Unjani Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual dekat unjani cimahi butuh ketelitian. Lokasi Laksanamekar menawarkan akses tol Baros dan harga lebih masuk akal bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berat.

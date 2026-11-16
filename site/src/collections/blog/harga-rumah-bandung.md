@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga rumah bandung sering membuat calon pembeli bingung. Di Padalarang, hunian tipe 45/72 ditawarkan seharga Rp 599.000.000. Angka ini menjadi tolok ukur penting sebelum Anda survei lokasi lain.

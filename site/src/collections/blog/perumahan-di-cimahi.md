@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan di Cimahi: Rekomendasi Hunian untuk Keluarga Awal — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 

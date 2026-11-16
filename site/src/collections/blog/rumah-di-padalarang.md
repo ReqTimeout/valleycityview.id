@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Padalarang: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah di padalarang sering kali membuat calon pembeli bingung memilih lokasi yang tepat. Valley Cityview hadir sebagai solusi nyata bagi pekerja muda dengan penghasilan terbatas.

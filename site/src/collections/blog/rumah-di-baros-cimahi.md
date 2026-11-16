@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Baros Cimahi: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah di baros cimahi sering kali berakhir pada kebingungan. Lokasi Padalarang menawarkan tipe 45/72 yang pas untuk komuter Bandung Barat, namun hitungan waktu tempuh harus jelas sebelum Anda memutuskan lokasi hunian ini.

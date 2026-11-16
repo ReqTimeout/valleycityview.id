@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Beli Rumah Batujajar Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual beli rumah batujajar bandung barat butuh ketelitian. Banyak calon pembeli salah menyaring lokasi. Padalarang menawarkan akses tol lebih baik dibanding Cikalongwetan. Pastikan Anda memahami perbedaan koridor selatan dan utara sebelum mengambil keputusan besar ini.

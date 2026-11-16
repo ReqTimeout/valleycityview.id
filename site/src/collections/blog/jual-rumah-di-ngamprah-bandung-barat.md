@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Ngamprah Bandung Barat: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari jual rumah di ngamprah bandung barat tanpa tahu data dasarnya. Padahal, koridor selatan Padalarang tumbuh cepat karena akses tol dan gerbang Baros. Memahami fakta ini mencegah Anda salah memilih lokasi yang stagnan.

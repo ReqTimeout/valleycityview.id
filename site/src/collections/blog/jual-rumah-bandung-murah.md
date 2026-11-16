@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Bandung Murah: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Pencarian jual rumah bandung murah sering menipu. Banyak listing di Bandung Barat hanya menampilkan angka menarik tanpa konteks lokasi nyata. Anda perlu memahami dinamika wilayah sebelum terburu-buru mengambil keputusan finansial besar ini.

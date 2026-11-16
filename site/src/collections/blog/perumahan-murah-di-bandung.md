@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Murah di Bandung: Batas Harga yang Wajar di 2026 — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 &nbsp;

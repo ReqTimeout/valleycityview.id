@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Padalarang: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Sebelum membeli, cek harga rumah padalarang dulu. Banyak yang bingung dengan angka pasar saat ini. Kami sajikan data jujur untuk calon pembeli pertama di area Laksanamekar dan sekitarnya.

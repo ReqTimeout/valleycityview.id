@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Bandung 500 Juta: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual bandung 500 juta di Bandung Barat butuh ketelitian. Koridor selatan Padalarang menawarkan harga kompetitif, namun lokasi spesifik menentukan nilai jangka panjang hunian Anda.

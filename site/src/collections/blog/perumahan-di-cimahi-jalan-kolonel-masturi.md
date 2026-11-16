@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Di Cimahi Jalan Kolonel Masturi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak pencari perumahan di cimahi jalan kolonel masturi bingung memilih lokasi. Valley Cityview menawarkan tipe 45/72 di Laksanamekar, Padalarang. Harganya masuk akal bagi gaji bulanan empat hingga sepuluh juta rupiah. Ini solusi nyata untuk pembeli rumah pertama.

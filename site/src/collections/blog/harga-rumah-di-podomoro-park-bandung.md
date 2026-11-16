@@ -10,6 +10,7 @@ legacyUrl: "/harga-rumah-di-podomoro-park-bandung.html"
 wpId: 851
 status: publish
 cover: "/media/curated/hero.webp"
+imageAlt: "Harga Rumah di Podomoro Park Bandung: Rincian dan Bandingkan — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 <p><strong>Harga rumah di Podomoro Park Bandung</strong> menjadi topik yang banyak dicari oleh calon pembeli properti kelas menengah hingga premium. Berada di kawasan strategis Bandung Selatan, Podomoro Park menghadirkan hunian eksklusif dengan konsep modern dan fasilitas mewah. Tapi berapa sebenarnya harga rumah di kawasan ini? Apakah sepadan dengan benefit yang ditawarkan?

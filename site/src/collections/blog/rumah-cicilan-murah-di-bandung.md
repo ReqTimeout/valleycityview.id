@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Cicilan Murah Di Bandung: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Rumah cicilan murah di bandung sering jadi jebakan jika hitungan dasar diabaikan. Cek apakah Rp 3.871.000/bulan sesuai gaji Anda sebelum terburu-buru mengambil keputusan finansial penting ini.

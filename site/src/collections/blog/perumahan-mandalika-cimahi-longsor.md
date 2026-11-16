@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Mandalika Cimahi Longsor: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Cari "perumahan mandalika cimahi longsor" sering membingungkan. Lokasi sebenarnya ada di Padalarang, bukan pusat Cimahi. Tipe 45/72 di Laksanamekar menawarkan solusi bagi pekerja dengan gaji angka pada tabel di atas-10 juta per bulan yang ingin punya rumah sendiri.

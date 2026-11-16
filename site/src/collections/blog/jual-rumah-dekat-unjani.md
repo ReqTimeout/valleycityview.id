@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Dekat Unjani: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual rumah dekat unjani butuh ketelitian. Area ini menawarkan akses pendidikan dan kesehatan strategis bagi keluarga muda. Cek fakta berikut sebelum memutuskan membeli unit di koridor Cimahi ini.

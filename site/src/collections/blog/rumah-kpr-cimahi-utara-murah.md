@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["kpr"]
+cover: "/media/curated/design-45.webp"
+imageAlt: "Rumah KPR Cimahi Utara Murah: 8 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 Mencari rumah kpr cimahi utara murah sering kali berakhir dengan kekecewaan karena stok terbatas. Lahan terbangun di kota ini sempit, sehingga harga mengikuti koridor utama Bandung-Jakarta dekat gerbang tol Baros.

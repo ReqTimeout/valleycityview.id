@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah KPR Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Memahami harga rumah kpr bandung menuntut kejernihan data. Banyak calon pembeli bingung membedakan angka rata-rata dan nilai riil di lapangan. Posisi hunian baru sering kali lebih strategis daripada lokasi lama yang sempit.

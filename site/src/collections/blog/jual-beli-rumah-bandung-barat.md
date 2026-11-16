@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Beli Rumah Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jual beli rumah bandung barat sering dimulai dengan pencarian luas. Namun, koridor selatan seperti Padalarang menyimpan dinamika harga unik dibanding wilayah utara yang masih perbukitan.

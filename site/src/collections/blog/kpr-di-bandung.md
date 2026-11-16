@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "KPR di Bandung: Cara Menghitung Cicilan dan Memilih Tenor — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 <p><strong>KPR rumah Bandung kota</strong> semakin dicari karena tingginya kebutuhan akan tempat tinggal yang nyaman namun tetap terjangkau. Bandung, dengan iklim sejuk dan kemudahan akses ke berbagai fasilitas, menjadi salah satu kota favorit untuk menetap.

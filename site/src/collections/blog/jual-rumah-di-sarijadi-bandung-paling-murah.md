@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Sarijadi Bandung Paling Murah: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Pencarian "jual rumah di sarijadi bandung paling murah" sering mengarah ke Bandung Barat. Padalarang kini menjadi opsi rasional bagi pembeli pertama yang mengutamakan akses tol dan harga kompetitif dibanding pusat kota lama.

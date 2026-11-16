@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Elit di Cimahi: Klasifikasi Harga dan Fasilitas — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 

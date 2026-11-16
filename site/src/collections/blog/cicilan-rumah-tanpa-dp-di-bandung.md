@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cluster-amanda-summarecon-bandung
+imageAlt: "Cicilan Rumah Tanpa DP di Bandung: Syarat dan Risikonya — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 <p><strong>Cicilan rumah tanpa DP di Bandung</strong> kini bukan sekadar impian. Banyak pengembang dan program KPR kini menawarkan skema tanpa uang muka, menjadikan peluang memiliki rumah lebih mudah diakses, khususnya bagi generasi milenial dan pasangan muda yang baru memulai hidup.

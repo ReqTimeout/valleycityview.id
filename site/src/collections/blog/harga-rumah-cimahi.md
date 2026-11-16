@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - perum-nusa-hijau-cimahi
   - perumahan-baru-di-cimahi
+imageAlt: "Harga Rumah di Cimahi: Rincian Harga dan Cicilannya — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 

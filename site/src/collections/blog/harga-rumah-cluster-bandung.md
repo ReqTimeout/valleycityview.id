@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Cluster Bandung: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah cluster bandung sering kali membingungkan calon pembeli pertama. Banyak yang mengira angka di Padalarang sama dengan rata-rata kabupaten. Padahal, lokasi spesifik menentukan nilai hunian secara signifikan.

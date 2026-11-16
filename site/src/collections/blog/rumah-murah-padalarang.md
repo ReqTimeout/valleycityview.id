@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Murah Padalarang: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Banyak orang mencari rumah murah padalarang karena takut harga tinggi. Padahal, di Laksanamekar tersedia unit layak huni dengan legalitas jelas. Hunian ini cocok bagi pekerja muda yang ingin punya aset sendiri tanpa beban berlebih setiap bulan.

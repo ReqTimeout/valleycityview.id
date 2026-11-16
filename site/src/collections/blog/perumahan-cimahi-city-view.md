@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Cimahi City View: Hunian di Cimahi Tengah — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Whoosh: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan dekat whoosh di Laksanamekar menawarkan akses cepat ke stasiun Padalarang. Bagi komuter muda, jarak tempuh menjadi faktor utama sebelum memikirkan harga cicilan bulanan yang stabil.

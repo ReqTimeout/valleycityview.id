@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Beli Rumah Di Padalarang: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Beli rumah di padalarang sering dianggap mahal bagi pekerja muda. Kenyataannya, tipe 45/72 di Laksanamekar menawarkan cicilan yang masuk akal untuk penghasilan empat sampai delapan juta per bulan.

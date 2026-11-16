@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Info Perumahan di Bandung: Yang Perlu Dicek Sebelum Membeli — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 <p><strong>Info perumahan di Bandung</strong> terus dicari oleh masyarakat yang ingin menetap di kota dengan udara sejuk, fasilitas lengkap, dan akses strategis. Bandung tak hanya menjadi tujuan wisata, tapi juga pilihan tempat tinggal yang nyaman, baik bagi keluarga muda, investor properti, maupun pensiunan.

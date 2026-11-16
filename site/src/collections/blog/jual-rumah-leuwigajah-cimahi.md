@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Leuwigajah Cimahi: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari opsi jual rumah leuwigajah cimahi? Area ini menawarkan peluang bagi keluarga muda yang ingin lepas dari rumah orang tua. Namun, memahami karakter lahan terbatas di Cimahi adalah kunci sebelum mengambil keputusan besar.

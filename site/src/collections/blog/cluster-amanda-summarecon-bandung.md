@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Cluster Amanda Summarecon Bandung: Harga dan Alternatif di Cimahi Barat — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 <p><strong>Cluster Amanda Summarecon Bandung</strong> dikenal sebagai salah satu klaster premium di kawasan kota mandiri Summarecon. Desain rumahnya modern, fasilitasnya lengkap, dan lingkungannya tertata rapi. Namun harga rumah di Cluster Amanda kini mencapai lebih dari Rp 1,5 miliar. Apakah masih relevan bagi pencari hunian yang menginginkan rumah strategis namun tetap terjangkau?

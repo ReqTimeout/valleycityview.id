@@ -20,6 +20,10 @@
  * Token budget: system ~350, user ~250, output ~1800.
  */
 
+// Cover + alt SEO per kategori (lihat seo/banner.mjs) — setiap artikel MESIN
+// wajib punya gambar, sama seperti aturan sbdental: buildMdx selalu menulis.
+import { coverFor, imageAltFor } from './banner.mjs';
+
 export const SYSTEM_PROMPT = `Kamu editor konten Valley Cityview — perumahan tipe 45/72 m² di Laksanamekar, Padalarang, Cimahi. Tulis Bahasa Indonesia yang natural, kalimat aktif, angka konkret, tanpa basa-basi properti.
 
 KAMU MENULIS UNTUK: orang dengan penghasilan Rp 4–10 juta/bulan yang mempertimbangkan rumah pertama di sisi barat Bandung (Padalarang, Cimahi, Bandung Barat) dan curiga pada iklan "cicilan 1 jutaan".
@@ -188,6 +192,7 @@ export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta }: 
     date: meta.pubDate || today,
     tags: meta.tags || [meta.category],
     cover: meta.cover,
+    imageAlt: meta.imageAlt,
     status: 'draft',
   });
   return `${fm}\n\n${bodyFinal}\n`;
@@ -195,7 +200,7 @@ export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta }: 
 
 // ===== helper template (dipakai langsung via import, tidak lagi disalin ke generate.mjs) =====
 
-function renderFrontmatter({ title, slug, description, date, tags, cover, status }: any): string {
+function renderFrontmatter({ title, slug, description, date, tags, cover, imageAlt, status }: any): string {
   const tagYaml = (tags || []).filter(Boolean).map((t) => `"${escapeYaml(t)}"`).join(', ');
   return `---
 title: "${escapeYaml(title)}"
@@ -204,7 +209,7 @@ description: "${escapeYaml(description)}"
 date: "${date}"
 author: "Tim Valley Cityview"
 status: ${status}
-tags: [${tagYaml}]${cover ? `\ncover: "${cover}"` : ''}
+tags: [${tagYaml}]${cover ? `\ncover: "${cover}"` : ''}${imageAlt ? `\nimageAlt: "${escapeYaml(imageAlt)}"` : ''}
 ---`;
 }
 
@@ -463,6 +468,9 @@ export function deriveMeta({ keyword, llmBody, category }: any) {
     description,
     slug: slugify(keyword || 'artikel'),
     tags: mapTags(category),
+    // Image SEO: cover per kategori + alt unik "judul — caption aset".
+    cover: coverFor({ category, keyword }),
+    imageAlt: imageAltFor(title, coverFor({ category, keyword })),
   };
 }
 

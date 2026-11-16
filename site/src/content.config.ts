@@ -17,6 +17,9 @@ const blog = defineCollection({
     // 301 to their canonical post instead of rendering.
     redirectTo: z.string().optional(),
     cover: z.string().optional(),
+    // Image SEO (port sbdental): alt unik "judul — caption aset". Wajib ada di
+    // schema — key di luar zod di-strip diam-diam (lihat catatan related).
+    imageAlt: z.string().optional(),
     tags: z.array(z.string()).default([]),
     // Ditulis oleh seo/mesh-build.mjs (internal-link mesh, resiprokal). Schema
     // harus menyebutkannya: key yang tidak ada di zod di-strip diam-diam, jadi

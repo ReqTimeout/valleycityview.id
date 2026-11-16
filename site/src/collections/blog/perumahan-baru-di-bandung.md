@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Baru di Bandung: Apa yang Perlu Diperhatikan — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 <p><strong>Perumahan baru di Bandung</strong> terus bermunculan sebagai respons atas tingginya permintaan hunian dari keluarga muda, profesional, hingga investor properti. Kota Bandung dan sekitarnya kini menjadi salah satu pusat pertumbuhan properti dengan banyak proyek baru yang menawarkan konsep modern, fasilitas lengkap, serta skema pembayaran ringan.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Siap Huni Di Bandung: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Saat mencari jual rumah siap huni di bandung, banyak pembeli terjebak pada iklan semata. Lokasi menentukan nilai jangka panjang unit tersebut. Anda perlu memahami peta pertumbuhan wilayah sebelum menandatangani surat pemesanan.

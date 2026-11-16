@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Whoosh Bandung: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan dekat whoosh bandung sering dianggap solusi komuter. Namun, jarak fisik dan waktu tempuh nyata perlu diverifikasi sebelum mengambil keputusan besar bagi pembeli rumah pertama.

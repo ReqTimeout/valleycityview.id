@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Mewah Di Cimahi Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari perumahan mewah di cimahi bandung, namun realitas pasar menunjukkan pilihan terbatas. Lahan terbangun di kota otonom ini sangat minim. Akibatnya, harga tanah melambung mengikuti koridor utama Bandung-Jakarta melalui gerbang tol Baros dan jalan raya Cimahi.

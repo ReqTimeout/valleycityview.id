@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Tol Baros: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan dekat tol baros sering dijual dengan satu kalimat singkat: dekat. Padahal yang menentukan hidup komuter bukan jarak di peta, melainkan waktu tempuh nyata dari gerbang tol Baros sampai pintu rumah, terutama saat jam berangkat kerja. Ukur sendiri, jangan percaya klaim.

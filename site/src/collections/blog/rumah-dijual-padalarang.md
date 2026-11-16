@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual padalarang butuh cek lokasi, bukan hanya harga. Koridor Padalarang-Cimahi padat jam pagi. Stasiun KCIC dekat Laksanamekar. Pastikan akses kerja dan komuter masuk akal sebelum booking unit baru di area ini.

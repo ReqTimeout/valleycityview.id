@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Terbaru Di Padalarang Bandung Barat: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah terbaru di Padalarang Bandung Barat sering membingungkan bagi pembeli pertama. Banyak yang bingung memilih antara lokasi strategis dan anggaran terbatas. Artikel ini membantu Anda memahami posisi harga pasar saat ini. Kami juga memberikan panduan praktis sebelum melakukan survei fisik ke lapangan.

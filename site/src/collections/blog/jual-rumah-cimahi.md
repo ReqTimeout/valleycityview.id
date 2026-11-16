@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari opsi jual rumah cimahi? Lokasi menjadi penentu utama sebelum memutuskan membeli. Cek akses tol dan fasilitas kesehatan di sekitar Padalarang agar cicilan bulanan tetap masuk akal bagi keluarga muda.

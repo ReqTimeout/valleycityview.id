@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Cimahi Tengah: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah di cimahi tengah terus bergerak naik karena lahan terbatas. Banyak keluarga muda kesulitan menemukan unit yang sesuai anggaran bulanan mereka tanpa mengorbankan lokasi strategis dekat pusat kota.

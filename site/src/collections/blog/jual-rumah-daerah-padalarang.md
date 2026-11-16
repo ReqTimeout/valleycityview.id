@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Daerah Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual rumah daerah padalarang butuh ketelitian. Lokasi menentukan kenyamanan harian Anda. Jangan tergiur harga murah tanpa cek akses nyata. Cek dulu koridor Padalarang-Cimahi yang padat jam pagi.

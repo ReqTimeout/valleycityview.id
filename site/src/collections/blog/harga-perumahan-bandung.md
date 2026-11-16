@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Perumahan Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga perumahan bandung yang masuk akal sering kali membingungkan. Banyak angka berseliweran tanpa konteks jelas. Kami menyajikan data jujur untuk membantu Anda memahami posisi pasar saat ini di wilayah Bandung Barat secara spesifik.

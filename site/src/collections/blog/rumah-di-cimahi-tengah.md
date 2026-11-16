@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Cimahi Tengah: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah di cimahi tengah sering berakhir dengan budget yang membengkak. Lahan terbatas membuat harga tanah naik tajam. Anda perlu strategi cerdas agar tetap bisa memiliki hunian layak tanpa mengorbankan stabilitas keuangan keluarga muda saat ini.

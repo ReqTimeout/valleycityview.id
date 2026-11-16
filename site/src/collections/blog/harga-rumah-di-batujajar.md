@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Batujajar: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Saat mencari harga rumah di batujajar, banyak pembeli bingung membedakan lokasi administratif dengan zona ekonomi. Padalarang kini menjadi pusat pertumbuhan baru karena akses tol yang strategis. Perbandingan pasar sangat penting sebelum Anda menetapkan pilihan akhir.

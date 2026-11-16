@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Padalarang Bandung: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah padalarang bandung yang terjangkau? Tipe 45/72 di Laksanamekar menawarkan cicilan Rp 3.871.000 per bulan. Ini solusi nyata bagi pekerja komuter dan pembeli rumah pertama dengan penghasilan empat sampai delapan juta rupiah.

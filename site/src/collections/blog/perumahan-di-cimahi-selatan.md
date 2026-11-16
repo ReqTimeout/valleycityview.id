@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Di Cimahi Selatan: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan di cimahi selatan menawarkan opsi realistis bagi keluarga muda yang ingin lepas dari sewa. Lokasi Laksanamekar menjembatani kebutuhan akses tol dan kedekatan dengan fasilitas kota tanpa harga tanah pusat yang melambung tinggi.

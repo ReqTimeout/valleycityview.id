@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Dekat Unjani Cimahi: Opsi Hunian untuk Pegawai dan Mahasiswa — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 

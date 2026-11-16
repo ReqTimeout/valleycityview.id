@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cimahi Bandung: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari info jual rumah cimahi bandung? Lahan terbatas di kota otonom ini membuat harga mengikuti koridor Bandung-Jakarta. Jangan terburu-buru, cek dulu fakta lokal berikut sebelum membeli unit baru di sini.

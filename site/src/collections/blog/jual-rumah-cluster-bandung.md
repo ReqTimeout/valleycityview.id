@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cluster Bandung: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari **jual rumah cluster bandung** di Padalarang? Cek akses tol, status tanah, dan jarak ke pusat kota. Jangan hanya terpaku pada harga murah. Lokasi menentukan nilai jangka panjang hunian Anda.

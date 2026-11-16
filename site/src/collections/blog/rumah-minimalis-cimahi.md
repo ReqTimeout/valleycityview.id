@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Minimalis Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah minimalis cimahi di lahan terbatas? Valley Cityview menawarkan tipe 45/72 di Laksanamekar. Hunian ini cocok bagi keluarga muda yang butuh akses cepat ke koridor Bandung-Jakarta tanpa harga tanah kota yang melambung tinggi.

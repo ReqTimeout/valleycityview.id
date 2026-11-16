@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["panduan"]
+cover: "/media/curated/foto-1.webp"
+imageAlt: "Perumahan Baru Padalarang: 6 Panduan Praktis — Foto unit Valley Cityview yang sudah berdiri: kanopi carport baja, jendela lebar menyala sore, deretan pinus muda di halaman paving"
 ---
 
 Mencari **perumahan baru padalarang** yang siap huni? Cek detail unit sebelum tanda tangan. Rumah tipe 45/72 di Laksanamekar menawarkan kepastian bagi pekerja muda dengan gaji angka pada tabel di atas-10 juta.

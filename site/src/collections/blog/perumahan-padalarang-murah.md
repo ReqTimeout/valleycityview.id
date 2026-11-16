@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Perumahan Padalarang Murah: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari **perumahan padalarang murah** sering kali membingungkan karena banyak opsi subsidi yang lokasinya jauh. Namun, ada hunian non-subsidi di Laksanamekar dengan cicilan setara gaji pekerja pabrik muda.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Cikalong Wetan Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari opsi jual rumah di cikalong wetan bandung barat? Koridor selatan Padalarang tumbuh cepat karena akses tol. Sementara utara masih perbukitan, pasokan hunian baru terkonsentrasi di jalur utama ini.

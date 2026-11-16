@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Cimahi dan Sekitar Bandung: Perbandingan Lokasi — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 

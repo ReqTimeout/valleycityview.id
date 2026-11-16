@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Cililin Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari jual rumah di cililin bandung barat karena lokasi ini strategis. Namun, memahami konteks wilayah jauh lebih penting daripada sekadar melihat iklan.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Komuter KCIC Padalarang Waktu Tempuh: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Bagi calon pembeli, memahami komuter KCIC Padalarang waktu tempuh menjadi kunci utama. Lokasi strategis di Laksanamekar menawarkan akses cepat ke stasiun. Perjalanan menuju Jakarta atau Bandung terasa lebih efisien dan terukur.

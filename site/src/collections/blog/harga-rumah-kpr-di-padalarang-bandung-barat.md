@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah KPR Di Padalarang Bandung Barat: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah kpr di padalarang bandung barat sering jadi pertanyaan utama bagi pekerja muda. Banyak yang bingung memilih antara menyewa atau memiliki hunian sendiri. Perbandingan angka nyata membantu mengambil keputusan lebih cepat dan tepat.

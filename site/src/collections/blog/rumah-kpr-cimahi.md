@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["kpr"]
+cover: "/media/curated/design-45.webp"
+imageAlt: "Rumah KPR Cimahi: 7 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 Mencari rumah kpr cimahi sering terasa berat karena harga tanah kota naik terus. Valley Cityview di Padalarang menawarkan solusi nyata bagi keluarga muda yang butuh hunian terjangkau tanpa mengorbankan akses kerja.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Bandung Buah Batu: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual bandung buah batu sering membuat calon pembeli bingung. Banyak yang mengira area ini murah, padahal pasokan hunian baru terkonsentrasi di koridor selatan Padalarang yang harganya naik cepat.

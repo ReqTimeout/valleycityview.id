@@ -10,6 +10,8 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Tol Baros Cimahi: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Iklan sering menyebut perumahan dekat tol baros cimahi sebagai jawaban bagi komuter. Padahal yang menentukan hidup sehari-hari adalah menit, bukan kilometer. Dari gerbang tol Baros ke pintu rumah, waktu tempuh berubah mengikuti jam berangkat.

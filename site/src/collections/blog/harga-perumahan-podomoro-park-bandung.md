@@ -10,6 +10,7 @@ legacyUrl: "/harga-perumahan-podomoro-park-bandung.html"
 wpId: 1026
 status: publish
 cover: "/media/curated/design-25.webp"
+imageAlt: "Harga Perumahan Podomoro Park Bandung: Rincian dan Alternatif — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 <p>Sedang mencari rumah di Bandung dan tertarik dengan <strong>Podomoro Park</strong>? Anda tidak sendiri! Kawasan elit ini memang punya daya tarik tersendiri, mulai dari lokasi prestisius di <strong>Buah Batu</strong> hingga berbagai fasilitas premium. Tapi tahukah Anda, harga rumah di Podomoro Park Bandung tahun 2025 sudah mencapai <strong>Rp 1,5 hingga 3 miliar</strong> per unit?

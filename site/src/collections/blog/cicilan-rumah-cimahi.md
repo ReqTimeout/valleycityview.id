@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Cicilan Rumah Cimahi: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Bagi banyak keluarga muda, mencari **cicilan rumah cimahi** yang sesuai gaji sering terasa membingungkan. Angka Rp 3.871.000 per bulan mungkin terlihat besar, padahal tenor dua puluh tahun membuat beban ini lebih ringan daripada menyewa apartemen di pusat kota Bandung atau Jakarta.

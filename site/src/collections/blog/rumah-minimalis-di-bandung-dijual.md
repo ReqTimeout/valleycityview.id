@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Minimalis Di Bandung Dijual: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah minimalis di bandung dijual di wilayah Padalarang butuh ketelitian. Banyak calon pembeli terjebak harga tanpa memahami konteks lokasi. Cek fakta berikut sebelum menandatangani akad.

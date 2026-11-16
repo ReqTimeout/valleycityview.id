@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Kantor Rumah Zakat Cimahi: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak pencari hunian di Cimahi mencari informasi tentang kantor rumah zakat cimahi. Namun, lokasi Valley Cityview di Laksanamekar menawarkan solusi KPR terjangkau bagi keluarga muda yang ingin pindah dari rumah orang tua mereka.

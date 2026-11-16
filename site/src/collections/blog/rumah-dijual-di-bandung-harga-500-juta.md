@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Dijual Di Bandung Harga 500 Juta: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Banyak orang mencari rumah dijual di bandung harga 500 juta, namun data pasar Bandung Barat sering disalahpahami. Posisi Rp 599.000.000 untuk tipe 45/72 di Padalarang justru menawarkan nilai lebih dibanding rata-rata wilayah utara yang masih perbukitan.

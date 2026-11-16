@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Alamat Rumah Bandung Cimahi: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari alamat rumah bandung cimahi yang sesuai anggaran sering membuat bingung. Valley Cityview di Laksanamekar menawarkan tipe 45/72 dekat Padalarang. Ini solusi bagi pembeli pertama dengan penghasilan empat sampai sepuluh juta rupiah per bulan.

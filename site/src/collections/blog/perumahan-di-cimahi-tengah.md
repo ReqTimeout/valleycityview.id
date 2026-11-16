@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Cimahi Tengah: Akses Transportasi dan Huniannya — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Padalarang: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual rumah di padalarang? Lokasi Laksanamekar menawarkan akses KCIC cepat dan harga masuk akal. Namun, koridor padat menuntut cek detail sebelum beli unit baru bagi pekerja muda.

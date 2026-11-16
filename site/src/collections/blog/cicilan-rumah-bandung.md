@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-tanpa-dp-di-bandung
   - cluster-amanda-summarecon-bandung
+imageAlt: "Cicilan Rumah Bandung: Berapa yang Realistis untuk Penghasilan Anda — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 <p><strong>Cicilan rumah Bandung</strong> kini hadir dengan beragam skema ringan yang memudahkan siapa saja untuk memiliki hunian impian. Dari kawasan Cimahi hingga Padalarang, banyak perumahan baru yang menawarkan harga terjangkau, DP rendah, dan proses KPR yang dibantu developer.

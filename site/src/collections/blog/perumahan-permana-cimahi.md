@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Permana Cimahi: Hunian di Cimahi Utara — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 

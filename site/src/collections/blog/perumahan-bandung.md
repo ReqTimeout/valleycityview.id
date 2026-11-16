@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Bandung: Menilai Lokasi, Harga, dan Fasilitas — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 <p><strong>Perumahan Bandung</strong> kini menjadi pilihan utama bagi masyarakat yang mencari kenyamanan, akses mudah, dan prospek investasi yang terus meningkat. Kota Bandung dan sekitarnya terus berkembang menjadi kawasan hunian yang ideal, mulai dari kawasan Bandung Timur, Utara, Selatan, hingga Bandung Barat.

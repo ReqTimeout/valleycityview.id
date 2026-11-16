@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Rumah Dijual di Bandung: Cara Membandingkan Opsi yang Layak — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 &nbsp;

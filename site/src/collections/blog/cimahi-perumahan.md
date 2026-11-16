@@ -10,6 +10,7 @@ legacyUrl: "/cimahi-perumahan.html"
 wpId: 586
 status: publish
 cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan di Cimahi: Pilihan Hunian di Bandung Barat — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 

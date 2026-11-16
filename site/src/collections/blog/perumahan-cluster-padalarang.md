@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Cluster Padalarang: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari perumahan cluster padalarang yang dekat stasiun KCIC? Tipe 45/72 di Laksanamekar menawarkan cicilan Rp 3.871.000/bulan bagi pekerja muda dengan gaji empat juta sampai delapan juta rupiah.

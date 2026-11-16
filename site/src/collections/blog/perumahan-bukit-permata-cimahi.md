@@ -10,6 +10,7 @@ legacyUrl: "/perumahan-bukit-permata-cimahi.html"
 wpId: 619
 status: publish
 cover: "/media/curated/hero.webp"
+imageAlt: "Perumahan Bukit Permata Cimahi: Lokasi dan Hunian di Bandung Barat — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 

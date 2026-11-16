@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Bandung Murah: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Satu pertanyaan sering muncul saat mencari harga rumah bandung murah: apakah angka yang terlihat di iklan benar-benar terjangkau? Banyak calon pembeli terjebak pada janji manis tanpa melihat detail teknis dan lokasi spesifik.

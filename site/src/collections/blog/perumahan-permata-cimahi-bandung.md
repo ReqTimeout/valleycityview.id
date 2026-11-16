@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Permata Cimahi Bandung: Lokasi dan Huniannya — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 <h2>Perumahan Cimahi – Pilihan Hunian Strategis di Bandung Barat

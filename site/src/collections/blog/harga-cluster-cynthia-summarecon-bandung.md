@@ -10,6 +10,7 @@ legacyUrl: "/harga-cluster-cynthia-summarecon-bandung.html"
 wpId: 1020
 status: publish
 cover: "/media/curated/hero-2.webp"
+imageAlt: "Harga Cluster Cynthia Summarecon Bandung: Rincian dan Bandingkan — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 <p>Jika Anda mencari <strong>harga Cluster Cynthia Summarecon Bandung</strong>, kemungkinan besar Anda tertarik pada hunian modern bergaya urban yang berada di pusat pengembangan kota. Betul sekali—cluster ini dirancang dengan arsitektur modern, keamanan 24 jam, dan fasilitas premium. Tapi tahukah Anda bahwa harga rumahnya kini sudah menyentuh angka <strong>Rp 1,5 Miliar</strong>?

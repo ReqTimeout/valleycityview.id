@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Cimahi Dijual: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah cimahi dijual di area strategis? Cek lokasi Valley Cityview di Laksanamekar, Padalarang. Hunian tipe 45/72 ini menawarkan akses mudah ke koridor utama Bandung-Jakarta bagi keluarga muda.

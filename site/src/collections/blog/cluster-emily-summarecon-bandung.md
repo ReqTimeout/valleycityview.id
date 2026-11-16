@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Cluster Emily Summarecon Bandung: Harga dan Alternatif di Padalarang — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 <p><strong>Cluster Emily Summarecon Bandung</strong> merupakan salah satu klaster terbaru dari kawasan elit Summarecon Bandung. Dengan desain modern tropis, lokasi premium, dan fasilitas lengkap, harga rumah di Cluster Emily kini melambung tinggi hingga miliaran rupiah. Namun, apakah ada alternatif yang lebih hemat tapi tetap nyaman?

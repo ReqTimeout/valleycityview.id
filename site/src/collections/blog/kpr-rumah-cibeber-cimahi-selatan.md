@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["kpr"]
+cover: "/media/curated/design-45.webp"
+imageAlt: "KPR Rumah Cibeber Cimahi Selatan: 6 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 Mencari kpr rumah cibeber cimahi selatan? Banyak keluarga muda terjebak harga tanah kota. Valley Cityview di Padalarang menawarkan alternatif nyata dengan cicilan terjangkau, tepat bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berlebih.

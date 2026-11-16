@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Padalarang Bandung Barat: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari **perumahan padalarang bandung barat** berarti memahami ritme komuter KCIC. Tipe 45/72 di Laksanamekar menawarkan akses cepat ke Jakarta dan Bandung bagi pekerja muda yang ingin lepas dari biaya kontrakan bulanan.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Perumahan Cimahi: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga perumahan cimahi di koridor Padalarang kini berada pada titik Rp 599.000.000 untuk tipe 45/72. Angka ini menjadi patokan bagi keluarga muda yang ingin pindah dari rumah orang tua tanpa membebani gaji bulanan secara berlebihan.

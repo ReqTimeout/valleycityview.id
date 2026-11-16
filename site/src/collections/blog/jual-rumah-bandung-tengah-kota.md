@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Bandung Tengah Kota: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari "jual rumah bandung tengah kota", namun pasokan baru justru terkonsentrasi di koridor selatan Padalarang. Membeli hunian di sini menuntut pemahaman lokasi yang berbeda dari pusat kota lama.

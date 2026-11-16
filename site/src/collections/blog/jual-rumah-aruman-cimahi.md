@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Aruman Cimahi: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jika Anda mencari jual rumah aruman cimahi, koridor Laksanamekar menawarkan alternatif harga yang masuk akal bagi pekerja muda. Lokasi ini berada di perbatasan administratif yang strategis namun tenang.

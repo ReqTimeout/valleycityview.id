@@ -10,6 +10,7 @@ legacyUrl: "/cicilan-rumah-bandung-miliki-hunian-impian-dengan-skema-ringan.html
 wpId: 848
 status: publish
 cover: "/media/curated/design-24.webp"
+imageAlt: "Cicilan Rumah Bandung: Skema Ringan yang Perlu Anda Tahu — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 <a href="/blog/cicilan-rumah-bandung/"></a>

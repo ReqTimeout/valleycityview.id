@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Bandung Murah 2 Lantai: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Saat mencari jual rumah bandung murah 2 lantai, banyak pembeli terjebak pada iklan tanpa cek lokasi. Di Padalarang, pasokan terkonsentrasi di koridor selatan dekat tol. Ini alasan harga bergerak cepat dibanding rata-rata kabupaten yang pusatnya di Cikalongwetan.

@@ -10,6 +10,8 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Stasiun Whoosh Padalarang: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit. Padahal jarak tempuhnya bergantung pada jam berangkat dan titik keluar komplek.

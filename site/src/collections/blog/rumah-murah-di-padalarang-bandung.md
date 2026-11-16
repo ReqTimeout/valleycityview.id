@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Murah Di Padalarang Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari rumah murah di padalarang bandung sering kali membingungkan. Banyak penawaran menarik namun legalitasnya meragukan. Anda perlu memastikan unit tersebut layak huni dan aman secara hukum sebelum menandatangani berkas apa pun.

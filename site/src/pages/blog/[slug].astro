@@ -141,6 +141,8 @@ const schemas = [
     description={post.data.description}
     path={path}
     type="article"
+    image={post.data.cover || undefined}
+    imageAlt={post.data.imageAlt || undefined}
     publishedTime={post.data.date.toISOString()}
     modifiedTime={(post.data.updated ?? post.data.date).toISOString()}
     schemas={schemas}
@@ -177,7 +179,7 @@ const schemas = [
           <div class="shell article__cover">
             <Picture
               name={post.data.cover}
-              alt={mediaCaption(post.data.cover) ?? post.data.title}
+              alt={post.data.imageAlt ?? mediaCaption(post.data.cover) ?? post.data.title}
               class="article__cover-img"
               sizes="(max-width: 1200px) 100vw, 1200px"
               loading="eager"

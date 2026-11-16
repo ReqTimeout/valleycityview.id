@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Perumahan Di Cimahi: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah perumahan di cimahi sering jadi teka-teki bagi keluarga muda. Di tengah keterbatasan lahan kota, menemukan unit terjangkau terasa sulit. Namun, opsi di perbatasan Bandung Barat menawarkan kejelasan angka yang jarang dibahas publik secara utuh.

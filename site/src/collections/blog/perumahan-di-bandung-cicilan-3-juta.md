@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan di Bandung dengan Cicilan 3 Juta: Apakah Realistis? — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 <p>Mencari <strong>perumahan di Bandung cicilan 3 juta</strong> per bulan kini semakin mudah. Bandung yang terus berkembang menawarkan berbagai pilihan hunian dengan harga terjangkau dan cicilan bersahabat. Cocok bagi keluarga muda, pasangan baru menikah, maupun para pekerja yang ingin memiliki rumah sendiri.

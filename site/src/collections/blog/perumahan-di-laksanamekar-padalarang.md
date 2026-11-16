@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Di Laksanamekar Padalarang: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan di Laksanamekar Padalarang menawarkan alamat nyata, bukan sekadar janji brosur. Anda perlu memeriksa apa yang benar-benar ada di sekitar unit tersebut sebelum menandatangani surat pemesanan.

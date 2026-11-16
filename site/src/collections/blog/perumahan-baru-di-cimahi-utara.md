@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["panduan"]
+cover: "/media/curated/foto-1.webp"
+imageAlt: "Perumahan Baru Di Cimahi Utara: 5 Panduan Praktis — Foto unit Valley Cityview yang sudah berdiri: kanopi carport baja, jendela lebar menyala sore, deretan pinus muda di halaman paving"
 ---
 
 Mencari perumahan baru di cimahi utara? Banyak calon pembeli tergiur harga tanah yang lebih rendah dibanding Bandung. Namun, cek unit adalah kunci agar tidak kecewa saat serah terima rumah nanti.

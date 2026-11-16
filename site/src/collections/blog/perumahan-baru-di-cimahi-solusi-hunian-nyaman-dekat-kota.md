@@ -10,6 +10,7 @@ legacyUrl: "/perumahan-baru-di-cimahi-solusi-hunian-nyaman-dekat-kota.html"
 wpId: 560
 status: publish
 cover: "/media/curated/design-45.webp"
+imageAlt: "Perumahan Baru di Cimahi: Hunian Nyaman yang Tetap Dekat Kota — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 

@@ -10,6 +10,7 @@ legacyUrl: "/harga-rumah-di-podomoro-park-bandung-2.html"
 wpId: 959
 status: publish
 cover: "/media/curated/design-24.webp"
+imageAlt: "Harga Rumah di Podomoro Park Bandung: Rincian Biaya dan Cicilan — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 <p><strong>Harga rumah di Podomoro Park Bandung</strong> menjadi topik hangat bagi para pencari properti di kawasan Bandung Selatan. Perumahan prestisius besutan Agung Podomoro Group ini memang menawarkan kualitas tinggi dan fasilitas premium. Namun, tidak semua orang siap membayar harga yang tembus hingga miliaran rupiah per unit. Apakah ada alternatif yang lebih hemat namun tetap nyaman dan strategis? Jawabannya: Valley Cityview di Padalarang, Bandung Barat!

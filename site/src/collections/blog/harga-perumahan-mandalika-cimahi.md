@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Perumahan Mandalika Cimahi: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga perumahan mandalika cimahi sering menjadi rujukan awal bagi pencari hunian di wilayah perbatasan. Namun, angka tersebut perlu dibaca bersama konteks lokasi dan kemampuan bayar agar tidak menyesatkan langkah pertama Anda.

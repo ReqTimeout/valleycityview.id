@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Daftar Perumahan Elit di Bandung: Apa yang Membuatnya Mahal — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 <p><strong>Daftar perumahan elit di Bandung</strong> menjadi pencarian utama bagi keluarga mapan, eksekutif, maupun investor properti yang menginginkan hunian prestisius dengan lingkungan eksklusif. Bandung tak hanya dikenal sebagai kota wisata dan pendidikan, tapi juga sebagai kota dengan deretan perumahan elit terbaik di Indonesia.

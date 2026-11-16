@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Cimahi Selatan: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga rumah di cimahi selatan sering membuat bingung. Lahan terbangunnya terbatas, sehingga pasar bergerak cepat. Anda perlu data konkret sebelum memutuskan membeli hunian pertama.

@@ -10,6 +10,7 @@ legacyUrl: "/rumah-di-summarecon-bandung.html"
 wpId: 983
 status: publish
 cover: "/media/curated/unit-3.webp"
+imageAlt: "Rumah di Summarecon Bandung: Harga dan Apa yang Anda Dapatkan — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 <p>Summarecon Bandung telah menjadi primadona bagi pencari hunian premium. Namun, semakin tahun, harga rumah di kawasan ini kian menanjak hingga tembus miliaran rupiah. Bagi Anda yang ingin tinggal di Bandung dengan lokasi strategis namun tetap ramah di kantong, kini saatnya melirik alternatif cerdas: Valley Cityview.

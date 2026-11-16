@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Cimahi Utara: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Ketika mencari rumah dijual cimahi utara, banyak keluarga muda bingung membedakan harga tanah kota dengan biaya hunian baru di perbatasan. Lokasi strategis tidak selalu berarti terjangkau bagi semua orang.

@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Di Cimahi Utara: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Perumahan di cimahi utara sering jadi incaran, tapi lahan terbatas membuat harga melambung. Tipe 45/72 di Laksanamekar menawarkan solusi bagi pembeli rumah pertama dengan penghasilan empat hingga sepuluh juta rupiah per bulan.

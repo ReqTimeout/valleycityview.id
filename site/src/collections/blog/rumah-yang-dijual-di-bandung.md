@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Yang Dijual Di Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah yang dijual di bandung sering membuat calon pembeli pusing. Banyak opsi tersebar dari pusat kota hingga pinggiran, masing-masing punya karakteristik unik yang perlu dipahami sebelum mengambil keputusan besar ini.

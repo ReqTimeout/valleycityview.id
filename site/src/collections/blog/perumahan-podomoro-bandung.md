@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Podomoro Bandung: Mana yang Lebih Cocok untuk Anda? — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 <a href="/"></a>

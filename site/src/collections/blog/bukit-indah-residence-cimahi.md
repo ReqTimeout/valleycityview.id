@@ -13,6 +13,7 @@ related:
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
   - perumahan-baru-di-cimahi
+imageAlt: "Bukit Indah Residence Cimahi: Lokasi, Harga, dan Kekurangannya — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 

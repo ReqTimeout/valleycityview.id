@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Cimahi Tengah: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari rumah dijual cimahi tengah, namun lahan terbangun di sini sangat terbatas. Harga hunian mengikuti koridor Bandung-Jakarta karena kedekatan dengan gerbang tol Baros dan jalan raya utama kota ini.

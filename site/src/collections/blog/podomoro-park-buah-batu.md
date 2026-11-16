@@ -10,6 +10,7 @@ legacyUrl: "/podomoro-park-buah-batu.html"
 wpId: 953
 status: publish
 cover: "/media/curated/hero-3.webp"
+imageAlt: "Podomoro Park Buah Batu: Harga, Akses, dan Alternatifnya — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 <p><strong>Podomoro Park Buah Batu</strong> menjadi incaran banyak calon pembeli properti karena lokasinya yang premium dan pengembang besar di belakangnya: Agung Podomoro Group. Namun, untuk memiliki satu unit di perumahan ini, Anda harus siap merogoh kocek minimal Rp 1,5 – 4 miliar! Kabar baiknya, ada alternatif hunian nyaman dan sejuk dengan harga jauh lebih masuk akal: Valley Cityview Padalarang.

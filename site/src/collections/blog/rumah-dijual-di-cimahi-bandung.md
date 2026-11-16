@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Di Cimahi Bandung: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual di cimahi bandung butuh ketelitian. Lahan terbatas membuat harga mengikuti koridor tol Baros. Cek akses jalan raya Cimahi dan dekat Unjani atau RS Dustira sebelum survei lokasi unit baru ini.

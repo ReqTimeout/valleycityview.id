@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Cimahi Dekat Unjani: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Cari **perumahan cimahi dekat unjani** butuh hitungan matang. Lokasi strategis di Padalarang menawarkan akses kampus tanpa harga tanah Cimahi kota.

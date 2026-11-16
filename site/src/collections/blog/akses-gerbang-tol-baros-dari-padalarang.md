@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Akses Gerbang Tol Baros Dari Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Akses gerbang tol Baros dari Padalarang menjadi penentu waktu tempuh harian Anda. Jarak fisik tidak selalu berarti efisiensi waktu, terutama saat jam sibuk pagi hari tiba.

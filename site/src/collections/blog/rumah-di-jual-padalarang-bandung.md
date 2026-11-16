@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Jual Padalarang Bandung: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari rumah di jual padalarang bandung, namun sering lupa menghitung biaya tersembunyi. Lokasi strategis tidak menjamin kenyamanan jika Anda mengabaikan detail teknis sebelum membeli unit baru.

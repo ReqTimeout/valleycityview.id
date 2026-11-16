@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Grand Cimahi City: Hunian di Cimahi dengan Konsep Terpadu — Visualisasi ruang kerja dan sudut baca dengan jendela tinggi"
 ---
 
 

@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Rumah Dijual di Cimahi: Cara Menemukan Unit yang Sesuai — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 

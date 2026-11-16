@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Elit Di Cimahi Bandung: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari perumahan elit di cimahi bandung sering kali membuat calon pembeli bingung antara harga tanah dan fasilitas. Padahal, lokasi strategis seperti Padalarang menawarkan keseimbangan biaya yang masuk akal untuk rumah pertama Anda.

@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan di Kota Cimahi: Apa yang Bisa Anda Dapatkan di Sana — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 

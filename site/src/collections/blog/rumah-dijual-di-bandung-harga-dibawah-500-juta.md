@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Rumah Dijual Di Bandung Harga Dibawah 500 Juta: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Banyak pencari "rumah dijual di bandung harga dibawah 500 juta" sering terjebak pada angka iklan saja. Padahal, posisi geografis menentukan kecepatan kenaikan nilai aset Anda secara signifikan di masa depan.

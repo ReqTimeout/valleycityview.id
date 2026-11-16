@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Ciuyah Cimahi: Hunian di Area Ciuyah — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 

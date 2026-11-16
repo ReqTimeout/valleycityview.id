@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Perumahan Summarecon Bandung: Hunian Premium di Kota Mandiri — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 <p><strong>Perumahan Summarecon Bandung</strong> dikenal sebagai salah satu kawasan elit dengan fasilitas premium dan lokasi strategis di Gedebage. Namun, apakah perumahan ini selalu menjadi pilihan terbaik? Dalam artikel ini, kami membandingkan Summarecon dengan Valley Cityview di Padalarang, Bandung Barat — alternatif hunian modern dengan harga jauh lebih terjangkau dan nilai investasi tinggi.

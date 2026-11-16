@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Murah Di Kabupaten Bandung: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga rumah murah di kabupaten bandung sering membuat calon pembeli bingung. Angka rata-rata tidak selalu mencerminkan peluang nyata di koridor pertumbuhan selatan yang kini ramai dikembangkan.

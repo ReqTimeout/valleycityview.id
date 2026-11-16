@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Dekat Pasar Batujajar Bandung Barat: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah di dekat pasar batujajar bandung barat sering menjadi patokan awal bagi pencari hunian. Namun, koridor selatan Padalarang menawarkan dinamika harga berbeda. Posisi tipe 45/72 perlu dipahami dalam konteks ini.

@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Conjuring Cimahi Dimana: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jika Anda mencari rumah conjuring cimahi dimana, jangan tertipu judul film. Valley Cityview menawarkan tipe 45/72 di Laksanamekar, Padalarang. Lokasi ini masuk koridor Bandung Barat yang strategis bagi pembeli pertama dengan gaji angka pada tabel di atas-10 juta per bulan.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Unjani: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari perumahan dekat unjani sering kali terasa rumit bagi pekerja muda. Valley Cityview di Laksanamekar menawarkan solusi nyata dengan jarak tempuh yang masuk akal dan harga terjangkau untuk komuter harian.

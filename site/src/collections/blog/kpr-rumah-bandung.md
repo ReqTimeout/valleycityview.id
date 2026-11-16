@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "KPR Rumah di Bandung: Langkah dari Simulasi sampai Ajukan — Visualisasi dapur yang terbuka ke taman belakang"
 ---
 
 <p>Mencari <strong>KPR rumah Bandung</strong> kini semakin mudah berkat banyaknya pilihan perumahan dengan skema kredit ringan, proses cepat, dan lokasi strategis. Mulai dari perumahan murah, hingga rumah premium bisa Anda miliki dengan cicilan yang terjangkau melalui KPR bank maupun developer langsung.

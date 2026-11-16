@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Hantu Cimahi Mall: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Istilah "rumah hantu cimahi mall" sering muncul di pencarian properti. Banyak calon pembeli bingung membedakan unit kosong dan rumah siap huni. Kami jelaskan fakta lokasi Valley Cityview di Padalarang.

@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
 ---
 
 Mencari <strong>perumahan baru di Cimahi</strong> yang nyaman, asri, dan dekat dengan pusat kota? Valley Cityview adalah pilihan terbaik bagi Anda yang ingin memiliki hunian modern minimalis dengan akses mudah ke berbagai fasilitas umum. Terletak di Padalarang, Bandung Barat, kawasan ini menawarkan keseimbangan sempurna antara kehidupan kota dan suasana alam yang segar.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Batujajar Kbb: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Jika Anda mencari jual rumah di batujajar kbb, pahami dulu bahwa pasokan hunian baru terkonsentrasi di koridor selatan. Wilayah utara masih perbukitan dan lahan pertanian, sehingga pilihan unit siap bangun sangat terbatas di sana.

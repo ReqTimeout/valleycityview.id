@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Daerah Cililin Bandung Barat: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga rumah daerah cililin bandung barat sering membuat bingung karena data tersebar. Faktanya, hunian baru terkonsentrasi di koridor selatan akibat akses tol Padalarang-Cileunyi dan gerbang Baros yang mendorong permintaan tinggi di area tersebut.

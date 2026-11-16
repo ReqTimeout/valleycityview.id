@@ -10,6 +10,7 @@ legacyUrl: "/harga-rumah-cluster-emily-summarecon-bandung.html"
 wpId: 1032
 status: publish
 cover: "/media/curated/design-45.webp"
+imageAlt: "Harga Rumah Cluster Emily Summarecon Bandung: Rincian dan Bandingkan — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 <p><strong>Harga rumah Cluster Emily Summarecon Bandung</strong> kini mencapai angka fantastis! Dengan desain mewah, lokasi prestisius di kawasan Summarecon Bandung, dan fasilitas lengkap, tak heran bila harga properti di cluster ini sudah melampaui <strong>Rp 1,6 – 2,2 miliar</strong>. Tapi tunggu dulu — apakah Anda tahu bahwa ada alternatif rumah nyaman dan asri dengan harga di bawah Rp 600 juta saja?

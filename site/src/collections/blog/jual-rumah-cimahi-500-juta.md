@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cimahi 500 Juta: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari opsi jual rumah cimahi 500 juta di area terbatas ini butuh ketelitian. Lahan terbangun Cimahi langka, sehingga harga mengikuti koridor Bandung-Jakarta. Pastikan Anda memahami dinamika pasar sebelum memutuskan membeli unit impian keluarga muda.

@@ -6,6 +6,8 @@ date: "2026-11-16"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Perumahan Di Bandung Murah: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Mencari harga perumahan di bandung murah sering membuat calon pembeli bingung. Data pasar menunjukkan kisaran Rp 599 juta untuk tipe 45/72 di Padalarang menjadi standar baru yang layak dipertimbangkan secara cermat.

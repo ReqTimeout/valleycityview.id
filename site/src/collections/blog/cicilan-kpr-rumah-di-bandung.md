@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Cicilan KPR Rumah Di Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Banyak orang mencari cicilan kpr rumah di bandung dengan harapan angka bulanan tidak mencekik. Namun, realitas pasar sering kali berbeda dari ekspektasi awal.

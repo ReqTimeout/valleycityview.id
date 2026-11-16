@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Cluster Cimahi: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari **perumahan cluster cimahi** sering terasa membingungkan bagi pembeli rumah pertama. Lokasi menjadi faktor penentu utama yang menentukan kenyamanan hidup sehari-hari serta nilai investasi jangka panjang.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Dijual Di Kota Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah dijual di kota cimahi butuh ketelitian. Lahan terbangun terbatas membuat harga mengikuti koridor Bandung-Jakarta. Keluarga muda perlu memahami dinamika ini sebelum memutuskan membeli unit baru.

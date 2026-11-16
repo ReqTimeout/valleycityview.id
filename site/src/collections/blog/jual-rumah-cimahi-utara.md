@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Cimahi Utara: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari jual rumah cimahi utara butuh ketelitian. Area ini terbatas lahan terbangunnya, sehingga harga mengikuti koridor Bandung-Jakarta. Cek akses tol Baros dan jalan raya Cimahi sebelum memutuskan membeli unit baru di sini.

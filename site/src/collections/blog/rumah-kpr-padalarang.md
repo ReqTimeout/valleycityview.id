@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["kpr"]
+cover: "/media/curated/design-45.webp"
+imageAlt: "Rumah KPR Padalarang: 8 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
 ---
 
 Banyak pencari **rumah kpr padalarang** bingung memilih skema. Tipe 45/72 di Laksanamekar menawarkan cicilan Rp 3.871.000/bulan. Angka ini masuk akal bagi gaji empat hingga delapan juta. Cek hitungan dasar sebelum lanjut ke survei lokasi.

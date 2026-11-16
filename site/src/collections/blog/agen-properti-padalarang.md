@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["agen"]
+cover: "/media/curated/foto-2.webp"
+imageAlt: "Agen Properti Padalarang: 5 Panduan Praktis — Foto tampak depan unit Valley Cityview: mobil terparkir di carport, taman kecil dan jendela ruang keluarga menyala menjelang malam"
 ---
 
 Menjadi agen properti padalarang bukan sekadar menawarkan rumah. Anda menghubungkan pekerja muda dengan hunian pertama mereka di Laksanamekar. Peran ini menuntut kejujuran dan pemahaman pasar lokal yang mendalam.

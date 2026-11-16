@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Dekat Stasiun Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Memilih perumahan dekat stasiun padalarang sering terdengar mudah di iklan. Kenyataannya, jarak ke Stasiun KCIC Padalarang menentukan ritme harian Anda. Angka di brosur perlu diuji sendiri sebelum akad.

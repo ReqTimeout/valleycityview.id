@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Perumahan Baros Cimahi: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari perumahan baros cimahi? Lokasi Laksanamekar, Padalarang, menawarkan akses tol strategis bagi komuter Bandung-Jakarta. Tipe 45/72 ini cocok untuk pembeli rumah pertama dengan penghasilan angka pada tabel di atas-10 juta per bulan yang mengutamakan efisiensi waktu perjalanan harian mereka menuju kantor.

@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Harga Rumah Podomoro Park Bandung: Rincian Biaya — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 <p>Banyak orang tertarik dengan <strong>harga rumah Podomoro Park Bandung</strong> karena reputasi pengembang dan lokasi premium di Bandung Selatan. Namun, tahukah Anda bahwa harga unit di kawasan elit ini kini menembus angka Rp 1,5 – 4 Miliar? Jika Anda merasa harga tersebut terlalu tinggi, tenang dulu! Ada alternatif hunian strategis dan berkualitas dengan harga jauh lebih ramah di kantong: Valley Cityview.

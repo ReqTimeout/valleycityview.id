@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Perumahan Baru Di Padalarang Bandung Barat: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Orang yang mencari jual perumahan baru di padalarang bandung barat sering tergiur harga murah. Namun, lokasi menentukan kenyamanan harian Anda. Cek akses jalan sebelum tanda tangan surat pesanan.

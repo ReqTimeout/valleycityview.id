@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - cicilan-rumah-bandung
   - cicilan-rumah-tanpa-dp-di-bandung
+imageAlt: "Denah Rumah Summarecon Bandung dan Denah Rumah Tipe 45/72 — Visualisasi halaman depan dan carport unit tipe 45/72 pada siang hari"
 ---
 
 <p>Jika Anda mencari <strong>denah rumah Summarecon Bandung</strong>, pasti yang ada di pikiran Anda adalah desain rumah mewah, modern, dan luas. Benar! Klaster-klaster seperti Amanda, Emily, dan Srimaya memang menawarkan layout rumah yang lega, namun tentu diiringi harga miliaran.

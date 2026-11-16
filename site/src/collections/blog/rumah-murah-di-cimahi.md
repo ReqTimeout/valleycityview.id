@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Rumah Murah di Cimahi: Opsi di Bawah Rp 600 Juta — Visualisasi sisi belakang unit dengan carport dan kanopi"
 ---
 
 

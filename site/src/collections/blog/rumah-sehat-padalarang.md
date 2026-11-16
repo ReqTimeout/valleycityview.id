@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Sehat Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah sehat padalarang sering kali berarti menyeimbangkan aksesibilitas dengan ketenangan. Di Laksanamekar, Padalarang, hunian tipe 45/72 menawarkan posisi strategis bagi komuter KCIC dan pekerja industri lokal yang butuh stabilitas finansial jangka panjang.

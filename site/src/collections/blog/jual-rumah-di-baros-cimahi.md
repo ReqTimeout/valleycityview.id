@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Rumah Di Baros Cimahi: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Banyak orang mencari jual rumah di baros cimahi karena lokasi strategis. Namun, jarak fisik sering menipu. Waktu tempuh nyata saat jam sibuk lebih penting daripada peta digital. Cek ini sebelum tanda tangan.

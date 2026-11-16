@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Citra Pesona Cimahi: Lokasi, Harga, dan Akses — Visualisasi kamar tidur dengan pintu kaca menghadap taman"
 ---
 
 

@@ -13,6 +13,7 @@ related:
   - bukit-indah-residence-cimahi
   - harga-rumah-cimahi
   - perum-nusa-hijau-cimahi
+imageAlt: "Perumahan Pancanaka Royal Garden Cimahi: Unit dan Lokasi — Visualisasi ruang keluarga dengan jendela lebar menghadap lembah"
 ---
 
 

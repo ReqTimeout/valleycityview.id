@@ -10,6 +10,7 @@ legacyUrl: "/harga-cluster-amanda-summarecon-bandung.html"
 wpId: 1014
 status: publish
 cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Harga Cluster Amanda Summarecon Bandung: Rincian dan Bandingkan — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 <p><strong>Cluster Amanda</strong> di Summarecon Bandung dikenal sebagai hunian modern dan elegan, menyasar segmen menengah ke atas. Tapi, tahukah Anda bahwa harga rumah di cluster ini sudah tembus <strong>lebih dari 1,3 miliar rupiah</strong>? Jika Anda sedang menimbang keputusan membeli, simak artikel ini sampai akhir—kami punya solusi menarik bernama <strong>Valley Cityview</strong>.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Jual Beli Rumah Cimahi: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Pasar jual beli rumah cimahi menawarkan peluang bagi keluarga muda. Lahan terbatas membuat harga mengikuti koridor utama. Cek unit di sisi pinggir yang berbatasan Bandung Barat sebelum mengambil keputusan besar ini.

@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["lokasi"]
+cover: "/media/curated/knowledge-1.webp"
+imageAlt: "Rumah Di Baros: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
 ---
 
 Mencari rumah di baros berarti memahami ritme komuter Bandung Barat. Tipe 45/72 di Laksanamekar menawarkan akses tol strategis bagi pembeli pertama dengan gaji empat hingga sepuluh juta rupiah per bulan.

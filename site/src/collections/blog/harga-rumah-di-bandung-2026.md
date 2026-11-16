@@ -6,6 +6,8 @@ date: "2026-11-15"
 author: "Tim Valley Cityview"
 status: draft
 tags: ["harga"]
+cover: "/media/curated/pricelist.webp"
+imageAlt: "Harga Rumah Di Bandung 2026: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
 ---
 
 Harga rumah di bandung 2026 sering jadi pertanyaan utama bagi calon pembeli pertama. Namun, angka rata-rata bisa menyesatkan jika Anda tidak melihat lokasi spesifik.
