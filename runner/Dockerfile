@@ -55,8 +55,11 @@ COPY audit ./audit
 # terbit tak pernah live). functions/ (booking API + middleware) ikut ter-copy —
 # wrangler mengunggahnya dari cwd saat `pages deploy dist`.
 COPY site ./site
-# npm ci butuh cwd (npm --prefix ... ci gagal dengan usage error pada npm 12)
-RUN cd site && npm ci
+# npm install, BUKAN npm ci: lock ini lolos npm 11.6 (macOS) tapi DITOLAK npm
+# 11.19 linux (EUSAGE @emnapi/core@1.11.1 missing) — terverifikasi 1:1 di
+# node:24-slim: npm ci gagal, npm install sukses (astro + wrangler terpasang).
+# npm install tetap menghormati lock; selisihnya hanya pelengkap platform.
+RUN cd site && npm install --no-audit --no-fund
 
 RUN mkdir -p /app/data \
  && chmod +x /app/runner/entrypoint.sh \
