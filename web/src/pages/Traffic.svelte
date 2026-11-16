@@ -90,9 +90,7 @@
 {/if}
 
 <h2 class="sec">Perubahan posisi</h2>
-{#if !rank.available}
-  <div class="callout info">Perubahan posisi kata kunci belum diukur. Pemantauan berjalan otomatis setiap Senin pagi dengan koneksi Google — hasilnya akan muncul di sini.</div>
-{:else}
+{#if rank.available && (rank.entries || []).length}
   <div class="grid g3">
     <Kpi i={0} label="Turun banyak (> {rank.threshold ?? 3} posisi)" value={(rank.drops || []).length} tone={(rank.drops || []).length ? 'bad' : 'ok'} />
     <Kpi i={1} label="Membaik" value={(rank.improved || []).length} tone="ok" />
@@ -101,4 +99,6 @@
   <div style="margin-top:14px">
     <DataTable columns={rankCols} rows={rank.entries || []} searchKeys={['query']} placeholder="Cari query…" />
   </div>
+{:else}
+  <div class="callout info">Perubahan posisi kata kunci belum diukur. Pemantauan berjalan otomatis setiap Senin pagi dengan koneksi Google — hasilnya akan muncul di sini.</div>
 {/if}

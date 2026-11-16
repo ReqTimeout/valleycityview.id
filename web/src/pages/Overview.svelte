@@ -287,6 +287,14 @@
       </div>
       <p class="note">Periode {agg.period?.start} → {agg.period?.end}</p>
     {:else}
+      <!-- Selalu tampilkan 4 kotak supaya kartu tidak jadi rongga kosong;
+           nilainya "—" karena memang belum pernah diukur (bukan 0 palsu). -->
+      <div class="mini-stats">
+        <div><span>Klik</span><b>—</b></div>
+        <div><span>Tayangan</span><b>—</b></div>
+        <div><span>Rasio klik</span><b>—</b></div>
+        <div><span>Posisi</span><b>—</b></div>
+      </div>
       <p class="note">{d?.gsc?.historyNote || 'Data Google sedang dikumpulkan — biasanya muncul 1–2 minggu setelah artikel tayang.'}</p>
     {/if}
   </Card>
@@ -364,6 +372,9 @@
 
   /* Alur: donut + legenda persen */
   .alur { display: flex; gap: 18px; align-items: center; justify-content: center; flex-wrap: wrap; padding: 4px 0; }
+  /* Legenda bawaan Donut disembunyikan — kartu ini pakai legenda % ala
+     sbdental di sebelah kanan; dua legenda sekaligus membingungkan. */
+  .alur :global(.mlegend) { display: none; }
   .legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-width: 210px; }
   .legend li { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--ink-2); }
   .legend li.zero { opacity: .5; }
