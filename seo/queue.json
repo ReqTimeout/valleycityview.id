@@ -6560,14 +6560,15 @@
       "intent": "angka yang dipotong di muka tapi tidak diumumkan di brosur",
       "priority": 80,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "biaya balik nama sertifikat rumah",
@@ -6577,14 +6578,15 @@
       "intent": "apa yang harus saya bayar supaya tanah atas nama saya",
       "priority": 80,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "BPHTB cara menghitungnya",
@@ -6594,14 +6596,15 @@
       "intent": "berapa pajak yang saya bayar saat akad",
       "priority": 80,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "asuransi jiwa kredit KPR wajib atau tidak",
@@ -6611,14 +6614,15 @@
       "intent": "ini produk atau syarat pencairan",
       "priority": 80,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "alasan pengajuan KPR ditolak bank",
@@ -6646,14 +6650,15 @@
       "intent": "apa yang saya tanda tangani lebih dulu dan apa isinya",
       "priority": 80,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "PBG dan IMB rumah baru yang harus dicek",
@@ -6663,14 +6668,15 @@
       "intent": "dokumen apa yang saya minta ke developer, untuk unit saya bukan untuk cluster",
       "priority": 80,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "biaya bulanan setelah punya rumah baru",
@@ -6680,14 +6686,15 @@
       "intent": "IPL (iuran pengelolaan lingkungan), keamanan, sampah, listrik, air — yang tidak muncul di brosur",
       "priority": 80,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "akses gerbang tol Baros dari Padalarang",
@@ -6733,14 +6740,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 78,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "agen properti jawa barat",
@@ -6768,14 +6776,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 78,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa ukuran rumah tipe 45",
@@ -6785,14 +6794,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 78,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu rumah tipe 45",
@@ -6962,14 +6972,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa meter rumah tipe 45",
@@ -6996,14 +7007,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "luas tanah untuk rumah tipe 45",
@@ -7013,14 +7025,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "ukuran tanah untuk rumah tipe 45",
@@ -7030,14 +7043,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "kontak agen properti bandung",
@@ -7186,14 +7200,15 @@
       "intent": "bentuk denah yang realistis untuk lahan 72 m2",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah baru atau rumah bekas mana lebih murah",
@@ -7203,14 +7218,15 @@
       "intent": "hitung sampai biaya renovasi, bukan sampai harga pasang",
       "priority": 75,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara menegosiasi harga rumah dengan developer",
