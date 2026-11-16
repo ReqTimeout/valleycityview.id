@@ -58,8 +58,9 @@ COPY site ./site
 # npm install, BUKAN npm ci: lock ini lolos npm 11.6 (macOS) tapi DITOLAK npm
 # 11.19 linux (EUSAGE @emnapi/core@1.11.1 missing) — terverifikasi 1:1 di
 # node:24-slim: npm ci gagal, npm install sukses (astro + wrangler terpasang).
-# npm install tetap menghormati lock; selisihnya hanya pelengkap platform.
-RUN cd site && npm install --no-audit --no-fund
+# --include=dev WAJIB: image set ENV NODE_ENV=production, tanpa ini npm
+# melewatkan devDependencies (wrangler) dan test .bin/wrangler gagal.
+RUN cd site && npm install --no-audit --no-fund --include=dev
 
 RUN mkdir -p /app/data \
  && chmod +x /app/runner/entrypoint.sh \
