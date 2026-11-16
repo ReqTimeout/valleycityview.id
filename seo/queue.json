@@ -6829,14 +6829,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 78,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah cluster murah bandung",
@@ -6990,14 +6991,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa arti rumah tipe 45 60",
@@ -7079,14 +7081,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "estimasi biaya rumah tipe 45",
@@ -7304,14 +7307,15 @@
       "intent": "booking fee / NUP rumah — apa itu, berapa (Rp 5 juta), dan apakah bisa dicicil",
       "priority": 73,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "booking fee rumah berlaku berapa lama",
@@ -7639,14 +7643,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara daftar bedah rumah jawa barat",
@@ -7673,14 +7678,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah sehat cipatat bandung barat",
@@ -8156,14 +8162,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan cililin bandung barat",
@@ -8478,14 +8485,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "izin perumahan jawa barat",
@@ -8495,14 +8503,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "menu rumah embun cimahi",
@@ -8638,14 +8647,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan baros",
@@ -8709,14 +8719,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah baru bandung",
@@ -9049,14 +9060,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah di cimahi",
@@ -9192,14 +9204,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan padalarang bandung",
@@ -9371,14 +9384,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah jawa barat julang ngapak",
@@ -9388,14 +9402,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan padalarang bandung barat",
@@ -9495,14 +9510,15 @@
       "intent": "rumah — pilihan tipe 45/72 untuk pembeli rumah pertama di koridor Bandung Barat",
       "priority": 72,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah sehat padalarang",
