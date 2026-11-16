@@ -7099,14 +7099,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "agen properti era bandung",
@@ -7134,14 +7135,15 @@
       "intent": "denah rumah tipe 45/72 — bangunan 45 m² dan lahan 72 m², cukup untuk keluarga kecil?",
       "priority": 75,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah dijual di ngamprah bandung barat",
@@ -7169,14 +7171,15 @@
       "intent": "cukup atau sesak: tata letak dua kamar",
       "priority": 75,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tipe 45 72 artinya luas bangunan dan lahan",
@@ -7239,14 +7242,15 @@
       "intent": "apa yang benar-benar bisa ditawar (bonus, biaya, NUP) dan apa yang tidak",
       "priority": 75,
       "demand_signal": "medium",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "booking fee rumah bisa dicicil atau tidak",
@@ -7256,14 +7260,15 @@
       "intent": "apa arti bayar 5 juta hari ini dan kalau saya batal",
       "priority": 75,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah bphtb sama dengan pajak pembeli",
@@ -10050,14 +10055,15 @@
       "intent": "rumah murah yang layak huni dan legalitasnya jelas, bukan murah karena cacat",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa bphtb jual beli tanah",
@@ -10152,14 +10158,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah di bandung yg murah",
@@ -10205,14 +10212,15 @@
       "intent": "rumah murah yang layak huni dan legalitasnya jelas, bukan murah karena cacat",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara ppjb ke shm",
@@ -10310,14 +10318,15 @@
       "intent": "rumah murah yang layak huni dan legalitasnya jelas, bukan murah karena cacat",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan murah di batujajar",
@@ -10414,14 +10423,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "peraturan ppjb terbaru",
@@ -10431,14 +10441,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "over kredit rumah murah bandung",
@@ -10654,14 +10665,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "bphtb sekarang berapa",
@@ -10705,14 +10717,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "bphtb untuk penjual atau pembeli",
@@ -10722,14 +10735,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "ppjb untuk apa",
@@ -10739,14 +10753,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah murah di bandung",
@@ -10945,14 +10960,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah cimahi murah",
