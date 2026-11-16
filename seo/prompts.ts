@@ -166,7 +166,11 @@ export function parseOutput(content: string): string {
 export function assembleMdx({ llmBody, prices, moneyLink, related, faq, meta }: any): string {
   const bodyNoFaq = linkifyBareUrls(stripFabricatedRp(llmBody));
   const bodyWithFacts = injectAfterFirstH2(bodyNoFaq, renderFactTable(prices));
-  const faqBlock = renderFaq(faq);
+  // FAQ = teks model juga: wajib lewat strip yang sama dengan body. Tanpa ini,
+  // angka rekayan di jawaban FAQ (mis. "Rp8.000.000") lolos ke validateMdx dan
+  // MEMBUANG seluruh artikel — penyebab 7/7 GATES FAIL batch pertama bulk
+  // qwen4-max-preview (16 Nov 2026).
+  const faqBlock = stripFabricatedRp(renderFaq(faq));
   const bodyWithCta = bodyWithFacts + '\n\n' + faqBlock + '\n\n' + renderCtaBlock();
 
   // Jaring pengaman: generator tidak boleh bergantung pada kepatuhan LLM
