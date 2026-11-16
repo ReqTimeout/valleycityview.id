@@ -5146,14 +5146,15 @@
       "intent": "syarat beli rumah pertama — dokumen, penghasilan, dan kondisi yang harus dipenuhi",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "syarat cicilan rumah kpr",
@@ -5217,14 +5218,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbandingan harga rumah dulu dan sekarang",
@@ -5288,14 +5290,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara menghitung dp kpr rumah",
@@ -5341,14 +5344,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah kpr rumah worth it",
@@ -5358,14 +5362,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa dp rumah btn",
@@ -5429,14 +5434,15 @@
       "intent": "biaya KPR rumah di luar cicilan — provisi, admin, asuransi, dan notaris",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "biaya kpr rumah komersil",
@@ -5446,14 +5452,15 @@
       "intent": "biaya KPR rumah di luar cicilan — provisi, admin, asuransi, dan notaris",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa arti kpr rumah",
@@ -5481,14 +5488,15 @@
       "intent": "tips mengambil KPR rumah agar disetujui — dokumen, rasio cicilan, dan riwayat kredit",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips melunasi kpr rumah",
@@ -5498,14 +5506,15 @@
       "intent": "tips mengambil KPR rumah agar disetujui — dokumen, rasio cicilan, dan riwayat kredit",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips membeli rumah kpr agar tidak tertipu",
@@ -5658,14 +5667,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa cicilan rumah",
@@ -5693,14 +5703,15 @@
       "intent": "syarat pengajuan KPR rumah — dokumen dan kondisi yang harus dipenuhi sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "syarat rumah pertamaku",
@@ -5710,14 +5721,15 @@
       "intent": "syarat beli rumah pertama — dokumen, penghasilan, dan kondisi yang harus dipenuhi",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "syarat cicilan rumah",
@@ -5799,14 +5811,15 @@
       "intent": "tips mengambil KPR rumah agar disetujui — dokumen, rasio cicilan, dan riwayat kredit",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan rumah kpr dan cluster",
@@ -5816,14 +5829,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "dp rumah sekarang",
@@ -5887,14 +5901,15 @@
       "intent": "berapa cicilan dan biaya KPR rumah untuk tipe 45/72 harga Rp 599 juta",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "syarat kpr rumah komersil",
