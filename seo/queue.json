@@ -10160,14 +10160,15 @@
       "intent": "booking fee / NUP rumah — apa itu, berapa (Rp 5 juta), dan apakah bisa dicicil",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "bphtb untuk rumah pertama",
@@ -10393,14 +10394,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu bphtb dalam jual beli tanah",
@@ -10410,14 +10412,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb notaris",
@@ -10427,14 +10430,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "peraturan bphtb terbaru 2025",
@@ -10624,14 +10628,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu bphtb ptsl",
@@ -10641,14 +10646,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb",
@@ -10658,14 +10664,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb tanah",
@@ -10675,14 +10682,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "bphtb terbaru 2025",
@@ -10926,14 +10934,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb lunas",
@@ -10943,14 +10952,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan ppjb dan ajb",
@@ -11212,14 +11222,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu bphtb dan pph",
@@ -11229,14 +11240,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb apartemen",
@@ -11246,14 +11258,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu ppjb dalam jual beli tanah",
@@ -11263,14 +11276,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan bphtb dan pph",
@@ -11442,14 +11456,15 @@
       "intent": "PPJB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "aeo",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan bphtb dan shm",
@@ -13183,14 +13198,15 @@
       "intent": "BPHTB rumah baru — apa itu, biaya, dan cara mengurusnya",
       "priority": 70,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "pergub bphtb 2025",
