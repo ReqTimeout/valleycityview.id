@@ -85,6 +85,10 @@ const BOLEH = new Set([
  * Kalau ada kata yang terlewat, tambahkan ke `SISA_INGGRIS` — jangan longgarkan
  * jadi kamus.
  */
+// 16 Nov 2026: 'over' DIBUANG dari daftar — 'over kredit'/'take over rumah' =
+// istilah properti Indonesia yang justru MEMAKAI kata itu (bahkan keyword-nya
+// sendiri: over kredit rumah bandung barat). Selama 'over' terdaftar, SEMUA
+// artikel keyword over-kredit gagal gate secara sistematis (14 kegagalan bulk).
 const SISA_INGGRIS = new Set([
   // Kata fungsi Inggris. Semua punya padanan Indonesia yang jelas, jadi kemunculannya
   // di prosa Indonesia hampir selalu berarti sisa templating/bahasa lain.
@@ -98,7 +102,7 @@ const SISA_INGGRIS = new Set([
   'this', 'that', 'these', 'those', 'there', 'here',
   'when', 'where', 'which', 'what', 'why', 'how', 'who', 'whom', 'whose',
   'into', 'onto', 'upon', 'within', 'among', 'against', 'toward', 'towards',
-  'though', 'although', 'because', 'about', 'above', 'below', 'over', 'under',
+  'though', 'although', 'because', 'about', 'above', 'below', 'under',
   'again', 'further', 'then', 'than', 'such', 'only', 'just', 'also', 'very',
   'much', 'many', 'each', 'every', 'both', 'either', 'neither', 'while', 'until',
   'before', 'after', 'between', 'during', 'through', 'without', 'being',
