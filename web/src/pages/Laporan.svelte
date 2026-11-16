@@ -12,7 +12,7 @@
   const reports = $derived(d?.reports || []);
   const env = $derived(d?.reportsEnv || {});
 
-  const kindLabel = (k) => ({ harian: 'Harian', mingguan: 'Mingguan', watchdog: 'Pengawas', uji: 'Uji' }[k] || k || '—');
+  const kindLabel = (k) => ({ harian: 'Harian', mingguan: 'Mingguan', watchdog: 'Pengawas', rank: 'Ranking', uji: 'Uji' }[k] || k || '—');
 
   const cols = [
     { key: 'at', label: 'Waktu', sortable: true, get: (r) => `${new Intl.DateTimeFormat('id-ID', { timeZone: 'Asia/Jakarta', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(r.at))} WIB` },
@@ -20,7 +20,7 @@
     { key: 'sent', label: 'Status', chip: (r) => (r.sent
       ? { value: 'sent', label: 'terkirim', kind: 'ok' }
       : { value: 'failed', label: r.reason === 'not-configured' ? 'belum terkonfigurasi' : 'gagal', kind: r.reason === 'not-configured' ? 'warn' : 'bad' }) },
-    { key: 'to', label: 'Penerima', get: (r) => (r.to || []).join(', ') || '—' },
+    { key: 'to', label: 'Penerima', get: (r) => [(r.to || []).join(', '), (r.cc || []).length ? `cc: ${r.cc.join(', ')}` : ''].filter(Boolean).join(' · ') || '—' },
     { key: 'subject', label: 'Subjek', sortable: true, get: (r) => String(r.subject || '').slice(0, 90) },
   ];
 </script>
@@ -32,7 +32,7 @@
 <div class="grid g4">
   <Kpi i={0} label="Laporan terkirim" value={reports.filter((r) => r.sent).length} note="{num(reports.length)} total riwayat" tone={reports.filter((r) => r.sent).length ? 'ok' : ''} />
   <Kpi i={1} label="Laporan terakhir" value={reports[0] ? ago(reports[0].at) : '—'} note={reports[0] ? kindLabel(reports[0].kind) : 'belum pernah terkirim'} />
-  <Kpi i={2} label="Penerima" value={env.to || '—'} note={env.configured ? 'tujuan laporan' : 'NOTIFY_EMAIL belum di-set'} />
+  <Kpi i={2} label="Penerima" value={env.to || '—'} note={env.cc ? `klien cc: ${env.cc}` : env.configured ? 'tujuan laporan' : 'NOTIFY_EMAIL belum di-set'} />
   <Kpi i={3} label="Jadwal harian" value={env.dailyAt || '—'} note={env.from ? `dari ${env.from}` : 'pengirim belum di-set'} tone="info" />
 </div>
 
@@ -61,6 +61,7 @@
     <dl class="kv">
       <dt>Kirim email</dt><dd>{env.configured ? 'Aktif' : 'Belum aktif'}</dd>
       <dt>Tujuan</dt><dd>{env.to || '—'}</dd>
+      <dt>Klien (cc)</dt><dd>{env.cc || '—'}</dd>
       <dt>Pengirim</dt><dd>{env.from || '—'}</dd>
       <dt>Jadwal harian</dt><dd>{env.dailyAt || '—'} (task harian di Coolify)</dd>
     </dl>

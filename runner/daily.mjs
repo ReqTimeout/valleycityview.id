@@ -33,7 +33,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { acquireLock } from './lib/lock.mjs';
-import { sendReport } from './lib/notify.mjs';
+import { sendReport, notifyCc } from './lib/notify.mjs';
 import { openRun } from './lib/runlog.mjs';
 import { publishScript } from './lib/config.mjs';
 // Prefix subject datang dari seo/site.mjs: kalau defaultnya berubah di satu
@@ -87,15 +87,22 @@ function readConfig() {
  * cuma nyimpen `published` + hasil pengukuran (gsc/bing/rampGate). 4 Okt:
  * versi pertama baca state.queue.items sehingga draft selalu tampil 0.
  */
+// Hari WIB (UTC+7) untuk "dibuat/terbit hari ini" — daily jalan 23:00 UTC,
+// angka UTC akan meleset ke hari sebelumnya (pelajaran flipDraft 14 Nov).
+const wibDay = (d) => new Date(new Date(d).getTime() + 7 * 3600000).toISOString().slice(0, 10);
+
 function countQueue() {
   const p = process.env.SEO_QUEUE_PATH || join(ROOT, 'seo/queue.json');
-  const c = { pending: 0, draft: 0, published: 0 };
+  const c = { pending: 0, draft: 0, published: 0, createdToday: 0, pubToday: 0 };
+  const today = wibDay(new Date());
   try {
     const raw = JSON.parse(readFileSync(p, 'utf8'));
     const items = Array.isArray(raw) ? raw : raw.items || [];
     for (const it of items) {
       const s = it?.status;
       if (s in c) c[s]++;
+      if (it?.generatedAt && wibDay(it.generatedAt) === today) c.createdToday++;
+      if (it?.publishedAt && wibDay(it.publishedAt) === today) c.pubToday++;
     }
   } catch {
     /* queue tidak terbaca — laporan akan tampil 0, tidak boleh menggagalkan run */
@@ -224,25 +231,79 @@ async function main() {
     pending = q.pending;
 
     const rateStr = fmtRate(s.indexRate);
-    const lines = [
-      `antrean: ${q.pending} pending · ${q.draft} draft siap · ${q.published} published`,
-      `URL published: ${s.total}`,
-      `label: indexed ${s.labels.indexed || 0} · not_indexed ${s.labels.not_indexed || 0} · not_discovered ${s.labels.not_discovered || 0} · blocked ${s.labels.blocked || 0} · unknown ${s.labels.unknown || 0}`,
-      `index_rate (indexed/discovered): ${rateStr}`,
-      `kuota publish hari ini: ${dailyCount} (generate exit=${generateCode ?? 'skip'}, publish exit=${publishCode ?? 'skip'})`,
-      `Bing: ${s.bing ? `submit ${s.bing.submitted} URL, kuota ${s.bing.quotaAfter}/${s.bing.quotaBefore}` : 'belum ada run'}`,
-      `inspeksi GSC terakhir: ${s.lastInspect || 'belum'}`,
-      `indexer: ${s.indexer ? s.indexer.stages.map((x) => `${x.name}=${x.status}`).join(' ') : 'belum ada run'}`,
-      `pemeriksaan situs: ${state.checks?._meta ? `${state.checks._meta.ok}/${state.checks._meta.total} lolos` : 'belum pernah'}`,
-      `riwayat harian Google: ${state.gsc?.history ? state.gsc.history.length + ' hari terukur' : (state.gsc?.historyNote || 'belum pernah')}`,
-    ];
+    const tanggal = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const judul = `Laporan Harian SEO — ${tanggal}`;
+    const pad = (v, n) => String(v).padEnd(n);
 
+    // Seksi 1 — progres artikel (stamps WIB, sama seperti tick).
+    const progBody = [
+      `  DIBUAT HARI INI : ${q.createdToday} artikel`,
+      `  TERBIT HARI INI : ${q.pubToday}  (jadwal 08:00–16:00 WIB)`,
+      '',
+      `  antrean       : ${q.pending} pending · ${q.draft} draft siap · ${q.published} published`,
+      `  URL published : ${s.total}`,
+    ].join('\n');
+
+    // Seksi 2 — pemeriksaan situs (state.checks, 5 pemeriksaan live).
+    const CHECK_NAMES = {
+      robots: 'Akses mesin pencari', sitemap: 'Peta situs', llms: 'Info untuk AI',
+      indexnow: 'Notifikasi mesin pencari', beranda: 'Halaman utama',
+    };
+    const ST_LABEL = { ok: 'Baik', warn: 'Perhatian', fail: 'Gagal' };
+    const checks = state.checks || {};
+    const checkKeys = Object.keys(checks).filter((k) => k !== '_meta');
+    const checkBody = checkKeys.length
+      ? [
+          ...checkKeys.map((k) => {
+            const it = checks[k] || {};
+            return `  ${pad(CHECK_NAMES[k] || k, 26)}${pad(ST_LABEL[it.status] || it.status || '-', 12)}${it.detail || ''}`;
+          }),
+          checks._meta ? `  ringkasan: ${checks._meta.ok}/${checks._meta.total} lolos` : '',
+        ].filter(Boolean).join('\n')
+      : '  (belum ada hasil pemeriksaan)';
+
+    // Seksi 3 — performa Google (jujur: 0 baris untuk situs baru = bukan angka karangan).
+    const gsc = state.gsc || {};
+    const gscBody = gsc.agg
+      ? [
+          `  klik       : ${gsc.agg.clicks ?? 0}`,
+          `  tayang     : ${gsc.agg.impressions ?? 0}`,
+          `  rasio klik : ${gsc.agg.ctr != null ? (gsc.agg.ctr * 100).toFixed(1) + '%' : '—'}`,
+          `  posisi     : ${gsc.agg.position ?? '—'}`,
+          gsc.agg.period ? `  periode    : ${gsc.agg.period.start} → ${gsc.agg.period.end}` : '',
+        ].filter(Boolean).join('\n')
+      : `  (${gsc.historyNote || 'Data Google sedang dikumpulkan — biasanya muncul 1–2 minggu setelah artikel tayang'})`;
+
+    // Seksi 4 — ringkasan teknis (label, kuota, indexer).
+    const techBody = [
+      `  label        : indexed ${s.labels.indexed || 0} · not_indexed ${s.labels.not_indexed || 0} · not_discovered ${s.labels.not_discovered || 0} · blocked ${s.labels.blocked || 0} · unknown ${s.labels.unknown || 0}`,
+      `  index_rate   : ${rateStr} (indexed/discovered)`,
+      `  kuota publish: ${dailyCount} hari ini (generate exit=${generateCode ?? 'skip'}, publish exit=${publishCode ?? 'skip'})`,
+      `  Bing         : ${s.bing ? `submit ${s.bing.submitted} URL, kuota ${s.bing.quotaAfter}/${s.bing.quotaBefore}` : 'belum ada run'}`,
+      `  inspeksi GSC : ${s.lastInspect || 'belum'}`,
+      `  indexer      : ${s.indexer ? s.indexer.stages.map((x) => `${x.name}=${x.status}`).join(' ') : 'belum ada run'}`,
+    ].join('\n');
+
+    const sections = [
+      { title: 'Progres Artikel', body: progBody },
+      { title: 'Pemeriksaan Situs', body: checkBody },
+      { title: 'Performa di Google (30 hari)', body: gscBody },
+      { title: 'Ringkasan Teknis', body: techBody },
+    ];
+    if ((s.alerts || []).length) {
+      sections.push({
+        title: 'Peringatan',
+        body: s.alerts.map((a) => `[${(a.level || 'warn').toUpperCase()}] ${a.msg || a.code || ''}`).join('\n'),
+      });
+    }
+
+    // Laporan harian: internal (NOTIFY_EMAIL_TO) + klien (NOTIFY_EMAIL_CC).
     await sendReport({
       kind: 'harian',
-      subject: `[${NOTIFY_PREFIX}] harian ${new Date().toISOString().slice(0, 10)} — index_rate ${rateStr}${indexerCode === 0 ? '' : ' (INDEXER GAGAL)'}`,
-      heading: 'SEO engine valleycity.id — laporan harian',
-      lines,
-      alerts: s.alerts,
+      subject: `[${NOTIFY_PREFIX}] ${judul}${indexerCode === 0 ? '' : ' — INDEXER GAGAL'}`,
+      title: judul,
+      cc: notifyCc(),
+      sections,
     });
     rl.step('report', 'ok', `${NOTIFY_PREFIX} harian`);
 

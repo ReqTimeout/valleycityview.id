@@ -89,15 +89,26 @@ async function main() {
     rl.step('compare', drops.length ? 'warn' : 'ok', `${drops.length} turun, ${improved.length} naik`);
 
     if (drops.length) {
+      // Alert internal saja (tanpa cc klien) — sama seperti watchdog.
       await sendReport({
+        kind: 'rank',
+        tone: 'alert',
         subject: `[${NOTIFY_PREFIX}] rank — ${drops.length} keyword turun >${CFG.rankDropAlert} posisi`,
-        heading: 'SEO engine valleycity.id — rank tracking',
-        lines: [
-          `Window ${DAYS} hari · ${entries.length} query dilacak`,
-          `Ambang alert: turun > ${CFG.rankDropAlert} posisi`,
-          ...drops.slice(0, 10).map((e) => `${e.query}: ${e.prevPosition} → ${e.position} (turun ${e.delta})`),
+        title: `Peringatan ranking — ${drops.length} keyword turun`,
+        cc: false,
+        sections: [
+          {
+            title: 'Ringkasan',
+            body: [
+              `  window : ${DAYS} hari · ${entries.length} query dilacak`,
+              `  ambang : turun > ${CFG.rankDropAlert} posisi`,
+            ].join('\n'),
+          },
+          {
+            title: 'Turun Posisi',
+            body: drops.slice(0, 10).map((e) => `  ${e.query}: ${e.prevPosition} → ${e.position} (turun ${e.delta})`).join('\n'),
+          },
         ],
-        alerts: drops.slice(0, 10).map((e) => ({ level: 'warn', msg: `${e.query} turun ${e.delta} posisi (${e.prevPosition}→${e.position})` })),
       });
     }
     rl.summarize({ tracked: entries.length, drops: drops.length, improved: improved.length, windowDays: DAYS });

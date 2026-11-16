@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { NOTIFY_PREFIX } from '../seo/site.mjs';
 import { acquireLock } from './lib/lock.mjs';
-import { sendReport } from './lib/notify.mjs';
+import { sendReport, notifyCc } from './lib/notify.mjs';
 import { openRun } from './lib/runlog.mjs';
 import { searchAnalytics } from '../seo/lib/gsc.mjs';
 import { buildSummary, rateText as fmtRate } from '../seo/lib/summary.mjs';
@@ -116,24 +116,38 @@ async function main() {
 
     const state = readState();
     const s = buildSummary(state);
-    const top = mined.slice(0, 10).map((q) => `${q.query} (${q.clicks}c/${q.impressions}i, pos ${q.position})`);
+    const top = mined.slice(0, 10).map((q, i) => `  ${String(i + 1).padStart(2)}. ${q.query} (${q.clicks} klik / ${q.impressions} tayang, pos ${Number(q.position).toFixed(1)})`);
     const clicks = mined.reduce((a, q) => a + q.clicks, 0);
     const impressions = mined.reduce((a, q) => a + q.impressions, 0);
 
+    const tanggal = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const judul = `Laporan Mingguan SEO — ${tanggal}`;
+
     await sendReport({
       kind: 'mingguan',
-      subject: `[${NOTIFY_PREFIX}] mingguan — ${clicks} klik / ${impressions} imp (28 hari)${minedError ? ' (mining gagal)' : ''}`,
-      heading: 'SEO engine valleycity.id — laporan mingguan',
-      lines: [
-        `Total klik 28 hari: ${clicks} · impressions: ${impressions}`,
-        `URL published: ${s.total}`,
-        `index_rate: ${fmtRate(s.indexRate)} (terukur ${s.measured}/${s.total})`,
-        `label: ${Object.entries(s.labels).map(([k, v]) => `${k}=${v}`).join(' · ') || 'n/a'}`,
-        'Top query:',
-        ...(top.length ? top : ['(belum ada data query)']),
-        `mining disimpan: ${MINED}`,
+      subject: `[${NOTIFY_PREFIX}] ${judul}${minedError ? ' — (mining gagal)' : ''}`,
+      title: judul,
+      cc: notifyCc(),
+      sections: [
+        {
+          title: 'Ringkasan 28 Hari',
+          body: [
+            `  klik         : ${clicks}`,
+            `  tayang       : ${impressions}`,
+            `  URL published: ${s.total}`,
+            `  index_rate   : ${fmtRate(s.indexRate)} (terukur ${s.measured}/${s.total})`,
+            `  label        : ${Object.entries(s.labels).map(([k, v]) => `${k}=${v}`).join(' · ') || 'n/a'}`,
+            `  mining       : ${MINED}`,
+          ].join('\n'),
+        },
+        { title: 'Top Query', body: top.length ? top.join('\n') : '  (belum ada data query)' },
+        ...(s.alerts || []).length
+          ? [{
+              title: 'Peringatan',
+              body: s.alerts.map((a) => `[${(a.level || 'warn').toUpperCase()}] ${a.msg || a.code || ''}`).join('\n'),
+            }]
+          : [],
       ],
-      alerts: s.alerts,
     });
     rl.step('report', 'ok', `${NOTIFY_PREFIX} mingguan`);
 

@@ -76,16 +76,27 @@ async function main() {
   rl.summarize({ alerts: alerts.length, newestRunAgeH: newestAge, dailyAgeH: dailyAge, sitemapAgeH: smAge });
 
   if (alerts.length) {
+    // Alert HANYA ke internal (NOTIFY_EMAIL_TO) — tanpa cc klien (pola sbdental:
+    // masalah pipeline tidak boleh menyampah ke inbox klien).
     await sendReport({
       kind: 'watchdog',
+      tone: 'alert',
       subject: `[${NOTIFY_PREFIX}] watchdog — ${alerts.length} masalah`,
-      heading: 'SEO engine valleycity.id — watchdog',
-      lines: [
-        `Run terbaru: ${newest ? `${newest.kind}, ${newestAge.toFixed(1)}j lalu` : 'tidak ada'}`,
-        `Sitemap: ${smAge != null ? `${smAge.toFixed(1)}j` : 'tidak ada di disk'}`,
-        ...alerts.map((a) => `${a.level}: ${a.msg}`),
+      title: `Perlu tindakan — ${alerts.length} masalah pipeline`,
+      cc: false,
+      sections: [
+        {
+          title: 'Kondisi',
+          body: [
+            `  Run terbaru : ${newest ? `${newest.kind}, ${newestAge.toFixed(1)}j lalu` : 'tidak ada'}`,
+            `  Sitemap     : ${smAge != null ? `${smAge.toFixed(1)}j` : 'tidak ada di disk'}`,
+          ].join('\n'),
+        },
+        {
+          title: 'Masalah',
+          body: alerts.map((a) => `  [${(a.level || 'warn').toUpperCase()}] ${a.msg}`).join('\n'),
+        },
       ],
-      alerts,
     });
   }
 

@@ -365,6 +365,7 @@ export function collect() {
     reports: (state.reports || []).slice(0, 60),
     reportsEnv: {
       to: process.env.NOTIFY_EMAIL_TO || null,
+      cc: process.env.NOTIFY_EMAIL_CC || null,
       from: process.env.NOTIFY_EMAIL_FROM || null,
       configured: envSet('RESEND_API_KEY') && envSet('NOTIFY_EMAIL_TO') && envSet('NOTIFY_EMAIL_FROM'),
       dailyAt: '06:00 WIB', // cron task harian (UTC 23:00) di Coolify
