@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-16
-# Articles: 58
-# Sitemap URLs: 69
+# Articles: 59
+# Sitemap URLs: 0
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (58)
+## Articles (59)
+
+### Perumahan Cimahi Dekat Unjani: 7 Panduan Praktis
+URL: https://valleycityview.id/blog/perumahan-cimahi-dekat-unjani
+Category: lokasi
+Published: 2026-11-15
+Description: Panduan perumahan cimahi dekat unjani untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Cari perumahan cimahi dekat unjani butuh hitungan matang. Lokasi strategis di Padalarang menawarkan akses kampus tanpa harga tanah Cimahi kota.
+
+Perumahan Cimahi Dekat Unjani: Yang Perlu Anda Hitung Sebelum Survei
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Waktu tempuh ke Universitas Jenderal Achmad Yani sangat krusial bagi komuter. Pastikan rute pagi hari tidak tersendat di gerbang tol Baros atau jalan raya utama. Lahan terbangun terbatas membuat opsi hunian bergeser ke perbatasan Bandung Barat. Cek jarak sebenarnya dari pintu rumah menuju gerbang kampus.
+
+Pegawai negeri dan karyawan RS Dustira sering memilih area pinggir kelurahan. Mereka menghindari lonjakan harga tanah yang mengikuti koridor Jakarta-Bandung. Hunian tipe 45/72 di Desa Laksanamekar menjawab kebutuhan ini. Lokasinya cukup dekat untuk aktivitas harian namun lebih terjangkau.
+
+Urutan Pengecekan dari yang Termurah
+
+Mulai dengan simulasi cicilan bulanan agar arus kas tetap sehat. KPR Rp 599.000.000 menghasilkan angsuran Rp 3.871.000/bulan dalam skema umum. Bandingkan angka ini dengan penghasilan bersih Anda saat ini. Jangan lupa alokasikan dana booking fee sebesar Rp 5.000.000 di awal.
+
+Langkah konkret minggu ini adalah mencatat jam berangkat kerja selama tiga hari berturut-turut. Catat durasi perjalanan dari titik terdekat Unjani ke lokasi survei. Data ini menjadi dasar negosiasi waktu pengiriman barang atau jemputan anak sekolah.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Membeli rumah di kawasan ini menuntut kesiapan finansial ekstra. Selain harga unit, Anda perlu mengalokasikan dana untuk notaris dan pajak pembeli. Angka tersebut sering mengejutkan calon pemilik baru karena tidak masuk dalam simulasi awal. Pastikan tabungan darurat Anda masih 
+
+[... truncated, full article at https://valleycityview.id/blog/perumahan-cimahi-dekat-unjani]
+
+---
 
 ### Perumahan Dekat Stasiun Padalarang: 8 Panduan Praktis
 URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-padalarang

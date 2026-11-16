@@ -4,10 +4,14 @@ slug: "perumahan-cimahi-dekat-unjani"
 description: "Panduan perumahan cimahi dekat unjani untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
 date: "2026-11-15"
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Perumahan Cimahi Dekat Unjani: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Cari **perumahan cimahi dekat unjani** butuh hitungan matang. Lokasi strategis di Padalarang menawarkan akses kampus tanpa harga tanah Cimahi kota.
