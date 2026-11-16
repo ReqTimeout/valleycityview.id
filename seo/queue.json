@@ -2780,14 +2780,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 88,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah dp rumah mengurangi harga",
@@ -2959,14 +2960,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 88,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah kpr rumah termasuk riba",
@@ -2976,14 +2978,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 88,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apakah dp rumah bisa hangus",
@@ -3190,14 +3193,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 88,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara cek cicilan rumah btn",
@@ -3744,14 +3748,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "pelepasan cukai 2026 rumah pertama",
@@ -3761,14 +3766,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "dp rumah sekarang berapa",
@@ -3886,14 +3892,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "berapa dp rumah kpr",
@@ -3991,14 +3998,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips beli rumah pertama penjawat awam",
@@ -4008,14 +4016,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "rumah dijual di bandung ada kolam renang",
@@ -4061,14 +4070,15 @@
       "intent": "KPR rumah — syarat, biaya, dan perhitungan sebelum akad",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara hitung dp rumah",
@@ -4132,14 +4142,15 @@
       "intent": "berapa cicilan dan biaya KPR rumah untuk tipe 45/72 harga Rp 599 juta",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "biaya kpr rumah apa saja",
@@ -4149,14 +4160,15 @@
       "intent": "biaya KPR rumah di luar cicilan — provisi, admin, asuransi, dan notaris",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "apa itu rumah kpr",
@@ -4217,14 +4229,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tips beli rumah pertama usia muda",
@@ -4234,14 +4247,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "perbedaan dp dan akad rumah",
@@ -4377,14 +4391,15 @@
       "intent": "panduan beli rumah pertama dari nol: NUP, booking, KPR, akad, sampai serah terima — urutannya bagaimana",
       "priority": 85,
       "demand_signal": "longtail-intent",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "cara dp rumah",
@@ -6276,14 +6291,15 @@
       "intent": "angka konkret untuk kelas gaji menengah",
       "priority": 85,
       "demand_signal": "high",
-      "status": "pending",
+      "status": "draft",
       "geo": null,
       "city": null,
       "provinsi": null,
       "local_anchor": null,
       "local_buyer": null,
       "added_by": "manual",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-16",
+      "generatedAt": "2026-11-16"
     },
     {
       "keyword": "tenor KPR 15 atau 20 tahun mana yang lebih hemat",
