@@ -26,7 +26,7 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, copyFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { spawn, execFileSync } from 'node:child_process';
+import { spawn, spawnSync, execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 
 import { ROOT, BLOG_DIR, QUEUE_PATH, PROMPTS_PATH, KEYWORDS_PATH } from './paths.mjs';
@@ -34,6 +34,7 @@ import { PRICES, MONEY_PAGES, SITE } from './site.mjs';
 import { injectGeoAnchor } from './lib/geo-anchor.mjs';
 import { liveSlugs } from './lib/live-posts.mjs';
 import { lintArticle, ASING } from './lib/article-lint.mjs';
+import { imageAltFor } from './banner.mjs';
 import {
   PARTS_SYSTEM_PROMPT,
   buildPartA,
@@ -733,7 +734,22 @@ async function main() {
       }
     }
     const meta = deriveMeta({ keyword: t.keyword, llmBody, category: t.category || 'Lainnya' });
-    if (opts.refresh && origDate) meta.pubDate = origDate;
+    if (opts.refresh && origDate) {
+      // Refresh = ganti ISI, bukan identitas halaman. deriveMeta men-slug-kan
+      // ulang dari keyword (bisa beda dari slug file legacy) dan bikin judul
+      // baru — keduanya MEMBAUN nomeleskan URL yang sedang dipantau Google.
+      // Ambil identitas lama dari frontmatter; hanya `updated` yang baru.
+      const src0 = readFileSync(outPath, 'utf8');
+      const fm0 = ((src0.match(/^---\n([\s\S]*?)\n---/) || [])[1]) || '';
+      const grab = (k) => (((fm0.match(new RegExp(`^${k}:\\s*"?([^"\\n]+)"?\\s*$`, 'm')) || [])[1]) || '').trim();
+      meta.pubDate = origDate;
+      meta.slug = t.slug;
+      if (grab('title')) meta.title = grab('title');
+      if (grab('description')) meta.description = grab('description');
+      const tagsLine = (fm0.match(/^tags:\s*\[([^\]]*)\]/m) || [])[1];
+      if (tagsLine) meta.tags = tagsLine.split(',').map((x) => x.replace(/"/g, '').trim()).filter(Boolean);
+      if (meta.cover) meta.imageAlt = imageAltFor(meta.title, meta.cover); // alt mengikuti judul asli
+    }
 
     let mdx = assembleMdx({
       llmBody,
@@ -758,7 +774,7 @@ async function main() {
 
     if (process.env.SEO_DEBUG) writeFileSync('/tmp/seo-assembled.md', mdx);
 
-    const v = validateMdx(mdx, t.keyword, rpFiguresFrom(t.local_buyer));
+    const v = validateMdx(mdx, t.keyword, rpFiguresFrom(t.local_buyer), { allowPublish: !!opts.refresh });
     if (!v.ok) {
       console.log(`  GATES FAIL: ${v.errors.join(' | ')}`);
       console.log(`  (body preview) ${llmBody.slice(0, 300)}`);

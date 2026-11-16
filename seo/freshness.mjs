@@ -61,8 +61,10 @@ function main() {
   const args = parseArgs(process.argv.slice(2));
   const state = readState();
   const refreshed = Array.isArray(state.freshness?.refreshed) ? state.freshness.refreshed : [];
+  // Cooldown HANYA untuk yang berhasil — kegagalan (gate/LLM) wajib dicoba lagi
+  // pada putaran berikutnya, bukan disembunyikan 14 hari.
   const cooldownUntil = new Map(
-    refreshed.map((r) => [r.slug, Date.parse(r.at || 0) + COOLDOWN_DAYS * 86400000])
+    refreshed.filter((r) => r.ok).map((r) => [r.slug, Date.parse(r.at || 0) + COOLDOWN_DAYS * 86400000])
   );
 
   const cand = inventory()

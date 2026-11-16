@@ -348,7 +348,7 @@ export function rpFiguresFrom(text: string | null | undefined): number[] {
   return [...out];
 }
 
-export function validateMdx(content: string, keyword: string, allowedRp: number[] = []) {
+export function validateMdx(content: string, keyword: string, allowedRp: number[] = [], opts: any = {}) {
   const errors: string[] = [];
   if (!content || !content.startsWith('---')) errors.push('Tanpa frontmatter');
 
@@ -367,7 +367,12 @@ export function validateMdx(content: string, keyword: string, allowedRp: number[
 
   const slug = (fm.match(/^slug:\s*"?(.+?)"?\s*$/m) || [])[1] || '';
   if (!slug) errors.push('slug hilang');
-  if (!/^status:\s*draft\s*$/m.test(fm)) errors.push('status harus draft');
+  // Normal: wajib draft (mencegah publish tak sengaja). Jalur --refresh
+  // (generate.mjs) sengaja menulis publish → izinkan lewat opts.allowPublish.
+  const statusOk = opts.allowPublish
+    ? /^status:\s*(?:draft|publish)\s*$/m.test(fm)
+    : /^status:\s*draft\s*$/m.test(fm);
+  if (!statusOk) errors.push(opts.allowPublish ? 'status harus draft atau publish' : 'status harus draft');
 
   const faqCount = (body.match(/^\*\*[^*\n]{8,}\*\*\s*\n\n(?!\*)/gm) || []).length;
   if (faqCount < 5) errors.push(`FAQ = ${faqCount} (minimal 5)`);
