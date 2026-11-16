@@ -796,15 +796,16 @@
       "intent": "rumah dekat gerbang tol Baros — berapa menit sebenarnya dan apakah cocok untuk komuter",
       "priority": 93,
       "demand_signal": "geo-matrix",
-      "status": "draft",
+      "status": "published",
       "geo": "baros",
       "city": "Baros",
       "provinsi": "Jawa Barat",
       "local_anchor": "Nama gerbang tol di Cimahi yang menjadi jalur utama kendaraan dari Padalarang menuju tol Padalarang-Cileunyi dan Jakarta. Untuk pembeli, angka yang penting bukan 'dekat tol' melainkan berapa menit dari pintu gerbang ke pintu rumah pada jam berangkat kerja — selisihnya bisa dua kali lipat antara pukul 07.00 dan pukul 10.00.",
       "local_buyer": "komuter yang mengemudi ke Bandung atau Jakarta dan menjadikan akses gerbang tol sebagai syarat pertama",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-15",
-      "generatedAt": "2026-11-15"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | published 2026-11-16",
+      "generatedAt": "2026-11-15",
+      "publishedAt": "2026-11-16"
     },
     {
       "keyword": "perumahan dekat whoosh bandung",
