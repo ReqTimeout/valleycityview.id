@@ -56,8 +56,11 @@ const CF_API = 'https://api.cloudflare.com/client/v4';
 const POOL_FACTOR = 12;
 const POOL_MIN = 24;
 const QUARANTINE_MS = 7 * 24 * 3600 * 1000;
-const POLL_TIMEOUT_MS = 20 * 60 * 1000;
-const POLL_INTERVAL_MS = 30 * 1000;
+// Task Coolify `hourly-tick` dibatasi 300 detik — polling 20 menit (nilai lama)
+// selalu mati kena timeout SEBELUM sempat verifikasi, padahal push sudah sukses.
+// Anggaran: pull+flip+push ~20s, tunggu deploy ≤80s, verifikasi live ~60s.
+const POLL_TIMEOUT_MS = 80 * 1000;
+const POLL_INTERVAL_MS = 10 * 1000;
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -180,6 +183,8 @@ async function cfGet(path) {
   if (!token || !acct) throw new Error('CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID belum di-set.');
   const res = await fetch(`${CF_API}/accounts/${acct}${path}`, {
     headers: { Authorization: `Bearer ${token}` },
+    // Tanpa batas, satu fetch yang menggantung membakar seluruh kuota 300s task.
+    signal: AbortSignal.timeout(10000),
   });
   if (!res.ok) throw new Error(`Cloudflare API ${res.status} untuk ${path}`);
   return res.json();
@@ -190,8 +195,15 @@ async function waitForDeploy(commitSha) {
   console.log(`\n=== tunggu Pages deploy commit ${short} ===`);
   const deadline = Date.now() + POLL_TIMEOUT_MS;
   while (Date.now() < deadline) {
-    const data = await cfGet(`/pages/projects/${CF_PROJECT}/deployments?env=production&per_page=5`);
-    const list = data.result || [];
+    // API Cloudflare yang lambat/gagal TIDAK boleh membunuh siklus: push sudah
+    // sukses, verifikasi live (verifyUrls) yang jadi penentu akhir.
+    let list = [];
+    try {
+      const data = await cfGet(`/pages/projects/${CF_PROJECT}/deployments?env=production&per_page=5`);
+      list = data.result || [];
+    } catch (e) {
+      console.log(`  … API Cloudflare belum menjawab (${String(e.message).slice(0, 80)}) — coba lagi`);
+    }
     const match = list.find((d) => {
       const h = d?.deployment_trigger?.metadata?.commit_hash || '';
       return h && (h.startsWith(short) || short.startsWith(h.slice(0, 7)));
@@ -211,7 +223,10 @@ async function waitForDeploy(commitSha) {
     }
     await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
   }
-  throw new Error('Timeout 20 menit menunggu Pages deploy. Markdown sudah ter-push — cek dashboard, JANGAN revert otomatis.');
+  // Jangan lempar: artikel bisa saja sudah live tanpa terdeteksi API. Serahkan
+  // pada verifyUrls — kalau memang belum tayang, di situlah yang gagal.
+  console.log(`  ⚠ konfirmasi API tidak tuntas dalam ${Math.round(POLL_TIMEOUT_MS / 1000)}s — lanjut verifikasi live langsung ke URL`);
+  return null;
 }
 
 async function verifyUrls(urls) {
@@ -220,14 +235,16 @@ async function verifyUrls(urls) {
     let ok = false;
     for (let attempt = 1; attempt <= 4 && !ok; attempt++) {
       try {
-        const res = await fetch(u, { redirect: 'follow' });
+        const res = await fetch(u, { redirect: 'follow', signal: AbortSignal.timeout(12000) });
         const body = await res.text();
         ok = res.ok && body.length > 2000;
         console.log(`  ${ok ? '✓' : `✗(${res.status})`} ${u} (usaha ${attempt})`);
       } catch (e) {
         console.log(`  ✗(jaringan) ${u} (usaha ${attempt})`);
       }
-      if (!ok) await new Promise((r) => setTimeout(r, 15000));
+      // Tidur hanya DI ANTARA usaha — tidur setelah usaha terakhir cuma
+      // membakar kuota waktu task tanpa guna.
+      if (!ok && attempt < 4) await new Promise((r) => setTimeout(r, 10000));
     }
     if (!ok) throw new Error(`URL tidak live setelah deploy: ${u}`);
   }
