@@ -2,12 +2,17 @@
 title: "Rumah Dijual Dekat Unjani Cimahi: 7 Panduan Praktis"
 slug: "rumah-dijual-dekat-unjani-cimahi"
 description: "Panduan rumah dijual dekat unjani cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-17
+updated: 2026-11-17
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dijual Dekat Unjani Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 Mencari rumah dijual dekat unjani cimahi butuh ketelitian. Lokasi Laksanamekar menawarkan akses tol Baros dan harga lebih masuk akal bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berat.

@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-17
-# Articles: 63
-# Sitemap URLs: 75
+# Articles: 64
+# Sitemap URLs: 76
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (63)
+## Articles (64)
 
 ### Perumahan Dekat Stasiun Whoosh: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-whoosh
@@ -159,6 +159,59 @@ Brosur sering mengabaikan detail infrastruktur di luar gerbang perumahan. Saat m
 Wilayah utara 
 
 [... truncated, full article at https://valleycityview.id/blog/rumah-dijual-bandung-sariwangi-murah]
+
+---
+
+### Rumah Dijual Dekat Unjani Cimahi: 7 Panduan Praktis
+URL: https://valleycityview.id/blog/rumah-dijual-dekat-unjani-cimahi
+Category: lokasi
+Published: 2026-11-17
+Description: Panduan rumah dijual dekat unjani cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Mencari rumah dijual dekat unjani cimahi butuh ketelitian. Lokasi Laksanamekar menawarkan akses tol Baros dan harga lebih masuk akal bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berat.
+
+Rumah Dijual Dekat Unjani Cimahi: Sekilas Angka dan Kenyataannya
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Koridor ini menarik karena berada di batas Kota Cimahi dan Bandung Barat. Pembeli pertama sering terjebak harga tanah kota yang tinggi. Tipe 45/72 di Padalarang menjadi alternatif logis dengan cicilan Rp 3.871.000/bulan.
+
+Keberadaan Unjani dan RS Dustira menciptakan pasar sewa stabil. Namun, pembeli harus memastikan jarak tempuh ke kantor tidak membengkak. Booking fee Rp 5.000.000 menjadi langkah awal untuk mengunci unit sebelum habis.
+
+Urutan Pengecekan dari yang Termurah
+
+Mulailah dengan memverifikasi status tanah dan izin bangunan secara gratis melalui kelurahan setempat. Cek apakah jalur jalan raya Cimahi menuju gerbang tol Baros bebas macet pada jam kerja Anda. Langkah ini memakan waktu kurang dari satu hari jika dilakukan pagi buta.
+
+Selanjutnya, bandingkan total biaya KPR Rp 599.000.000 dengan anggaran bulanan keluarga. Pastikan sisa penghasilan cukup untuk kebutuhan hidup dan dana darurat. Jangan tunda pengecekan dokumen legalitas hingga minggu depan agar proses kredit tidak terhambat.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Banyak calon pembeli lupa menghitung biaya balik nama sertifikat dan provisi bank. Angka ini bisa mencapai jutaan rupiah di luar uang muka awal. Pastikan Anda menanyakan rincian ini sejak kunjungan pertama ke lokasi. Jangan sampai tabungan darurat terpakai untuk administrasi yang tak terduga.
+
+Cek juga status pajak bumi dan bangunan rumah tetangga sekitar. Nilai NJOP di ko
+
+[... truncated, full article at https://valleycityview.id/blog/rumah-dijual-dekat-unjani-cimahi]
 
 ---
 
