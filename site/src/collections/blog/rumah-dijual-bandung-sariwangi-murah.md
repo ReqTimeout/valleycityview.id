@@ -2,12 +2,17 @@
 title: "Rumah Dijual Bandung Sariwangi Murah: 8 Panduan Praktis"
 slug: "rumah-dijual-bandung-sariwangi-murah"
 description: "Panduan rumah dijual bandung sariwangi murah untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkan..."
-date: "2026-11-15"
+date: 2026-11-17
+updated: 2026-11-17
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dijual Bandung Sariwangi Murah: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari rumah dijual bandung sariwangi murah butuh teliti. Lokasi menentukan harga akhir. Cek akses tol dan fasilitas sekitar sebelum tanda tangan. Jangan tergiur iklan saja.
