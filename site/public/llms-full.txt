@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-17
-# Articles: 61
-# Sitemap URLs: 72
+# Articles: 62
+# Sitemap URLs: 74
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (61)
+## Articles (62)
 
 ### Perumahan Cimahi Dekat Unjani: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/perumahan-cimahi-dekat-unjani
@@ -362,6 +362,59 @@ Biaya dan Risiko yang Sering Terlewat
 Menghitung cicilan saja tidak cukup untuk pembeli rumah pertama. Anda harus menyiapkan dana talangan awal sebesar lima juta rupiah sebagai booking fee. Pastikan arus kas bulanan tetap sehat setelah membayar an
 
 [... truncated, full article at https://valleycityview.id/blog/perumahan-dekat-whoosh-bandung]
+
+---
+
+### Rumah KPR Cimahi Utara Murah: 8 Panduan Praktis
+URL: https://valleycityview.id/blog/rumah-kpr-cimahi-utara-murah
+Category: kpr
+Published: 2026-11-15
+Description: Mencari rumah kpr cimahi utara murah sering kali berakhir dengan kekecewaan karena stok terbatas
+
+FAQ:
+
+
+Body:
+Mencari rumah kpr cimahi utara murah sering kali berakhir dengan kekecewaan karena stok terbatas. Lahan terbangun di kota ini sempit, sehingga harga mengikuti koridor utama Bandung-Jakarta dekat gerbang tol Baros.
+
+Rumah KPR Cimahi Utara Murah: Hitungan yang Perlu Dihitung Dulu
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Banyak keluarga muda ingin pindah dari rumah orang tua namun terkendala anggaran. Pegawai negeri dan karyawan kampus Unjani biasanya mencari hunian terjangkau di sisi pinggir kelurahan. Harga tanah di sini memang tinggi akibat lokasi strategis antara dua kota besar.
+
+Calon pembeli harus realistis mengenai kemampuan cicilan bulanan mereka. Jangan hanya terpaku pada uang muka rendah tanpa melihat total pembayaran akhir. Perhitungan cermat mencegah beban finansial berlebih selama masa tenor berjalan panjang.
+
+Daftar Periksa Sebelum Melangkah
+
+Pastikan gaji bulanan Anda stabil untuk menjamin kelancaran angsuran bank. Cek riwayat kredit pribadi agar pengajuan tidak ditolak sejak awal proses. Persiapan dokumen perlu dilakukan secara teliti sebelum bertemu pihak perbankan.
+
+Tipe 45/72 di Desa Laksanamekar, Padalarang, menjadi alternatif masuk akal bagi warga Cimahi. Unit ini menawarkan KPR Rp 599.000.000 dengan booking fee Rp 5.000.000. Cicilan Rp 3.871.000/bulan terasa ringan bagi penghasilan empat hingga sepuluh juta rupiah.
+
+Segera hubungi agen properti setempat minggu ini untuk memverifikasi ketersediaan unit. Mintalah simulasi biaya balik nama dan provisi secara rinci dalam bentuk tertulis. Langkah konkret ini menghindarkan Anda dari kejutan biaya tersembunyi saat akad nanti.
+
+Sisi yang Jarang Dibahas Brosur
+
+Banyak iklan hanya menampilkan harga tanah, padahal biaya balik nama sertifikat sering
+
+[... truncated, full article at https://valleycityview.id/blog/rumah-kpr-cimahi-utara-murah]
 
 ---
 
