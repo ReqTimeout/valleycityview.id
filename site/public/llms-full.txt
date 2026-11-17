@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-17
-# Articles: 64
-# Sitemap URLs: 76
+# Articles: 65
+# Sitemap URLs: 77
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,60 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (64)
+## Articles (65)
+
+### Harga Rumah Di Cimahi Tengah: 9 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-rumah-di-cimahi-tengah
+Category: harga
+Published: 2026-11-17
+Description: Panduan harga rumah di cimahi tengah untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Harga rumah di cimahi tengah terus bergerak naik karena lahan terbatas. Banyak keluarga muda kesulitan menemukan unit yang sesuai anggaran bulanan mereka tanpa mengorbankan lokasi strategis dekat pusat kota.
+
+Harga Rumah Di Cimahi Tengah: Fakta Angka yang Jarang Diceritakan
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Karakter area ini unik sebagai kota otonom di antara Bandung dan Padalarang. Lahan terbangunnya sangat minim sehingga harga mengikuti koridor gerbang tol Baros. Pembeli sering terjebak pada ekspektasi tanah yang tidak realistis.
+
+Pasar sewa dari Unjani dan RS Dustira menciptakan permintaan tinggi di kelurahan pinggir. Warga Cimahi yang pindah dari rumah orang tua mencari hunian pertama dengan cicilan ringan. Mereka butuh kejelasan angka sebelum mengambil keputusan besar dalam hidup.
+
+Cara Kerjanya dan Urutan Pengecekannya
+
+Mulailah dengan menghitung kapasitas bayar bulanan secara jujur berdasarkan gaji bersih. Jangan langsung melihat brosur mewah, tapi cek kemampuan finansial dulu. Ini langkah konkret minggu ini untuk menyaring pilihan yang masuk akal.
+
+Bandingkan opsi KPR Rp 599.000.000 dengan cicilan Rp 3.871.000/bulan. Bandingkan juga booking fee Rp 5.000.000 dengan tabungan Anda saat ini. Pastikan tenor hingga 20 tahun masih nyaman bagi arus kas keluarga muda.
+
+Yang Sering Salah Dibaca Pembeli
+
+Banyak calon pemilik mengira harga rumah di cimahi tengah mencerminkan nilai tanah murni. Padahal, keterbatasan lahan terbangun di koridor Baros dan jalan raya Cimahi membuat spekulasi tinggi. Tipe 45/72 di Laksanamekar menawarkan KPR Rp 599.000.000 sebagai alternatif rasional bagi keluarga muda. Posisi ini lebih stabil dibanding unit lama yang sering overpriced karena lokasi dekat Unjani.
+
+Kesalahan k
+
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-di-cimahi-tengah]
+
+---
 
 ### Perumahan Dekat Stasiun Whoosh: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/perumahan-dekat-stasiun-whoosh
