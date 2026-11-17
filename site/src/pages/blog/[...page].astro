@@ -35,6 +35,11 @@ const formatDate = (date: Date) =>
     year: 'numeric',
   }).format(date);
 
+// Tanggal efektif = kapan artikel terakhir diterbitkan/disegarkan. Dipakai untuk
+// urutan DAN tampilan supaya kartu tidak menampilkan tanggal lama padahal baru
+// di-update (konsisten dengan sort updated||date di getStaticPaths).
+const effDate = (p: CollectionEntry<'blog'>) => p.data.updated || p.data.date;
+
 const [featured, ...rest] = page.currentPage === 1 ? posts : [];
 const cards = page.currentPage === 1 ? rest : posts;
 
@@ -52,6 +57,7 @@ const schemas = [
       '@type': 'BlogPosting',
       headline: post.data.title,
       datePublished: post.data.date.toISOString(),
+      dateModified: effDate(post).toISOString(),
       url: `${site.origin}/blog/${post.data.slug}/`,
       image: `${site.origin}${post.data.cover ?? '/media/curated/design-45.webp'}`,
     })),
@@ -112,8 +118,8 @@ const schemas = [
             </div>
             <div class="featured__body">
               <p class="featured__meta">
-                <time datetime={featured.data.date.toISOString()}>
-                  {formatDate(featured.data.date)}
+                <time datetime={effDate(featured).toISOString()}>
+                  {formatDate(effDate(featured))}
                 </time>
                 <span>·</span>
                 <span>5 menit baca</span>
@@ -155,8 +161,8 @@ const schemas = [
                 </div>
                 <div class="post-card__body">
                   <p class="post-card__meta">
-                    <time datetime={post.data.date.toISOString()}>
-                      {formatDate(post.data.date)}
+                    <time datetime={effDate(post).toISOString()}>
+                      {formatDate(effDate(post))}
                     </time>
                   </p>
                   <h3>{post.data.title}</h3>
