@@ -161,9 +161,18 @@ function flipDraft(path) {
   const today = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit',
   }).format(new Date());
-  const flipped = src
+  const flipped0 = src
     .replace(/^status:\s*draft\s*$/m, 'status: publish')
-    .replace(/^date:\s*\d{4}-\d{2}-\d{2}\s*$/m, `date: ${today}`);
+    // date frontmatter artikel matriks dikutip (`date: "2026-11-15"`); regex
+    // lama tanpa kutip TIDAK match → tanggal stuck di hari generate, /blog/
+    // tidak pernah menampilkan artikel terbaru di atas (insiden 17 Nov).
+    .replace(/^date:\s*"?\d{4}-\d{2}-\d{2}"?\s*$/m, `date: ${today}`);
+  let flipped = flipped0;
+  if (/^updated:/m.test(flipped)) {
+    flipped = flipped.replace(/^updated:\s*"?[^"\n]+"?\s*$/m, `updated: ${today}`);
+  } else {
+    flipped = flipped.replace(/^(date:.*)$/m, `$1\nupdated: ${today}`);
+  }
   if (flipped === src) throw new Error(`frontmatter tidak berubah: ${path}`);
   writeFileSync(path, flipped);
   return today;
@@ -465,6 +474,18 @@ async function main() {
       env: { ...process.env },
     });
     if (r.status !== 0) console.log('  ⚠ indexnow exit bukan 0 — cek log di atas (URL tetap live).');
+
+    // 11) Submit ulang sitemap ke GSC LANGSUNG setelah publish (jangan menunggu
+    //     remedy harian cooldown 24h). Google membaca sitemap baru → artikel
+    //     baru ditemukan. Best-effort: gagal tidak membatalkan publish.
+    console.log('\n=== gsc submit sitemap ===');
+    try {
+      const { submitSitemap } = await import('./lib/gsc.mjs');
+      const okSm = await submitSitemap(`${SITE}/sitemap-index.xml`);
+      console.log(okSm ? '  ✓ sitemap-index.xml disubmit ulang ke GSC' : '  ⚠ GSC balas non-204 (cek credentials/scope)');
+    } catch (e) {
+      console.log(`  ⚠ GSC submit sitemap gagal: ${safeErr(e)} — lanjut, remedy harian akan retry.`);
+    }
 
     console.log(`\nDone: ${publishedUrls.length} artikel live via git:`);
     for (const u of publishedUrls) console.log(`  ${u}`);

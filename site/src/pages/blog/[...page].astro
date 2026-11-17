@@ -17,7 +17,10 @@ import { site, waLink, waMessages } from '../../data/site';
  */
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   const posts = (await getCollection('blog', ({ data }) => data.status === 'publish' && !data.redirectTo)).sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+    // Terbaru di atas: pakai `updated` bila ada (artikel disegarkan/diterbitkan),
+    // fallback `date`. Sebelumnya hanya `date` → artikel matriks yang tanggal
+    // generate-nya sama tidak pernah naik meski baru tayang.
+    (a, b) => (b.data.updated || b.data.date).getTime() - (a.data.updated || a.data.date).getTime(),
   );
   return paginate(posts, { pageSize: 12 });
 }

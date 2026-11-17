@@ -2,7 +2,8 @@
 title: "Perumahan Dekat Tol Baros: 8 Panduan Praktis"
 slug: "perumahan-dekat-tol-baros"
 description: "Panduan perumahan dekat tol baros untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-17
+updated: 2026-11-17
 author: "Tim Valley Cityview"
 status: publish
 tags: ["lokasi"]

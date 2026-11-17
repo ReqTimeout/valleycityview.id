@@ -2,7 +2,8 @@
 title: "Perumahan Dekat Stasiun Whoosh Padalarang: 9 Panduan Praktis"
 slug: "perumahan-dekat-stasiun-whoosh-padalarang"
 description: "Perumahan dekat stasiun whoosh padalarang sering dijual dengan janji lima belas menit"
-date: "2026-11-15"
+date: 2026-11-16
+updated: 2026-11-16
 author: "Tim Valley Cityview"
 status: publish
 tags: ["lokasi"]

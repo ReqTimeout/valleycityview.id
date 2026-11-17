@@ -29,6 +29,16 @@ const ENDPOINTS = [
   'https://yandex.com/indexnow',
 ];
 
+// URL infrastruktur yang WAJIB di-ping tiap run (bukan cuma artikel baru):
+// sitemap + llms berubah tiap publish, mesin harus crawl ulang. Tidak di-dedup
+// supaya selalu dikirim ulang walau artikelnya sudah pernah submitted.
+const ALWAYS_URLS = [
+  `${SITE}/sitemap-index.xml`,
+  `${SITE}/sitemap-0.xml`,
+  `${SITE}/llms.txt`,
+  `${SITE}/llms-full.txt`,
+];
+
 function loadState() {
   if (!existsSync(STATE_PATH)) return { published: [], indexnow: { submitted: [], last: null } };
   return JSON.parse(readFileSync(STATE_PATH, 'utf8'));
@@ -43,35 +53,39 @@ async function ping(urls) {
     console.log('indexnow: no URLs');
     return { ok: false, results: [] };
   }
-  const body = JSON.stringify({
-    // WAJIB = domain yang sama dengan URL dikirim (spec IndexNow). Literal
-    // 'valleycity.id' membuat SEMUA pengiriman 422 invalid sejak awal (16 Nov).
-    host: new URL(SITE).host,
-    key: KEY,
-    keyLocation: `${SITE}/indexnow.txt`,
-    urlList: urls.slice(0, 10),
-  });
-
   const results = [];
-  for (const ep of ENDPOINTS) {
-    try {
-      const res = await fetch(ep, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body,
-      });
-      // 200 OK | 202 accepted (key belum diverifikasi) | 422 invalid
-      const okStatus = res.status === 200 || res.status === 202;
-      console.log(`  ${ep} -> ${res.status} ${okStatus ? 'OK' : 'FAIL'}`);
-      results.push({ endpoint: ep, status: res.status, ok: okStatus });
-      if (okStatus) break; // endpoint pertama sukses = cukup (redistribusi)
-    } catch (e) {
-      console.log(`  ${ep} -> ERROR ${e.message.slice(0, 100)}`);
-      results.push({ endpoint: ep, status: 0, ok: false });
+  // Batch ≤10 URL/call (spec konservatif); loop untuk daftar panjang.
+  for (let i = 0; i < urls.length; i += 10) {
+    const batch = urls.slice(i, i + 10);
+    const body = JSON.stringify({
+      // WAJIB = domain yang sama dengan URL dikirim (spec IndexNow). Literal
+      // 'valleycity.id' membuat SEMUA pengiriman 422 invalid sejak awal (16 Nov).
+      host: new URL(SITE).host,
+      key: KEY,
+      keyLocation: `${SITE}/indexnow.txt`,
+      urlList: batch,
+    });
+    let batchOk = false;
+    for (const ep of ENDPOINTS) {
+      try {
+        const res = await fetch(ep, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json; charset=utf-8' },
+          body,
+        });
+        // 200 OK | 202 accepted (key belum diverifikasi) | 422 invalid
+        const okStatus = res.status === 200 || res.status === 202;
+        console.log(`  ${ep} [${batch.length} URL] -> ${res.status} ${okStatus ? 'OK' : 'FAIL'}`);
+        results.push({ endpoint: ep, status: res.status, ok: okStatus, count: batch.length });
+        if (okStatus) { batchOk = true; break; } // endpoint pertama sukses = cukup
+      } catch (e) {
+        console.log(`  ${ep} -> ERROR ${e.message.slice(0, 100)}`);
+        results.push({ endpoint: ep, status: 0, ok: false, count: batch.length });
+      }
     }
+    if (!batchOk) return { ok: false, results };
   }
-  const anyOk = results.some((r) => r.ok);
-  return { ok: anyOk, results };
+  return { ok: true, results };
 }
 
 async function main() {
@@ -89,22 +103,16 @@ async function main() {
 
   const state = loadState();
   const fresh = urls.filter((u) => !state.indexnow.submitted.includes(u));
-  console.log(`IndexNow: ${fresh.length}/${urls.length} URL baru (key ${KEY.slice(0, 8)}…)`);
+  // Infrastruktur (sitemap/llms) SELALU ikut di-ping; artikel hanya yang baru.
+  const pingList = [...ALWAYS_URLS, ...fresh];
+  console.log(`IndexNow: ${fresh.length} artikel baru + ${ALWAYS_URLS.length} sitemap/llms (wajib tiap run), key ${KEY.slice(0, 8)}…`);
 
-  // Semua URL sudah pernah dikirim = no-op yang SUKSES, bukan kegagalan.
-  // (Perbaiki 1 Okt 2026: sebelumnya ini exit 1, sehingga seo/remedy.mjs +
-  // publish.mjs salah mengira IndexNow gagal padahal tidak ada yang perlu dikirim.)
-  if (!fresh.length) {
-    console.log('✓ tidak ada URL baru — tidak ada yang perlu dikirim (no-op)');
-    return;
-  }
-
-  const { ok, results } = await ping(fresh);
+  const { ok, results } = await ping(pingList);
   if (ok) {
-    state.indexnow.submitted.push(...fresh);
+    if (fresh.length) state.indexnow.submitted.push(...fresh);
     state.indexnow.last = new Date().toISOString();
     saveState(state);
-    console.log(`✓ submitted ${fresh.length} URL, state.json updated`);
+    console.log(`✓ submitted ${fresh.length} artikel + ${ALWAYS_URLS.length} sitemap/llms, state.json updated`);
   } else {
     console.log('✗ semua endpoint gagal — state tidak diupdate, retry nanti');
     process.exit(1);

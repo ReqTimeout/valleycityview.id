@@ -2,7 +2,8 @@
 title: "Perumahan Dekat Whoosh Bandung: 7 Panduan Praktis"
 slug: "perumahan-dekat-whoosh-bandung"
 description: "Panduan perumahan dekat whoosh bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-16
+updated: 2026-11-16
 author: "Tim Valley Cityview"
 status: publish
 tags: ["lokasi"]

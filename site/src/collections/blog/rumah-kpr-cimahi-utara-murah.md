@@ -2,7 +2,8 @@
 title: "Rumah KPR Cimahi Utara Murah: 8 Panduan Praktis"
 slug: "rumah-kpr-cimahi-utara-murah"
 description: "Mencari rumah kpr cimahi utara murah sering kali berakhir dengan kekecewaan karena stok terbatas"
-date: "2026-11-15"
+date: 2026-11-17
+updated: 2026-11-17
 author: "Tim Valley Cityview"
 status: publish
 tags: ["kpr"]

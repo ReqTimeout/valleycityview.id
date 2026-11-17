@@ -2,7 +2,8 @@
 title: "Perumahan Dekat Tol Baros Cimahi: 9 Panduan Praktis"
 slug: "perumahan-dekat-tol-baros-cimahi"
 description: "Iklan sering menyebut perumahan dekat tol baros cimahi sebagai jawaban bagi komuter"
-date: "2026-11-15"
+date: 2026-11-16
+updated: 2026-11-16
 author: "Tim Valley Cityview"
 status: publish
 tags: ["lokasi"]

@@ -2,7 +2,8 @@
 title: "Perumahan Dekat Stasiun Whoosh: 7 Panduan Praktis"
 slug: "perumahan-dekat-stasiun-whoosh"
 description: "Perumahan dekat stasiun whoosh di Padalarang menawarkan waktu tempuh ke Jakarta di bawah satu jam"
-date: "2026-11-15"
+date: 2026-11-17
+updated: 2026-11-17
 author: "Tim Valley Cityview"
 status: publish
 tags: ["lokasi"]
