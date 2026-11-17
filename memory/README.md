@@ -11,6 +11,7 @@ Living documentation for the WordPress → Cloudflare Pages rebuild.
 | [04-todo.md](./04-todo.md) | Task checklist with status |
 | [05-vision.md](./05-vision.md) | **The design vision — read this before any design work** |
 | [06-plan.md](./06-plan.md) | **The execution plan — phases with a definition of done** |
+| [07-seo-automation.md](./07-seo-automation.md) | **Runbook sistem SEO berjalan (17 Nov 2026) — publish→indexer→deploy, path runtime, bug kritis, cron, akses. Baca ini sebelum sentuh pipeline/dashboard.** |
 | `legacy-landings/` | The 6 original static landing pages, kept for reference |
 | `legacy-pages/` | The original WordPress privacy + thank-you pages (archived, not live) |
 
