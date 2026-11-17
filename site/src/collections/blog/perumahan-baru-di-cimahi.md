@@ -9,6 +9,10 @@ status: publish
 tags: ["panduan"]
 cover: "/media/curated/detail-5.webp"
 imageAlt: "Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan — Foto lahan Valley Cityview di Laksanamekar dilihat dari udara, di sisi Jalan Tol Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 Perumahan Baru di Cimahi: Unit Siap Huni dan Unit yang Masih Dikerjakan sering terlihat sama di brosur. Padahal status pembangunannya mengubah jadwal pindah, biaya sewa, dan cara Anda menyiapkan cicilan.
