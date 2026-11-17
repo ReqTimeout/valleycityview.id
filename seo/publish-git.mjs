@@ -36,7 +36,7 @@
  *   INDEXNOW_KEY (untuk IndexNow)
  */
 
-import { readFileSync, writeFileSync, existsSync, copyFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, copyFileSync, renameSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFileSync, spawnSync } from 'node:child_process';
@@ -44,6 +44,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 // domain lama valleycity.id dan CF_PAGES_PROJECT tidak pernah didefinisikan
 // (ReferenceError saat poll deploy) — keduanya diperbaiki ke impor kanonik.
 import { SITE, CF_PROJECT } from './site.mjs';
+import { STATE_PATH } from './paths.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..'); // checkout repo (clone) — perintah ini jalan DARI clone
@@ -311,10 +312,12 @@ async function main() {
   console.log(`publish-git: root=${ROOT}`);
   console.log(`publish-git: blog=${BLOG_DIR} (${opts.dryRun ? 'DRY-RUN' : `count=${opts.count}`})`);
 
-  // 1) Sinkron dengan git — VPS adalah satu-satunya penulis, jadi harus fast-forward.
+  // 1) Sinkron dengan git. --rebase --autostash (bukan --ff-only): repo bisa
+  //    diverge kalau generate/push dari sini berselang dengan commit lain
+  //    (insiden 17 Nov: ahead 17 behind 2 → ff-only gagal → publish mati).
   console.log('\n=== git pull ===');
   try {
-    console.log('  ' + git('pull', ['--ff-only']).split('\n')[0]);
+    console.log('  ' + git('pull', ['--rebase', '--autostash']).split('\n')[0]);
   } catch (e) {
     throw new Error(`git pull gagal (ada commit lain di remote?): ${safeErr(e)}`);
   }
@@ -404,9 +407,15 @@ async function main() {
     console.log(`  commit ${sha.slice(0, 7)}`);
     if (!process.env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN belum di-set — tidak bisa push.');
     // git() sudah menyertakan http.extraHeader auth — push polos aman.
-    execFileSync('git', [...gitAuthArgs(), 'push', 'origin', 'HEAD:main'],
-      { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } },
-    );
+    const pushOpts = { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } };
+    try {
+      execFileSync('git', [...gitAuthArgs(), 'push', 'origin', 'HEAD:main'], pushOpts);
+    } catch (pushErr) {
+      // Remote bergerak saat kita bekerja → rebase lalu coba sekali lagi.
+      console.log('  push ditolak — pull --rebase lalu coba lagi…');
+      git('pull', ['--rebase', '--autostash']);
+      execFileSync('git', [...gitAuthArgs(), 'push', 'origin', 'HEAD:main'], pushOpts);
+    }
     console.log('  ✓ pushed ke main');
 
     // 7) Build + deploy Pages (langsung, proyek direct-upload) — kalau gagal,
@@ -416,6 +425,29 @@ async function main() {
 
     // 8) Verifikasi live.
     await verifyUrls(publishedUrls);
+
+    // 8b) Catat ke state.published. TANPA ini artikel baru tidak pernah masuk
+    //     radar GSC-inspect/Bing/ramp (insiden 17 Nov: 59 tayang, state stuck 54
+    //     karena hanya bootstrap-state yang pernah mengisi daftar ini).
+    try {
+      const st = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, 'utf8')) : {};
+      const list = Array.isArray(st.published) ? st.published : [];
+      const have = new Set(list.map((x) => x.url));
+      let added = 0;
+      for (const t of cleared) {
+        const url = `${SITE}/blog/${t.slug}/`;
+        if (have.has(url)) continue;
+        list.push({ slug: t.slug, url, firstSeen: t.publishedAt || new Date().toISOString().slice(0, 10), indexed: 'unknown', lastChecked: null });
+        have.add(url); added++;
+      }
+      if (added) {
+        st.published = list;
+        const tmp = `${STATE_PATH}.tmp`;
+        writeFileSync(tmp, JSON.stringify(st, null, 2) + '\n');
+        renameSync(tmp, STATE_PATH);
+        console.log(`  ✓ state.published +${added} (total ${list.length})`);
+      }
+    } catch (e) { console.log(`  ⚠ catat state.published gagal: ${e.message}`); }
 
     // 9) Validasi JSON-LD dari HTML live (warn-only — sudah tayang, tidak bisa di-block).
     console.log('\n=== jsonld-validate --strict (dist lokal) ===');

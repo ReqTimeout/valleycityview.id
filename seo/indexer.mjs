@@ -152,6 +152,32 @@ async function main() {
     return 1;
   }
   const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+
+  // Rekonsiliasi: artikel yang SUDAH tayang di situs tapi belum tercatat di
+  // state.published. publish-git kini mencatat saat publish; langkah ini
+  // menyembuhkan yang terlanjur lolos (denominator index_rate/ramp/GSC basi).
+  if (!args.dryRun) {
+    try {
+      const { posts } = await import('./lib/live-posts.mjs');
+      const { SITE } = await import('./site.mjs');
+      const have = new Set((state.published || []).map((x) => x.url));
+      let added = 0;
+      for (const pp of posts()) {
+        if (!pp.live) continue;
+        const url = `${SITE}/blog/${pp.slug}/`;
+        if (have.has(url)) continue;
+        (state.published ||= []).push({ slug: pp.slug, url, firstSeen: new Date().toISOString().slice(0, 10), indexed: 'unknown', lastChecked: null });
+        have.add(url); added++;
+      }
+      if (added) {
+        const tmp = `${STATE_PATH}.tmp`;
+        writeFileSync(tmp, JSON.stringify(state, null, 2) + '\n');
+        renameSync(tmp, STATE_PATH);
+        console.log(`rekonsiliasi: +${added} artikel tayang → state.published (total ${state.published.length})`);
+      }
+    } catch (e) { console.log(`rekonsiliasi dilewati: ${e.message}`); }
+  }
+
   const ctx = { ...args, urls: pickPingUrls(state, args.days) };
 
   const isMonday = new Date().getUTCDay() === RAMP_DAY;

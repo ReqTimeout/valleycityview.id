@@ -853,9 +853,18 @@ async function main() {
         // status publish yang baru terjadi (insiden 16 Nov 2026).
         const repoQueue = join(ROOT, 'seo/queue.json');
         if (resolve(QUEUE_PATH) !== resolve(repoQueue)) copyFileSync(QUEUE_PATH, repoQueue);
+        // Sinkron dulu (rebase + autostash) — tanpa ini push ditolak saat remote
+        // bergerak (commit agency/dashboard) dan draft menumpuk tak ter-push.
+        try { execFileSync('git', [...auth, 'pull', '--rebase', '--autostash', '-q'], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }); }
+        catch (pullErr) { console.warn(`[generate] pull --rebase gagal (lanjut commit lokal): ${String(pullErr.message).slice(0, 140)}`); }
         execFileSync('git', [...auth, 'add', '--', ...written, repoQueue], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
         execFileSync('git', [...auth, 'commit', '-q', '-m', opts.refresh ? `refresh(seo): perbarui ${opts.refresh} — konten baru, updated ${wibDay()}, status tetap publish` : `chore(generate): ${written.length} draft baru (otomatis)`], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
-        execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+        const pushOpts = { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } };
+        try { execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], pushOpts); }
+        catch (pushErr) {
+          execFileSync('git', [...auth, 'pull', '--rebase', '--autostash', '-q'], { cwd: ROOT, stdio: 'ignore', env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } });
+          execFileSync('git', [...auth, 'push', '-q', 'origin', 'HEAD:main'], pushOpts);
+        }
         console.log(`Draft ${written.length} file + queue di-commit & push (tahan redeploy).`);
       } catch (e) {
         console.warn(`[generate] commit/push draft GAGAL — file tetap lokal, BISA hilang saat redeploy: ${String(e.message).slice(0, 200)}`);
