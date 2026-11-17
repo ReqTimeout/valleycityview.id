@@ -303,6 +303,23 @@ export function collect() {
   const live = allPosts.filter((p) => p.live);
   const bySlug = Object.fromEntries(live.map((p) => [p.slug, p]));
 
+  // Daftar artikel untuk jadwal tayang per jam: yang SUDAH terbit hari ini
+  // (urut waktu) dan yang AKAN terbit berikutnya (urut prioritas — urutan yang
+  // sama dengan pickDrafts di tick, supaya slot menampilkan keyword nyata).
+  const kwBySlug = Object.fromEntries((keywords.items || []).map((k) => [k.slug, k.keyword]));
+  const wibToday = new Date(Date.now() + 7 * 3600000).toISOString().slice(0, 10);
+  schedule.publishedTodayList = items
+    .filter((i) => i.status === 'published' && i.publishedAt && String(i.publishedAt).slice(0, 10) === wibToday)
+    .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)))
+    .map((i) => ({ slug: i.slug, keyword: kwBySlug[i.slug] || i.slug, publishedAt: i.publishedAt }));
+  const draftFileSlugs = new Set(allPosts.filter((p) => p.status === 'draft' || p.status === 'review').map((p) => p.slug));
+  const nowMs = Date.now();
+  schedule.upcoming = items
+    .filter((i) => i.status === 'draft' && draftFileSlugs.has(i.slug) && !(i.qcBlockedUntil && Number(i.qcBlockedUntil) > nowMs))
+    .sort((a, b) => (b.priority || 0) - (a.priority || 0) || String(a.notes || '').localeCompare(String(b.notes || '')))
+    .slice(0, Math.max(schedule.dailyCount ?? 6, (schedule.endHour ?? 16) - (schedule.startHour ?? 8)))
+    .map((i) => ({ slug: i.slug, keyword: kwBySlug[i.slug] || i.slug, priority: i.priority ?? null }));
+
   // Baris URLs: hanya yang tayang. Yang 301 bukan kandidat indeks — Google
   // harus melihat redirect, bukan halaman.
   const inspections = state.gsc?.inspections || {};

@@ -86,6 +86,10 @@
     data.run('/api/status', 'Memulihkan', { slug: selected?.slug, to: 'pending' });
     selected = null;
   }
+  async function copyUrl(u) {
+    try { await navigator.clipboard.writeText(u); ui.toast('URL artikel tersalin.', 'ok'); }
+    catch { ui.toast('Gagal menyalin — salin manual: ' + u, 'bad'); }
+  }
 </script>
 
 <PageHead title="Antrean" sub="Daftar kata kunci dan progres pengerjaannya" />
@@ -135,6 +139,9 @@
         <button class="btn ghost sm" onclick={actTulis} disabled={data.busy}><Icon name="refresh" size={14} /> Tulis ulang</button>
       {:else if selQ?.status === 'dropped'}
         <button class="btn gold sm" onclick={actPulihkan} disabled={data.busy}><Icon name="refresh" size={14} /> Pulihkan</button>
+      {:else if selQ?.status === 'published'}
+        <a class="btn gold sm" href={`${d?.site || 'https://valleycityview.id'}/blog/${selected.slug}/`} target="_blank" rel="noopener"><Icon name="up" size={14} /> Lihat artikel</a>
+        <button class="btn ghost sm" onclick={() => copyUrl(`${d?.site || 'https://valleycityview.id'}/blog/${selected.slug}/`)}><Icon name="file" size={14} /> Salin URL</button>
       {/if}
       {#if selQ && (selQ.status === 'pending' || selQ.status === 'draft')}
         <button class="btn ghost sm" onclick={actBuang} disabled={data.busy}><Icon name="x" size={14} /> Buang</button>
@@ -150,6 +157,7 @@
       <dt>Prioritas</dt><dd>{'★'.repeat(tierOf(selected.priority ?? 0))} {num(selected.priority)} · {tierLabel(selected.priority ?? 0)}</dd>
       {#if selQ?.generatedAt}<dt>Ditulis</dt><dd>{ago(selQ.generatedAt)}</dd>{/if}
       {#if selQ?.publishedAt}<dt>Tayang</dt><dd>{ago(selQ.publishedAt)}</dd>{/if}
+      {#if selQ?.status === 'published'}<dt>Alamat live</dt><dd><a href={`${d?.site || 'https://valleycityview.id'}/blog/${selected.slug}/`} target="_blank" rel="noopener">{d?.site || 'https://valleycityview.id'}/blog/{selected.slug}/ ↗</a></dd>{/if}
       <dt>Sumber permintaan</dt><dd>{selected.demand_signal || '—'}</dd>
     </dl>
     <h2 class="sec">Yang dicari pembaca</h2>

@@ -46,6 +46,9 @@
     now;
     const { startHour, endHour, nowHour, publishedToday = 0, dailyCount } = sched;
     if (startHour == null || endHour == null || nowHour == null) return [];
+    const pubList = sched.publishedTodayList || [];
+    const upList = sched.upcoming || [];
+    let pubIdx = 0, upIdx = 0;
     const rows = [];
     for (let h = startHour; h < endHour; h++) {
       const hh = String(h).padStart(2, '0') + ':00';
@@ -89,10 +92,16 @@
           text = 'antrean kosong';
         }
       }
-      rows.push({ hh, state, text });
+      // Artikel nyata per slot: slot terbit → artikel yang tayang hari ini;
+      // slot berikutnya/menunggu → draf prioritas berikutnya yang akan dikirim.
+      let article = null;
+      if (state === 'done' && text === '✓ terbit') article = pubList[pubIdx++] || null;
+      else if (state === 'now' || (state === 'wait' && text.includes('draf siap'))) article = upList[upIdx++] || null;
+      rows.push({ hh, state, text, article });
     }
     return rows;
   });
+  const liveUrl = (slug) => `${d?.site || 'https://valleycityview.id'}/blog/${slug}/`;
 
   // ── hero ──────────────────────────────────────────────────────────────────
   const heroEyebrow = $derived.by(() => {
@@ -206,7 +215,15 @@
           <div class="sl {r.state}">
             <span class="st">{r.hh}</span>
             <span class="sdot" aria-hidden="true"></span>
-            <span class="sx">{r.text}</span>
+            <span class="sx">{r.text}
+              {#if r.article}
+                {#if r.state === 'done'}
+                  <a class="sa" href={liveUrl(r.article.slug)} target="_blank" rel="noopener">{r.article.keyword} ↗</a>
+                {:else}
+                  <span class="sa">{r.article.keyword}</span>
+                {/if}
+              {/if}
+            </span>
           </div>
         {/each}
       </div>
@@ -358,7 +375,10 @@
   .sl { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid transparent; }
   .sl .st { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink-3); min-width: 44px; }
   .sl .sdot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); flex: none; }
-  .sl .sx { font-size: 13px; color: var(--ink-2); }
+  .sl .sx { font-size: 13px; color: var(--ink-2); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .sl .sa { font-size: 11.5px; color: var(--ink-3); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  a.sa { color: var(--teal); text-decoration: none; }
+  a.sa:hover { text-decoration: underline; }
   .sl.done { background: var(--ok-soft); }
   .sl.done .st, .sl.done .sdot { color: var(--ok); }
   .sl.done .sdot { background: var(--ok); }
