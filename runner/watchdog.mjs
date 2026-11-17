@@ -151,16 +151,17 @@ async function main() {
       } catch (e) { log(`catat alertPost gagal: ${e.message}`); }
     };
     if (dash.length && hash !== prev) {
-      const LVL = { bad: 'KRITIS', warn: 'PERHATIAN', info: 'INFO' };
+      const LVL = { bad: 'fail', warn: 'warn', info: 'info' };
       const r = await sendReport({
         kind: 'alerts',
         tone: 'alert',
         cc: false,
         subject: `[${NOTIFY_PREFIX}] Peringatan dashboard — ${dash.length} catatan aktif`,
         title: `Perlu tindakan — ${dash.length} catatan di halaman Perlu Perhatian`,
+        date: new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }),
         sections: [
-          { title: 'Catatan aktif', body: dash.map((a, i) => `  ${i + 1}. [${LVL[a.kind] || 'INFO'}] ${a.msg}`).join('\n') },
-          { title: 'Sumber', body: `  Daftar ini identik dengan halaman /alerts — dikirim otomatis saat daftar berubah.\n  Rincian: https://valleycity.beriklan.co.id/alerts` },
+          { title: 'Catatan aktif', items: dash.map((a) => ({ label: a.code || 'catatan', status: LVL[a.kind] || 'info', detail: a.msg })) },
+          { title: 'Sumber', body: 'Daftar ini identik dengan halaman /alerts — dikirim otomatis saat daftar berubah.', note: 'Rincian: https://valleycity.beriklan.co.id/alerts' },
         ],
       });
       saveAlertPost({ hash, at: new Date().toISOString(), sent: r.sent, count: dash.length });

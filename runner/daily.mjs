@@ -233,76 +233,85 @@ async function main() {
     const rateStr = fmtRate(s.indexRate);
     const tanggal = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
     const judul = `Laporan Harian SEO — ${tanggal}`;
-    const pad = (v, n) => String(v).padEnd(n);
 
-    // Seksi 1 — progres artikel (stamps WIB, sama seperti tick).
-    const progBody = [
-      `  DIBUAT HARI INI : ${q.createdToday} artikel`,
-      `  TERBIT HARI INI : ${q.pubToday}  (jadwal 08:00–16:00 WIB)`,
-      '',
-      `  antrean       : ${q.pending} pending · ${q.draft} draft siap · ${q.published} published`,
-      `  URL published : ${s.total}`,
-    ].join('\n');
-
-    // Seksi 2 — pemeriksaan situs (state.checks, 5 pemeriksaan live).
     const CHECK_NAMES = {
-      robots: 'Akses mesin pencari', sitemap: 'Peta situs', llms: 'Info untuk AI',
+      robots: 'Akses mesin pencari', sitemap: 'Peta situs', llms: 'Info untuk AI (llms.txt)',
       indexnow: 'Notifikasi mesin pencari', beranda: 'Halaman utama',
     };
-    const ST_LABEL = { ok: 'Baik', warn: 'Perhatian', fail: 'Gagal' };
     const checks = state.checks || {};
     const checkKeys = Object.keys(checks).filter((k) => k !== '_meta');
-    const checkBody = checkKeys.length
-      ? [
-          ...checkKeys.map((k) => {
-            const it = checks[k] || {};
-            return `  ${pad(CHECK_NAMES[k] || k, 26)}${pad(ST_LABEL[it.status] || it.status || '-', 12)}${it.detail || ''}`;
-          }),
-          checks._meta ? `  ringkasan: ${checks._meta.ok}/${checks._meta.total} lolos` : '',
-        ].filter(Boolean).join('\n')
-      : '  (belum ada hasil pemeriksaan)';
 
-    // Seksi 3 — performa Google (jujur: 0 baris untuk situs baru = bukan angka karangan).
+    // KPI besar — dibaca sekilas tanpa menelusuri teks.
+    const stats = [
+      { label: 'Dibuat hari ini', value: q.createdToday, sub: 'artikel baru' },
+      { label: 'Terbit hari ini', value: q.pubToday, sub: 'jadwal 08–16 WIB' },
+      { label: 'Total tayang', value: s.total, sub: 'artikel di situs' },
+      { label: 'Draft siap', value: q.draft, sub: `${q.pending} keyword menunggu` },
+    ];
+
+    // ── YANG BERJALAN BAIK (hijau) ──────────────────────────────────────────
+    const good = [];
+    for (const k of checkKeys) {
+      const it = checks[k] || {};
+      if (it.status === 'ok') good.push({ label: CHECK_NAMES[k] || k, status: 'ok', detail: it.detail || 'lolos pemeriksaan' });
+    }
+    const inowN = (state.indexnow?.submitted || []).length;
+    if (inowN) good.push({ label: 'IndexNow (Bing/Yandex/etc)', status: 'ok', detail: `${inowN} URL sudah diberitahu` });
+    const bingN = state.bing?.submitted ? Object.keys(state.bing.submitted).length : 0;
+    if (bingN) good.push({ label: 'Bing Webmaster', status: 'ok', detail: `${bingN} URL dikirim ke Bing` });
+    if (s.indexer) for (const x of s.indexer.stages) if (x.status === 'ok') good.push({ label: `Indexer: ${x.name}`, status: 'ok', detail: 'selesai' });
+    if (!good.length) good.push({ label: 'Pemeriksaan situs', status: 'info', detail: 'belum ada hasil hari ini' });
+
+    // ── PERLU PERHATIAN (kuning/merah) ──────────────────────────────────────
+    const bad = [];
+    for (const k of checkKeys) {
+      const it = checks[k] || {};
+      if (it.status === 'warn' || it.status === 'fail') bad.push({ label: CHECK_NAMES[k] || k, status: it.status, detail: it.detail || '' });
+    }
+    for (const a of s.alerts || []) bad.push({ label: a.code || 'Peringatan', status: a.level === 'critical' ? 'fail' : 'warn', detail: a.msg || '' });
+    if (s.indexRate != null && s.indexRate < 0.7) {
+      bad.push({ label: 'Cakupan indeks Google', status: 'warn', detail: `${rateStr} artikel terindeks — wajar untuk situs baru; kuota publish dijaga ${dailyCount}/hari sampai naik` });
+    }
+    if (q.pending === 0 && generateCode != null && generateCode !== 0) {
+      bad.push({ label: 'Generate keyword', status: 'info', detail: 'berhenti wajar — semua keyword sudah dibuat menjadi artikel' });
+    }
+    if (!bad.length) bad.push({ label: 'Tidak ada peringatan aktif', status: 'ok', detail: 'semua pemeriksaan lolos' });
+
+    // ── PERFORMA GOOGLE (jujur: 0 = belum ada data, bukan karangan) ─────────
     const gsc = state.gsc || {};
-    const gscBody = gsc.agg
-      ? [
-          `  klik       : ${gsc.agg.clicks ?? 0}`,
-          `  tayang     : ${gsc.agg.impressions ?? 0}`,
-          `  rasio klik : ${gsc.agg.ctr != null ? (gsc.agg.ctr * 100).toFixed(1) + '%' : '—'}`,
-          `  posisi     : ${gsc.agg.position ?? '—'}`,
-          gsc.agg.period ? `  periode    : ${gsc.agg.period.start} → ${gsc.agg.period.end}` : '',
-        ].filter(Boolean).join('\n')
-      : `  (${gsc.historyNote || 'Data Google sedang dikumpulkan — biasanya muncul 1–2 minggu setelah artikel tayang'})`;
+    const gscSection = (gsc.agg && (gsc.agg.impressions || gsc.agg.clicks))
+      ? { title: 'Performa di Google (30 hari)', items: [
+          { label: 'Klik', status: 'info', detail: String(gsc.agg.clicks ?? 0) },
+          { label: 'Tayang (impressions)', status: 'info', detail: String(gsc.agg.impressions ?? 0) },
+          { label: 'Rasio klik', status: 'info', detail: gsc.agg.ctr != null ? (gsc.agg.ctr * 100).toFixed(1) + '%' : '—' },
+          { label: 'Posisi rata-rata', status: 'info', detail: gsc.agg.position != null ? String(gsc.agg.position) : '—' },
+        ] }
+      : { title: 'Performa di Google', body: gsc.historyNote || 'Data Google sedang dikumpulkan — biasanya muncul 1–2 minggu setelah artikel tayang. Angka 0 bukan berarti gagal; situs masih baru.', note: 'Tidak ada angka yang dikarang.' };
 
-    // Seksi 4 — ringkasan teknis (label, kuota, indexer).
-    const techBody = [
-      `  label        : indexed ${s.labels.indexed || 0} · not_indexed ${s.labels.not_indexed || 0} · not_discovered ${s.labels.not_discovered || 0} · blocked ${s.labels.blocked || 0} · unknown ${s.labels.unknown || 0}`,
-      `  index_rate   : ${rateStr} (indexed/discovered)`,
-      `  kuota publish: ${dailyCount} hari ini (generate exit=${generateCode ?? 'skip'}, publish exit=${publishCode ?? 'skip'})`,
-      `  Bing         : ${s.bing ? `submit ${s.bing.submitted} URL, kuota ${s.bing.quotaAfter}/${s.bing.quotaBefore}` : 'belum ada run'}`,
-      `  inspeksi GSC : ${s.lastInspect || 'belum'}`,
-      `  indexer      : ${s.indexer ? s.indexer.stages.map((x) => `${x.name}=${x.status}`).join(' ') : 'belum ada run'}`,
-    ].join('\n');
+    // ── RINCIAN (info netral, bahasa manusia) ───────────────────────────────
+    const L = s.labels || {};
+    const rincian = { title: 'Rincian teknis', items: [
+      { label: 'Antrean produksi', status: 'info', detail: `${q.pending} menunggu · ${q.draft} draft siap · ${q.published} tayang` },
+      { label: 'Kuota publish hari ini', status: 'info', detail: `${dailyCount} artikel (ditentukan otomatis dari cakupan indeks)` },
+      { label: 'Status indeks Google', status: 'info', detail: `Terindeks ${L.indexed || 0} · Belum terindeks ${L.not_indexed || 0} · Belum ditemukan ${L.not_discovered || 0}` },
+      { label: 'Inspeksi GSC terakhir', status: 'info', detail: s.lastInspect || 'belum pernah' },
+    ] };
 
     const sections = [
-      { title: 'Progres Artikel', body: progBody },
-      { title: 'Pemeriksaan Situs', body: checkBody },
-      { title: 'Performa di Google (30 hari)', body: gscBody },
-      { title: 'Ringkasan Teknis', body: techBody },
+      { title: 'Yang berjalan baik', items: good },
+      { title: 'Perlu perhatian', items: bad },
+      gscSection,
+      rincian,
     ];
-    if ((s.alerts || []).length) {
-      sections.push({
-        title: 'Peringatan',
-        body: s.alerts.map((a) => `[${(a.level || 'warn').toUpperCase()}] ${a.msg || a.code || ''}`).join('\n'),
-      });
-    }
 
     // Laporan harian: internal (NOTIFY_EMAIL_TO) + klien (NOTIFY_EMAIL_CC).
     await sendReport({
       kind: 'harian',
       subject: `[${NOTIFY_PREFIX}] ${judul}${indexerCode === 0 ? '' : ' — INDEXER GAGAL'}`,
       title: judul,
+      date: tanggal,
       cc: notifyCc(),
+      stats,
       sections,
     });
     rl.step('report', 'ok', `${NOTIFY_PREFIX} harian`);

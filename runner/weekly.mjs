@@ -156,36 +156,39 @@ async function main() {
     const tanggal = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
     const judul = `Laporan Mingguan SEO — ${tanggal}`;
 
+    const L = s.labels || {};
+    const goodW = [
+      { label: 'Artikel tayang', status: 'ok', detail: `${s.total} URL hidup di situs` },
+      { label: 'Terukur di GSC', status: 'ok', detail: `${s.measured}/${s.total} artikel sudah dipantau` },
+    ];
+    if (freshSlugs.length) for (const sl of freshSlugs) goodW.push({ label: 'Disegarkan', status: 'ok', detail: `${SITE}/blog/${sl}/ — ditulis ulang & live` });
+    const badW = (s.alerts || []).map((a) => ({ label: a.code || 'Peringatan', status: a.level === 'critical' ? 'fail' : 'warn', detail: a.msg || '' }));
+    if (s.indexRate != null && s.indexRate < 0.7) badW.push({ label: 'Cakupan indeks Google', status: 'warn', detail: `${fmtRate(s.indexRate)} terindeks — wajar situs baru` });
+    if (!badW.length) badW.push({ label: 'Tidak ada peringatan aktif', status: 'ok', detail: 'semua baik' });
+
     await sendReport({
       kind: 'mingguan',
       subject: `[${NOTIFY_PREFIX}] ${judul}${minedError ? ' — (mining gagal)' : ''}`,
       title: judul,
+      date: tanggal,
       cc: notifyCc(),
+      stats: [
+        { label: 'Klik (28 hari)', value: clicks },
+        { label: 'Tayang (28 hari)', value: impressions },
+        { label: 'Artikel tayang', value: s.total },
+        { label: 'Cakupan indeks', value: fmtRate(s.indexRate), sub: `terukur ${s.measured}/${s.total}` },
+      ],
       sections: [
-        {
-          title: 'Ringkasan 28 Hari',
-          body: [
-            `  klik         : ${clicks}`,
-            `  tayang       : ${impressions}`,
-            `  URL published: ${s.total}`,
-            `  index_rate   : ${fmtRate(s.indexRate)} (terukur ${s.measured}/${s.total})`,
-            `  label        : ${Object.entries(s.labels).map(([k, v]) => `${k}=${v}`).join(' · ') || 'n/a'}`,
-            `  mining       : ${MINED}`,
-          ].join('\n'),
-        },
-        { title: 'Top Query', body: top.length ? top.join('\n') : '  (belum ada data query)' },
-        ...(freshSlugs.length
-          ? [{
-              title: 'Artikel Disegarkan',
-              body: freshSlugs.map((sl, i) => `  ${i + 1}. ${SITE}/blog/${sl}/ — konten ditulis ulang, updated hari ini, sudah live`).join('\n'),
-            }]
-          : []),
-        ...(s.alerts || []).length
-          ? [{
-              title: 'Peringatan',
-              body: s.alerts.map((a) => `[${(a.level || 'warn').toUpperCase()}] ${a.msg || a.code || ''}`).join('\n'),
-            }]
-          : [],
+        { title: 'Yang berjalan baik', items: goodW },
+        { title: 'Perlu perhatian', items: badW },
+        { title: 'Top Query Google', items: top.length
+            ? mined.slice(0, 10).map((q) => ({ label: q.query, status: 'info', detail: `${q.clicks} klik · ${q.impressions} tayang · posisi ${Number(q.position).toFixed(1)}` }))
+            : [{ label: 'Belum ada data query', status: 'info', detail: 'Google belum menampilkan query untuk situs baru' }] },
+        { title: 'Status indeks', items: [
+          { label: 'Terindeks', status: 'ok', detail: String(L.indexed || 0) },
+          { label: 'Belum terindeks', status: 'warn', detail: String(L.not_indexed || 0) },
+          { label: 'Belum ditemukan', status: 'info', detail: String(L.not_discovered || 0) },
+        ] },
       ],
     });
     rl.step('report', 'ok', `${NOTIFY_PREFIX} mingguan`);
