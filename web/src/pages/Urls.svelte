@@ -1,5 +1,5 @@
 <script>
-  import { data } from '../lib/state.svelte.js';
+  import { data, ui } from '../lib/state.svelte.js';
   import { num, date, ago } from '../lib/format.js';
   import PageHead from '../components/PageHead.svelte';
   import Kpi from '../components/Kpi.svelte';
@@ -12,6 +12,16 @@
   const rows = $derived(d?.urlRows || []);
   const missing = $derived(d?.missing || []);
   let selected = $state(null);
+
+  async function copyUrl(u) {
+    if (!u) return;
+    try {
+      await navigator.clipboard.writeText(u);
+      ui.toast('URL tersalin ke clipboard.', 'ok');
+    } catch {
+      ui.toast('Gagal menyalin — salin manual: ' + u, 'bad');
+    }
+  }
 
   const toneOf = (l) => ({ indexed: 'ok', not_indexed: 'bad', not_discovered: 'warn', blocked: 'clay', redirected: 'info' }[l] || 'info');
   const humanLabel = (l) => ({ indexed: 'masuk pencarian', not_indexed: 'belum masuk', not_discovered: 'belum ditemukan', blocked: 'diblokir', redirected: 'dialihkan', unknown: 'belum diperiksa' }[l] || l.replace(/_/g, ' '));
@@ -52,6 +62,13 @@
       <dt>Tayang sejak</dt><dd>{date(selected.firstSeen)}</dd>
       <dt>Kirim cepat</dt><dd>{selected.submitted ? 'Terkirim' : 'Belum'}</dd>
     </dl>
-    <a class="btn ghost sm" style="margin-top:14px" href={selected.url} target="_blank" rel="noopener">Buka URL ↗</a>
+    <div class="btn-row">
+      <button class="btn ghost sm" type="button" onclick={() => copyUrl(selected.url)}>Salin URL</button>
+      <a class="btn ghost sm" href={selected.url} target="_blank" rel="noopener">Buka URL ↗</a>
+    </div>
   {/if}
 </Drawer>
+
+<style>
+  .btn-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+</style>

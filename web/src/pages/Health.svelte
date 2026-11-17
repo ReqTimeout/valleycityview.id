@@ -1,5 +1,6 @@
 <script>
-  import { data } from '../lib/state.svelte.js';
+  import { data, ui } from '../lib/state.svelte.js';
+  import { postAction } from '../lib/api.js';
   import { num, ago } from '../lib/format.js';
   import PageHead from '../components/PageHead.svelte';
   import Icon from '../components/Icon.svelte';
@@ -10,6 +11,32 @@
   const creds = $derived(d?.credentials || []);
   const sm = $derived(d?.sitemap || {});
   const isSet = (env) => Boolean(creds.find((c) => c.env === env)?.set);
+
+  let gBusy = $state(false);
+  let gResult = $state(null);
+  async function checkGoogle() {
+    if (gBusy) return;
+    gBusy = true; gResult = null;
+    try {
+      const r = await postAction('/api/google-check');
+      gResult = r;
+      ui.toast(r.msg || (r.ok ? 'Koneksi Google aktif.' : 'Koneksi Google gagal.'), r.ok ? 'ok' : 'bad');
+    } catch (e) {
+      ui.toast('Gagal menguji: ' + (e.message || 'kesalahan jaringan'), 'bad');
+    } finally { gBusy = false; }
+  }
+
+  const origin = $derived(d?.site || 'https://valleycityview.id');
+  const importantUrls = $derived([
+    { label: 'Peta situs (sitemap)', url: `${origin}/sitemap-index.xml` },
+    { label: 'Info untuk AI (llms.txt)', url: `${origin}/llms.txt` },
+    { label: 'robots.txt', url: `${origin}/robots.txt` },
+    { label: 'Beranda', url: `${origin}/` },
+  ]);
+  async function copyUrl(u) {
+    try { await navigator.clipboard.writeText(u); ui.toast('Alamat tersalin ke clipboard.', 'ok'); }
+    catch { ui.toast('Gagal menyalin — salin manual: ' + u, 'bad'); }
+  }
 
   const services = $derived([
     { key: 'publish', label: 'Publikasi ke situs', desc: 'Artikel baru tayang otomatis di website Anda', icon: 'up', hue: 'teal', ok: isSet('GITHUB_TOKEN') && isSet('CLOUDFLARE_API_TOKEN') && isSet('CLOUDFLARE_ACCOUNT_ID') },
@@ -79,8 +106,34 @@
   </div>
 </div>
 
+<div class="grid g2" style="margin-top:14px">
+  <Card i={6} title="Koneksi Google" sub="uji apakah mesin bisa membaca data Google Anda">
+    <button class="btn sm" type="button" onclick={checkGoogle} disabled={gBusy || !isSet('GSC_SERVICE_ACCOUNT_JSON_B64')}>
+      <Icon name="search" size={15} />
+      <span>{gBusy ? 'Menguji…' : 'Uji koneksi Google'}</span>
+    </button>
+    {#if !isSet('GSC_SERVICE_ACCOUNT_JSON_B64')}
+      <p class="note">Kredensial Google belum terpasang — pasang GSC_SERVICE_ACCOUNT_JSON_B64 dulu.</p>
+    {:else if gResult}
+      <p class="note {gResult.ok ? 'ok' : 'bad'}">{gResult.ok ? '✓' : '✗'} {gResult.msg}{gResult.detail ? ' — ' + gResult.detail : ''}</p>
+    {:else}
+      <p class="note">Memakai service account yang terpasang. Klik untuk memverifikasi koneksi sekarang.</p>
+    {/if}
+  </Card>
+  <Card i={7} title="Alamat penting" sub="salin cepat untuk dibagikan / diperiksa">
+    <div class="copy-list">
+      {#each importantUrls as u (u.label)}
+        <div class="copy-row">
+          <div class="copy-meta"><b>{u.label}</b><span>{u.url}</span></div>
+          <button class="btn ghost sm" type="button" onclick={() => copyUrl(u.url)}>Salin</button>
+        </div>
+      {/each}
+    </div>
+  </Card>
+</div>
+
 <div style="margin-top:14px">
-  <Card i={6} title="Progres kerja otomatis" sub="urutan pekerjaan mesin — semua angka nyata, tanpa data palsu">
+  <Card i={8} title="Progres kerja otomatis" sub="urutan pekerjaan mesin — semua angka nyata, tanpa data palsu">
     <Workflow snapshot={d} />
   </Card>
 </div>
@@ -123,6 +176,14 @@
   .ii.warn { color: var(--warn); background: var(--warn-soft); }
   .info b { display: block; font-size: 13px; }
   .info span { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+  .note { font-size: 12.5px; color: var(--ink-3); margin: 10px 0 0; line-height: 1.5; }
+  .note.ok { color: var(--ok); } .note.bad { color: var(--bad); }
+  .copy-list { display: flex; flex-direction: column; gap: 8px; }
+  .copy-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r); }
+  .copy-meta { min-width: 0; flex: 1; }
+  .copy-meta b { display: block; font-size: 12.5px; }
+  .copy-meta span { display: block; font-size: 11.5px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   @media (max-width: 720px) {
     .hero { flex-direction: column; align-items: flex-start; gap: 16px; padding: 22px; }

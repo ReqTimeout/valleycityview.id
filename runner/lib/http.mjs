@@ -14,7 +14,7 @@
 import http from 'node:http';
 import { readFileSync, writeFileSync, renameSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { ROOT, CONFIG_PATH, QUEUE_PATH } from '../../seo/paths.mjs';
@@ -196,6 +196,32 @@ async function handler(req, res) {
       if (hasAuth() && !sess) return sendJson(res, 401, { error: 'unauthorized' });
       try { return sendJson(res, 200, snapshot(sess?.u)); }
       catch (e) { console.error(`[http] snapshot gagal: ${e.message}`); return sendJson(res, 500, { error: 'snapshot gagal' }); }
+    }
+
+    // Uji koneksi Google (sinkron) — jalankan gsc-doctor --auth-only dan
+    // kembalikan hasil nyata. Ini aksi "Hubungkan Google" yang tersedia dengan
+    // kredensial service-account yang sudah terpasang; bukan alur OAuth redirect
+    // (yang butuh OAuth client_id/secret terpisah — belum dikonfigurasi).
+    if (method === 'POST' && path === '/api/google-check') {
+      const sess = sessionOf(req);
+      if (hasAuth() && !sess) return sendJson(res, 401, { ok: false, msg: 'Sesi berakhir — masuk lagi.' });
+      try {
+        const r = spawnSync(process.execPath, [join(ROOT, 'seo/scripts/gsc-doctor.mjs'), '--auth-only'], {
+          cwd: ROOT, encoding: 'utf8', timeout: 30000, env: process.env,
+        });
+        const out = String(r.stdout || '') + String(r.stderr || '');
+        const lines = out.split('\n').map((l) => l.trim()).filter(Boolean);
+        const detail = lines.slice(-4).join(' · ').slice(0, 300) || (r.error ? r.error.message : 'tanpa output');
+        const ok = r.status === 0;
+        logAudit({ user: sess?.u || 'tamu', action: '/api/google-check', script: 'gsc-doctor', args: ['--auth-only'], pid: process.pid });
+        return sendJson(res, 200, {
+          ok,
+          msg: ok ? 'Koneksi Google aktif — service account terverifikasi.' : 'Koneksi Google GAGAL — periksa kredensial GSC.',
+          detail,
+        });
+      } catch (e) {
+        return sendJson(res, 500, { ok: false, msg: 'Gagal menguji koneksi Google.', detail: String(e.message).slice(0, 200) });
+      }
     }
 
     // Mutasi API.
