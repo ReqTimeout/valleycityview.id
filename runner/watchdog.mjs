@@ -101,47 +101,41 @@ async function main() {
     });
   }
 
-  // ── POSTINGAN alert dashboard (halaman /alerts) ────────────────────────────
-  // Halaman /alerts itu PASIF: tanpa langkah ini tidak satu pun catatannya
-  // sampai ke email siapa pun (watchdog lama hanya mengecek kesehatan pipeline
-  // sendiri). Watchdog jalan tiap 30 menit → kirim ke internal (TANPA cc klien)
-  // HANYA saat daftar catatan BERUBAH (hash), supaya pos yang sama tidak
-  // membanjiri inbox.
+  // ── POSTINGAN alert dashboard (email internal) ─────────────────────────────
+  // Hanya masalah PERSISTEN yang layak email: quality_drop (ramp), remedy,
+  // access belum enforced, kredensial hilang. Catatan transien/lambat (artikel
+  // belum tercatat = self-heal tiap pagi; artikel pendek = freshness Senin)
+  // TETAP tampil di /alerts tapi TIDAK memicu email. Dulu count-nya berosilasi
+  // tiap tick (missing 0↔5) sehingga hash berubah & email terkirim tiap 30 menit
+  // (insiden 17 Nov: "kok mengirim email terus"). Sekarang dedupe pakai CODE-SET
+  // (bukan count/detail) + cooldown 6 jam anti-burst.
   try {
     let st = {};
     try { st = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch { st = {}; }
-    const { posts } = await import('../seo/lib/live-posts.mjs');
-    const { inventory } = await import('../seo/tracking.mjs');
-    const dash = [];
+    const persist = [];
     if (st.rampGate && st.rampGate.alert) {
-      dash.push({ kind: (st.rampGate.alert.level === 'critical' ? 'bad' : 'warn'), code: st.rampGate.alert.code || 'ramp', msg: st.rampGate.alert.msg || '' });
+      persist.push({ kind: (st.rampGate.alert.level === 'critical' ? 'bad' : 'warn'), code: st.rampGate.alert.code || 'ramp', msg: st.rampGate.alert.msg || '' });
     }
     if (st.remedyAlert) {
-      dash.push({ kind: 'warn', code: 'remedy', msg: st.remedyAlert.msg || st.remedyAlert.message || JSON.stringify(st.remedyAlert).slice(0, 160) });
+      persist.push({ kind: 'warn', code: 'remedy', msg: st.remedyAlert.msg || st.remedyAlert.message || JSON.stringify(st.remedyAlert).slice(0, 160) });
     }
     const accessMode = process.env.DASHBOARD_ACCESS || 'not-configured';
     if (accessMode !== 'enforced') {
-      dash.push({ kind: 'bad', code: 'access', msg: 'Access ' + accessMode + ' — halaman ini hanya terlindungi oleh tidak terindeks; itu BUKAN proteksi.' });
+      persist.push({ kind: 'bad', code: 'access', msg: 'Access ' + accessMode + ' — dashboard belum dilindungi login allow-list/Access.' });
     }
-    try {
-      const pubUrls = new Set((st.published || []).map((p) => (typeof p === 'string' ? p : p.url || '')));
-      const missing = posts().filter((p) => p.live && !pubUrls.has(`https://valleycityview.id/blog/${p.slug}/`) && !pubUrls.has(`https://valleycityview.id/blog/${p.slug}`)).length;
-      if (missing > 0) dash.push({ kind: 'warn', code: 'uncatalogued', msg: `${missing} artikel tayang belum tercatat di state — pencatatan berjalan otomatis tiap pagi.` });
-    } catch { /* inventaris gagal → lewati, jangan gagalkan watchdog */ }
-    try {
-      const thin = inventory().published.filter((a) => a.words < 900).length;
-      if (thin > 0) dash.push({ kind: 'info', code: 'thin', msg: `${thin} artikel masih pendek (<900 kata) — kandidat dijalankan freshness tiap Senin.` });
-    } catch { /* tracking gagal → lewati */ }
     const creds = ['QWEN_API_KEY', 'GSC_SERVICE_ACCOUNT_JSON_B64', 'BING_API_KEY', 'RESEND_API_KEY', 'NOTIFY_EMAIL_TO'].filter((k) => !process.env[k]);
-    if (creds.length) dash.push({ kind: 'warn', code: 'credentials', msg: `Kredensial belum terpasang: ${creds.join(', ')} — pekerjaan terkait dilewati dan dilaporkan jujur.` });
+    if (creds.length) persist.push({ kind: 'warn', code: 'credentials', msg: `Kredensial belum terpasang: ${creds.join(', ')} — pekerjaan terkait dilewati dan dilaporkan jujur.` });
 
-    const hash = createHash('sha1').update(JSON.stringify(dash)).digest('hex').slice(0, 16);
+    const codes = persist.map((a) => a.code).sort();
+    const hash = createHash('sha1').update(codes.join('|')).digest('hex').slice(0, 16);
     const prev = (st.alertPost && st.alertPost.hash) || '';
+    const lastSent = (st.alertPost && st.alertPost.at) ? Date.parse(st.alertPost.at) : 0;
+    const COOLDOWN_MS = 6 * 3600000;
+    const now = Date.now();
     const saveAlertPost = (rec) => {
       try {
         // BACA ULANG state dari disk — object `st` dimuat SEBELUM sendReport;
-        // menulis `st` mentah akan menimpa baris riwayat laporan yang baru saja
-        // direkam sendReport (insiden: baris 'Peringatan' hilang dari /laporan).
+        // menulis `st` mentah akan menimpa baris riwayat yang baru direkam.
         let cur = {};
         try { cur = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch { cur = st; }
         cur.alertPost = rec;
@@ -150,30 +144,32 @@ async function main() {
         renameSync(tmp, STATE_PATH);
       } catch (e) { log(`catat alertPost gagal: ${e.message}`); }
     };
-    if (dash.length && hash !== prev) {
+    if (persist.length && hash !== prev && (now - lastSent >= COOLDOWN_MS || !prev)) {
       const LVL = { bad: 'fail', warn: 'warn', info: 'info' };
       const r = await sendReport({
         kind: 'alerts',
         tone: 'alert',
         cc: false,
-        subject: `[${NOTIFY_PREFIX}] Peringatan dashboard — ${dash.length} catatan aktif`,
-        title: `Perlu tindakan — ${dash.length} catatan di halaman Perlu Perhatian`,
+        subject: `[${NOTIFY_PREFIX}] Peringatan dashboard — ${persist.length} masalah aktif`,
+        title: `Perlu tindakan — ${persist.length} masalah persisten`,
         date: new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }),
         sections: [
-          { title: 'Catatan aktif', items: dash.map((a) => ({ label: a.code || 'catatan', status: LVL[a.kind] || 'info', detail: a.msg })) },
-          { title: 'Sumber', body: 'Daftar ini identik dengan halaman /alerts — dikirim otomatis saat daftar berubah.', note: 'Rincian: https://valleycity.beriklan.co.id/alerts' },
+          { title: 'Masalah aktif', items: persist.map((a) => ({ label: a.code || 'catatan', status: LVL[a.kind] || 'info', detail: a.msg })) },
+          { title: 'Sumber', body: 'Email ini hanya untuk masalah persisten (bukan catatan transien seperti artikel pendek). Dikirim saat code-set berubah, maksimum 1 per 6 jam.', note: 'Rincian semua catatan: https://valleycity.beriklan.co.id/alerts' },
         ],
       });
-      saveAlertPost({ hash, at: new Date().toISOString(), sent: r.sent, count: dash.length });
-      log(`posting alert dashboard: ${dash.length} catatan → email internal (${r.sent ? 'terkirim id ' + r.id : 'GAGAL ' + (r.reason || '')})`);
-      rl.step('alert-post', r.sent ? 'ok' : 'fail', `${dash.length} catatan · hash ${hash}`);
-    } else if (!dash.length && prev) {
-      saveAlertPost({ hash: '', at: new Date().toISOString(), sent: false, count: 0 });
-      log('posting alert dashboard: semua catatan bersih — pos direset');
-    } else if (!dash.length) {
-      log('posting alert dashboard: tidak ada catatan aktif');
+      saveAlertPost({ hash, at: new Date().toISOString(), sent: r.sent, count: persist.length, codes });
+      log(`posting alert: ${persist.length} masalah [${codes.join(',')}] → email internal (${r.sent ? 'terkirim id ' + r.id : 'GAGAL ' + (r.reason || '')})`);
+      rl.step('alert-post', r.sent ? 'ok' : 'fail', `${persist.length} masalah · hash ${hash}`);
+    } else if (persist.length && hash !== prev) {
+      log(`posting alert: berubah [${codes.join(',')}] tapi cooldown 6 jam aktif — ditunda (hash ${hash})`);
+    } else if (!persist.length && prev) {
+      saveAlertPost({ hash: '', at: new Date().toISOString(), sent: false, count: 0, codes: [] });
+      log('posting alert: semua masalah persisten bersih — pos direset');
+    } else if (!persist.length) {
+      log('posting alert: tidak ada masalah persisten (catatan transien hanya di halaman)');
     } else {
-      log(`posting alert dashboard: tidak berubah (hash ${hash}) — tidak dikirim ulang`);
+      log(`posting alert: tidak berubah (hash ${hash}) — tidak dikirim ulang`);
     }
   } catch (e) {
     log(`posting alert dashboard GAGAL: ${e.message}`);
