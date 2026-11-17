@@ -173,10 +173,14 @@ async function handler(req, res) {
         const form = new URLSearchParams(await readBody(req));
         const user = form.get('username') || '';
         const pass = form.get('password') || '';
-        if (checkCredentials(user, pass)) {
-          return redirect(res, '/', { code: 303, cookie: sessionCookie(sign(user || 'admin')) });
+        const email = form.get('email') || '';
+        if (checkCredentials(user, pass, email)) {
+          return redirect(res, '/', { code: 303, cookie: sessionCookie(sign(user || 'admin', email)) });
         }
-        return send(res, 401, renderLogin({ error: 'Username atau password salah.' }));
+        const msg = CFG.allowEmails.length
+          ? 'Login ditolak — email harus terdaftar di allow-list dan username/password benar.'
+          : 'Username atau password salah.';
+        return send(res, 401, renderLogin({ error: msg }));
       }
       if (hasAuth() && sessionOf(req)) return redirect(res, '/');
       return send(res, 200, renderLogin({ error: null }));

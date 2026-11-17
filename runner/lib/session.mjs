@@ -19,11 +19,17 @@ function secret() {
 
 const b64u = (buf) => Buffer.from(buf).toString('base64url');
 
-export function sign(username) {
-  const payload = { u: username, exp: Math.floor(Date.now() / 1000) + MAX_AGE_SEC };
+export function sign(username, email) {
+  const payload = { u: username, e: email ? String(email).trim().toLowerCase() : null, exp: Math.floor(Date.now() / 1000) + MAX_AGE_SEC };
   const body = b64u(JSON.stringify(payload));
   const mac = crypto.createHmac('sha256', secret()).update(body).digest('base64url');
   return body + '.' + mac;
+}
+
+/** Allow-list email operator (level app). Kosong = tanpa pembatasan email. */
+export function emailAllowed(email) {
+  if (!CFG.allowEmails.length) return true;
+  return CFG.allowEmails.includes(String(email || '').trim().toLowerCase());
 }
 
 export function verify(token) {
@@ -74,7 +80,7 @@ export function clearCookie() {
   return COOKIE_NAME + '=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0';
 }
 
-export function checkCredentials(user, pass) {
+export function checkCredentials(user, pass, email) {
   if (!CFG.authUser || !CFG.authPass) return true; // auth dimatikan → terbuka (tetap noindex)
   const safeEqual = (a, b) => {
     const ba = Buffer.from(String(a ?? ''));
@@ -85,5 +91,7 @@ export function checkCredentials(user, pass) {
     }
     return crypto.timingSafeEqual(ba, bb);
   };
-  return safeEqual(user, CFG.authUser) && safeEqual(pass, CFG.authPass);
+  if (!(safeEqual(user, CFG.authUser) && safeEqual(pass, CFG.authPass))) return false;
+  // Access level app: bila allow-list diisi, email wajib terdaftar.
+  return emailAllowed(email);
 }

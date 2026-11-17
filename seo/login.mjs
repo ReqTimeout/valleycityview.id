@@ -4,6 +4,7 @@
  * caps-lock hint. Sesi HMAC HttpOnly; halaman noindex + no-referrer.
  */
 import { icon } from '../runner/lib/icons.mjs';
+import { CFG } from '../runner/lib/config.mjs';
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -39,10 +40,16 @@ export function renderLogin({ error = null } = {}) {
     ${error ? `<div class="auth-error" role="alert">${icon('alert', 17)}<div>${esc(error)}</div></div>` : ''}
 
     <form class="auth-card${error ? ' form-shake' : ''}" method="POST" action="/login" autocomplete="on">
+      ${CFG.allowEmails.length ? `<label class="field">
+        <span class="field-label">Email operator (allow-list)</span>
+        <div class="field-wrap">
+          <input class="input" type="email" name="email" id="email" required autocomplete="email" placeholder="email terdaftar" autofocus>
+        </div>
+      </label>` : ''}
       <label class="field">
         <span class="field-label">Username</span>
         <div class="field-wrap">
-          <input class="input" type="text" name="username" id="username" required autocomplete="username" placeholder="username" autofocus>
+          <input class="input" type="text" name="username" id="username" required autocomplete="username" placeholder="username"${CFG.allowEmails.length ? '' : ' autofocus'}>
         </div>
       </label>
       <label class="field">

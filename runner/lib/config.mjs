@@ -23,6 +23,9 @@ export const CFG = {
   // Auth dashboard (kosong = terbuka; tetap noindex). Disarankan isi di Coolify.
   authUser: process.env.DASHBOARD_USER || '',
   authPass: process.env.DASHBOARD_PASS || '',
+  // Allow-list email operator (Access level app). Bila diisi, login WAJIB memakai
+  // email yang terdaftar — menegakkan DASHBOARD_ACCESS=enforced secara jujur di app.
+  allowEmails: (process.env.ACCESS_ALLOWED_EMAILS || '').split(',').map((s) => s.trim().toLowerCase()).filter(Boolean),
 
   // Batas generate per klik tombol dashboard (kuota aman, gerbang tetap jalan).
   generateCount: int(process.env.SEO_GENERATE_COUNT, 2),
