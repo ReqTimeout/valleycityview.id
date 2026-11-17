@@ -4,10 +4,14 @@ slug: "perumahan-dekat-stasiun-whoosh"
 description: "Perumahan dekat stasiun whoosh di Padalarang menawarkan waktu tempuh ke Jakarta di bawah satu jam"
 date: "2026-11-15"
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Perumahan Dekat Stasiun Whoosh: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Perumahan dekat stasiun whoosh di Padalarang menawarkan waktu tempuh ke Jakarta di bawah satu jam. Bagi komuter dengan penghasilan empat juta sampai delapan juta, hitungan menit perjalanan menentukan kelayakan hunian ini untuk dibeli minggu ini.
