@@ -2,12 +2,17 @@
 title: "Rumah Dijual Murah Di Batujajar Bandung Barat: 7 Panduan Praktis"
 slug: "rumah-dijual-murah-di-batujajar-bandung-barat"
 description: "Pencarian \"rumah dijual murah di batujajar bandung barat\" sering kali berakhir pada perbandingan lokasi yang membingungkan"
-date: "2026-11-15"
+date: 2026-11-18
+updated: 2026-11-18
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dijual Murah Di Batujajar Bandung Barat: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - harga-rumah-di-padalarang-bandung-barat
 ---
 
 Pencarian "rumah dijual murah di batujajar bandung barat" sering kali berakhir pada perbandingan lokasi yang membingungkan. Batujajar sendiri minim pasokan unit baru karena topografi perbukitan. Fokus pembeli biasanya beralih ke koridor selatan Padalarang.

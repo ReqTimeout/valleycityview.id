@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-18
-# Articles: 70
-# Sitemap URLs: 82
+# Articles: 71
+# Sitemap URLs: 83
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (70)
+## Articles (71)
 
 ### Harga Rumah Di Cimahi Bandung: 8 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-di-cimahi-bandung
@@ -268,6 +268,53 @@ Mulailah dengan memastikan booking fee Rp 5.000.000 tersedia dalam tabungan daru
 Cek juga jam sibuk jalan raya Padalarang-Cimahi antara pukul 06.30 sampai 08.30 pagi. Pengalaman langsung ini penting untuk menilai kenyamanan komuter harian Anda menuju Jakarta atau Bandung. Bandingkan wa
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-terbaru-di-padalarang-bandung-barat]
+
+---
+
+### Rumah Dijual Murah Di Batujajar Bandung Barat: 7 Panduan Praktis
+URL: https://valleycityview.id/blog/rumah-dijual-murah-di-batujajar-bandung-barat
+Category: lokasi
+Published: 2026-11-18
+Description: Pencarian "rumah dijual murah di batujajar bandung barat" sering kali berakhir pada perbandingan lokasi yang membingungkan
+
+FAQ:
+
+
+Body:
+Pencarian "rumah dijual murah di batujajar bandung barat" sering kali berakhir pada perbandingan lokasi yang membingungkan. Batujajar sendiri minim pasokan unit baru karena topografi perbukitan. Fokus pembeli biasanya beralih ke koridor selatan Padalarang.
+
+Rumah Dijual Murah Di Batujajar Bandung Barat: Hitungan yang Perlu Dihitung Dulu
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Bandung Barat
+
+Bandung Barat (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.
+- Siapa yang biasanya mencari di sini: pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Kabupaten Bandung Barat memiliki pusat pemerintahan di Cikalongwetan, namun pertumbuhan hunian terkonsentrasi di selatan. Hal ini terjadi karena akses tol Padalarang-Cileunyi dan gerbang Baros menarik banyak pengembang. Wilayah utara masih didominasi lahan pertanian sehingga jarang ada proyek rumah baru.
+
+Padalarang menjadi alternatif utama bagi mereka yang menyaring "rumah di Bandung Barat". Harga di sini bergerak lebih cepat dibanding rata-rata kabupaten. Calon pembeli harus memahami dinamika lokasi sebelum menandatangani perjanjian jual beli. Cek jarak tempuh nyata ke tempat kerja setiap hari. Pastikan infrastruktur jalan mendukung mobilitas Anda. Jangan hanya terpaku pada nama kecamatan dalam iklan. Verifikasi alamat fisik unit tersebut secara langsung.
+
+Daftar Periksa Sebelum Melangkah
+
+Mulai dengan menghitung kemampuan finansial berdasarkan cicilan tetap. Tipe 45/72 di Desa Laksanamekar, Padalarang, Cimahi menawarkan KPR Rp 599.000.000. Cicilannya sekitar Rp 3.871.000/bulan dengan tenor hingga 20 tahun. Booking fee awal sebesar Rp 5.000.000 perlu disiapkan di muka. Bandingkan angka ini dengan penghasilan bulanan Anda saat ini.
+
+Langkah konkret minggu ini adalah mengunjungi lokasi calon hunian. Amati kondisi lingkungan sekitar pada jam sibuk pagi hari. Perhatikan apakah ada genangan air atau kemacetan parah. Diskus
+
+[... truncated, full article at https://valleycityview.id/blog/rumah-dijual-murah-di-batujajar-bandung-barat]
 
 ---
 
