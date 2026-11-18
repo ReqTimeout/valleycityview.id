@@ -2,12 +2,17 @@
 title: "Harga Rumah Terbaru Di Padalarang Bandung Barat: 7 Panduan Praktis"
 slug: "harga-rumah-terbaru-di-padalarang-bandung-barat"
 description: "Harga rumah terbaru di Padalarang Bandung Barat sering membingungkan bagi pembeli pertama"
-date: "2026-11-15"
+date: 2026-11-18
+updated: 2026-11-18
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Terbaru Di Padalarang Bandung Barat: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - harga-rumah-di-padalarang-bandung-barat
 ---
 
 Harga rumah terbaru di Padalarang Bandung Barat sering membingungkan bagi pembeli pertama. Banyak yang bingung memilih antara lokasi strategis dan anggaran terbatas. Artikel ini membantu Anda memahami posisi harga pasar saat ini. Kami juga memberikan panduan praktis sebelum melakukan survei fisik ke lapangan.
