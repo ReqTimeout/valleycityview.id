@@ -1024,15 +1024,16 @@
       "intent": "berapa harga rumah di Cimahi saat ini, dan di mana posisi Rp 599 juta tipe 45/72 dibanding pasar sekitar",
       "priority": 90,
       "demand_signal": "geo-matrix",
-      "status": "draft",
+      "status": "published",
       "geo": "cimahi",
       "city": "Cimahi",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.",
       "local_buyer": "keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-15",
-      "generatedAt": "2026-11-15"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | published 2026-11-18",
+      "generatedAt": "2026-11-15",
+      "publishedAt": "2026-11-18"
     },
     {
       "keyword": "harga rumah kpr di padalarang bandung barat",

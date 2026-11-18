@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Cimahi Bandung: 8 Panduan Praktis"
 slug: "harga-rumah-di-cimahi-bandung"
 description: "Panduan harga rumah di cimahi bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-18
+updated: 2026-11-18
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Cimahi Bandung: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Harga rumah di cimahi bandung terus bergerak naik. Bagi keluarga muda, mencari unit terjangkau terasa sulit. Posisi Rp 599 juta menjadi titik awal yang jujur untuk memahami pasar saat ini.
