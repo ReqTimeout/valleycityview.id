@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Padalarang Bandung Barat: 8 Panduan Praktis"
 slug: "harga-rumah-di-padalarang-bandung-barat"
 description: "Panduan harga rumah di padalarang bandung barat untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membanding..."
-date: "2026-11-15"
+date: 2026-11-18
+updated: 2026-11-18
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Padalarang Bandung Barat: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - perum-nusa-hijau-cimahi
 ---
 
 Harga rumah di padalarang bandung barat sering bikin bingung. Banyak angka berseliweran tanpa konteks jelas. Calon pembeli butuh data konkret untuk membandingkan opsi. Kami sajikan fakta lapangan yang relevan bagi Anda.
