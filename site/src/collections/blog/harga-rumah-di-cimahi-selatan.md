@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Cimahi Selatan: 7 Panduan Praktis"
 slug: "harga-rumah-di-cimahi-selatan"
 description: "Panduan harga rumah di cimahi selatan untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-18
+updated: 2026-11-18
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Cimahi Selatan: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari harga rumah di cimahi selatan sering membuat bingung. Lahan terbangunnya terbatas, sehingga pasar bergerak cepat. Anda perlu data konkret sebelum memutuskan membeli hunian pertama.

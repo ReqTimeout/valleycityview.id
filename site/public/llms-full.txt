@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
-# Generated: 2026-11-17
-# Articles: 65
-# Sitemap URLs: 77
+# Generated: 2026-11-18
+# Articles: 66
+# Sitemap URLs: 78
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (65)
+## Articles (66)
+
+### Harga Rumah Di Cimahi Selatan: 7 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-rumah-di-cimahi-selatan
+Category: harga
+Published: 2026-11-18
+Description: Panduan harga rumah di cimahi selatan untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Mencari harga rumah di cimahi selatan sering membuat bingung. Lahan terbangunnya terbatas, sehingga pasar bergerak cepat. Anda perlu data konkret sebelum memutuskan membeli hunian pertama.
+
+Harga Rumah Di Cimahi Selatan: Titik Awal yang Jujur
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Koridor Bandung-Jakarta dan gerbang tol Baros mendongkrak nilai tanah di sini. Kehadiran Unjani serta RS Dustira menciptakan permintaan sewa stabil. Keluarga muda pindah dari rumah orang tua ke sisi pinggir kota. Posisi ini menarik bagi pegawai negeri atau karyawan kampus setempat.
+
+Tipe 45/72 di Desa Laksanamekar, Padalarang, menawarkan KPR Rp 599.000.000. Cicilan bulanan tercatat Rp 3.871.000 dengan tenor hingga dua puluh tahun. Booking fee hanya Rp 5.000.000 untuk mengunci unit pilihan Anda. Angka ini kompetitif dibanding rata-rata harga rumah di cimahi selatan lainnya.
+
+Daftar Periksa Sebelum Melangkah
+
+Hitung ulang rasio cicilan terhadap gaji bersih bulanan Anda saat ini. Pastikan sisa dana cukup untuk biaya notaris dan provisi bank. Cek status hukum lahan agar tidak sengketa di kemudian hari. Kunjungi lokasi pada jam sibuk untuk menilai akses jalan raya Cimahi.
+
+Siapkan dokumen KTP, KK, slip gaji tiga bulan terakhir, dan NPWP. Ajukan pra-approval KPR ke beberapa bank berbeda minggu ini. Bandingkan bunga efektif mereka secara teliti sebelum tanda tangan akad. Langkah ini mencegah penyesalan setelah komitmen finansial terikat sepenuhnya.
+
+Risiko yang Perlu Diketahui Sejak Awal
+
+Membeli properti di pinggiran kota membawa risiko likuiditas. Anda mungkin butuh waktu lebih lama untuk menjual kembali unit ini dibandingkan rumah di pusat keramaian. Pastikan dana darurat tetap aman sebelum mengambil keputusan finansial besar. Jang
+
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-di-cimahi-selatan]
+
+---
 
 ### Harga Rumah Di Cimahi Tengah: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-di-cimahi-tengah
