@@ -2,12 +2,17 @@
 title: "Harga Perumahan Cluster Di Bandung: 9 Panduan Praktis"
 slug: "harga-perumahan-cluster-di-bandung"
 description: "Panduan harga perumahan cluster di bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-19
+updated: 2026-11-19
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Cluster Di Bandung: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari harga perumahan cluster di bandung sering membuat bingung. Banyak angka berseliweran tanpa konteks jelas. Kami mengurai fakta pasar Padalarang agar Anda tidak salah hitung saat memilih hunian pertama yang terjangkau.
