@@ -2,12 +2,17 @@
 title: "Jual Rumah Siap Huni Di Bandung: 9 Panduan Praktis"
 slug: "jual-rumah-siap-huni-di-bandung"
 description: "Saat mencari jual rumah siap huni di bandung, banyak pembeli terjebak pada iklan semata"
-date: "2026-11-15"
+date: 2026-11-19
+updated: 2026-11-19
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Siap Huni Di Bandung: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Saat mencari jual rumah siap huni di bandung, banyak pembeli terjebak pada iklan semata. Lokasi menentukan nilai jangka panjang unit tersebut. Anda perlu memahami peta pertumbuhan wilayah sebelum menandatangani surat pemesanan.
