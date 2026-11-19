@@ -2,12 +2,17 @@
 title: "Jual Rumah Bandung Murah 2 Lantai: 8 Panduan Praktis"
 slug: "jual-rumah-bandung-murah-2-lantai"
 description: "Saat mencari jual rumah bandung murah 2 lantai, banyak pembeli terjebak pada iklan tanpa cek lokasi"
-date: "2026-11-15"
+date: 2026-11-19
+updated: 2026-11-19
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Bandung Murah 2 Lantai: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Saat mencari jual rumah bandung murah 2 lantai, banyak pembeli terjebak pada iklan tanpa cek lokasi. Di Padalarang, pasokan terkonsentrasi di koridor selatan dekat tol. Ini alasan harga bergerak cepat dibanding rata-rata kabupaten yang pusatnya di Cikalongwetan.
