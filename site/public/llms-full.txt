@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-19
-# Articles: 74
-# Sitemap URLs: 87
+# Articles: 75
+# Sitemap URLs: 88
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (74)
+## Articles (75)
+
+### Harga Rumah Murah Di Cimahi: 9 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-rumah-murah-di-cimahi
+Category: harga
+Published: 2026-11-19
+Description: Panduan harga rumah murah di cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Mencari harga rumah murah di cimahi sering membuat calon pembeli bingung. Banyak angka berseliweran tanpa konteks jelas. Anda perlu memahami posisi pasar sebelum memutuskan survei lapangan.
+
+Harga Rumah Murah Di Cimahi: Yang Perlu Anda Hitung Sebelum Survei
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Cimahi adalah kota otonom dengan lahan terbangun terbatas. Harganya mengikuti koridor utama Bandung-Jakarta dekat gerbang tol Baros. Area ini juga dipengaruhi keberadaan Universitas Jenderal Achmad Yani dan RS Dustira. Kedua institusi tersebut menciptakan permintaan sewa serta beli yang stabil.
+
+Keluarga muda dan pegawai negeri sering pindah dari rumah orang tua. Mereka mencari hunian terjangkau di kelurahan pinggir berbatasan Bandung Barat. Posisi Rp 599 juta untuk tipe 45/72 cukup kompetitif di segmen ini. Angka tersebut menawarkan keseimbangan antara lokasi strategis dan kemampuan cicilan bulanan.
+
+Cara Kerjanya dan Urutan Pengecekannya
+
+Mulailah dengan membandingkan total biaya kepemilikan, bukan hanya harga tanah. Perhatikan detail seperti booking fee sebesar Rp 5.000.000 sebagai langkah awal. Cek juga skema KPR dengan tenor hingga 20 tahun yang tersedia. Pastikan cicilan Rp 3.871.000 per bulan masuk dalam anggaran keluarga Anda.
+
+Kunjungi area Laksanamekar pada jam sibuk untuk merasakan akses transportasi. Amati apakah lingkungan sekitar mendukung rutinitas kerja atau sekolah anak. Diskusikan hasil pengamatan ini dengan pasangan minggu ini. Keputusan membeli rumah harus berdasarkan data nyata, bukan sekadar iklan menarik.
+
+Sisi yang Jarang Dibahas Brosur
+
+Brosur sering menyembunyikan biaya tersembunyi. Anda perlu mengecek iuran lingkungan dan pajak tahunan. Angka kecil ini menumpuk setiap bulan. Pastikan an
+
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-murah-di-cimahi]
+
+---
 
 ### Jual Rumah Bandung Murah 2 Lantai: 8 Panduan Praktis
 URL: https://valleycityview.id/blog/jual-rumah-bandung-murah-2-lantai
