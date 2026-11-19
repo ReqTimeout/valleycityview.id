@@ -2,12 +2,17 @@
 title: "Rumah Dijual Murah Di Cimahi: 7 Panduan Praktis"
 slug: "rumah-dijual-murah-di-cimahi"
 description: "Panduan rumah dijual murah di cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-19
+updated: 2026-11-19
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dijual Murah Di Cimahi: 7 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-rumah-cimahi
+  - harga-rumah-di-padalarang-bandung-barat
 ---
 
 Mencari rumah dijual murah di cimahi butuh ketelitian. Banyak tawaran menggiurkan, namun lokasi menentukan nilai jangka panjang. Cek akses jalan dan lingkungan sekitar sebelum menandatangani surat perjanjian jual beli unit tersebut.
