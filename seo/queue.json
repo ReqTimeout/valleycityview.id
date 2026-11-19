@@ -1194,15 +1194,16 @@
       "intent": "berapa harga rumah di Padalarang saat ini, dan di mana posisi Rp 599 juta tipe 45/72 dibanding pasar sekitar",
       "priority": 90,
       "demand_signal": "geo-matrix",
-      "status": "draft",
+      "status": "published",
       "geo": "padalarang",
       "city": "Padalarang",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.",
       "local_buyer": "pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-15",
-      "generatedAt": "2026-11-15"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | published 2026-11-19",
+      "generatedAt": "2026-11-15",
+      "publishedAt": "2026-11-19"
     },
     {
       "keyword": "harga perumahan di jawa barat",

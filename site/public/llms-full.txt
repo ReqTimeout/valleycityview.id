@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-19
-# Articles: 76
-# Sitemap URLs: 89
+# Articles: 77
+# Sitemap URLs: 90
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (76)
+## Articles (77)
 
 ### Harga Perumahan Cluster Di Bandung: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-perumahan-cluster-di-bandung
@@ -66,6 +66,57 @@ Risiko yang Perlu Diketahui Sejak Awal
 Membeli properti di koridor selatan Bandung Barat membawa konsekuensi spesifik. Anda harus siap menghadapi lalu lintas padat pada jam sibuk menuju gerbang tol Padalarang-Cileunyi. Infrastruktur jalan lokal sering kali belum sepenuhnya mengimbangi laju pertumbuhan perumahan baru. Pastikan akses ke fasilitas umum t
 
 [... truncated, full article at https://valleycityview.id/blog/harga-perumahan-cluster-di-bandung]
+
+---
+
+### Harga Perumahan Di Padalarang Bandung Barat: 8 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-perumahan-di-padalarang-bandung-barat
+Category: harga
+Published: 2026-11-19
+Description: Harga perumahan di Padalarang Bandung Barat sering membuat calon pembeli bingung
+
+FAQ:
+
+
+Body:
+Harga perumahan di Padalarang Bandung Barat sering membuat calon pembeli bingung. Banyak angka berseliweran tanpa konteks jelas. Kami menyajikan data konkret agar Anda tidak salah langkah saat mencari hunian pertama yang layak dan terjangkau bagi keluarga muda.
+
+Harga Perumahan Di Padalarang Bandung Barat: Fakta Angka yang Jarang Diceritakan
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Padalarang
+
+Padalarang (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.
+- Siapa yang biasanya mencari di sini: pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Banyak iklan menyembunyikan biaya tersembunyi yang menguras tabungan. Anda perlu melihat harga total, bukan hanya cicilan awal. Lokasi dekat stasiun KCIC Padalarang menaikkan nilai properti secara signifikan. Namun, jarak ±15 menit dari Laksanamekar menawarkan keseimbangan harga dan aksesibilitas yang lebih masuk akal.
+
+Pasar lokal didominasi pekerja pabrik dan komuter Jakarta-Bandung. Mereka butuh rumah dengan tenor panjang dan DP rendah. Tipe 45/72 menjadi standar baru bagi pembeli rumah pertama. Hunian ini cukup luas untuk keluarga kecil tanpa membebani gaji bulanan.
+
+Urutan Pengecekan dari yang Termurah
+
+Mulailah dengan membandingkan booking fee antar developer. Jangan langsung terpaku pada harga jual akhir. Cek apakah ada biaya notaris atau provisi bank tersembunyi. Transparansi dokumen adalah tanda penjual yang jujur dan profesional.
+
+Selanjutnya, verifikasi status tanah dan izin bangunan. Rumah murah tapi bermasalah hukum akan merugikan Anda nanti. Pastikan sertifikat hak milik atas nama Anda sendiri. Langkah ini melindungi aset masa depan dari sengketa tak terduga.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Membeli rumah pertama menuntut kejelian pada angka di luar harga dasar. Booking fee lima juta rupiah harus disiapkan sebelum akad kredit dimulai. Pastikan cicilan tiga juta delapan ratus tujuh puluh satu ribu rupiah per bulan tidak melebihi separuh penghasilan bulanan Anda. Hitung j
+
+[... truncated, full article at https://valleycityview.id/blog/harga-perumahan-di-padalarang-bandung-barat]
 
 ---
 
