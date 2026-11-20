@@ -2,12 +2,17 @@
 title: "Jual Rumah Di Baros Cimahi: 6 Panduan Praktis"
 slug: "jual-rumah-di-baros-cimahi"
 description: "Panduan jual rumah di baros cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-20
+updated: 2026-11-20
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Di Baros Cimahi: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-rumah-cimahi
 ---
 
 Banyak orang mencari jual rumah di baros cimahi karena lokasi strategis. Namun, jarak fisik sering menipu. Waktu tempuh nyata saat jam sibuk lebih penting daripada peta digital. Cek ini sebelum tanda tangan.
