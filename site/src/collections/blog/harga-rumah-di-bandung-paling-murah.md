@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Bandung Paling Murah: 7 Panduan Praktis"
 slug: "harga-rumah-di-bandung-paling-murah"
 description: "Mencari harga rumah di bandung paling murah sering membuat calon pembeli bingung"
-date: "2026-11-15"
+date: 2026-11-20
+updated: 2026-11-20
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Bandung Paling Murah: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari harga rumah di bandung paling murah sering membuat calon pembeli bingung. Data pasar Bandung Barat menunjukkan variasi signifikan antar kecamatan. Posisi Rp 599 juta perlu dilihat dalam konteks lokasi spesifik dan fasilitas pendukungnya.
