@@ -2,12 +2,17 @@
 title: "Jual Beli Rumah Murah Bandung: 5 Panduan Praktis"
 slug: "jual-beli-rumah-murah-bandung"
 description: "Panduan jual beli rumah murah bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-20
+updated: 2026-11-20
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Beli Rumah Murah Bandung: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Rencana jual beli rumah murah bandung di Padalarang butuh ketelitian. Lokasi selatan Kabupaten Bandung Barat punya dinamika harga unik. Pahami sebelum mengambil keputusan besar.
