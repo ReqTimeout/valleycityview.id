@@ -2,12 +2,17 @@
 title: "Rumah Murah Riung Bandung Jual Cepat: 9 Panduan Praktis"
 slug: "rumah-murah-riung-bandung-jual-cepat"
 description: "Pencari \"rumah murah riung bandung jual cepat\" sering terjebak harga rendah tanpa cek lokasi"
-date: "2026-11-15"
+date: 2026-11-20
+updated: 2026-11-20
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Murah Riung Bandung Jual Cepat: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Pencari "rumah murah riung bandung jual cepat" sering terjebak harga rendah tanpa cek lokasi. Padalarang menawarkan kecepatan transaksi berbeda dibanding kecamatan lain di Bandung Barat.
