@@ -2,12 +2,17 @@
 title: "Jual Rumah Cimahi Murah: 5 Panduan Praktis"
 slug: "jual-rumah-cimahi-murah"
 description: "Mencari jual rumah cimahi murah sering kali berakhir pada kebingungan antara harga tanah dan biaya hidup"
-date: "2026-11-15"
+date: 2026-11-21
+updated: 2026-11-21
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Cimahi Murah: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari jual rumah cimahi murah sering kali berakhir pada kebingungan antara harga tanah dan biaya hidup. Banyak calon pembeli terjebak angka iklan tanpa memahami struktur cicilan yang sebenarnya akan mereka tanggung setiap bulan selama bertahun-tahun.

@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-21
-# Articles: 88
-# Sitemap URLs: 102
+# Articles: 89
+# Sitemap URLs: 103
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (88)
+## Articles (89)
 
 ### Harga Rumah Bandung Barat: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-bandung-barat
@@ -219,6 +219,53 @@ Sisi yang Jarang Dibahas Brosur
 Brosur sering menyembunyikan biaya tak terduga di luar angka utama. Anda perlu memeriksa detail pajak daerah dan biaya balik nama sertifikat secara mandiri. Hal ini pe
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-di-cililin]
+
+---
+
+### Jual Rumah Cimahi Murah: 5 Panduan Praktis
+URL: https://valleycityview.id/blog/jual-rumah-cimahi-murah
+Category: lokasi
+Published: 2026-11-21
+Description: Mencari jual rumah cimahi murah sering kali berakhir pada kebingungan antara harga tanah dan biaya hidup
+
+FAQ:
+
+
+Body:
+Mencari jual rumah cimahi murah sering kali berakhir pada kebingungan antara harga tanah dan biaya hidup. Banyak calon pembeli terjebak angka iklan tanpa memahami struktur cicilan yang sebenarnya akan mereka tanggung setiap bulan selama bertahun-tahun.
+
+Jual Rumah Cimahi Murah: Hitungan yang Perlu Dihitung Dulu
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Cimahi adalah kota otonom dengan lahan terbangun sangat terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta dekat gerbang tol Baros. Kehadiran Universitas Jenderal Achmad Yani dan RS Dustira menciptakan pasar sewa serta minat beli dari pegawai negeri di kelurahan pinggir. Keluarga muda yang pindah dari rumah orang tua sering kesulitan mengejar harga tanah kotanya sendiri.
+
+Unit tipe 45/72 di Desa Laksanamekar, Padalarang, menawarkan KPR Rp 599.000.000 dengan cicilan Rp 3.871.000 per bulan. Booking fee sebesar Rp 5.000.000 memungkinkan tenor hingga dua puluh tahun bagi karyawan kampus atau rumah sakit. Hitung ulang apakah gaji angka pada tabel di atas-10 juta cukup untuk menutupi angsuran plus biaya transportasi harian.
+
+Daftar Periksa Sebelum Melangkah
+
+Pahami bahwa sisi berbatasan dengan Bandung Barat memiliki dinamika harga berbeda meski secara administratif masih Cimahi. Cek akses jalan raya Cimahi agar tidak menghabiskan waktu terlalu banyak dalam perjalanan menuju tempat kerja. Pastikan lokasi hunian ini sesuai dengan rutinitas harian Anda sebelum menandatangani surat pemesanan unit.
+
+Kunjungi situs properti lokal untuk memverifikasi status legalitas tanah di area tersebut minggu ini. Bandingkan opsi jual rumah cimahi murah dengan kebutuhan ruang aktual keluarga kecil Anda saat ini. Jangan terburu-buru mengambil keputusan hanya karena tekanan s
+
+[... truncated, full article at https://valleycityview.id/blog/jual-rumah-cimahi-murah]
 
 ---
 
