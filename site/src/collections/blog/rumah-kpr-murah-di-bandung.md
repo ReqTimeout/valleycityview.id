@@ -2,12 +2,17 @@
 title: "Rumah KPR Murah Di Bandung: 8 Panduan Praktis"
 slug: "rumah-kpr-murah-di-bandung"
 description: "Mencari rumah kpr murah di bandung sering kali membingungkan karena banyak pilihan yang terlihat mirip"
-date: "2026-11-15"
+date: 2026-11-21
+updated: 2026-11-21
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["kpr"]
 cover: "/media/curated/design-45.webp"
 imageAlt: "Rumah KPR Murah Di Bandung: 8 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari rumah kpr murah di bandung sering kali membingungkan karena banyak pilihan yang terlihat mirip. Padahal, perbedaan lokasi dan struktur biaya menentukan kemampuan cicilan bulanan Anda. Artikel ini mengurai fakta angka agar keputusan akad lebih terukur sejak awal.
