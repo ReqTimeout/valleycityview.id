@@ -2,12 +2,17 @@
 title: "Harga Rumah Bandung Murah: 8 Panduan Praktis"
 slug: "harga-rumah-bandung-murah"
 description: "Satu pertanyaan sering muncul saat mencari harga rumah bandung murah: apakah angka yang terlihat di iklan benar-benar terjangkau"
-date: "2026-11-15"
+date: 2026-11-21
+updated: 2026-11-21
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Bandung Murah: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Satu pertanyaan sering muncul saat mencari harga rumah bandung murah: apakah angka yang terlihat di iklan benar-benar terjangkau? Banyak calon pembeli terjebak pada janji manis tanpa melihat detail teknis dan lokasi spesifik.
