@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Cililin: 7 Panduan Praktis"
 slug: "harga-rumah-di-cililin"
 description: "Banyak calon pembeli mencari harga rumah di cililin karena penasaran dengan pasar Bandung Barat"
-date: "2026-11-15"
+date: 2026-11-21
+updated: 2026-11-21
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Cililin: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Banyak calon pembeli mencari harga rumah di cililin karena penasaran dengan pasar Bandung Barat. Valley Cityview menawarkan tipe 45/72 seharga Rp 599.000.000. Angka ini menjadi tolok ukur nyata untuk membandingkan opsi hunian lain yang tersedia saat ini.
