@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
-# Generated: 2026-11-21
-# Articles: 89
-# Sitemap URLs: 103
+# Generated: 2026-11-22
+# Articles: 90
+# Sitemap URLs: 104
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (89)
+## Articles (90)
+
+### Jual Rumah Bandung Murah: 6 Panduan Praktis
+URL: https://valleycityview.id/blog/jual-rumah-bandung-murah
+Category: lokasi
+Published: 2026-11-22
+Description: Panduan jual rumah bandung murah untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Pencarian jual rumah bandung murah sering menipu. Banyak listing di Bandung Barat hanya menampilkan angka menarik tanpa konteks lokasi nyata. Anda perlu memahami dinamika wilayah sebelum terburu-buru mengambil keputusan finansial besar ini.
+
+Jual Rumah Bandung Murah: Fakta Angka yang Jarang Diceritakan
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Bandung Barat
+
+Bandung Barat (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.
+- Siapa yang biasanya mencari di sini: pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Kabupaten Bandung berpusat pemerintahan di Cikalongwetan, namun pertumbuhan hunian terkonsentrasi di selatan. Koridor Padalarang hingga Leuwigajah berkembang pesat karena akses tol dan gerbang Baros. Wilayah utara masih didominasi perbukitan serta lahan pertanian aktif. Pasokan rumah baru sangat terbatas di area tersebut.
+
+Harga di Padalarang bergerak lebih cepat daripada rata-rata kabupaten. Pembeli pemula biasanya membandingkan Padalarang dengan Lembang atau Cikalongwetan. Namun, infrastruktur di Padalarang jauh lebih siap untuk komuter harian. Memilih lokasi strategis berarti menghemat waktu perjalanan jangka panjang.
+
+Langkah Praktis yang Bisa Dimulai Minggu Ini
+
+Kunjungi langsung Desa Laksanamekar untuk melihat kondisi jalan sekitar. Perhatikan apakah akses menuju tol Padalarang-Cileunyi lancar saat jam sibuk. Tanyakan status sertifikat tanah pada pengembang setempat secara spesifik. Jangan hanya percaya brosur promosi yang beredar luas.
+
+Pertimbangkan tipe 45/72 dengan harga KPR lima ratus sembilan puluh sembilan juta rupiah. Cicilan bulanan mencapai tiga juta delapan ratus tujuh puluh satu ribu rupiah. Booking fee sebesar lima juta rupiah membuka kesempatan unit pilihan. Tenor hingga dua puluh tahun memberi ruang napas keuangan.
+
+Jebakan Kecil yang Sering Muncul
+
+Banyak calon pembeli terjebak pada harga rendah tanpa memeriksa akses jalan. Di Padal
+
+[... truncated, full article at https://valleycityview.id/blog/jual-rumah-bandung-murah]
+
+---
 
 ### Harga Rumah Bandung Barat: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-bandung-barat
