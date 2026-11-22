@@ -2,12 +2,17 @@
 title: "Rumah Dijual Bandung Murah: 6 Panduan Praktis"
 slug: "rumah-dijual-bandung-murah"
 description: "Panduan rumah dijual bandung murah untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-22
+updated: 2026-11-22
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dijual Bandung Murah: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari rumah dijual bandung murah di Bandung Barat? Padalarang menawarkan harga kompetitif, namun lokasi menentukan nilai jangka panjang. Jangan terburu-buru survei sebelum memahami dinamika koridor selatan ini.
