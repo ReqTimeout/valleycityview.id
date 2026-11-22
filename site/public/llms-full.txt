@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-22
-# Articles: 94
-# Sitemap URLs: 108
+# Articles: 95
+# Sitemap URLs: 109
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (94)
+## Articles (95)
 
 ### Harga Rumah Cluster Bandung: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-cluster-bandung
@@ -117,6 +117,57 @@ Sisi yang Jarang Dibahas Brosur
 Brosur sering menyembunyikan biaya tak terduga di luar harga pokok. Anda perlu mengecek status sertifikat tanah dan izin mendirikan bangunan secara langsung. Ketidakjelasan dokumen ini bisa membuat pengajuan kredit
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-kpr-bandung]
+
+---
+
+### Harga Rumah Minimalis Bandung: 5 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-rumah-minimalis-bandung
+Category: harga
+Published: 2026-11-22
+Description: Mencari harga rumah minimalis bandung sering membingungkan karena rentang angkanya sangat lebar
+
+FAQ:
+
+
+Body:
+Mencari harga rumah minimalis bandung sering membingungkan karena rentang angkanya sangat lebar. Artikel ini menjelaskan posisi spesifik Rp 599 juta untuk tipe 45/72 di Padalarang, Cimahi, agar Anda punya dasar perbandingan yang jelas dan tidak salah tafsir pasar.
+
+Harga Rumah Minimalis Bandung: Titik Awal yang Jujur
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Bandung Barat
+
+Bandung Barat (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.
+- Siapa yang biasanya mencari di sini: pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Padalarang menjadi koridor selatan dengan pertumbuhan cepat berkat akses tol. Pasokan hunian baru terkonsentrasi di sini, berbeda dari wilayah utara yang masih perbukitan. Hal ini membuat harga unit di area tersebut bergerak lebih dinamis daripada rata-rata kabupaten.
+
+Calon pembeli biasanya membandingkan Padalarang dengan Lembang atau Cikalongwetan. Tipe 45/72 di Desa Laksanamekar menawarkan KPR Rp 599.000.000 sebagai titik masuk yang kompetitif. Posisi ini menjembatani celah antara rumah subsidi dan properti komersial premium.
+
+Langkah Praktis yang Bisa Dimulai Minggu Ini
+
+Saring iklan 'rumah di Bandung Barat' tanpa menetapkan kecamatan dulu. Catat tiga lokasi alternatif untuk melihat variasi harga secara langsung. Perbandingan ini membantu Anda menilai apakah angka Rp 599 juta sesuai ekspektasi awal.
+
+Hitung kemampuan bayar cicilan bulanan berdasarkan gaji bersih Anda. Booking fee Rp 5.000.000 bisa diamankan jika tenor hingga dua puluh tahun terasa ringan. Langkah kecil ini mengubah pencarian pasif menjadi persiapan aktif menuju kepemilikan rumah pertama.
+
+Yang Sering Salah Dibaca Pembeli
+
+Banyak calon pemilik mengira harga rumah minimalis bandung di seluruh wilayah sama rata. Kenyataannya, lokasi sangat menentukan nilai pasar saat ini. Padalarang memiliki akses tol yang mendorong permintaan lebih tinggi dibanding Cikalongwetan. Lahan p
+
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-minimalis-bandung]
 
 ---
 
