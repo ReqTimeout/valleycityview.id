@@ -2,12 +2,17 @@
 title: "Harga Rumah Padalarang: 5 Panduan Praktis"
 slug: "harga-rumah-padalarang"
 description: "Panduan harga rumah padalarang untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-23
+updated: 2026-11-23
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Padalarang: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-rumah-bandung-barat
 ---
 
 Sebelum membeli, cek harga rumah padalarang dulu. Banyak yang bingung dengan angka pasar saat ini. Kami sajikan data jujur untuk calon pembeli pertama di area Laksanamekar dan sekitarnya.
