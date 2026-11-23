@@ -2,12 +2,17 @@
 title: "Rumah Dekat Stasiun Padalarang: 8 Panduan Praktis"
 slug: "rumah-dekat-stasiun-padalarang"
 description: "Panduan rumah dekat stasiun padalarang untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-23
+updated: 2026-11-23
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Rumah Dekat Stasiun Padalarang: 8 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-rumah-bandung-barat
 ---
 
 Rumah dekat stasiun padalarang sering jadi incaran komuter. Namun, jarak sebenarnya dari Laksanamekar butuh verifikasi teliti. Jangan terpaku pada iklan yang mengaburkan waktu tempuh harian Anda.
