@@ -2,12 +2,17 @@
 title: "Harga Perumahan Di Bandung Murah: 5 Panduan Praktis"
 slug: "harga-perumahan-di-bandung-murah"
 description: "Panduan harga perumahan di bandung murah untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-16"
+date: 2026-11-23
+updated: 2026-11-23
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Di Bandung Murah: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Mencari harga perumahan di bandung murah sering membuat calon pembeli bingung. Data pasar menunjukkan kisaran Rp 599 juta untuk tipe 45/72 di Padalarang menjadi standar baru yang layak dipertimbangkan secara cermat.

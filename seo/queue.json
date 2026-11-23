@@ -1062,15 +1062,16 @@
       "intent": "berapa harga rumah di Bandung Barat saat ini, dan di mana posisi Rp 599 juta tipe 45/72 dibanding pasar sekitar",
       "priority": 90,
       "demand_signal": "geo-matrix",
-      "status": "draft",
+      "status": "published",
       "geo": "bandung-barat",
       "city": "Bandung Barat",
       "provinsi": "Jawa Barat",
       "local_anchor": "Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.",
       "local_buyer": "pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang",
       "added_by": "geo",
-      "notes": "disetujui 2026-11-13T07:51:34+00:00 | generated 2026-11-15 | generated 2026-11-16",
-      "generatedAt": "2026-11-16"
+      "notes": "disetujui 2026-11-13T07:51:34+00:00 | published 2026-11-23",
+      "generatedAt": "2026-11-16",
+      "publishedAt": "2026-11-23"
     },
     {
       "keyword": "rumah dijual murah di batujajar bandung barat",
