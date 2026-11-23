@@ -2,12 +2,17 @@
 title: "Rumah Cicilan Murah Di Bandung: 8 Panduan Praktis"
 slug: "rumah-cicilan-murah-di-bandung"
 description: "Rumah cicilan murah di bandung sering jadi jebakan jika hitungan dasar diabaikan"
-date: "2026-11-15"
+date: 2026-11-23
+updated: 2026-11-23
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Rumah Cicilan Murah Di Bandung: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-rumah-bandung
+  - cicilan-rumah-tanpa-dp-di-bandung
 ---
 
 Rumah cicilan murah di bandung sering jadi jebakan jika hitungan dasar diabaikan. Cek apakah Rp 3.871.000/bulan sesuai gaji Anda sebelum terburu-buru mengambil keputusan finansial penting ini.
