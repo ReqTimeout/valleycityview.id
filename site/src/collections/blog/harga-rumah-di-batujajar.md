@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Batujajar: 5 Panduan Praktis"
 slug: "harga-rumah-di-batujajar"
 description: "Saat mencari harga rumah di batujajar, banyak pembeli bingung membedakan lokasi administratif dengan zona ekonomi"
-date: "2026-11-15"
+date: 2026-11-24
+updated: 2026-11-24
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Batujajar: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Saat mencari harga rumah di batujajar, banyak pembeli bingung membedakan lokasi administratif dengan zona ekonomi. Padalarang kini menjadi pusat pertumbuhan baru karena akses tol yang strategis. Perbandingan pasar sangat penting sebelum Anda menetapkan pilihan akhir.
