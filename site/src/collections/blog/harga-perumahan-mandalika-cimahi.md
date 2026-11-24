@@ -2,12 +2,17 @@
 title: "Harga Perumahan Mandalika Cimahi: 6 Panduan Praktis"
 slug: "harga-perumahan-mandalika-cimahi"
 description: "Harga perumahan mandalika cimahi sering menjadi rujukan awal bagi pencari hunian di wilayah perbatasan"
-date: "2026-11-15"
+date: 2026-11-24
+updated: 2026-11-24
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Mandalika Cimahi: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-rumah-bandung-barat
 ---
 
 Harga perumahan mandalika cimahi sering menjadi rujukan awal bagi pencari hunian di wilayah perbatasan. Namun, angka tersebut perlu dibaca bersama konteks lokasi dan kemampuan bayar agar tidak menyesatkan langkah pertama Anda.

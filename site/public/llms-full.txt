@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-24
-# Articles: 102
-# Sitemap URLs: 117
+# Articles: 103
+# Sitemap URLs: 118
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,58 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (102)
+## Articles (103)
+
+### Harga Perumahan Mandalika Cimahi: 6 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-perumahan-mandalika-cimahi
+Category: harga
+Published: 2026-11-24
+Description: Harga perumahan mandalika cimahi sering menjadi rujukan awal bagi pencari hunian di wilayah perbatasan
+
+FAQ:
+
+
+Body:
+Harga perumahan mandalika cimahi sering menjadi rujukan awal bagi pencari hunian di wilayah perbatasan. Namun, angka tersebut perlu dibaca bersama konteks lokasi dan kemampuan bayar agar tidak menyesatkan langkah pertama Anda.
+
+Harga Perumahan Mandalika Cimahi: Yang Perlu Anda Hitung Sebelum Survei
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Cimahi memiliki lahan terbangun yang sangat terbatas karena posisinya sebagai kota otonom di antara Bandung dan Padalarang. Kondisi ini membuat harga tanah mengikuti koridor utama seperti gerbang tol Baros dan jalan raya Cimahi. Akibatnya, banyak keluarga muda kesulitan membeli rumah di dalam kota mereka sendiri.
+
+Unit tipe 45/72 di Desa Laksanamekar menawarkan alternatif dengan KPR Rp 599.000.000. Lokasi ini berbatasan langsung dengan Bandung Barat, dekat kampus Unjani dan RS Dustira. Pasar sewa di area pinggir ini menciptakan peluang bagi pembeli rumah pertama yang bekerja di Cimahi namun tak sanggup mengikuti harga kotanya.
+
+Cara Kerjanya dan Urutan Pengecekannya
+
+Mulailah dengan menghitung cicilan bulanan dari angka rekaman resmi. Untuk unit ini, cicilan adalah Rp 3.871.000/bulan dengan tenor hingga 20 tahun. Pastikan gaji bersih Anda mampu menutupi angsuran tanpa mengorbankan kebutuhan pokok lain.
+
+Selanjutnya, siapkan dana untuk booking fee sebesar Rp 5.000.000. Cek juga biaya notaris dan BPHTB yang biasanya menyusul setelah akad kredit. Langkah konkret minggu ini adalah meminta simulasi lengkap ke agen atau bank rekanan. Jangan hanya bertanya soal harga jual, tapi tanyakan total uang muka dan estimasi cicilan pasti.
+
+Risiko yang Perlu Diketahui Sejak Awal
+
+Membeli properti di area perbatasan seperti Laksanamekar menuntut kejelian terhadap aksesibilitas harian. Jara
+
+[... truncated, full article at https://valleycityview.id/blog/harga-perumahan-mandalika-cimahi]
+
+---
 
 ### Harga Rumah Di Batujajar: 5 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-di-batujajar
