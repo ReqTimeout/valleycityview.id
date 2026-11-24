@@ -2,12 +2,17 @@
 title: "Rumah Dijual Di Bandung Harga Dibawah 500 Juta: 8 Panduan Praktis"
 slug: "rumah-dijual-di-bandung-harga-dibawah-500-juta"
 description: "Banyak pencari \"rumah dijual di bandung harga dibawah 500 juta\" sering terjebak pada angka iklan saja"
-date: "2026-11-15"
+date: 2026-11-24
+updated: 2026-11-24
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Rumah Dijual Di Bandung Harga Dibawah 500 Juta: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Banyak pencari "rumah dijual di bandung harga dibawah 500 juta" sering terjebak pada angka iklan saja. Padahal, posisi geografis menentukan kecepatan kenaikan nilai aset Anda secara signifikan di masa depan.
