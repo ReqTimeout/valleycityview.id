@@ -2,12 +2,17 @@
 title: "Harga Rumah Mandalika Cimahi: 6 Panduan Praktis"
 slug: "harga-rumah-mandalika-cimahi"
 description: "Harga rumah mandalika cimahi sering jadi pencarian utama bagi keluarga muda di wilayah perbatasan Bandung Barat"
-date: "2026-11-15"
+date: 2026-11-24
+updated: 2026-11-24
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Mandalika Cimahi: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-rumah-bandung-barat
 ---
 
 Harga rumah mandalika cimahi sering jadi pencarian utama bagi keluarga muda di wilayah perbatasan Bandung Barat. Namun, memahami posisi harga Rp 599 juta tipe 45/72 membutuhkan konteks pasar yang lebih luas daripada sekadar angka di brosur.
