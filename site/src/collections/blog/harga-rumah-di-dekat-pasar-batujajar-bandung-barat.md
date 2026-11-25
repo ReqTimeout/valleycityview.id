@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Dekat Pasar Batujajar Bandung Barat: 6 Panduan Praktis"
 slug: "harga-rumah-di-dekat-pasar-batujajar-bandung-barat"
 description: "Harga rumah di dekat pasar batujajar bandung barat sering menjadi patokan awal bagi pencari hunian"
-date: "2026-11-15"
+date: 2026-11-25
+updated: 2026-11-25
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Dekat Pasar Batujajar Bandung Barat: 6 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Harga rumah di dekat pasar batujajar bandung barat sering menjadi patokan awal bagi pencari hunian. Namun, koridor selatan Padalarang menawarkan dinamika harga berbeda. Posisi tipe 45/72 perlu dipahami dalam konteks ini.
