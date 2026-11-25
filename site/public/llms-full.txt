@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-25
-# Articles: 105
-# Sitemap URLs: 120
+# Articles: 106
+# Sitemap URLs: 121
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (105)
+## Articles (106)
 
 ### Harga Rumah Di Dekat Pasar Batujajar Bandung Barat: 6 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-di-dekat-pasar-batujajar-bandung-barat
@@ -66,6 +66,59 @@ Yang Sering Salah Dibaca Pembeli
 Banyak calon pembeli mengira harga rumah di dekat pasar batujajar bandung barat selalu lebih murah daripada Padalarang. Padahal, koridor selatan tumbuh cepat karena akses tol dan gerbang Baros. Wilayah utara masih perbukitan dengan pasokan rumah baru yang terbatas. Ini membuat
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-di-dekat-pasar-batujajar-bandung-barat]
+
+---
+
+### Harga Rumah Perumahan Di Cimahi: 9 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-rumah-perumahan-di-cimahi
+Category: harga
+Published: 2026-11-25
+Description: Panduan harga rumah perumahan di cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Harga rumah perumahan di cimahi sering jadi teka-teki bagi keluarga muda. Di tengah keterbatasan lahan kota, menemukan unit terjangkau terasa sulit. Namun, opsi di perbatasan Bandung Barat menawarkan kejelasan angka yang jarang dibahas publik secara utuh.
+
+Harga Rumah Perumahan Di Cimahi: Fakta Angka yang Jarang Diceritakan
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Koridor tol Baros dan jalan raya Cimahi mendongkrak harga tanah dengan cepat. Kondisi ini membuat warga lokal kesulitan mengejar kenaikan pasar yang tidak sebanding gaji mereka. Banyak calon pembeli akhirnya menunda keputusan karena bingung membandingkan nilai wajar.
+
+Tipe 45/72 di Desa Laksanamekar, Padalarang, hadir sebagai alternatif nyata. Harganya ditetapkan pada KPR Rp 599.000.000 dengan skema cicilan tetap bulanan. Posisi ini lebih stabil dibanding fluktuasi harga hunian di pusat kota Cimahi.
+
+Daftar Periksa Sebelum Melangkah
+
+Cek dulu kemampuan bayar Anda terhadap angsuran Rp 3.871.000/bulan. Pastikan penghasilan angka pada tabel di atas-10 juta/bulan cukup untuk menutupi kebutuhan pokok lainnya. Jangan lupa siapkan Booking fee Rp 5.000.000 sebagai langkah awal administrasi.
+
+Lakukan survei lokasi akhir pekan ini untuk melihat akses ke Unjani atau RS Dustira. Tanyakan langsung ke pengembang mengenai tenor hingga 20 tahun yang tersedia. Keputusan minggu ini bisa menghemat waktu pencarian bulan depan.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Biaya balik nama sertifikat dan pajak pembeli sering mengejutkan calon pemilik rumah pertama. Pastikan Anda menyiapkan dana tambahan di luar uang muka KPR untuk menutupi pos ini. Cek juga biaya provisi bank serta premi asuransi jiwa yang wajib dibayar di awal akad kredit.
+
+Risiko lain adalah perubahan su
+
+[... truncated, full article at https://valleycityview.id/blog/harga-rumah-perumahan-di-cimahi]
 
 ---
 

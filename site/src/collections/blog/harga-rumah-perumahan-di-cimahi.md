@@ -2,12 +2,17 @@
 title: "Harga Rumah Perumahan Di Cimahi: 9 Panduan Praktis"
 slug: "harga-rumah-perumahan-di-cimahi"
 description: "Panduan harga rumah perumahan di cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-25
+updated: 2026-11-25
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Perumahan Di Cimahi: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Harga rumah perumahan di cimahi sering jadi teka-teki bagi keluarga muda. Di tengah keterbatasan lahan kota, menemukan unit terjangkau terasa sulit. Namun, opsi di perbatasan Bandung Barat menawarkan kejelasan angka yang jarang dibahas publik secara utuh.
