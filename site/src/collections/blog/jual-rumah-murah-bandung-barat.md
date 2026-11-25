@@ -2,12 +2,17 @@
 title: "Jual Rumah Murah Bandung Barat: 5 Panduan Praktis"
 slug: "jual-rumah-murah-bandung-barat"
 description: "Orang yang mencari \"jual rumah murah bandung barat\" sering terjebak harga rendah tanpa cek lokasi"
-date: "2026-11-15"
+date: 2026-11-25
+updated: 2026-11-25
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Murah Bandung Barat: 5 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Orang yang mencari "jual rumah murah bandung barat" sering terjebak harga rendah tanpa cek lokasi. Padalarang menawarkan akses tol nyata, berbeda dengan area utara yang masih perbukitan. Fokus pada koridor selatan untuk nilai jangka panjang.
