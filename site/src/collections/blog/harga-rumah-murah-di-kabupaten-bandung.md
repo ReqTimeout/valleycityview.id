@@ -2,12 +2,17 @@
 title: "Harga Rumah Murah Di Kabupaten Bandung: 7 Panduan Praktis"
 slug: "harga-rumah-murah-di-kabupaten-bandung"
 description: "Mencari harga rumah murah di kabupaten bandung sering membuat calon pembeli bingung"
-date: "2026-11-15"
+date: 2026-11-26
+updated: 2026-11-26
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Murah Di Kabupaten Bandung: 7 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Mencari harga rumah murah di kabupaten bandung sering membuat calon pembeli bingung. Angka rata-rata tidak selalu mencerminkan peluang nyata di koridor pertumbuhan selatan yang kini ramai dikembangkan.
