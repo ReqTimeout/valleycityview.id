@@ -2,12 +2,17 @@
 title: "KPR Rumah Cibeber Cimahi Selatan: 6 Panduan Praktis"
 slug: "kpr-rumah-cibeber-cimahi-selatan"
 description: "Panduan kpr rumah cibeber cimahi selatan untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-26
+updated: 2026-11-26
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["kpr"]
 cover: "/media/curated/design-45.webp"
 imageAlt: "KPR Rumah Cibeber Cimahi Selatan: 6 Panduan Praktis — Visualisasi tampak depan unit tipe 45/72 saat sore hari, berdiri di tepi lembah"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Mencari kpr rumah cibeber cimahi selatan? Banyak keluarga muda terjebak harga tanah kota. Valley Cityview di Padalarang menawarkan alternatif nyata dengan cicilan terjangkau, tepat bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berlebih.

@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-26
-# Articles: 109
-# Sitemap URLs: 124
+# Articles: 110
+# Sitemap URLs: 126
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (109)
+## Articles (110)
 
 ### Harga Rumah Murah Di Kabupaten Bandung: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-murah-di-kabupaten-bandung
@@ -66,6 +66,57 @@ Risiko yang Perlu Diketahui Sejak Awal
 Membandingkan harga rumah murah di kabupaten bandung dengan properti di Lembang atau Cikalongwetan bisa menyesatkan. Pasokan rumah baru terkonsentrasi di koridor selatan karena infrastruktu
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-murah-di-kabupaten-bandung]
+
+---
+
+### KPR Rumah Cibeber Cimahi Selatan: 6 Panduan Praktis
+URL: https://valleycityview.id/blog/kpr-rumah-cibeber-cimahi-selatan
+Category: kpr
+Published: 2026-11-26
+Description: Panduan kpr rumah cibeber cimahi selatan untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya.
+
+FAQ:
+
+
+Body:
+Mencari kpr rumah cibeber cimahi selatan? Banyak keluarga muda terjebak harga tanah kota. Valley Cityview di Padalarang menawarkan alternatif nyata dengan cicilan terjangkau, tepat bagi pekerja Cimahi yang ingin punya hunian sendiri tanpa beban berlebih.
+
+KPR Rumah Cibeber Cimahi Selatan: Titik Awal yang Jujur
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Cimahi
+
+Cimahi (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kota otonom di antara Bandung dan Padalarang yang lahan terbangunnya terbatas, sehingga harganya mengikuti koridor Bandung-Jakarta (gerbang tol Baros, jalan raya Cimahi). Universitas Jenderal Achmad Yani (Unjani) dan RS Dustira menciptakan pasar sewa serta pembeli rumah pertama di kelurahan-kelurahan pinggir, termasuk sisi yang berbatasan dengan Bandung Barat.
+- Siapa yang biasanya mencari di sini: keluarga muda warga Cimahi yang pindah dari rumah orang tua, pegawai negeri dan karyawan kampus/RS, serta pembeli yang bekerja di Cimahi tapi tak sanggup mengikuti harga tanah kotanya
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Cimahi Selatan memiliki lahan terbatas karena posisinya di antara Bandung dan Padalarang. Harga properti sering mengikuti koridor utama seperti gerbang tol Baros. Kondisi ini membuat banyak pegawai negeri atau karyawan RS Dustira kesulitan membeli rumah pertama mereka. Mereka butuh solusi yang masuk akal secara finansial.
+
+Valley Cityview hadir sebagai jawaban praktis di Desa Laksanamekar. Lokasinya dekat dengan aktivitas kampus Unjani dan pasar sewa lokal. Tipe 45/72 tersedia dengan skema KPR Rp 599.000.000. Cicilannya hanya Rp 3.871.000 per bulan selama tenor hingga 20 tahun.
+
+Daftar Periksa Sebelum Melangkah
+
+Sebelum akad, pastikan penghasilan bulanan Anda stabil di kisaran angka pada tabel di atas-10 juta. Cek rasio utang terhadap pendapatan agar tidak memberatkan keuangan rumah tangga. Siapkan dana booking fee sebesar Rp 5.000.000 untuk mengunci unit pilihan Anda. Langkah kecil ini mencegah penyesalan di kemudian hari.
+
+Kunjungi lokasi minggu ini untuk merasakan suasana lingkungan sekitar. Perhatikan akses jalan raya Cimahi dan kedekatan dengan fasilitas kesehatan. Bandingkan biaya hidup di sini dengan menyewa di pusat kota. Keputusan membeli harus berdasarkan data lapangan, bukan sekadar brosur iklan.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Banyak calon pembeli fokus pada cicilan bulanan saja. Padahal, biaya provisi bank dan asuransi jiwa menambah tagiha
+
+[... truncated, full article at https://valleycityview.id/blog/kpr-rumah-cibeber-cimahi-selatan]
 
 ---
 
