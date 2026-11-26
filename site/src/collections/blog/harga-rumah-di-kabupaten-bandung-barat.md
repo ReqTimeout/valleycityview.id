@@ -2,12 +2,17 @@
 title: "Harga Rumah Di Kabupaten Bandung Barat: 8 Panduan Praktis"
 slug: "harga-rumah-di-kabupaten-bandung-barat"
 description: "Panduan harga rumah di kabupaten bandung barat untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingk..."
-date: "2026-11-15"
+date: 2026-11-26
+updated: 2026-11-26
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Di Kabupaten Bandung Barat: 8 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Harga rumah di kabupaten bandung barat bervariasi tergantung lokasi. Padalarang kini menjadi sorotan utama bagi pencari hunian baru yang ingin dekat dengan akses tol dan fasilitas kota Cimahi.
