@@ -2,12 +2,17 @@
 title: "Jual Rumah Di Cikalong Wetan Bandung Barat: 6 Panduan Praktis"
 slug: "jual-rumah-di-cikalong-wetan-bandung-barat"
 description: "Panduan jual rumah di cikalong wetan bandung barat untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara memband..."
-date: "2026-11-15"
+date: 2026-11-26
+updated: 2026-11-26
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Di Cikalong Wetan Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Mencari opsi jual rumah di cikalong wetan bandung barat? Koridor selatan Padalarang tumbuh cepat karena akses tol. Sementara utara masih perbukitan, pasokan hunian baru terkonsentrasi di jalur utama ini.

@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-26
-# Articles: 110
-# Sitemap URLs: 126
+# Articles: 111
+# Sitemap URLs: 127
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (110)
+## Articles (111)
 
 ### Harga Rumah Murah Di Kabupaten Bandung: 7 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-rumah-murah-di-kabupaten-bandung
@@ -66,6 +66,57 @@ Risiko yang Perlu Diketahui Sejak Awal
 Membandingkan harga rumah murah di kabupaten bandung dengan properti di Lembang atau Cikalongwetan bisa menyesatkan. Pasokan rumah baru terkonsentrasi di koridor selatan karena infrastruktu
 
 [... truncated, full article at https://valleycityview.id/blog/harga-rumah-murah-di-kabupaten-bandung]
+
+---
+
+### Jual Rumah Di Cikalong Wetan Bandung Barat: 6 Panduan Praktis
+URL: https://valleycityview.id/blog/jual-rumah-di-cikalong-wetan-bandung-barat
+Category: lokasi
+Published: 2026-11-26
+Description: Panduan jual rumah di cikalong wetan bandung barat untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara memband...
+
+FAQ:
+
+
+Body:
+Mencari opsi jual rumah di cikalong wetan bandung barat? Koridor selatan Padalarang tumbuh cepat karena akses tol. Sementara utara masih perbukitan, pasokan hunian baru terkonsentrasi di jalur utama ini.
+
+Jual Rumah Di Cikalong Wetan Bandung Barat: Yang Perlu Anda Hitung Sebelum Survei
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Bandung Barat
+
+Bandung Barat (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kabupaten yang pusat pemerintahannya di Cikalongwetan, dengan pita pertumbuhan di selatan (Padalarang-Cililin-Leuwigajah) karena tol Padalarang-Cileunyi dan gerbang Baros. Wilayah utara dan timur masih perbukitan dan lahan pertanian, sehingga pasokan rumah baru terkonsentrasi di koridor selatan — itu alasan harga di Padalarang bergerak lebih cepat daripada angka rata-rata kabupaten.
+- Siapa yang biasanya mencari di sini: pembeli yang menyaring 'rumah di Bandung Barat' tanpa menetapkan kecamatan lebih dulu, biasanya masih membandingkan Padalarang dengan Cikalongwetan atau Lembang
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Banyak pembeli membandingkan lokasi tanpa melihat data pasar. Harga di Padalarang bergerak lebih cepat dibanding rata-rata kabupaten. Hal ini terjadi karena gerbang Baros dan tol Padalarang-Cileunyi menarik minat. Unit tipe 45/72 di Desa Laksanamekar menawarkan KPR Rp 599.000.000.
+
+Cicilan bulanan mencapai Rp 3.871.000 untuk tenor dua puluh tahun. Booking fee hanya Rp 5.000.000, sehingga mudah diakses pemula. Cek apakah anggaran Anda sesuai dengan angka tersebut. Jangan tergiur luas tanah jika posisi jauh dari jalan raya. Lokasi strategis menentukan nilai jual kembali di masa depan.
+
+Langkah Praktis yang Bisa Dimulai Minggu Ini
+
+Unduh peta digital Kabupaten Bandung Barat malam ini. Tandai koridor selatan antara Padalarang hingga Cililin. Perhatikan jarak dari titik pusat pemerintahan Cikalongwetan. Area utara dan timur masih didominasi lahan pertanian. Hunian baru jarang tersedia di zona tersebut secara massal.
+
+Hitung ulang kemampuan bayar Anda menggunakan simulasi bank. Bandingkan cicilan Rp 3.871.000 dengan gaji bulanan. Pastikan sisa dana cukup untuk biaya notaris dan pajak. Kunjungi kantor pemasaran lokal pada akhir pekan nanti. Bawa daftar pertanyaan spesifik mengenai akses transportasi umum.
+
+Biaya dan Risiko yang Sering Terlewat
+
+Mencari jual rumah di cikalong wetan bandung barat sering membuat pembeli lupa mengecek biaya balik nama. Anda perlu mengalokasikan dan
+
+[... truncated, full article at https://valleycityview.id/blog/jual-rumah-di-cikalong-wetan-bandung-barat]
 
 ---
 
