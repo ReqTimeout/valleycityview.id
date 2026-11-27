@@ -2,12 +2,17 @@
 title: "Harga Perumahan Bandung: 5 Panduan Praktis"
 slug: "harga-perumahan-bandung"
 description: "Panduan harga perumahan bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-27
+updated: 2026-11-27
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Mencari harga perumahan bandung yang masuk akal sering kali membingungkan. Banyak angka berseliweran tanpa konteks jelas. Kami menyajikan data jujur untuk membantu Anda memahami posisi pasar saat ini di wilayah Bandung Barat secara spesifik.
