@@ -1,7 +1,7 @@
 # Valley Cityview — Full Content for LLM ingestion
 # Generated: 2026-11-27
-# Articles: 113
-# Sitemap URLs: 129
+# Articles: 114
+# Sitemap URLs: 130
 #
 # Format: # <slug> → metadata + FAQ + body. Plain markdown, no JSX.
 # Aturan pakai: konsumsi untuk knowledge base, RAG, AI Overview. Hindari fabricate number di luar data yang ada.
@@ -16,7 +16,7 @@
 - https://valleycityview.id/sale/
 
 
-## Articles (113)
+## Articles (114)
 
 ### Harga Perumahan Cimahi: 9 Panduan Praktis
 URL: https://valleycityview.id/blog/harga-perumahan-cimahi
@@ -66,6 +66,55 @@ Sisi yang Jarang Dibahas Brosur
 Brosur sering menyembunyikan biaya tak terduga. Anda perlu menghitung ulang total pengeluaran awal secara mandiri. Cek apakah harga perumahan cimahi sudah termasuk pajak dan sertifikat. Jika belum, siapkan dana cadangan untuk administrasi notaris. Langkah konkre
 
 [... truncated, full article at https://valleycityview.id/blog/harga-perumahan-cimahi]
+
+---
+
+### Harga Perumahan Padalarang: 5 Panduan Praktis
+URL: https://valleycityview.id/blog/harga-perumahan-padalarang
+Category: harga
+Published: 2026-11-27
+Description: Harga perumahan padalarang kini menjadi sorotan utama bagi pencari hunian pertama
+
+FAQ:
+
+
+Body:
+Harga perumahan padalarang kini menjadi sorotan utama bagi pencari hunian pertama. Di tengah hiruk-pikuk kawasan industri, menemukan unit dengan cicilan terjangkau memang tidak mudah bagi banyak orang.
+
+Harga Perumahan Padalarang: Fakta Angka yang Jarang Diceritakan
+
+
+| Unit | Harga KPR | Cicilan | Keterangan |
+| --- | --- | --- | --- |
+| Tipe 45/72 — Desa Laksanamekar, Padalarang, Cimahi | Rp 599.000.000 | Rp 3.871.000/bulan | Booking fee Rp 5.000.000, tenor hingga 20 tahun |
+
+Angka di atas adalah harga rekaman per tanggal penulisan. Untuk ketersediaan unit dan skema terbaru, hubungi tim penjualan.
+
+Kenapa memilih hunian di Padalarang
+
+Padalarang (Jawa Barat) bukan nama di peta yang netral — karakter hariannya menentukan apakah sebuah alamat layak ditinggali atau hanya layak dibeli.
+
+- Konteks lokasi: Kecamatan di timur Kabupaten Bandung Barat yang hidup dari dua hal: stasiun KCIC Padalarang (±15 menit dari Laksanamekar, Jakarta-Bandung jadi di bawah satu jam) dan koridor jalan raya Padalarang-Cimahi yang padat pada jam 06.30-08.30. Kawasan industri dan pergudangan di sisi selatan menyerap banyak pekerja muda yang sebelumnya mengontrak.
+- Siapa yang biasanya mencari di sini: pekerja pabrik dan logistik serta pegawai yang komuter ke Bandung/Jakarta dengan KCIC, penghasilan Rp 4-8 juta, pembeli rumah pertama
+
+Perhatikan angka waktunya pada jam berangkat kerja, bukan angka "menit ke tol" di brosur. Untuk menghitung apakah cicilannya masuk dengan penghasilan Anda, pakai simulasi KPR.
+
+
+
+
+Banyak calon pembeli bingung membedakan harga tanah dan bangunan jadi di wilayah ini. Tipe 45/72 di Laksanamekar menawarkan KPR Rp 599.000.000 sebagai opsi paling realistis saat ini. Cicilan bulanan sebesar Rp 3.871.000 terasa ringan bagi pekerja pabrik atau komuter KCIC. Lokasi dekat stasiun membuat nilai jual kembali tetap stabil dalam jangka panjang.
+
+Jarak lima belas menit ke pusat transportasi massal adalah keunggulan nyata lainnya. Koridor Padalarang-Cimahi memang padat pada pagi hari, namun akses kereta menyelamatkan waktu perjalanan. Anda bisa menuju Jakarta atau Bandung dalam hitungan jam tanpa macet berkepanjangan. Ini menjadikan investasi properti di sini sangat masuk akal secara logika finansial.
+
+Cara Kerjanya dan Urutan Pengecekannya
+
+Langkah pertama adalah memverifikasi kemampuan bayar bulanan Anda terhadap angka cicilan tersebut. Pastikan gaji bersih empat sampai delapan juta masih tersisa untuk kebutuhan pokok harian. Jangan lupa menghitung biaya tambahan seperti listrik, air, dan iuran lingkungan setempat. Cek juga saldo tabungan untuk membayar booking fee Rp 5.000.000 di awal proses.
+
+Setelah uang muka siap, ajukan dokumen pengajuan kredit ke bank rekanan perumahan. Siapkan slip gaji terakhir dan rekening koran tiga bulan untuk kelengkapan berkas. Tanyakan langsung kepada marketing mengenai tenor hingga dua puluh tahun yang tersedia. Bandingkan total pembayaran akhir dengan alternatif sewa rumah kontrak di area serupa.
+
+Risiko yang Perlu Diketahui
+
+[... truncated, full article at https://valleycityview.id/blog/harga-perumahan-padalarang]
 
 ---
 

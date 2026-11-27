@@ -2,12 +2,17 @@
 title: "Harga Perumahan Padalarang: 5 Panduan Praktis"
 slug: "harga-perumahan-padalarang"
 description: "Harga perumahan padalarang kini menjadi sorotan utama bagi pencari hunian pertama"
-date: "2026-11-15"
+date: 2026-11-27
+updated: 2026-11-27
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Padalarang: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
 ---
 
 Harga perumahan padalarang kini menjadi sorotan utama bagi pencari hunian pertama. Di tengah hiruk-pikuk kawasan industri, menemukan unit dengan cicilan terjangkau memang tidak mudah bagi banyak orang.
