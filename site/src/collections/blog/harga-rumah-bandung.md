@@ -2,12 +2,17 @@
 title: "Harga Rumah Bandung: 5 Panduan Praktis"
 slug: "harga-rumah-bandung"
 description: "Panduan harga rumah bandung untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-27
+updated: 2026-11-27
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Rumah Bandung: 5 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - cicilan-kpr-rumah-di-bandung
+  - cicilan-rumah-bandung
 ---
 
 Mencari harga rumah bandung sering membuat calon pembeli bingung. Di Padalarang, hunian tipe 45/72 ditawarkan seharga Rp 599.000.000. Angka ini menjadi tolok ukur penting sebelum Anda survei lokasi lain.
