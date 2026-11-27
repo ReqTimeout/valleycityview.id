@@ -2,12 +2,17 @@
 title: "Harga Perumahan Cimahi: 9 Panduan Praktis"
 slug: "harga-perumahan-cimahi"
 description: "Panduan harga perumahan cimahi untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-27
+updated: 2026-11-27
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["harga"]
 cover: "/media/curated/pricelist.webp"
 imageAlt: "Harga Perumahan Cimahi: 9 Panduan Praktis — Lembar daftar harga, dokumen bukan gambar proyek"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
+  - harga-perumahan-mandalika-cimahi
 ---
 
 Harga perumahan cimahi di koridor Padalarang kini berada pada titik Rp 599.000.000 untuk tipe 45/72. Angka ini menjadi patokan bagi keluarga muda yang ingin pindah dari rumah orang tua tanpa membebani gaji bulanan secara berlebihan.
