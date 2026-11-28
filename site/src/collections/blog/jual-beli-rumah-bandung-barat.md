@@ -2,12 +2,17 @@
 title: "Jual Beli Rumah Bandung Barat: 6 Panduan Praktis"
 slug: "jual-beli-rumah-bandung-barat"
 description: "Panduan jual beli rumah bandung barat untuk pembeli rumah di Padalarang dan Cimahi — angka cicilan, biaya yang sering terlewat, dan cara membandingkannya."
-date: "2026-11-15"
+date: 2026-11-28
+updated: 2026-11-28
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Beli Rumah Bandung Barat: 6 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
 ---
 
 Jual beli rumah bandung barat sering dimulai dengan pencarian luas. Namun, koridor selatan seperti Padalarang menyimpan dinamika harga unik dibanding wilayah utara yang masih perbukitan.
