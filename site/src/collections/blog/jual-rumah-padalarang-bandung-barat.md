@@ -2,12 +2,17 @@
 title: "Jual Rumah Padalarang Bandung Barat: 9 Panduan Praktis"
 slug: "jual-rumah-padalarang-bandung-barat"
 description: "Saat mencari opsi jual rumah padalarang bandung barat, banyak pembeli pertama terjebak pada harga saja"
-date: "2026-11-15"
+date: 2026-11-28
+updated: 2026-11-28
 author: "Tim Valley Cityview"
-status: draft
+status: publish
 tags: ["lokasi"]
 cover: "/media/curated/knowledge-1.webp"
 imageAlt: "Jual Rumah Padalarang Bandung Barat: 9 Panduan Praktis — Foto jalan masuk kawasan Valley Cityview di Laksanamekar, Padalarang"
+related:
+  - bukit-indah-residence-cimahi
+  - harga-perumahan-cimahi
+  - harga-perumahan-di-padalarang-bandung-barat
 ---
 
 Saat mencari opsi jual rumah padalarang bandung barat, banyak pembeli pertama terjebak pada harga saja. Padahal, lokasi menentukan kenyamanan harian Anda selama bertahun-tahun ke depan.
